@@ -11,5 +11,9 @@
   },
   "devDependencies": {
     "@types/node": "^26"
+  },
+  "overrides": {
+    "dompurify": "3.4.17",
+    "katex": "0.19.1"
   }
 }
