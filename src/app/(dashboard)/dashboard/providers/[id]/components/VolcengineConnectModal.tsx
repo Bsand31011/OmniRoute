@@ -2,7 +2,13 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Button, Input, Modal } from "@/shared/components";
+<<<<<<< HEAD
 import { providerText, type ProviderMessageTranslator } from "../providerPageHelpers";
+=======
+import { Spinner } from "@/shared/components/Loading";
+import { providerText, type ProviderMessageTranslator } from "../providerPageHelpers";
+import { extractErrorMessage } from "@/shared/utils/upstreamError";
+>>>>>>> upstream/main
 
 /**
  * VolcengineConnectModal — phone/SMS-code login for the Volcano Engine console.
@@ -66,6 +72,19 @@ function isTerminal(phase: SessionPhase | undefined): boolean {
   return !!phase && TERMINAL_PHASES.includes(phase);
 }
 
+<<<<<<< HEAD
+=======
+function extractModalError(data: unknown, fallback: string): string {
+  const record = data && typeof data === "object" ? (data as Record<string, unknown>) : null;
+  return (
+    extractErrorMessage(record?.error) ||
+    (typeof record?.error === "string" ? record.error : null) ||
+    (typeof record?.message === "string" ? record.message : null) ||
+    fallback
+  );
+}
+
+>>>>>>> upstream/main
 type VolcengineConnectModalProps = {
   isOpen: boolean;
   onClose: () => void;
@@ -88,7 +107,20 @@ export default function VolcengineConnectModal({
   notify,
   t,
 }: VolcengineConnectModalProps) {
+<<<<<<< HEAD
   const [phone, setPhone] = useState("");
+=======
+  // Prefilled from the last successful login via a lazy initializer — reading
+  // localStorage inside the open effect required a synchronous setState there.
+  const [phone, setPhone] = useState(() => {
+    if (typeof window === "undefined") return "";
+    try {
+      return localStorage.getItem(PHONE_STORAGE_KEY) ?? "";
+    } catch {
+      return "";
+    }
+  });
+>>>>>>> upstream/main
   const [code, setCode] = useState("");
   const [captcha, setCaptcha] = useState("");
   const [session, setSession] = useState<SessionView | null>(null);
@@ -99,6 +131,15 @@ export default function VolcengineConnectModal({
   const [resendCountdown, setResendCountdown] = useState(0);
 
   const pollTimer = useRef<ReturnType<typeof setInterval> | null>(null);
+<<<<<<< HEAD
+=======
+  // Latest session, mirrored for the close/unmount cleanup below — that effect
+  // only depends on isOpen, so reading the state directly would be stale.
+  const sessionRef = useRef<SessionView | null>(null);
+  useEffect(() => {
+    sessionRef.current = session;
+  }, [session]);
+>>>>>>> upstream/main
 
   // ── lifecycle ────────────────────────────────────────────────────────────
 
@@ -117,15 +158,26 @@ export default function VolcengineConnectModal({
     setResendCountdown(0);
   }, [stopTimers]);
 
+<<<<<<< HEAD
   useEffect(() => {
     if (!isOpen) {
       // Leaving the modal cancels an in-flight session server-side.
       const active = session && !isTerminal(session.phase) ? session : null;
+=======
+  // Leaving the modal cancels an in-flight session server-side and stops
+  // polling. Runs as the cleanup of this open-scoped effect (no setState here).
+  useEffect(() => {
+    if (!isOpen) return;
+    return () => {
+      const current = sessionRef.current;
+      const active = current && !isTerminal(current.phase) ? current : null;
+>>>>>>> upstream/main
       if (active) {
         void fetch(`/api/providers/volcengine-plan/connect/${active.sessionId}/cancel`, {
           method: "POST",
         }).catch(() => {});
       }
+<<<<<<< HEAD
       reset();
       return;
     }
@@ -133,6 +185,25 @@ export default function VolcengineConnectModal({
     if (saved) setPhone(saved);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
+=======
+      stopTimers();
+    };
+  }, [isOpen, stopTimers]);
+
+  // Local state reset on close — a render-phase adjustment guarded by the
+  // previous isOpen value (react.dev "adjusting state when a prop changes")
+  // instead of a synchronous setState inside an effect.
+  const [prevIsOpen, setPrevIsOpen] = useState(isOpen);
+  if (isOpen !== prevIsOpen) {
+    setPrevIsOpen(isOpen);
+    if (!isOpen) {
+      setSession(null);
+      setCode("");
+      setCaptcha("");
+      setResendCountdown(0);
+    }
+  }
+>>>>>>> upstream/main
 
   useEffect(() => stopTimers, [stopTimers]);
 
@@ -190,7 +261,11 @@ export default function VolcengineConnectModal({
       });
       const data = await response.json().catch(() => ({}));
       if (!response.ok || !data?.success || !data?.session) {
+<<<<<<< HEAD
         throw new Error(data?.error || "Failed to start Volcano login");
+=======
+        throw new Error(extractModalError(data, "Failed to start Volcano login"));
+>>>>>>> upstream/main
       }
       setSession(data.session);
       setResendCountdown(
@@ -241,7 +316,11 @@ export default function VolcengineConnectModal({
           void onConnected();
         }
       } else {
+<<<<<<< HEAD
         throw new Error(data?.error || "Failed to submit verification code");
+=======
+        throw new Error(extractModalError(data, "Failed to submit verification code"));
+>>>>>>> upstream/main
       }
     } catch (error) {
       notify.error(error instanceof Error ? error.message : "Failed to submit verification code");
@@ -411,6 +490,7 @@ export default function VolcengineConnectModal({
             {phase === "identity_required" && session?.identityOptions?.length ? (
               <div className="space-y-2">
                 {session.identityOptions.map((option) => (
+<<<<<<< HEAD
                   <button
                     key={option.index}
                     type="button"
@@ -427,6 +507,18 @@ export default function VolcengineConnectModal({
                       option.label
                     )}
                   </button>
+=======
+                  <Button
+                    key={option.index}
+                    variant="outline"
+                    disabled={selectingIdentity}
+                    loading={selectingIdentity}
+                    onClick={() => handleSelectIdentity(option.index)}
+                    className="h-auto w-full justify-start whitespace-normal p-3 text-left font-normal"
+                  >
+                    {option.label}
+                  </Button>
+>>>>>>> upstream/main
                 ))}
               </div>
             ) : (
@@ -472,7 +564,11 @@ export default function VolcengineConnectModal({
                   maxLength={6}
                 />
 
+<<<<<<< HEAD
                 {session?.error && <p className="text-sm text-red-500">{session.error}</p>}
+=======
+                {session?.error && <p className="text-sm text-error">{session.error}</p>}
+>>>>>>> upstream/main
 
                 <div className="flex items-center justify-between">
                   <Button
@@ -506,8 +602,13 @@ export default function VolcengineConnectModal({
         )}
 
         {showPolling && (
+<<<<<<< HEAD
           <div className="flex items-center gap-3 py-2">
             <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-primary border-t-transparent" />
+=======
+          <div role="status" className="flex items-center gap-3 py-2">
+            <Spinner decorative size="sm" className="text-text-muted" />
+>>>>>>> upstream/main
             <p className="text-sm text-text-muted">
               {phase === "submitting"
                 ? providerText(
@@ -522,11 +623,19 @@ export default function VolcengineConnectModal({
 
         {done && phase === "success" && (
           <div className="space-y-3">
+<<<<<<< HEAD
             <p className="text-sm font-medium text-green-600">
               {providerText(t, "volcLoginSuccess", "Logged in to the Volcano Engine console")}
             </p>
             {bindingError ? (
               <p className="text-sm text-red-500">
+=======
+            <p className="text-sm font-medium text-success">
+              {providerText(t, "volcLoginSuccess", "Logged in to the Volcano Engine console")}
+            </p>
+            {bindingError ? (
+              <p className="text-sm text-error">
+>>>>>>> upstream/main
                 {providerText(t, "volcBindError", "Plan binding failed: {error}", {
                   error: bindingError,
                 })}
@@ -535,7 +644,11 @@ export default function VolcengineConnectModal({
               <div className="space-y-1 text-sm">
                 {connectedPlans.length > 0 ? (
                   connectedPlans.map((item) => (
+<<<<<<< HEAD
                     <p key={item.plan} className="text-green-600">
+=======
+                    <p key={item.plan} className="text-success">
+>>>>>>> upstream/main
                       ✓ {item.plan} plan connected
                     </p>
                   ))
@@ -560,7 +673,11 @@ export default function VolcengineConnectModal({
 
         {done && phase !== "success" && (
           <div className="space-y-3">
+<<<<<<< HEAD
             <p className="text-sm text-red-500">
+=======
+            <p className="text-sm text-error">
+>>>>>>> upstream/main
               {session?.error ||
                 (phase === "timeout"
                   ? providerText(t, "volcTimeout", "Login timed out")

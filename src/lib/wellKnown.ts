@@ -6,6 +6,16 @@ import type { NextRequest } from "next/server";
  * request's dynamic origin so the gateway works behind any hostname without
  * hardcoded localhost:20128 (S2 security fix).
  */
+<<<<<<< HEAD
 export function getBaseUrl(request: NextRequest): string {
   return process.env.OMNIROUTE_BASE_URL || request.nextUrl.origin;
 }
+=======
+export function getBaseUrl(request?: NextRequest | null): string {
+  if (process.env.OMNIROUTE_BASE_URL) return process.env.OMNIROUTE_BASE_URL;
+  // Direct route-handler invocation (unit tests, programmatic calls) passes no
+  // Request — fall back to the default local gateway origin instead of crashing.
+  const defaultPort = process.env.PORT || process.env.DASHBOARD_PORT || 20128;
+  return request?.nextUrl?.origin ?? `http://localhost:${defaultPort}`;
+}
+>>>>>>> upstream/main

@@ -1,16 +1,24 @@
 import { createHash } from "node:crypto";
+<<<<<<< HEAD
 
 import { fetch as undiciFetch } from "undici";
+=======
+>>>>>>> upstream/main
 
 import { getSettings as defaultGetSettings } from "@/lib/db/settings";
 import { getResolvedModelCapabilities } from "@/lib/modelCapabilities";
 import {
   resolveVideoBridgeRuntimeSettings,
   resolveVisionBridgeRuntimeSettings,
+<<<<<<< HEAD
+=======
+  resolveVideoAudioTranscriptionRuntimeSettings,
+>>>>>>> upstream/main
   type VideoAnalysisMode,
 } from "@/shared/constants/modalityBridgeDefaults";
 
 import { BaseGuardrail, type GuardrailContext, type GuardrailResult } from "./base";
+<<<<<<< HEAD
 import {
   bridgeCacheKey,
   getSharedBridgeCacheFor,
@@ -21,6 +29,10 @@ import { recordBridgeUse } from "./modalityBridge/bridgeStats";
 import {
   composeVideoFramePrompt,
   describeVideoPart as defaultDescribeVideoPart,
+=======
+import type { BridgeCacheStore } from "./modalityBridge/bridgeCache";
+import {
+>>>>>>> upstream/main
   extractVideoFocusHint,
   extractVideoParts,
   loadVideoPartBytes,
@@ -36,6 +48,7 @@ import {
   type VideoPart,
 } from "./videoBridgeHelpers";
 import {
+<<<<<<< HEAD
   getSharedVideoResultCacheFor,
   runVideoDownloadSingleflight,
   runVideoResultSingleflight,
@@ -48,7 +61,91 @@ import {
   callVisionModel as defaultCallVisionModel,
   type VisionModelConfig,
 } from "./visionBridgeHelpers";
+=======
+  combineModelIdentities,
+  processVideoPart,
+  type ProcessVideoPartDeps,
+  type VideoAnalysisContext,
+} from "./videoBridgePipeline";
+import { getSharedVideoResultCacheFor } from "./videoBridgeResultCache";
+import { appendVideoFallbackTranscripts } from "./videoBridgeFallbackTranscript";
+import { type VisionModelConfig } from "./visionBridgeHelpers";
+>>>>>>> upstream/main
 import { getBestVisionModel } from "./visionBridgeRouter";
+import { createVideoSttAdapter, type VideoSttAdapterDependencies } from "./videoBridgeSttAdapter";
+import {
+  resolveVisionBridgeKeyScope,
+  scopedCredentialCheck,
+  type VisionBridgeKeyScope,
+  type VisionBridgeKeyScopeDeps,
+} from "./visionBridgeKeyScope";
+
+export type { VideoAnalysisContext } from "./videoBridgePipeline";
+
+/**
+ * One replaced video part whose rendered text carried a transcript cue.
+ * `redactedText` is the structured-redaction shadow (see
+ * `DescribedVideo.descriptionRedacted`) for that same part — never derived
+ * from the model-bound text, so it cannot be bypassed by cue content.
+ *
+ * #12150 fix round 1 (adversarial review): the downstream log-redaction
+ * consumer (`applyVideoBridgeLogRedaction`, chatCore/attemptLogging.ts)
+ * matches by CONTENT (`fullText`), not by `messageIndex`/`partIndex`.
+ * Between this guardrail's preCall and the eventual log write, other
+ * request-mutation stages (system-prompt injection when no existing system
+ * message is found, context-relay handoff injection, reasoning-rule body
+ * rewrites) can prepend/splice messages, silently invalidating any
+ * positional index. `messageIndex`/`partIndex` are kept as advisory/
+ * debugging metadata only — never used for matching.
+ */
+export interface VideoBridgeLogRedactionEntry {
+  container: "messages" | "input";
+  /** Advisory only (see interface doc) — may be stale by the time the log is written. */
+  messageIndex: number;
+  /** Advisory only (see interface doc) — may be stale by the time the log is written. */
+  partIndex: number;
+  /**
+   * The exact, unredacted text placed into the replaced part
+   * (`descriptions[i]`, identical to what `replaceVideoParts` writes to
+   * `content[partIndex].text`). The downstream consumer matches parts by
+   * `part.text === fullText`, so it finds the video part wherever a later
+   * stage moved it, and never touches a part whose text differs.
+   */
+  fullText: string;
+  redactedText: string;
+}
+
+/**
+ * #12150 P1 final-review fix: re-anchor each redaction entry's `fullText` from
+ * the FINAL pre-call guardrail payload. The video-bridge guardrail runs at
+ * priority 7, but the PII masker (10) and credential masker (95) rewrite the
+ * SAME chained payload afterward, in place — so by the end of the chain the
+ * replaced part's text may differ from what video-bridge recorded, and the log
+ * sink's content-match (`part.text === fullText`) would miss (fail open). Chain
+ * guardrails only rewrite text in place — they never splice the message array —
+ * so the advisory `(container, messageIndex, partIndex)` still resolves inside
+ * the finished chain payload; reading the part text there yields the true
+ * post-chain text the log sink will see. Falls back to the original `fullText`
+ * when the index no longer resolves. Returns new entries; never mutates the
+ * shared guardrail `meta` array. `redactedText` is unchanged (it is rendered
+ * from the structured cues, independent of any masker rewrite).
+ */
+export function reanchorVideoBridgeRedaction(
+  entries: readonly VideoBridgeLogRedactionEntry[],
+  finalBody: unknown
+): VideoBridgeLogRedactionEntry[] {
+  const body = finalBody as Record<string, unknown> | null | undefined;
+  return entries.map((entry) => {
+    const container = body?.[entry.container];
+    if (!Array.isArray(container)) return { ...entry };
+    const message = container[entry.messageIndex] as { content?: unknown } | undefined;
+    const content = message?.content;
+    if (!Array.isArray(content)) return { ...entry };
+    const part = content[entry.partIndex] as { text?: unknown } | undefined;
+    if (!part || typeof part.text !== "string") return { ...entry };
+    return { ...entry, fullText: part.text };
+  });
+}
 
 type VideoBridgeBody = {
   model?: string;
@@ -57,6 +154,7 @@ type VideoBridgeBody = {
   [key: string]: unknown;
 };
 
+<<<<<<< HEAD
 export interface VideoAnalysisContext {
   /** Effective prompt behavior after the no-text fallback. */
   analysisMode: VideoAnalysisMode;
@@ -279,6 +377,9 @@ function isFusionTelemetry(value: unknown): value is VideoFusionTelemetry {
 }
 
 export interface VideoBridgeDependencies {
+=======
+export interface VideoBridgeDependencies extends VideoSttAdapterDependencies {
+>>>>>>> upstream/main
   getSettings?: () => Promise<Record<string, unknown>>;
   getCapabilities?: (model: string) => { supportsVideo: boolean | null };
   describePart?: (part: VideoPart, analysis: VideoAnalysisContext) => Promise<DescribedVideo>;
@@ -286,6 +387,10 @@ export interface VideoBridgeDependencies {
   fetchRemote?: DescribeVideoDependencies["fetchRemote"];
   resultCache?: BridgeCacheStore;
   selectVisionModel?: (fixedModel?: string) => Promise<string | null>;
+  /** Base credential check the caller API-key scope narrows (GHSA-3w2r). */
+  hasUsableCredentials?: (model: string) => Promise<boolean | null>;
+  /** Seams for the caller API-key scope (GHSA-3w2r). */
+  keyScope?: VisionBridgeKeyScopeDeps;
   callVisionModel?: (
     imageDataUri: string,
     config: VisionModelConfig,
@@ -293,6 +398,7 @@ export interface VideoBridgeDependencies {
   ) => Promise<string>;
 }
 
+<<<<<<< HEAD
 function isFiniteNonNegativeNumber(value: unknown): value is number {
   return typeof value === "number" && Number.isFinite(value) && value >= 0;
 }
@@ -387,6 +493,27 @@ function isVideoResultCacheEntry(
   );
 }
 
+=======
+/**
+ * Frame vision model for a key-scoped request: picked only among the models the
+ * key may use, in the key's selection-cache partition. A virtual `auto` /
+ * `auto/*` model resolves to a concrete member, since the key policy is
+ * checked against the model actually called.
+ */
+function selectScopedVideoVisionModel(
+  fixedModel: string | undefined,
+  keyScope: VisionBridgeKeyScope,
+  hasUsableCredentials: (model: string) => Promise<boolean | null>
+): Promise<string | null> {
+  const concrete =
+    fixedModel === "auto" || fixedModel?.startsWith("auto/") ? undefined : fixedModel;
+  return getBestVisionModel(
+    { fixedModel: concrete, cacheScope: keyScope.cacheScope },
+    { hasUsableCredentials }
+  );
+}
+
+>>>>>>> upstream/main
 function resolveVideoAnalysisContext(
   body: VideoBridgeBody,
   requestedAnalysisMode: VideoAnalysisMode
@@ -438,6 +565,15 @@ export class VideoBridgeGuardrail extends BaseGuardrail {
     const capabilities = (this.deps.getCapabilities ?? getResolvedModelCapabilities)(model);
     if (capabilities.supportsVideo === true) return { block: false };
 
+<<<<<<< HEAD
+=======
+    // Raw cue fields stay sensitive even when describing the video fails or
+    // maxVideos leaves it untouched. Retention must not depend on replacement.
+    const rawTranscriptObserved = parts.some(
+      (part) => part.transcript !== undefined || part.audioTranscript !== undefined
+    );
+
+>>>>>>> upstream/main
     const analysis = resolveVideoAnalysisContext(body, runtime.analysisMode);
     const visionRuntime = resolveVisionBridgeRuntimeSettings(persisted);
     const configuredModel = runtime.model.trim() || visionRuntime.model.trim();
@@ -446,18 +582,54 @@ export class VideoBridgeGuardrail extends BaseGuardrail {
       ? (this.deps.resultCache ?? getSharedVideoResultCacheFor(runtime))
       : null;
     const successfulModels = new Set<string>();
+    // GHSA-3w2r: frames are described (and the soundtrack transcribed) on behalf
+    // of the caller's API key, so every vision / STT model and connection the
+    // bridge picks must be one that key could use itself.
+    const keyScope = await resolveVisionBridgeKeyScope(context.apiKeyInfo, this.deps.keyScope);
+    const scopedCheck = keyScope
+      ? scopedCredentialCheck(this.deps.hasUsableCredentials, keyScope)
+      : undefined;
     let selectedModelPromise: Promise<string | null> | null = null;
     const selectVideoModel = (): Promise<string | null> => {
       if (!selectedModelPromise) {
         const select =
           this.deps.selectVisionModel ??
-          ((fixedModel?: string) => getBestVisionModel({ fixedModel }));
+          ((fixedModel?: string) =>
+            keyScope && scopedCheck
+              ? selectScopedVideoVisionModel(fixedModel, keyScope, scopedCheck)
+              : getBestVisionModel({ fixedModel }));
         selectedModelPromise = select(configuredModel || undefined);
       }
       return selectedModelPromise;
     };
+    const pipelineDeps: ProcessVideoPartDeps = {
+      broker: {
+        loadVideoPartBytes,
+        extractFrames: this.deps.extractFrames,
+        fetchRemote: this.deps.fetchRemote,
+      },
+      transcription: {
+        describePart: createVideoSttAdapter({
+          cache,
+          dependencies: this.deps,
+          keyScope:
+            keyScope && scopedCheck ? { scope: keyScope, hasUsableCredentials: scopedCheck } : null,
+          principalId: context.apiKeyInfo?.id,
+          settings: persisted,
+        }),
+      },
+      // Whole-result cache predates STT consent/model identity. Do not let a visual-only
+      // entry satisfy a consented request or an STT entry satisfy an opted-out request.
+      cache: resolveVideoAudioTranscriptionRuntimeSettings(persisted).enabled ? null : cache,
+      selectVideoModel,
+      overrideDescribePart: this.deps.describePart,
+      callVisionModel: this.deps.callVisionModel,
+      ...(keyScope ? { visionKeyScope: keyScope } : {}),
+    };
+
     const startedAt = Date.now();
     const descriptions: Array<string | null> = [];
+    const fallbackParts: VideoPart[] = [];
     let totalFramesRequested = 0;
     let totalFramesExtracted = 0;
     let totalFramesUsed = 0;
@@ -482,11 +654,12 @@ export class VideoBridgeGuardrail extends BaseGuardrail {
     };
     let samplingPolicyEffective: "uniform" | "scene_aware" | "segment_aware" = "uniform";
     let failures = 0;
+    const logRedactionEntries: VideoBridgeLogRedactionEntry[] = [];
 
     const attemptedParts = parts.slice(0, runtime.maxVideos);
     for (let index = 0; index < attemptedParts.length; index++) {
-      if (context.signal?.aborted) throw new Error("Video Bridge processing was aborted");
       const part = attemptedParts[index];
+<<<<<<< HEAD
       const attemptStartedAt = Date.now();
       const timeoutController = new AbortController();
       const attemptTimeout = setTimeout(() => timeoutController.abort(), runtime.timeoutMs);
@@ -677,33 +850,71 @@ export class VideoBridgeGuardrail extends BaseGuardrail {
         }
       } catch (error) {
         if (context.signal?.aborted) throw new Error("Video Bridge processing was aborted");
+=======
+      const result = await processVideoPart({
+        analysis,
+        context,
+        deps: pipelineDeps,
+        part,
+        partIndex: index,
+        runtime,
+        visionRuntime,
+      });
+
+      if (result.status === "aborted") {
+        throw new Error("Video Bridge processing was aborted");
+      }
+      if (result.status === "failed") {
+>>>>>>> upstream/main
         failures += 1;
-        recordBridgeUse("video", {
-          failure: true,
-          latencyMs: Date.now() - attemptStartedAt,
-        });
-        context.log?.warn?.(
-          "VIDEO_BRIDGE",
-          "Video description failed; applying the capability-safe fallback",
-          {
-            failureCode:
-              error && typeof error === "object" && "code" in error && error.code === "ENOENT"
-                ? "RUNTIME_UNAVAILABLE"
-                : "DESCRIPTION_FAILED",
-            videoIndex: index + 1,
-          }
-        );
+        fallbackParts.push(part);
         descriptions.push(
           capabilities.supportsVideo === false
             ? `[Video ${index + 1}]: (unavailable — video could not be described)`
             : null
         );
+<<<<<<< HEAD
       } finally {
         clearTimeout(attemptTimeout);
+=======
+        continue;
+>>>>>>> upstream/main
       }
+
+      descriptions.push(result.description);
+      if (result.descriptionRedacted !== undefined) {
+        logRedactionEntries.push({
+          container: part.container,
+          messageIndex: part.messageIndex,
+          partIndex: part.partIndex,
+          // The exact text `replaceVideoParts` is about to write into
+          // content[partIndex].text (same `result.description` value pushed
+          // to `descriptions` just above) — the content-address key the
+          // downstream consumer matches on. See the interface doc.
+          fullText: result.description,
+          redactedText: result.descriptionRedacted,
+        });
+      }
+      totalFramesRequested += result.framesRequested;
+      totalFramesExtracted += result.framesExtracted;
+      totalFramesUsed += result.framesUsed;
+      totalDedupDropped += result.dedupDropped;
+      if (result.hasFocusWindow) focusWindowsApplied += 1;
+      if (analysis.analysisMode === "focused") focusHintsApplied += 1;
+      totalDurationSeconds += result.durationSeconds;
+      totalSamplingCandidateCount += result.samplingCandidateCount;
+      transcriptCuesApplied += result.transcriptCuesApplied;
+      if (result.contactSheetUsed) contactSheetsUsed += 1;
+      recordFusionTelemetry(result.fusion);
+      if (result.samplingPolicyEffective !== "uniform") {
+        samplingPolicyEffective = result.samplingPolicyEffective;
+      }
+      for (const producerModel of result.producerModels) successfulModels.add(producerModel);
+      totalCacheHits += result.frameCacheHits;
     }
 
     for (let index = attemptedParts.length; index < parts.length; index++) {
+      fallbackParts.push(parts[index]);
       descriptions.push(
         capabilities.supportsVideo === false
           ? `[Video ${index + 1}]: (not processed because the per-request video limit was reached)`
@@ -713,11 +924,16 @@ export class VideoBridgeGuardrail extends BaseGuardrail {
 
     const videosProcessed = attemptedParts.length - failures;
     const videosReplaced = descriptions.filter((description) => description !== null).length;
-    if (videosReplaced === 0) return { block: false };
+    if (videosReplaced === 0 && !rawTranscriptObserved) return { block: false };
+
+    const modifiedPayload = replaceVideoParts(body, parts, descriptions);
+    logRedactionEntries.push(
+      ...appendVideoFallbackTranscripts(modifiedPayload, fallbackParts, context.log)
+    );
 
     return {
       block: false,
-      modifiedPayload: replaceVideoParts(body, parts, descriptions),
+      modifiedPayload,
       meta: {
         analysisMode: analysis.analysisMode,
         analysisModeRequested: analysis.requestedAnalysisMode,
@@ -731,6 +947,10 @@ export class VideoBridgeGuardrail extends BaseGuardrail {
         focusWindowsApplied,
         focusHintsApplied,
         transcriptCuesApplied,
+        // Protect both rendered cues and raw fields on unreplaced video parts.
+        // Frames without transcript fields retain their normal logging policy.
+        videoBridgeObserved: rawTranscriptObserved || logRedactionEntries.length > 0,
+        ...(logRedactionEntries.length > 0 ? { videoBridgeLogRedaction: logRedactionEntries } : {}),
         contactSheetsUsed,
         audioFusionRuns,
         audioFusionPartials,
@@ -746,6 +966,7 @@ export class VideoBridgeGuardrail extends BaseGuardrail {
       },
     };
   }
+<<<<<<< HEAD
 
   private async describeWithVisionModel(
     part: VideoPart,
@@ -817,4 +1038,6 @@ export class VideoBridgeGuardrail extends BaseGuardrail {
       modelUsed: combineModelIdentities(successfulModels, selectedModel),
     };
   }
+=======
+>>>>>>> upstream/main
 }

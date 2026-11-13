@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * Regression: #7620 hidden-model persistence must survive the #10898 compat
  * canonicalization (fixed in this PR by keying the low-level compat store on the
@@ -21,6 +22,9 @@
  *       operator wrote under "opencode".
  */
 
+=======
+// Keep raw-key persistence isolated; paid OpenCode no longer hydrates retired Free overrides.
+>>>>>>> upstream/main
 import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
@@ -31,12 +35,19 @@ const TEST_DATA_DIR = fs.mkdtempSync(path.join(os.tmpdir(), "omniroute-7620-sibl
 process.env.DATA_DIR = TEST_DATA_DIR;
 process.env.API_KEY_SECRET = process.env.API_KEY_SECRET || "compat-sibling-test-secret";
 
+<<<<<<< HEAD
 const { mergeModelCompatOverride, getModelCompatOverrides } = await import(
   "../../src/lib/db/models/compat.ts"
 );
 const { getNoAuthHydrationProviderIds } = await import(
   "../../src/sse/services/noAuthProviderSiblings.ts"
 );
+=======
+const { mergeModelCompatOverride, getModelCompatOverrides } =
+  await import("../../src/lib/db/models/compat.ts");
+const { getNoAuthHydrationProviderIds } =
+  await import("../../src/sse/services/noAuthProviderSiblings.ts");
+>>>>>>> upstream/main
 const { getModelInfo } = await import("../../src/sse/services/model.ts");
 
 test("#7620: isHidden override written under raw 'opencode' stays on the raw key, not the 'opencode-zen' sibling", () => {
@@ -58,6 +69,7 @@ test("#7620: isHidden override written under raw 'opencode' stays on the raw key
   );
 });
 
+<<<<<<< HEAD
 test("getNoAuthHydrationProviderIds merges the no-auth sibling so 'opencode-zen' resolution reaches 'opencode' overrides", () => {
   // Sibling map contract: opencode-zen (and opencode-go) hydrate from opencode.
   assert.deepEqual(getNoAuthHydrationProviderIds("opencode-zen"), ["opencode-zen", "opencode"]);
@@ -67,6 +79,16 @@ test("getNoAuthHydrationProviderIds merges the no-auth sibling so 'opencode-zen'
 
   // End-to-end: an override written under "opencode" is found when the merged
   // sibling set for the resolved gateway id "opencode-zen" is walked.
+=======
+test("getNoAuthHydrationProviderIds never hydrates the retired OpenCode Free sibling", () => {
+  // Paid providers hydrate only their own overrides after Free retirement.
+  assert.deepEqual(getNoAuthHydrationProviderIds("opencode-zen"), ["opencode-zen"]);
+  assert.deepEqual(getNoAuthHydrationProviderIds("opencode-go"), ["opencode-go"]);
+  // A provider with no siblings resolves to just itself (requested id first).
+  assert.deepEqual(getNoAuthHydrationProviderIds("opencode"), ["opencode"]);
+
+  // Raw legacy overrides remain readable without leaking to paid resolution.
+>>>>>>> upstream/main
   mergeModelCompatOverride("opencode", "claude-sonnet-5", {
     apiFormat: "responses",
     targetFormat: "claude",
@@ -76,6 +98,7 @@ test("getNoAuthHydrationProviderIds merges the no-auth sibling so 'opencode-zen'
     getModelCompatOverrides(id)
   );
   const resolved = merged.find((m) => m.id === "claude-sonnet-5");
+<<<<<<< HEAD
   assert.ok(resolved, "sibling-merged overrides must include the 'opencode' row");
   assert.equal(resolved.isHidden, true);
   assert.equal(resolved.apiFormat, "responses");
@@ -84,6 +107,17 @@ test("getNoAuthHydrationProviderIds merges the no-auth sibling so 'opencode-zen'
 
 test("#10898 stays fixed: getModelInfo('opencode/<model>') resolves to opencode-zen and reads the sibling override", async () => {
   mergeModelCompatOverride("opencode", "claude-opus-5", {
+=======
+  assert.equal(resolved, undefined, "retired Free overrides must not leak into Zen");
+  const raw = getModelCompatOverrides("opencode").find((m) => m.id === "claude-sonnet-5");
+  assert.equal(raw?.isHidden, true);
+  assert.equal(raw?.apiFormat, "responses");
+  assert.equal(raw?.targetFormat, "claude");
+});
+
+test("getModelInfo('opencode/<model>') still resolves to authenticated Zen and its own overrides", async () => {
+  mergeModelCompatOverride("opencode-zen", "claude-opus-5", {
+>>>>>>> upstream/main
     apiFormat: "responses",
     targetFormat: "claude",
     supportsVision: true,

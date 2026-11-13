@@ -1,6 +1,7 @@
 // Re-export service kinds from leaf module (avoids circular dep with providerSchema)
 export type { ServiceKind } from "./serviceKinds";
-export type RiskNoticeVariant = "oauth" | "webCookie" | "deprecated" | "embedded-service";
+export type RiskNoticeVariant =
+  "oauth" | "webCookie" | "deprecated" | "embedded-service" | "official-client-only";
 
 import { NOAUTH_PROVIDERS } from "./providers/noauth";
 export { supportsNoAuthProviderProxy } from "./providers/noauth";
@@ -22,7 +23,6 @@ export const FREE_PROVIDERS = {};
 
 export const FREE_APIKEY_PROVIDER_IDS = new Set([
   "qoder",
-  "opencode",
   "dahl",
   // auggie is a fully local, credential-less CLI passthrough (auth handled by
   // `auggie login` outside OmniRoute). Admitted here purely so POST /api/providers
@@ -35,15 +35,31 @@ export const FREE_APIKEY_PROVIDER_IDS = new Set([
   // key for higher queue priority. The no-auth page still enables the provider;
   // this flag admits an optional apikey connection so that stored key is used.
   "aihorde",
+  // Veo AI Free accepts optional web-session credentials (wordpress_logged_in cookie)
+  // for authenticated generation.
+  "veoaifree-web",
 ]);
 
 export function supportsApiKeyOnFreeProvider(providerId: unknown): boolean {
-  return typeof providerId === "string" && FREE_APIKEY_PROVIDER_IDS.has(providerId);
+  if (typeof providerId !== "string") return false;
+  return (
+    FREE_APIKEY_PROVIDER_IDS.has(providerId) ||
+    FREE_APIKEY_PROVIDER_IDS.has(resolveProviderId(providerId))
+  );
 }
 
 // Providers presented as one dashboard card with OAuth as the primary action
 // and a direct API-key alternative. Keep these out of FREE_APIKEY_PROVIDER_IDS.
-const DUAL_AUTH_PROVIDER_IDS = new Set(["clinepass", "codebuddy-cn", "xai"]);
+const DUAL_AUTH_PROVIDER_IDS = new Set([
+  "clinepass",
+  "codebuddy-cn",
+  "codebuddy-intl",
+  "xai",
+  "muse-code",
+  "cline",
+  "kilocode",
+  "freebuff",
+]);
 
 export function supportsDualAuthProvider(providerId: unknown): boolean {
   return typeof providerId === "string" && DUAL_AUTH_PROVIDER_IDS.has(providerId);
@@ -97,11 +113,13 @@ export const AGGREGATOR_PROVIDER_IDS = new Set([
   "kilo-gateway",
   "aimlapi",
   "novita",
+  "opper",
   "piapi",
   "getgoapi",
   "laozhang",
   "vercel-ai-gateway",
   "unorouter",
+  "xkiro",
   "agentrouter",
   "thebai",
   "fenayai",
@@ -119,10 +137,16 @@ export const AGGREGATOR_PROVIDER_IDS = new Set([
   "zylo-api",
   "fastrouter",
   "anyapi",
+  "beatapi",
   "electronhub",
   "llmgateway",
+  "lyceum",
   "llm-kiwi",
   "literouter",
+  "onomeo",
+  "eurouter",
+  "unifically",
+  "y-api",
   "mnn-ai",
   "meganova-ai",
   "mixlayer",
@@ -144,7 +168,16 @@ export const AGGREGATOR_PROVIDER_IDS = new Set([
   "helixmind",
   "tabitoken",
   "logfare",
+<<<<<<< HEAD
 
+=======
+  "seekai",
+  "tokenmarket",
+  "tokenharbor",
+  "demonroute",
+  "daoxe",
+  "gisoo",
+>>>>>>> upstream/main
 ]);
 
 export const ENTERPRISE_CLOUD_PROVIDER_IDS = new Set([
@@ -181,7 +214,7 @@ export const VIDEO_PROVIDER_IDS = new Set([
 // IDE Providers: editors with built-in AI subscription (separate section in UI).
 // These providers live in OAUTH_PROVIDERS but render under "IDE Providers"
 // instead of "OAuth Providers" to avoid visual duplication.
-export const IDE_PROVIDER_IDS = new Set(["cursor", "zed", "trae", "raycast"]);
+export const IDE_PROVIDER_IDS = new Set(["cursor", "zed", "trae"]);
 
 export const EMBEDDING_RERANK_PROVIDER_IDS = new Set(["voyage-ai", "jina-ai"]);
 
@@ -250,17 +283,25 @@ const EXPLICIT_OPTIONAL_APIKEY_PROVIDER_IDS = new Set([
   "gitlawb",
   "gitlawb-gmi",
   "naga-ac",
+  // UC (uncensored.com) persona: un-metered subscription chat with NO API key —
+  // auth is a durable Clerk credential stored in providerSpecificData, from which
+  // the executor mints a short-lived session token per connect.
+  "uc",
 ]);
 
 export function providerAllowsOptionalApiKey(providerId: unknown): boolean {
+  if (typeof providerId !== "string") return false;
+  const canonicalId = resolveProviderId(providerId);
   return (
     // ponytail: any noAuth provider auto-qualifies — no per-provider maintenance
-    (typeof providerId === "string" && providerId in NOAUTH_PROVIDERS) ||
-    (typeof providerId === "string" && EXPLICIT_OPTIONAL_APIKEY_PROVIDER_IDS.has(providerId)) ||
-    isLocalProvider(providerId) ||
-    isSelfHostedChatProvider(providerId) ||
-    isOpenAICompatibleProvider(providerId) ||
-    isAnthropicCompatibleProvider(providerId)
+    canonicalId in NOAUTH_PROVIDERS ||
+    providerId in NOAUTH_PROVIDERS ||
+    EXPLICIT_OPTIONAL_APIKEY_PROVIDER_IDS.has(canonicalId) ||
+    EXPLICIT_OPTIONAL_APIKEY_PROVIDER_IDS.has(providerId) ||
+    isLocalProvider(canonicalId) ||
+    isSelfHostedChatProvider(canonicalId) ||
+    isOpenAICompatibleProvider(canonicalId) ||
+    isAnthropicCompatibleProvider(canonicalId)
   );
 }
 
@@ -279,6 +320,7 @@ const BULK_API_KEY_EXCLUDED = new Set([
   "blackbox-web",
   "muse-spark-web",
   "deepseek-web",
+  "chatgpt-web",
   "inner-ai",
   "qoder",
   "google-pse-search",
@@ -481,6 +523,7 @@ export const ID_TO_ALIAS = new Proxy({} as Record<string, string>, {
   },
 });
 
+<<<<<<< HEAD
 // Providers that support usage/quota API
 export const USAGE_SUPPORTED_PROVIDERS = [
   "antigravity",
@@ -539,6 +582,9 @@ export const USAGE_SUPPORTED_PROVIDERS = [
   // AgentRouter (New-API) console balance quota (consoleApiKey + newApiUserId)
   "agentrouter",
 ];
+=======
+export { USAGE_SUPPORTED_PROVIDERS } from "@omniroute/open-sse/services/usage/supportedProviders.ts";
+>>>>>>> upstream/main
 
 // ── Zod validation, lazily on first AI_PROVIDERS access (perf: skips the walk
 // for processes that never touch AI_PROVIDERS, e.g. short-lived CLI commands) ──

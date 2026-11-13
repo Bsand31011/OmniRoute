@@ -1,4 +1,5 @@
 import { sanitizeErrorMessage } from "../utils/error.ts";
+import { fetchOllamaCloudBalance } from "./ollamaCloudBalance.ts";
 
 type JsonRecord = Record<string, unknown>;
 type UsageQuota = {
@@ -13,38 +14,18 @@ type UsageQuota = {
   currency?: string;
 };
 
-// OpenCode Go does not expose a public quota API. There is no working
-// opencode.ai endpoint to default to (see #7022) — the quota-by-API-key path
-// below is opt-in only and activates exclusively when the operator sets
-// OMNIROUTE_OPENCODE_GO_QUOTA_URL explicitly. Never hardcode a third-party
-// host here (a previous default silently sent the user's API key to an
-// unrelated Z.AI endpoint).
-const OPENCODE_GO_QUOTA_URL = process.env.OMNIROUTE_OPENCODE_GO_QUOTA_URL?.trim() || "";
-const OPENCODE_GO_DASHBOARD_BASE_URL =
-  process.env.OMNIROUTE_OPENCODE_GO_DASHBOARD_URL ?? "https://opencode.ai/workspace";
-const OPENCODE_GO_QUOTA_TOTALS = { session: 12, weekly: 30, mcp_monthly: 60 } as const;
-const OPENCODE_GO_QUOTA_ORDER = ["session", "weekly", "mcp_monthly"] as const;
-const OPENCODE_GO_SCRAPED_NUMBER = String.raw`(-?\d+(?:\.\d+)?)`;
 const OLLAMA_CLOUD_USAGE_URL =
   process.env.OMNIROUTE_OLLAMA_CLOUD_USAGE_URL ?? "https://ollama.com/settings";
 const OLLAMA_CLOUD_SESSION_COOKIE = "__Secure-session";
 
-type OpenCodeGoQuotaName = (typeof OPENCODE_GO_QUOTA_ORDER)[number];
-type DashboardWindow = { usagePercent: number; resetAt: string | null };
-type OpenCodeGoDashboardUsage = Partial<Record<OpenCodeGoQuotaName, DashboardWindow>>;
-type OpenCodeGoDashboardConfig =
-  | { state: "configured"; workspaceId: string; authCookie: string }
-  | { state: "incomplete"; missing: string }
-  | { state: "none" };
+type OllamaUsageWindow = { usagePercent: number; resetAt: string | null };
 type OllamaCloudUsage = {
-  session?: DashboardWindow;
-  weekly?: DashboardWindow;
+  session?: OllamaUsageWindow;
+  weekly?: OllamaUsageWindow;
   planTier?: string | null;
 };
 type OllamaCloudConfig =
-  | { state: "configured"; cookie: string }
-  | { state: "invalid"; error: string }
-  | { state: "none" };
+  { state: "configured"; cookie: string } | { state: "invalid"; error: string } | { state: "none" };
 
 function toRecord(value: unknown): JsonRecord {
   return value && typeof value === "object" && !Array.isArray(value) ? (value as JsonRecord) : {};
@@ -63,37 +44,6 @@ function toNumber(value: unknown, fallback = 0): number {
 function toPercentage(value: unknown): number {
   return Math.max(0, Math.min(100, toNumber(value, 0)));
 }
-
-function toTitleCase(value: string): string {
-  return value
-    .trim()
-    .split(/[\s_-]+/)
-    .filter(Boolean)
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
-    .join(" ");
-}
-
-function roundCurrency(value: number): number {
-  return Math.round(value * 100) / 100;
-}
-
-function safeToIsoString(time: number): string | null {
-  if (!Number.isFinite(time) || time < 0 || time > 8.64e15) return null;
-  try {
-    return new Date(time).toISOString();
-  } catch {
-    return null;
-  }
-}
-
-function parseResetTime(resetValue: unknown): string | null {
-  const numeric = toNumber(resetValue, Number.NaN);
-  if (Number.isFinite(numeric) && numeric > 0) return safeToIsoString(numeric);
-  if (typeof resetValue !== "string" || !resetValue.trim()) return null;
-  const parsed = Date.parse(resetValue);
-  return Number.isFinite(parsed) ? safeToIsoString(parsed) : null;
-}
-
 function getProviderSpecificString(data: JsonRecord | undefined, keys: string[]): string {
   const obj = toRecord(data);
   for (const key of keys) {
@@ -102,6 +52,7 @@ function getProviderSpecificString(data: JsonRecord | undefined, keys: string[])
   }
   return "";
 }
+<<<<<<< HEAD
 
 export function resolveOpenCodeGoDashboardConfig(
   providerSpecificData?: JsonRecord
@@ -457,6 +408,8 @@ export async function getOpenCodeGoUsage(apiKey: string, providerSpecificData?: 
   }
 }
 
+=======
+>>>>>>> upstream/main
 function resolveOllamaCloudConfig(providerSpecificData?: JsonRecord): OllamaCloudConfig {
   const cookie =
     process.env.OMNIROUTE_OLLAMA_USAGE_COOKIE?.trim() ||
@@ -476,23 +429,72 @@ function resolveOllamaCloudConfig(providerSpecificData?: JsonRecord): OllamaClou
   return { state: "configured", cookie };
 }
 
+function stripCookieQuotes(value: string): string {
+  const v = value.trim();
+  return v.length >= 2 && v.startsWith('"') && v.endsWith('"') ? v.slice(1, -1).trim() : v;
+}
+
+/**
+ * Accepts a bare value, `__Secure-session=<v>` (or the underscore spelling), or a full
+ * `Cookie:` header, and returns only the session cookie value (#15256).
+ */
 function normalizeOllamaCloudCookie(value: string): string {
-  const trimmed = value.trim();
-  return trimmed.toLowerCase().startsWith(`${OLLAMA_CLOUD_SESSION_COOKIE.toLowerCase()}=`)
-    ? trimmed.slice(OLLAMA_CLOUD_SESSION_COOKIE.length + 1).trim()
-    : trimmed;
+  const trimmed = value.trim().replace(/^cookie\s*:\s*/i, "");
+  if (!trimmed.includes("=")) return stripCookieQuotes(trimmed);
+  const wanted = OLLAMA_CLOUD_SESSION_COOKIE.toLowerCase().replace(/_/g, "-");
+  for (const part of trimmed.split(";")) {
+    const eq = part.indexOf("=");
+    if (eq < 0) continue;
+    const name = part.slice(0, eq).trim().toLowerCase().replace(/_/g, "-");
+    if (name === wanted) return stripCookieQuotes(part.slice(eq + 1));
+  }
+  return stripCookieQuotes(trimmed);
+}
+
+function describeOllamaRedirect(response: Response): string {
+  const location = response.headers.get("location") || "";
+  let path = "";
+  try {
+    path = new URL(location, OLLAMA_CLOUD_USAGE_URL).pathname;
+  } catch {
+    path = "";
+  }
+  if (/^\/(sign-?in|log-?in|auth)\b/i.test(path)) {
+    return "Ollama Cloud authentication expired. Refresh the cookie.";
+  }
+  return `Ollama Cloud settings redirected (HTTP ${response.status}${path ? ` to ${path.slice(0, 80)}` : ""}).`;
+}
+
+function clampPercent(pct: number): number | null {
+  return Number.isFinite(pct) && pct >= 0 && pct <= 100 ? pct : null;
+}
+
+function extractAriaLabelPercent(tagHeader: string): number | null {
+  const directMatch = tagHeader.match(/(\d+(?:\.\d+)?)%\s*used/);
+  if (directMatch) return clampPercent(toNumber(directMatch[1], Number.NaN));
+  const ratioMatch = tagHeader.match(/\$\s*([0-9.]+)\s*of\s*\$\s*([0-9.]+)\s*used/i);
+  if (!ratioMatch) return null;
+  const used = toNumber(ratioMatch[1], Number.NaN);
+  const total = toNumber(ratioMatch[2], Number.NaN);
+  if (!Number.isFinite(used) || !Number.isFinite(total) || total <= 0) return null;
+  return clampPercent((used / total) * 100);
+}
+
+function extractWidthStylePercent(html: string): number | null {
+  const styleMatches = html.matchAll(/style="([^"]*)"/g);
+  for (const match of styleMatches) {
+    const pct = toNumber(match[1].match(/(?:^|;)\s*width\s*:\s*([0-9.]+)%/)?.[1], Number.NaN);
+    const clamped = clampPercent(pct);
+    if (clamped !== null) return clamped;
+  }
+  return null;
 }
 
 function extractOllamaUsagePercent(trackHtml: string): number | null {
   const tagHeader = trackHtml.match(/^[^>]*/)?.[0] ?? "";
-  const ariaMatch = tagHeader.match(/(\d+(?:\.\d+)?)%\s*used/);
-  if (ariaMatch) {
-    const pct = toNumber(ariaMatch[1], Number.NaN);
-    if (Number.isFinite(pct) && pct >= 0 && pct <= 100) return pct;
-  }
-  const style = tagHeader.match(/style="([^"]*)"/)?.[1] ?? "";
-  const pct = toNumber(style.match(/(?:^|;)\s*width\s*:\s*([0-9.]+)%/)?.[1], Number.NaN);
-  return Number.isFinite(pct) && pct >= 0 && pct <= 100 ? pct : null;
+  const ariaPercent = extractAriaLabelPercent(tagHeader);
+  if (ariaPercent !== null) return ariaPercent;
+  return extractWidthStylePercent(trackHtml);
 }
 
 function parseOllamaCloudSettingsHtml(html: string): OllamaCloudUsage | null {
@@ -529,7 +531,7 @@ async function fetchOllamaCloudUsageFromSettings(
     signal: AbortSignal.timeout(10_000),
   });
   if (response.status >= 300 && response.status < 400) {
-    return { usage: null, message: "Ollama Cloud authentication expired. Refresh the cookie." };
+    return { usage: null, message: describeOllamaRedirect(response) };
   }
   if (!response.ok)
     return { usage: null, message: `Ollama Cloud settings error (${response.status}).` };
@@ -540,8 +542,26 @@ async function fetchOllamaCloudUsageFromSettings(
   };
 }
 
-export async function getOllamaCloudUsage(providerSpecificData?: JsonRecord) {
+/** API-key path (`GET /api/balance`); returns quotas, or the reason it could not. */
+async function getOllamaCloudBalanceUsage(apiKey: string) {
+  try {
+    const balance = await fetchOllamaCloudBalance(apiKey);
+    if (balance.quotas) return { usage: { plan: "Ollama Cloud", quotas: balance.quotas } };
+    return { message: balance.message };
+  } catch (error) {
+    return { message: `Ollama Cloud quota error: ${sanitizeErrorMessage(error)}` };
+  }
+}
+
+export async function getOllamaCloudUsage(providerSpecificData?: JsonRecord, apiKey?: string) {
   const config = resolveOllamaCloudConfig(providerSpecificData);
+  const key = typeof apiKey === "string" ? apiKey.trim() : "";
+  if (key) {
+    // The documented API-key balance endpoint comes first; the cookie scraper stays as fallback.
+    const balance = await getOllamaCloudBalanceUsage(key);
+    if (balance.usage) return balance.usage;
+    if (config.state !== "configured") return { message: balance.message };
+  }
   if (config.state === "none") {
     return {
       message:

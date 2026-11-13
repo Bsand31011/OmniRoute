@@ -39,9 +39,17 @@ function getSlider(container: HTMLDivElement): HTMLInputElement {
 }
 
 function getLabel(container: HTMLDivElement): string {
+<<<<<<< HEAD
   const span = container.querySelector("span.text-blue-400");
   if (!span?.textContent) throw new Error("interval label not found");
   return span.textContent;
+=======
+  // KEA-7886: the interval label is the kit Slider's value <output> bound to the range input.
+  const slider = getSlider(container);
+  const output = container.querySelector(`output[for="${slider.id}"]`);
+  if (!output?.textContent) throw new Error("interval label not found");
+  return output.textContent;
+>>>>>>> upstream/main
 }
 
 async function setSliderValue(container: HTMLDivElement, value: string) {
@@ -49,10 +57,14 @@ async function setSliderValue(container: HTMLDivElement, value: string) {
   // NOTE: synchronous act() on purpose — wrapping this in async act() lets the
   // commit flush late, so the change handler would read the pre-dispatch value.
   act(() => {
+<<<<<<< HEAD
     const setter = Object.getOwnPropertyDescriptor(
       window.HTMLInputElement.prototype,
       "value"
     )?.set;
+=======
+    const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value")?.set;
+>>>>>>> upstream/main
     setter?.call(input, value);
     input.dispatchEvent(new Event("input", { bubbles: true }));
   });

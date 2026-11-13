@@ -35,7 +35,11 @@ const ORIGINAL_REQUIRE = process.env.REQUIRE_API_KEY;
 
 after(() => {
   core.resetDbInstance();
+<<<<<<< HEAD
   fs.rmSync(TEST_DATA_DIR, { recursive: true, force: true });
+=======
+  fs.rmSync(TEST_DATA_DIR, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
+>>>>>>> upstream/main
   if (ORIGINAL_REQUIRE === undefined) delete process.env.REQUIRE_API_KEY;
   else process.env.REQUIRE_API_KEY = ORIGINAL_REQUIRE;
 });
@@ -123,7 +127,11 @@ describe("REST /api/a2a/tasks/[id] — authentication (GHSA-jcm5)", () => {
     // And the same task IS visible to its owner (owner hash derived from the key).
     const owned = tm.createTask(
       { skill: "smart-routing", messages: [] },
+<<<<<<< HEAD
       resolveA2AOwner(req as never)
+=======
+      await resolveA2AOwner(req as never)
+>>>>>>> upstream/main
     );
     const res2 = await restGet.GET(
       new Request(`http://localhost/api/a2a/tasks/${owned.id}`, {

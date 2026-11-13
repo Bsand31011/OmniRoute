@@ -294,8 +294,13 @@ test("T06 route payload validation uses validateBody in critical endpoints", () 
 test("OAuth routes that can create provider connections require auth guard", () => {
   const targets = [
     "src/app/api/oauth/[provider]/[action]/route.ts",
+    "src/app/api/oauth/[provider]/paste-credentials/route.ts",
     "src/app/api/oauth/cursor/import/route.ts",
+    "src/app/api/oauth/cursor/login/start/route.ts",
+    "src/app/api/oauth/cursor/login/poll/route.ts",
+    "src/app/api/oauth/cursor/login/cancel/route.ts",
     "src/app/api/oauth/kiro/import/route.ts",
+    "src/app/api/oauth/kiro/api-key/route.ts",
     "src/app/api/oauth/kiro/social-authorize/route.ts",
     "src/app/api/oauth/kiro/social-exchange/route.ts",
   ];
@@ -304,6 +309,7 @@ test("OAuth routes that can create provider connections require auth guard", () 
     const content = readIfExists(relPath);
     assert.ok(content, `${relPath} should exist`);
 
+<<<<<<< HEAD
     // Two accepted guard shapes. GHSA-mg76 moved the cursor/kiro *import* routes
     // onto requireManagementAuth, which is strictly STRONGER than the legacy
     // pair: it demands a management principal (dashboard session, manage-scoped
@@ -318,6 +324,23 @@ test("OAuth routes that can create provider connections require auth guard", () 
     assert.ok(
       usesManagementGuard || usesLegacyGuard,
       `${relPath} must guard connection-creating handlers with requireManagementAuth or the isAuthRequired/isAuthenticated pair`
+=======
+    // `/api/oauth/` is a public route prefix, so the pipeline leaves the decision to the
+    // handler, and isAuthenticated() there accepts any valid client API key. Every handler
+    // that can create or overwrite a provider connection must ask for a management
+    // principal: a dashboard session, CLI token, access token or a manage-scope key.
+    assert.ok(
+      content.includes("requireManagementAuth(request"),
+      `${relPath} must guard connection-creating handlers with requireManagementAuth`
+    );
+    const code = content
+      .split("\n")
+      .filter((line) => !line.trim().startsWith("//"))
+      .join("\n");
+    assert.ok(
+      !/isAuthenticated\s*\(/.test(code),
+      `${relPath} must not fall back to isAuthenticated(), which accepts any client API key`
+>>>>>>> upstream/main
     );
 
     // Positive anchor: a guard somewhere in the file proves nothing if one of the

@@ -11,10 +11,14 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
+import { buildAgentCardMetadata } from "@/lib/a2a/agentCardMetadata";
 import { getFleetSkills } from "@/lib/conductor/fleetSkills";
 import { getBaseUrl } from "@/lib/wellKnown";
+<<<<<<< HEAD
 
 const PACKAGE_VERSION = process.env.npm_package_version || "1.8.1";
+=======
+>>>>>>> upstream/main
 
 /**
  * GET /.well-known/agent.json
@@ -22,12 +26,17 @@ const PACKAGE_VERSION = process.env.npm_package_version || "1.8.1";
  * Returns the OmniRoute Agent Card that describes this gateway's
  * capabilities as an A2A agent.
  */
+<<<<<<< HEAD
 export async function GET(request: NextRequest) {
+=======
+export async function GET(request?: NextRequest) {
+>>>>>>> upstream/main
   // Conductor PRD RF2: fleet skills from the OmniConductor hub (cached ~60s; [] when
   // the hub is unset/offline — the card stays valid without the fleet section).
   const fleetSkills = await getFleetSkills();
   const baseUrl = getBaseUrl(request);
   const agentCard = {
+<<<<<<< HEAD
     name: "OmniRoute AI 网关",
     description:
       "智能 AI 路由网关，支持 36+ 个提供者、智能回退、配额跟踪、" +
@@ -104,6 +113,9 @@ export async function GET(request: NextRequest) {
       },
       ...fleetSkills,
     ],
+=======
+    ...buildAgentCardMetadata(baseUrl, fleetSkills),
+>>>>>>> upstream/main
     authentication: {
       schemes: ["api-key"],
       apiKeyHeader: "Authorization",

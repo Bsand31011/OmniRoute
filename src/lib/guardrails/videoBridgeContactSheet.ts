@@ -1,3 +1,10 @@
+import {
+  JPEG_FRAME_DATA_URI_PREFIX,
+  decodeJpegFrameDataUri,
+  estimateJpegFrameBytes,
+} from "./videoBridgeFrameContract";
+import { VIDEO_FRAME_MAX_BYTES } from "./videoBridgeRuntime";
+
 export interface ContactSheetFrame {
   dataUri: string;
   timestampSeconds: number;
@@ -35,10 +42,31 @@ function fallback(frames: readonly ContactSheetFrame[]): VideoContactSheetResult
   };
 }
 
+<<<<<<< HEAD
 function decodeFrame(dataUri: string): Buffer {
   const match = /^data:image\/jpeg;base64,([A-Za-z0-9+/=]{4,5592408})$/i.exec(dataUri);
   if (!match) throw new Error("Contact sheet requires JPEG data URIs");
   return Buffer.from(match[1], "base64");
+=======
+function formatContactSheetTimestamp(timestampSeconds: number): string {
+  const totalMilliseconds = Math.max(0, Math.round(timestampSeconds * 1000));
+  const minutes = Math.floor(totalMilliseconds / 60_000);
+  const seconds = Math.floor((totalMilliseconds % 60_000) / 1000);
+  const milliseconds = totalMilliseconds % 1000;
+  if (minutes > 999) return `t=${timestampSeconds.toExponential(3)}s`;
+  return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}.${String(milliseconds).padStart(3, "0")}`;
+}
+
+function buildTimestampLabel(timestampSeconds: number): Buffer {
+  const label = formatContactSheetTimestamp(timestampSeconds);
+  const labelTop = TILE_SIZE - LABEL_HEIGHT;
+  return Buffer.from(
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${TILE_SIZE}" height="${TILE_SIZE}" viewBox="0 0 ${TILE_SIZE} ${TILE_SIZE}">
+      <rect x="0" y="${labelTop}" width="${TILE_SIZE}" height="${LABEL_HEIGHT}" fill="#000000" fill-opacity="0.82" />
+      <text x="${LABEL_PADDING}" y="${labelTop + 42}" fill="#ffffff" font-family="DejaVu Sans Mono, monospace" font-size="${LABEL_FONT_SIZE}" font-weight="700">${label}</text>
+    </svg>`
+  );
+>>>>>>> upstream/main
 }
 
 function formatContactSheetTimestamp(timestampSeconds: number): string {
@@ -89,13 +117,18 @@ export async function buildVideoContactSheet(
     const { default: sharp } = await import("sharp");
     if (signal.aborted) throw new Error("Video contact sheet was aborted");
     const tiles = await Promise.all(
-      frames.map(async (frame) =>
-        sharp(decodeFrame(frame.dataUri))
+      frames.map(async (frame) => {
+        // Reject before decoding: an oversized frame must never reach sharp() just to be
+        // discovered later — estimateJpegFrameBytes reads the encoded length only.
+        if (estimateJpegFrameBytes(frame.dataUri) > VIDEO_FRAME_MAX_BYTES) {
+          throw new Error("Contact sheet frame exceeds the maximum per-frame size");
+        }
+        return sharp(decodeJpegFrameDataUri(frame.dataUri))
           .resize(TILE_SIZE, TILE_SIZE, { fit: "contain", background: "#000000" })
           .composite([{ input: buildTimestampLabel(frame.timestampSeconds), left: 0, top: 0 }])
           .jpeg({ quality: 80 })
-          .toBuffer()
-      )
+          .toBuffer();
+      })
     );
     if (signal.aborted) throw new Error("Video contact sheet was aborted");
     const output = await sharp({
@@ -118,7 +151,7 @@ export async function buildVideoContactSheet(
     if (signal.aborted) throw new Error("Video contact sheet was aborted");
     if (output.byteLength > MAX_SHEET_BYTES) return fallback(frames);
     return {
-      dataUri: `data:image/jpeg;base64,${output.toString("base64")}`,
+      dataUri: `${JPEG_FRAME_DATA_URI_PREFIX}${output.toString("base64")}`,
       frames: frames.map((frame) => ({ ...frame })),
       height: rows * TILE_SIZE,
       timestamps: frames.map((frame) => frame.timestampSeconds),

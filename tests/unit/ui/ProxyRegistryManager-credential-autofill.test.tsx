@@ -1,12 +1,24 @@
 // @vitest-environment jsdom
 import React, { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
 
 const translate = (key: string) => key;
 
+// The registry table is the kit Table since KEA-7886: it measures itself with ResizeObserver
+// (persistent scrollbar), which jsdom lacks.
+beforeAll(() => {
+  globalThis.ResizeObserver ??= class {
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+  } as unknown as typeof ResizeObserver;
+});
+
 vi.mock("next-intl", () => ({
   useTranslations: () => translate,
+  // #14466 / #14807: PoolSchedulesCard and ProxyHealthCell now call useLocale().
+  useLocale: () => "en",
 }));
 
 // Imported STATICALLY on purpose. With a dynamic `await import()` inside each
@@ -37,6 +49,8 @@ const DEAD_PROXY = {
 };
 
 let root: Root;
+// The shared Modal is a kit Dialog (Radix) since KEA-7886: its content is portaled to
+// document.body, so element queries start there (the container is a child of body).
 let container: HTMLDivElement;
 let postBody: Record<string, unknown> | undefined;
 let patchBody: Record<string, unknown> | undefined;
@@ -47,7 +61,7 @@ function jsonResponse(body: unknown): Response {
 }
 
 function findButton(text: string): HTMLButtonElement {
-  const button = Array.from(container.querySelectorAll("button")).find((candidate) =>
+  const button = Array.from(document.body.querySelectorAll("button")).find((candidate) =>
     candidate.textContent?.includes(text)
   );
   if (!button) throw new Error(`Button not found: ${text}`);
@@ -55,7 +69,7 @@ function findButton(text: string): HTMLButtonElement {
 }
 
 function findCredentialInput(label: string): HTMLInputElement {
-  const labelNode = Array.from(container.querySelectorAll("label")).find(
+  const labelNode = Array.from(document.body.querySelectorAll("label")).find(
     (candidate) => candidate.textContent?.trim() === label
   );
   const input = labelNode?.parentElement?.querySelector<HTMLInputElement>("input");
@@ -162,9 +176,17 @@ describe("ProxyRegistryManager credential autofill regression #8855", () => {
 
       setInputValue(editUsername, "edit-user-sentinel");
       setInputValue(editPassword, "edit-password-sentinel");
+<<<<<<< HEAD
       await click(container.querySelector<HTMLButtonElement>('button[aria-label="close"]')!);
       await click(
         container.querySelector<HTMLButtonElement>('[data-testid="proxy-registry-open-create"]')!
+=======
+      await click(document.body.querySelector<HTMLButtonElement>('button[aria-label="close"]')!);
+      await click(
+        document.body.querySelector<HTMLButtonElement>(
+          '[data-testid="proxy-registry-open-create"]'
+        )!
+>>>>>>> upstream/main
       );
 
       const createUsername = findCredentialInput("labelUsername");
@@ -180,11 +202,19 @@ describe("ProxyRegistryManager credential autofill regression #8855", () => {
       }
 
       setInputValue(
+<<<<<<< HEAD
         container.querySelector<HTMLInputElement>('[data-testid="proxy-registry-name-input"]')!,
         "New proxy"
       );
       setInputValue(
         container.querySelector<HTMLInputElement>('[data-testid="proxy-registry-host-input"]')!,
+=======
+        document.body.querySelector<HTMLInputElement>('[data-testid="proxy-registry-name-input"]')!,
+        "New proxy"
+      );
+      setInputValue(
+        document.body.querySelector<HTMLInputElement>('[data-testid="proxy-registry-host-input"]')!,
+>>>>>>> upstream/main
         "proxy.example.test"
       );
       await click(findButton("save"));
@@ -209,7 +239,11 @@ describe("ProxyRegistryManager credential autofill regression #8855", () => {
       await waitFor(() => expect(container.textContent).toContain(DEAD_PROXY.name));
 
       await click(findButton("edit"));
+<<<<<<< HEAD
       const statusSelect = container.querySelector<HTMLSelectElement>(
+=======
+      const statusSelect = document.body.querySelector<HTMLSelectElement>(
+>>>>>>> upstream/main
         '[data-testid="proxy-registry-status-select"]'
       );
       expect(statusSelect).not.toBeNull();
@@ -221,7 +255,11 @@ describe("ProxyRegistryManager credential autofill regression #8855", () => {
       expect(patchBody).toMatchObject({ id: DEAD_PROXY.id, status: "dead" });
 
       await click(findButton("managePool"));
+<<<<<<< HEAD
       const scopeSelect = container.querySelector<HTMLSelectElement>(
+=======
+      const scopeSelect = document.body.querySelector<HTMLSelectElement>(
+>>>>>>> upstream/main
         '[data-testid="proxy-registry-pool-scope"]'
       );
       expect(scopeSelect).not.toBeNull();
@@ -235,6 +273,7 @@ describe("ProxyRegistryManager credential autofill regression #8855", () => {
         scopeSelect.dispatchEvent(new Event("change", { bubbles: true }));
       });
       await click(
+<<<<<<< HEAD
         container.querySelector<HTMLButtonElement>('[data-testid="proxy-registry-pool-load"]')!
       );
       await waitFor(() =>
@@ -244,6 +283,17 @@ describe("ProxyRegistryManager credential autofill regression #8855", () => {
       );
 
       const poolAddSelect = container.querySelector<HTMLSelectElement>(
+=======
+        document.body.querySelector<HTMLButtonElement>('[data-testid="proxy-registry-pool-load"]')!
+      );
+      await waitFor(() =>
+        expect(
+          document.body.querySelector('[data-testid="proxy-registry-pool-add-select"]')
+        ).not.toBeNull()
+      );
+
+      const poolAddSelect = document.body.querySelector<HTMLSelectElement>(
+>>>>>>> upstream/main
         '[data-testid="proxy-registry-pool-add-select"]'
       );
       expect(poolAddSelect?.querySelector(`option[value="${DEAD_PROXY.id}"]`)).toBeNull();

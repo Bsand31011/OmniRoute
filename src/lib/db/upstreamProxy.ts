@@ -5,7 +5,11 @@ import {
   isPrivateHost as isPrivateNetworkHost,
   mappedIpv4Host,
 } from "@/shared/network/outboundUrlGuard";
+<<<<<<< HEAD
 import { ipVersion, normalizeHost } from "@/shared/network/privateHost";
+=======
+import { normalizeHost } from "@/shared/network/privateHost";
+>>>>>>> upstream/main
 
 /** Which embedded proxy handles the retry leg when mode === "fallback". */
 export type FallbackBackend = "cliproxyapi" | "dario";
@@ -45,12 +49,15 @@ function toRecord(value: unknown): Record<string, unknown> {
 
 const LOOPBACK_HOSTNAMES = new Set(["localhost", "127.0.0.1", "::1"]);
 
+<<<<<<< HEAD
 /** IPv4 multicast (224.0.0.0/4) — kept from this module's original rule set. */
 function isMulticastIpv4(host: string): boolean {
   const first = Number.parseInt(host.split(".")[0], 10);
   return ipVersion(host) === 4 && first >= 224 && first <= 239;
 }
 
+=======
+>>>>>>> upstream/main
 /**
  * Reject a proxy target that is private or cloud-metadata, judging the ADDRESS
  * rather than its spelling.
@@ -73,9 +80,13 @@ function isPrivateHost(hostname: string): boolean {
 
   if (LOOPBACK_HOSTNAMES.has(normalized) || LOOPBACK_HOSTNAMES.has(asIpv4)) return false;
 
+<<<<<<< HEAD
   return (
     isCloudMetadataHost(normalized) || isPrivateNetworkHost(normalized) || isMulticastIpv4(asIpv4)
   );
+=======
+  return isCloudMetadataHost(normalized) || isPrivateNetworkHost(normalized);
+>>>>>>> upstream/main
 }
 
 export function validateProxyUrl(
@@ -129,15 +140,6 @@ function rowToConfig(record: Record<string, unknown>): UpstreamProxyConfig {
     updatedAt: record.updated_at as string,
   };
 }
-
-export async function getUpstreamProxyConfigs() {
-  const db = getDbInstance();
-  const rows = db
-    .prepare("SELECT * FROM upstream_proxy_config ORDER BY provider_id")
-    .all() as UpstreamProxyRow[];
-  return rows.map((row) => rowToConfig(toRecord(row)));
-}
-
 export async function getUpstreamProxyConfig(providerId: string) {
   const db = getDbInstance();
   const row = db

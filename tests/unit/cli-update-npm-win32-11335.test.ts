@@ -55,6 +55,7 @@ test("#11335 every npm call in update.mjs routes through the helper", () => {
     'update.mjs must not spawn a literal "npm" — use npmBin()'
   );
 
+<<<<<<< HEAD
   const npmBinCalls = src.match(/npmBin\(\)/g) || [];
   const optionCalls = src.match(/npmExecOptions\(/g) || [];
   assert.equal(
@@ -63,6 +64,25 @@ test("#11335 every npm call in update.mjs routes through the helper", () => {
     "each npmBin() call site must pass npmExecOptions() alongside it"
   );
   assert.ok(npmBinCalls.length >= 2, "both the version and changelog lookups must be covered");
+=======
+  const npmBinCalls = src.match(/npmBin\(/g) || [];
+  // #15327 moved the win32 exec shape into npmExecInvocation(), which is now the only
+  // thing allowed to enable the shell — it hands execFile a joined command line with
+  // an empty argv array, since `shell: true` alongside a non-empty argv array is what
+  // DEP0190 fires on.
+  const invocationCalls = src.match(/npmExecInvocation\(/g) || [];
+  assert.equal(
+    npmBinCalls.length,
+    invocationCalls.length,
+    "each npmBin() call site must go through npmExecInvocation() alongside it"
+  );
+  assert.ok(npmBinCalls.length >= 2, "both the version and changelog lookups must be covered");
+  assert.equal(
+    /npmExecOptions\(/.test(src),
+    false,
+    "update.mjs must not enable the shell itself — npmExecInvocation() owns that shape"
+  );
+>>>>>>> upstream/main
 });
 
 test("#11335 the shell is only enabled where argv is literal (Hard Rule #13)", () => {
@@ -70,11 +90,38 @@ test("#11335 the shell is only enabled where argv is literal (Hard Rule #13)", (
     new URL("../../bin/cli/commands/update.mjs", import.meta.url),
     "utf8"
   );
+<<<<<<< HEAD
   // Both call sites pass a literal argv array; nothing interpolated reaches the
   // shell. If that ever changes, this assertion is the thing that should fail.
   const argvArrays = src.match(/npmBin\(\),\s*\n?\s*\[[^\]]*\]/g) || [];
+=======
+  // Both call sites pass a literal argv array to npmExecInvocation(); nothing
+  // interpolated reaches the shell. If that ever changes, this assertion is the thing
+  // that should fail. npmExecInvocation() additionally refuses to join a token that
+  // is not a literal — covered in cli-npm-exec-dep0190-15327.test.ts.
+  const argvArrays = src.match(/npmExecInvocation\([\s\S]*?\[([^\]]*)\]/g) || [];
+>>>>>>> upstream/main
   assert.ok(argvArrays.length >= 2);
   for (const argv of argvArrays) {
     assert.equal(/\$\{|\+\s*\w|\.\.\./.test(argv), false, `argv must stay literal: ${argv}`);
   }
 });
+<<<<<<< HEAD
+=======
+
+test("CLI updater preserves the supported peer-dependency install mode", () => {
+  const src = fs.readFileSync(
+    new URL("../../bin/cli/commands/update.mjs", import.meta.url),
+    "utf8"
+  );
+
+  assert.match(
+    src,
+    /\[DRY RUN\] Would run: npm install -g omniroute@latest --include=optional --legacy-peer-deps/
+  );
+  assert.match(
+    src,
+    /execSync\("npm install -g omniroute@latest --include=optional --legacy-peer-deps"/
+  );
+});
+>>>>>>> upstream/main

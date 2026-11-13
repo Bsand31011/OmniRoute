@@ -23,7 +23,11 @@ const { recordLearnedReasoningEffort, __test_resetLearnedReasoningEffortCaps } =
 
 async function resetStorage() {
   core.resetDbInstance();
+<<<<<<< HEAD
   fs.rmSync(TEST_DATA_DIR, { recursive: true, force: true });
+=======
+  fs.rmSync(TEST_DATA_DIR, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
+>>>>>>> upstream/main
   fs.mkdirSync(TEST_DATA_DIR, { recursive: true });
 }
 
@@ -46,7 +50,11 @@ test.beforeEach(async () => {
 
 test.after(async () => {
   core.resetDbInstance();
+<<<<<<< HEAD
   fs.rmSync(TEST_DATA_DIR, { recursive: true, force: true });
+=======
+  fs.rmSync(TEST_DATA_DIR, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
+>>>>>>> upstream/main
 });
 
 test("learned set flows end-to-end into /v1/models capabilities and variant entries", async () => {

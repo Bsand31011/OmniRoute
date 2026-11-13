@@ -24,7 +24,11 @@ export async function POST(
   // regardless of whether the session happens to exist, and answering 404 for
   // it (the previous behavior) hides the real cause.
   const validation = validateBody(volcenginePlanCodeSchema, raw);
+<<<<<<< HEAD
   if (!validation.success) {
+=======
+  if (validation.success === false) {
+>>>>>>> upstream/main
     return NextResponse.json(
       { success: false, error: formatValidationMessage(validation.error) },
       { status: 400 }

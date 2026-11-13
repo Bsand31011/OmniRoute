@@ -3,6 +3,12 @@
 import { useCallback, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+<<<<<<< HEAD
+=======
+import { Alert } from "@omniroute/ui-kit/alert";
+import { buttonVariants } from "@omniroute/ui-kit/button";
+import Button from "@/shared/components/Button";
+>>>>>>> upstream/main
 
 const DISMISS_STORAGE_KEY = "omniroute-first-run-readiness-dismissed";
 
@@ -43,7 +49,15 @@ function getServerSnapshot(): boolean {
  */
 export default function FirstRunReadinessCard({ setupComplete }: FirstRunReadinessCardProps) {
   const t = useTranslations("home");
+<<<<<<< HEAD
   const dismissed = useSyncExternalStore(subscribeReadiness, isReadinessDismissed, getServerSnapshot);
+=======
+  const dismissed = useSyncExternalStore(
+    subscribeReadiness,
+    isReadinessDismissed,
+    getServerSnapshot
+  );
+>>>>>>> upstream/main
 
   const dismiss = useCallback(() => {
     try {
@@ -64,6 +78,7 @@ export default function FirstRunReadinessCard({ setupComplete }: FirstRunReadine
   ];
 
   return (
+<<<<<<< HEAD
     <div
       role="region"
       aria-label={t("readinessTitle")}
@@ -84,12 +99,40 @@ export default function FirstRunReadinessCard({ setupComplete }: FirstRunReadine
             {steps.map((label, index) => (
               <li key={label} className="flex items-center gap-2">
                 <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-200/80 dark:bg-blue-400/20 text-xs font-semibold text-blue-800 dark:text-blue-200">
+=======
+    <Alert
+      variant="info"
+      role="region"
+      aria-label={t("readinessTitle")}
+      // The kit close button runs the same persisted dismissal as the "readinessDismiss" action.
+      dismissLabel={t("readinessDismiss")}
+      onDismiss={dismiss}
+      className="mb-4"
+      title={
+        <>
+          <span className="block text-xs font-medium uppercase tracking-wide text-info">
+            {t("readinessEyebrow")}
+          </span>
+          <span className="mt-1 block text-lg font-semibold text-text-main">
+            {t("readinessTitle")}
+          </span>
+        </>
+      }
+      description={
+        <>
+          <p className="text-sm text-text-muted">{t("readinessSubtitle")}</p>
+          <ol className="mt-3 space-y-1.5 text-sm text-text-main">
+            {steps.map((label, index) => (
+              <li key={label} className="flex items-center gap-2">
+                <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-info/15 text-xs font-semibold text-info">
+>>>>>>> upstream/main
                   {index + 1}
                 </span>
                 <span>{label}</span>
               </li>
             ))}
           </ol>
+<<<<<<< HEAD
           <div className="mt-4 flex flex-wrap items-center gap-3">
             <Link
               href="/dashboard/onboarding"
@@ -108,5 +151,20 @@ export default function FirstRunReadinessCard({ setupComplete }: FirstRunReadine
         </div>
       </div>
     </div>
+=======
+        </>
+      }
+      actions={
+        <>
+          <Link href="/dashboard/onboarding" className={buttonVariants({ size: "sm" })}>
+            {t("readinessContinue")}
+          </Link>
+          <Button variant="ghost" size="sm" onClick={dismiss}>
+            {t("readinessDismiss")}
+          </Button>
+        </>
+      }
+    />
+>>>>>>> upstream/main
   );
 }

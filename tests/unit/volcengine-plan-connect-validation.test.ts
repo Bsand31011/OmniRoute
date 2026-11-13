@@ -30,6 +30,7 @@ process.env.DATA_DIR = TEST_DATA_DIR;
 process.env.API_KEY_SECRET = process.env.API_KEY_SECRET || "test-volc-connect-secret";
 
 const core = await import("../../src/lib/db/core.ts");
+<<<<<<< HEAD
 const codeRoute = await import(
   "../../src/app/api/providers/volcengine-plan/connect/[sessionId]/code/route.ts"
 );
@@ -40,6 +41,16 @@ const identityRoute = await import(
 test.after(() => {
   core.resetDbInstance();
   fs.rmSync(TEST_DATA_DIR, { recursive: true, force: true });
+=======
+const codeRoute =
+  await import("../../src/app/api/providers/volcengine-plan/connect/[sessionId]/code/route.ts");
+const identityRoute =
+  await import("../../src/app/api/providers/volcengine-plan/connect/[sessionId]/identity/route.ts");
+
+test.after(() => {
+  core.resetDbInstance();
+  fs.rmSync(TEST_DATA_DIR, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
+>>>>>>> upstream/main
 });
 
 function post(body: unknown): Request {

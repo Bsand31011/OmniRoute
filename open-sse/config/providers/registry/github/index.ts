@@ -1,9 +1,5 @@
 import type { RegistryEntry } from "../../shared.ts";
-import {
-  GPT_5_5_CODEX_CAPABILITIES,
-  getGitHubCopilotChatHeaders,
-  resolvePublicCred,
-} from "../../shared.ts";
+import { getGitHubCopilotChatHeaders, resolvePublicCred } from "../../shared.ts";
 
 export const githubProvider: RegistryEntry = {
   id: "github",
@@ -35,13 +31,73 @@ export const githubProvider: RegistryEntry = {
   // sees it, and the github executor's buildUrl()/buildHeaders() route them at
   // messagesUrl (/v1/messages) instead of /chat/completions. Port of
   // decolua/9router#2608 (author: yidecode) — see executors/github.ts.
+  // Limits and capabilities verified against Copilot /models on 2026-09-05.
+  // Grok 4.6 was absent; its existing metadata is retained.
   models: [
     {
-      id: "claude-fable-5",
-      name: "Claude Fable 5",
+      id: "gpt-6-astra",
+      name: "GPT-6 Astra",
+      targetFormat: "openai-responses",
+      contextLength: 1000000,
+      maxInputTokens: 872000,
+      maxOutputTokens: 128000,
+      toolCalling: true,
+      supportsVision: true,
+      supportsReasoning: true,
+      supportsXHighEffort: true,
+      supportedThinkingEfforts: ["low", "medium", "high", "xhigh", "max"],
+    },
+    {
+      id: "gpt-5.6-sol",
+      name: "GPT-5.6 Sol",
+      targetFormat: "openai-responses",
+      maxOutputTokens: 128000,
+      contextLength: 1050000,
+      maxInputTokens: 922000,
+      toolCalling: true,
+      supportsVision: true,
+      supportsReasoning: true,
+      supportsXHighEffort: true,
+      supportedThinkingEfforts: ["none", "low", "medium", "high", "xhigh", "max"],
+    },
+    {
+      id: "gpt-5.6-terra",
+      name: "GPT-5.6 Terra",
+      targetFormat: "openai-responses",
+      maxOutputTokens: 128000,
+      contextLength: 1050000,
+      maxInputTokens: 922000,
+      toolCalling: true,
+      supportsVision: true,
+      supportsReasoning: true,
+      supportsXHighEffort: true,
+      supportedThinkingEfforts: ["none", "low", "medium", "high", "xhigh", "max"],
+    },
+    {
+      id: "gpt-5.6-luna",
+      name: "GPT-5.6 Luna",
+      targetFormat: "openai-responses",
+      maxOutputTokens: 128000,
+      contextLength: 1050000,
+      maxInputTokens: 922000,
+      toolCalling: true,
+      supportsVision: true,
+      supportsReasoning: true,
+      supportsXHighEffort: true,
+      supportedThinkingEfforts: ["none", "low", "medium", "high", "xhigh", "max"],
+    },
+    {
+      id: "claude-fable-5.1",
+      name: "Claude Fable 5.1",
       targetFormat: "claude",
       contextLength: 1000000,
       maxOutputTokens: 64000,
+      maxInputTokens: 936000,
+      toolCalling: true,
+      supportsVision: true,
+      supportsReasoning: true,
+      supportsXHighEffort: true,
+      supportedThinkingEfforts: ["low", "medium", "high", "xhigh", "max"],
     },
     {
       id: "claude-opus-5",
@@ -50,6 +106,33 @@ export const githubProvider: RegistryEntry = {
       contextLength: 1000000,
       maxOutputTokens: 64000,
       unsupportedParams: ["temperature", "top_p", "top_k"],
+      maxInputTokens: 936000,
+      toolCalling: true,
+      supportsVision: true,
+      supportsReasoning: true,
+      supportsXHighEffort: true,
+      supportedThinkingEfforts: ["low", "medium", "high", "xhigh", "max"],
+    },
+    {
+      id: "claude-sonnet-5",
+      name: "Claude Sonnet 5",
+      targetFormat: "claude",
+      contextLength: 1000000,
+      maxOutputTokens: 64000,
+      maxInputTokens: 936000,
+      toolCalling: true,
+      supportsVision: true,
+      supportsReasoning: true,
+      supportsXHighEffort: true,
+      supportedThinkingEfforts: ["low", "medium", "high", "xhigh", "max"],
+    },
+    {
+      id: "claude-sonnet-5-5",
+      name: "Claude Sonnet 5.5",
+      targetFormat: "claude",
+      contextLength: 1000000,
+      maxOutputTokens: 128000,
+      supportedThinkingEfforts: ["low", "medium", "high", "xhigh"],
     },
     {
       id: "claude-opus-4.8-fast",
@@ -58,6 +141,12 @@ export const githubProvider: RegistryEntry = {
       contextLength: 1000000,
       maxOutputTokens: 64000,
       unsupportedParams: ["temperature", "top_p", "top_k"],
+      maxInputTokens: 936000,
+      toolCalling: true,
+      supportsVision: true,
+      supportsReasoning: true,
+      supportsXHighEffort: true,
+      supportedThinkingEfforts: ["low", "medium", "high", "xhigh", "max"],
     },
     {
       id: "claude-opus-4.8",
@@ -66,6 +155,7 @@ export const githubProvider: RegistryEntry = {
       contextLength: 1000000,
       maxOutputTokens: 64000,
       unsupportedParams: ["temperature", "top_p", "top_k"],
+<<<<<<< HEAD
     },
     {
       id: "claude-opus-4.7",
@@ -108,28 +198,40 @@ export const githubProvider: RegistryEntry = {
       targetFormat: "claude",
       contextLength: 200000,
       maxOutputTokens: 32000,
+=======
+      maxInputTokens: 936000,
+      toolCalling: true,
+      supportsVision: true,
+      supportsReasoning: true,
+      supportsXHighEffort: true,
+      supportedThinkingEfforts: ["low", "medium", "high", "xhigh", "max"],
+>>>>>>> upstream/main
     },
     {
       id: "claude-haiku-4.5",
       name: "Claude Haiku 4.5",
       targetFormat: "claude",
-      contextLength: 200000,
+      contextLength: 144000,
       maxOutputTokens: 32000,
-    },
-    // #2911: Gemini on Copilot must use chat/completions, not the Responses API.
-    {
-      id: "gemini-3.1-pro-preview",
-      name: "Gemini 3.1 Pro",
-      contextLength: 1000000,
-      maxOutputTokens: 64000,
+      maxInputTokens: 128000,
+      toolCalling: true,
+      supportsVision: true,
+      supportsReasoning: true,
     },
     {
-      id: "gemini-3.7-flash",
-      name: "Gemini 3.7 Flash",
-      contextLength: 1000000,
-      maxOutputTokens: 64000,
+      id: "gemini-3.8-flash",
+      name: "Gemini 3.8 Flash",
+      contextLength: 1048576,
+      maxOutputTokens: 65536,
+      targetFormat: "openai",
+      maxInputTokens: 983040,
+      toolCalling: true,
+      supportsVision: true,
+      supportsReasoning: true,
+      supportedThinkingEfforts: ["low", "medium", "high"],
     },
     {
+<<<<<<< HEAD
       id: "gemini-3.6-flash",
       name: "Gemini 3.6 Flash",
       contextLength: 1000000,
@@ -218,9 +320,18 @@ export const githubProvider: RegistryEntry = {
     {
       id: "mai-code-1-flash",
       name: "MAI-Code-1-Flash",
+=======
+      id: "mai-code-1.1-flash",
+      name: "MAI-Code-1.1-Flash",
+>>>>>>> upstream/main
       targetFormat: "openai-responses",
       contextLength: 256000,
       maxOutputTokens: 128000,
+      maxInputTokens: 128000,
+      toolCalling: true,
+      supportsVision: true,
+      supportsReasoning: true,
+      supportedThinkingEfforts: ["low", "medium", "high"],
     },
     // MAI (Microsoft AI) — /responses-only on Copilot (400 on /chat/completions).
     {
@@ -255,11 +366,27 @@ export const githubProvider: RegistryEntry = {
       maxOutputTokens: 128000,
     },
     {
-      id: "oswe-vscode-prime",
-      name: "Raptor mini",
-      targetFormat: "openai-responses",
-      contextLength: 264000,
-      maxOutputTokens: 64000,
+      id: "kimi-k3",
+      name: "Kimi K3",
+      targetFormat: "openai",
+      contextLength: 1048576,
+      maxInputTokens: 917504,
+      maxOutputTokens: 131072,
+      toolCalling: true,
+      supportsVision: true,
+      supportsReasoning: true,
+      supportedThinkingEfforts: ["low", "high", "max"],
     },
+    {
+      id: "grok-4.6",
+      name: "Grok 4.6",
+      targetFormat: "openai-responses",
+      contextLength: 500000,
+      maxOutputTokens: 128000,
+    },
+    // Copilot-side model selection (required for Copilot Free): chatCore resolves
+    // `auto` to a concrete model via POST /auto before routing — see
+    // handlers/chatCore/copilotAutoModel.ts. Vision is decided per request.
+    { id: "auto", name: "Auto", toolCalling: true },
   ],
 };

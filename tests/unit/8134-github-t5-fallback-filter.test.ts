@@ -19,14 +19,21 @@ const { getNextFamilyFallback } = await import("../../open-sse/services/modelFam
 // under ANY notation (hyphen, dot, or a dated-snapshot id with the date
 // suffix stripped) instead of returning it unfiltered.
 //
+<<<<<<< HEAD
 // Fixture note: #10952 later added claude-opus-4.6 to the github registry, so
 // the provably-absent tier used by the fixture moved to claude-opus-4-6-thinking
 // (the ladder's first candidate after 4.6 — still absent from the catalog).
 
 test("#8134: github claude-opus fallback chain never returns an unsupported tier (claude-opus-4-6-thinking)", () => {
+=======
+// The curated catalog retired Opus 4.7/4.6/4.5. The ladder must now skip
+// those tiers and land on the still-supported Sonnet 5.
+test("#8134: github fallback skips retired Opus tiers and reaches Sonnet 5", () => {
+>>>>>>> upstream/main
   const github = getRegistryEntry("github");
-  assert.ok(github, "expected the github registry entry to resolve");
+  assert.ok(github);
   const githubIds = new Set(github.models.map((m) => m.id));
+<<<<<<< HEAD
   // Fixture assumption: #10952 added claude-opus-4.6 to the github registry, so
   // the original absent-tier role moved to the 4.6-thinking variant, which the
   // catalog still does NOT carry under any notation.
@@ -58,6 +65,22 @@ test("#8134: github claude-opus fallback chain never returns an unsupported tier
   // The skip specifically fired: the 4.6 -> next hop jumped past the absent
   // 4-6-thinking tier straight to a catalogued model.
   assert.equal(hops[2].replace(/^github\//, ""), "claude-opus-4.5");
+=======
+  for (const id of [
+    "claude-opus-4.7",
+    "claude-opus-4.6",
+    "claude-opus-4.5",
+    "claude-opus-4-6-thinking",
+  ]) {
+    assert.equal(githubIds.has(id), false);
+  }
+  const current = "github/claude-opus-4.8";
+  const tried = new Set([current]);
+  const next = getNextFamilyFallback(current, tried);
+  assert.equal(next, "github/claude-sonnet-5");
+  tried.add(next!);
+  assert.equal(getNextFamilyFallback(next!, tried), null);
+>>>>>>> upstream/main
 });
 
 test("#8134: getNextFamilyFallback never returns a candidate absent from the resolved provider's catalog", () => {

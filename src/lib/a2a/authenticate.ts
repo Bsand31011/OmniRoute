@@ -11,6 +11,10 @@
 import { createHash, timingSafeEqual } from "crypto";
 import type { NextRequest } from "next/server";
 import { extractApiKey, isValidApiKey } from "@/sse/services/auth";
+<<<<<<< HEAD
+=======
+import { isDashboardSessionAuthenticated } from "@/shared/utils/apiAuth";
+>>>>>>> upstream/main
 import { isRequireApiKeyEnabled } from "@/shared/utils/featureFlags";
 
 function tokensMatch(provided: string, expected: string): boolean {
@@ -29,12 +33,25 @@ function tokensMatch(provided: string, expected: string): boolean {
 export async function authenticateA2ARequest(req: NextRequest | Request): Promise<boolean> {
   const apiKey = extractApiKey(req as NextRequest);
   if (isRequireApiKeyEnabled()) {
+<<<<<<< HEAD
     return apiKey ? await isValidApiKey(apiKey) : false;
+=======
+    if (apiKey) return isValidApiKey(apiKey);
+    // #12888: mirror clientApiPolicy's dashboard-session fallback so the
+    // dashboard's own A2A playground (no Authorization header, session
+    // cookie only) is accepted the same way /api/v1/* already accepts it.
+    return isDashboardSessionAuthenticated(req);
+>>>>>>> upstream/main
   }
 
   const configuredKey = process.env.OMNIROUTE_API_KEY;
   if (configuredKey) {
+<<<<<<< HEAD
     return apiKey ? tokensMatch(apiKey, configuredKey) : false;
+=======
+    if (apiKey) return tokensMatch(apiKey, configuredKey);
+    return isDashboardSessionAuthenticated(req);
+>>>>>>> upstream/main
   }
 
   // No API key required and none configured — allow (keyless local-first).
@@ -43,6 +60,7 @@ export async function authenticateA2ARequest(req: NextRequest | Request): Promis
 
 /**
  * Owner id for task scoping (GHSA-jcm5-6wpp-wjj8): a stable hash of the
+<<<<<<< HEAD
  * caller's API key, or `undefined` when the call carries no key (keyless
  * posture — ownerless tasks stay visible to everyone, by design).
  */
@@ -50,4 +68,17 @@ export function resolveA2AOwner(req: NextRequest | Request): string | undefined 
   const apiKey = extractApiKey(req as NextRequest);
   if (!apiKey) return undefined;
   return createHash("sha256").update(apiKey).digest("hex").slice(0, 32);
+=======
+ * caller's API key, `"dashboard"` for a session-authenticated caller with no
+ * API key (#12888 — keeps dashboard-originated tasks scoped consistently
+ * instead of falling into the ownerless keyless bucket), or `undefined` when
+ * the call carries neither (keyless posture — ownerless tasks stay visible to
+ * everyone, by design).
+ */
+export async function resolveA2AOwner(req: NextRequest | Request): Promise<string | undefined> {
+  const apiKey = extractApiKey(req as NextRequest);
+  if (apiKey) return createHash("sha256").update(apiKey).digest("hex").slice(0, 32);
+  if (await isDashboardSessionAuthenticated(req)) return "dashboard";
+  return undefined;
+>>>>>>> upstream/main
 }

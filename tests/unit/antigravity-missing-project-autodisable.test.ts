@@ -27,6 +27,7 @@ process.env.API_KEY_SECRET = process.env.API_KEY_SECRET || "ag-11284-test-secret
 
 const core = await import("../../src/lib/db/core.ts");
 const providersDb = await import("../../src/lib/db/providers.ts");
+<<<<<<< HEAD
 const {
   markAntigravityMissingCloudCodeProject,
   persistDiscoveredAntigravityProjectId,
@@ -35,6 +36,14 @@ const {
 async function resetStorage() {
   core.resetDbInstance();
   fs.rmSync(TEST_DATA_DIR, { recursive: true, force: true });
+=======
+const { markAntigravityMissingCloudCodeProject, persistDiscoveredAntigravityProjectId } =
+  await import("../../open-sse/services/antigravityProjectPersistence.ts");
+
+async function resetStorage() {
+  core.resetDbInstance();
+  fs.rmSync(TEST_DATA_DIR, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
+>>>>>>> upstream/main
   fs.mkdirSync(TEST_DATA_DIR, { recursive: true });
 }
 

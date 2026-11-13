@@ -62,7 +62,14 @@ test("merge path keeps vision AND applies the learned override", () => {
 // Exclusion gate (#7694): codex/glm/kimi already own a conflicting
 // `-{effort}` suffix mechanism — the blind opencode-plugin mapping must never
 // see effort_tiers for them, learned or synced, or it double-handles the suffix.
+<<<<<<< HEAD
 for (const ownedBy of ["codex", "glm", "glm-cn", "glmt", "kimi", "kimi-coding-apikey"]) {
+=======
+// #12299 exempts only Kimi K3's BASE model entries (asserted in
+// tests/unit/kimi-k3-effort-tiers-12299.test.ts) — non-K3 kimi models such as
+// "excluded-model" below stay excluded alongside codex/glm.
+for (const ownedBy of ["glm", "glm-cn", "glmt", "kimi", "kimi-coding-apikey"]) {
+>>>>>>> upstream/main
   test(`build: excluded provider "${ownedBy}" never gets effort_tiers (synced)`, () => {
     const caps = buildSyncedCapabilities(
       { id: "excluded-model", supportedThinkingEfforts: SYNC_TIERS },
@@ -86,7 +93,11 @@ test("excluded provider still gets vision through buildSyncedCapabilities", () =
   assert.deepEqual(caps, { vision: true });
 });
 
+<<<<<<< HEAD
 test("merge path also excludes codex/glm/kimi from effort_tiers", () => {
+=======
+test("merge path also excludes glm/kimi from effort_tiers", () => {
+>>>>>>> upstream/main
   recordLearnedReasoningEffort("conn-glm", "glm-model", ["low", "max"]);
   const merged = mergeSyncedCapabilities(
     { tool_calling: true },

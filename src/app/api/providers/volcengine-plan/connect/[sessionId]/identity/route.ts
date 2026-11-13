@@ -21,7 +21,11 @@ export async function POST(
   const raw = await request.json().catch(() => ({}));
   // Validate BEFORE the session lookup — see the sibling code/route.ts note.
   const validation = validateBody(volcenginePlanIdentitySchema, raw);
+<<<<<<< HEAD
   if (!validation.success) {
+=======
+  if (validation.success === false) {
+>>>>>>> upstream/main
     return NextResponse.json(
       { success: false, error: formatValidationMessage(validation.error) },
       { status: 400 }
