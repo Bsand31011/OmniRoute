@@ -14,6 +14,13 @@
   },
   "overrides": {
     "dompurify": "3.4.17",
-    "katex": "0.19.1"
+    "katex": "0.19.1",
+    "@openai/codex-security": {
+      "zod": "4.6.7"
+    },
+    "promptfoo": {
+      "@azure/msal-node": "7.2.2"
+    },
+    "basic-ftp": "6.2.6"
   }
 }
