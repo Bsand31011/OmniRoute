@@ -241,33 +241,6 @@ export default function ModalityBridgeVideoTab({
           description={t("modalityBridgeVideoEnabledDesc")}
         />
 
-<<<<<<< HEAD
-        <label className="block text-sm font-medium">
-          {t("modalityBridgeMode")}
-          <select
-            data-testid="modality-bridge-video-analysis-mode"
-            aria-describedby="modality-bridge-video-analysis-mode-description"
-            value={settings.modalityBridgeVideoAnalysisMode}
-            onChange={(event) =>
-              void update({
-                modalityBridgeVideoAnalysisMode: event.currentTarget.value as VideoAnalysisMode,
-              })
-            }
-            className="mt-1 w-full rounded-control border border-border bg-surface px-3 py-2 text-sm"
-          >
-            <option value="full">{tRoot("health.degradationFull")}</option>
-            <option value="focused">{t("modalityBridgeTaskAware")}</option>
-          </select>
-          <span
-            id="modality-bridge-video-analysis-mode-description"
-            className="mt-1 block text-xs font-normal text-text-muted"
-          >
-            {settings.modalityBridgeVideoAnalysisMode === "focused"
-              ? t("modalityBridgeTaskAwareDesc")
-              : t("modalityBridgeVideoDesc")}
-          </span>
-        </label>
-=======
         <Select
           id="modality-bridge-video-analysis-mode"
           data-testid="modality-bridge-video-analysis-mode"
@@ -287,7 +260,6 @@ export default function ModalityBridgeVideoTab({
           <option value="full">{tRoot("health.degradationFull")}</option>
           <option value="focused">{t("modalityBridgeTaskAware")}</option>
         </Select>
->>>>>>> upstream/main
 
         <ModelSelectField
           label={t("modalityBridgeVideoModel")}

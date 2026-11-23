@@ -265,20 +265,6 @@ Three build args control what the `builder` stage costs. They are build-time onl
 
 | Build arg                   | Default | Effect                                                                              |
 | --------------------------- | ------- | ----------------------------------------------------------------------------------- |
-<<<<<<< HEAD
-| `OMNIROUTE_USE_TURBOPACK`   | `1`     | `0` builds with webpack instead. Lower peak memory, slower.                         |
-| `OMNIROUTE_BUILD_MEMORY_MB` | `6144`  | V8 heap ceiling (`--max-old-space-size`) for the spawned `next build`.              |
-| `OMNIROUTE_BUILD_WORKERS`   | `3`     | Feeds `CIRCLE_NODE_TOTAL`; Next derives `workers = N - 1` for page-data collection. |
-
-`OMNIROUTE_BUILD_WORKERS` is the one to raise on a big builder and the one to
-suspect when a constrained build dies **after** `✓ Compiled successfully`. Each
-page-data worker is its own process and inherits `NODE_OPTIONS`, so the heap
-ceiling is per process, not per build: the default of `3` (→ 2 workers) is sized
-for the 16 GB / 4 vCPU GitHub-hosted runners the publish pipeline uses. At `8`
-(→ 7 workers) that runner ran out of memory and buildkit failed the step with
-`ResourceExhausted: ... cannot allocate memory`. `tests/unit/docker-build-memory-budget.test.ts`
-does the arithmetic and fails if either knob outgrows the runner.
-=======
 | `OMNIROUTE_USE_TURBOPACK`   | `0`     | `0` builds with webpack: lower peak memory, slower. `1` opts into Turbopack.        |
 | `OMNIROUTE_BUILD_MEMORY_MB` | `6144`  | V8 heap ceiling (`--max-old-space-size`) for the spawned `next build`.              |
 | `OMNIROUTE_BUILD_WORKERS`   | `2`     | Feeds `CIRCLE_NODE_TOTAL`; Next derives `workers = N - 1` for page-data collection. |
@@ -296,7 +282,6 @@ buildkit failed the step with `ResourceExhausted: ... cannot allocate memory`;
 directly instead of inferred. `tests/unit/docker-build-memory-budget.test.ts`
 does the arithmetic against the measured figure and fails if either knob
 outgrows the runner.
->>>>>>> upstream/main
 
 Turbopack compiles in native Rust memory that lives **outside** the V8 heap, so
 `OMNIROUTE_BUILD_MEMORY_MB` does not bound it. On a host with a memory ceiling the
@@ -364,21 +349,6 @@ docker run -d --name omniroute --restart unless-stopped --stop-timeout 40 \
 
 Beyond the defaults documented in [ENVIRONMENT.md](../reference/ENVIRONMENT.md), the following variables matter most when running under Docker:
 
-<<<<<<< HEAD
-| Variable                      | Purpose                                                                                                                                                                    | Default                  |
-| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
-| `OMNIROUTE_WS_BRIDGE_SECRET`  | Shared secret for the WebSocket bridge. **Required in production** — set to a strong random string.                                                                        | unset (must be provided) |
-| `REDIS_URL`                   | Connection string for the rate limiter / cache backend                                                                                                                     | `redis://redis:6379`     |
-| `REDIS_PORT`                  | Host-side port for the bundled Redis container                                                                                                                             | `6379`                   |
-| `REDIS_BIND_HOST`             | Host interface the bundled Redis port is published on (loopback unless you add AUTH)                                                                                       | `127.0.0.1`              |
-| `AUTO_UPDATE_HOST_REPO_DIR`   | Host path mounted into `cli` profile at `/workspace/omniroute` for self-update workflows                                                                                   | `.` (current directory)  |
-| `OMNIROUTE_MEMORY_MB`         | Runtime Node heap ceiling for the Docker standalone server; overrides the image default above. Coding agents: `8192`+ (see [runtime RAM](#runtime-ram-for-coding-agents)). | `1024`                   |
-| `DASHBOARD_PORT` / `API_PORT` | Override exposed ports for dashboard (20128) and API (20129)                                                                                                               | `20128` / `20129`        |
-| `OMNIROUTE_BASE_PATH`         | URL subpath when the app is published behind a reverse proxy (e.g. `/omniroute`)                                                                                           | _(empty = root)_         |
-| `NEXT_PUBLIC_BASE_URL`        | Public browser origin including the subpath (e.g. `https://host/omniroute`)                                                                                                | unset                    |
-| `PROD_DASHBOARD_PORT`         | Host-side dashboard port for `docker-compose.prod.yml`                                                                                                                     | `20130`                  |
-| `CLIPROXYAPI_PORT`            | Host-side port for the `cliproxyapi` sidecar                                                                                                                               | `8317`                   |
-=======
 | Variable                      | Purpose                                                                                                                                                                                                                                              | Default                  |
 | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
 | `OMNIROUTE_WS_BRIDGE_SECRET`  | Shared secret for the WebSocket bridge. **Required in production** — set to a strong random string.                                                                                                                                                  | unset (must be provided) |
@@ -395,7 +365,6 @@ Beyond the defaults documented in [ENVIRONMENT.md](../reference/ENVIRONMENT.md),
 | `NEXT_PUBLIC_BASE_URL`        | Public browser origin including the subpath (e.g. `https://host/omniroute`)                                                                                                                                                                          | unset                    |
 | `PROD_DASHBOARD_PORT`         | Host-side dashboard port for `docker-compose.prod.yml`                                                                                                                                                                                               | `20130`                  |
 | `CLIPROXYAPI_PORT`            | Host-side port for the `cliproxyapi` sidecar                                                                                                                                                                                                         | `8317`                   |
->>>>>>> upstream/main
 
 ## Reverse Proxy on a Subpath (Traefik / nginx)
 
@@ -544,8 +513,6 @@ OmniRoute publishes separate Docker channels for stable releases, active release
 | `:latest` / `:latest-web`       | Highest **published** stable SemVer | Mutable stable pointer      | Follows stable releases **after** a SemVer publish job — does **not** track `main` or unreleased `release/v*` commits |
 | `:next` / `:next-web`           | Current default `release/v*` branch | Mutable pre-release pointer | Testing fixes that have landed on the active release branch but are not yet in a stable release                       |
 | `:main` / `:main-web`           | `main` branch                       | Mutable development pointer | Development and integration testing only                                                                              |
-<<<<<<< HEAD
-=======
 
 #### Web-session providers: the `-web` images
 
@@ -559,7 +526,6 @@ The failure is deferred, not startup-time: those providers list their models and
 ```
 
 If you use those providers, pull the `-web` tag of the channel you are already on — nothing else changes. On an npm/CLI install (no Docker image), the equivalent missing piece is the browser binary: run `npx playwright install chromium` on the host.
->>>>>>> upstream/main
 
 #### Using the pre-release channel
 
@@ -609,8 +575,6 @@ A release-branch build can never move `latest`; only an eligible stable semantic
 | Follow published stables and accept a recreate on each release | `:latest`                          |
 | Test unreleased `release/v*` commits                           | `:next` (not production)           |
 | Test `main`                                                    | `:main` (not production)           |
-<<<<<<< HEAD
-=======
 
 ## Dashboard updates in Docker
 
@@ -682,7 +646,6 @@ sudo systemctl enable --now omniroute-update.path
 
 The service removes the request before pulling so a failed run does not loop. Without
 `DOCKER_UPDATE_TRIGGER_FILE` the dashboard keeps the manual command flow.
->>>>>>> upstream/main
 
 ## Availability: default SQLite is single-replica
 
@@ -749,15 +712,6 @@ token. On instances that only consume synchronized credentials, set
 single rotation owner. Each process still needs its own `DATA_DIR`; this option
 neither shares SQLite nor supplies token synchronization or a distributed lock.
 
-<<<<<<< HEAD
-| Do                                                                                           | Do not                                               |
-| -------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| Run **N containers/pods**, each with its **own** `DATA_DIR` / volume                         | Set `replicas > 1` against one SQLite file           |
-| Keep each instance at 1–2 heavy in-flight and 12–16 Gi cgroup                                | Give one process 8× RAM and `max=8`                  |
-| Optional: `QUOTA_STORE_DRIVER=redis` + `QUOTA_STORE_REDIS_URL` for **shared quota counters** | Treat Redis as shared SQLite — it is not             |
-| Duplicate provider secrets into each instance (or accept partitioned dashboards)             | Expect one dashboard / one call-log across instances |
-| Front with any load balancer; sticky by API key or session is enough                         | Require a vendor-specific size-aware middleware      |
-=======
 The passive instance rereads the connection when a refresh is needed and adopts
 only a different, unexpired access token. Otherwise refresh is disabled without
 expiring or deactivating the connection or counting a refresh-breaker failure.
@@ -768,7 +722,6 @@ permanent. Synchronize the owner's rotated tokens before access tokens expire
 file. Passive imports store the supplied tokens without validating them at the
 token endpoint. Manual dashboard/API refresh returns `409 refresh_disabled`;
 new OAuth logins are unchanged. See [environment reference](../reference/ENVIRONMENT.md#passive-codex-token-refresh).
->>>>>>> upstream/main
 
 One Node process is **one V8 heap**. Two overlapping ~3 MiB / ~750k-token coding-agent `POST /v1/responses` (RTK + Caveman) abort that heap at ~12 Gi (`FATAL ERROR: Reached heap limit`) and can OOM a 16 Gi cgroup. See [#7849](https://github.com/diegosouzapw/OmniRoute/issues/7849). That measurement is a **memory-budget** warning, not a product hard-max of two concurrent long `/v1/responses`. Heavyweight chat admission is gated by an auto-derived ingest byte budget (`OMNIROUTE_CHAT_MAX_INFLIGHT_BYTES`, `src/shared/middleware/admissionBudget.ts`) sized from that same V8/cgroup ceiling — overriding it upward (or setting the legacy `OMNIROUTE_CHAT_MAX_HEAVY_IN_FLIGHT` request-count cap) on an already-sized process reintroduces the abort. Small chats, `/healthz`, `/v1/models`, and MCP are **not** in that cap.
 

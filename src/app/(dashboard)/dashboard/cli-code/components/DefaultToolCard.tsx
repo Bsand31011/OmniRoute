@@ -5,11 +5,8 @@ import type { CSSProperties } from "react";
 import Icon from "@/shared/components/Icon";
 import { Spinner } from "@/shared/components/Loading";
 import { Card, Button, ModelSelectModal } from "@/shared/components";
-<<<<<<< HEAD
-=======
 import Input from "@/shared/components/Input";
 import Select from "@/shared/components/Select";
->>>>>>> upstream/main
 import { useTranslations } from "next-intl";
 import { copyToClipboard } from "@/shared/utils/clipboard";
 import { buildOpenCodeConfigDocument } from "@/shared/services/opencodeConfig";

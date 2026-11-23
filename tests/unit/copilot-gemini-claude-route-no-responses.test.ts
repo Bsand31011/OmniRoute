@@ -52,11 +52,7 @@ describe("GithubExecutor — Gemini/Claude must never hit /responses (port 9rout
 
   it("routes registered Gemini Copilot models to chat/completions", () => {
     const exec = new GithubExecutor();
-<<<<<<< HEAD
-    for (const id of ["gemini-3.1-pro-preview", "gemini-3.7-flash"]) {
-=======
     for (const id of ["gemini-3.8-flash"]) {
->>>>>>> upstream/main
       assert.equal(exec.buildUrl(id, false), CHAT_URL, `${id} must route to chat/completions`);
     }
   });
@@ -75,13 +71,8 @@ describe("GithubExecutor — Gemini/Claude must never hit /responses (port 9rout
       claude.targetFormat = "openai-responses";
       gemini.targetFormat = "openai-responses";
 
-<<<<<<< HEAD
-      assert.equal(exec.buildUrl("claude-sonnet-4.6", false), MESSAGES_URL);
-      assert.equal(exec.buildUrl("gemini-3.1-pro-preview", false), CHAT_URL);
-=======
       assert.equal(exec.buildUrl("claude-sonnet-5", false), MESSAGES_URL);
       assert.equal(exec.buildUrl("gemini-3.8-flash", false), CHAT_URL);
->>>>>>> upstream/main
     } finally {
       claude.targetFormat = originalClaude;
       gemini.targetFormat = originalGemini;
@@ -110,11 +101,7 @@ describe("GithubExecutor — Gemini/Claude must never hit /responses (port 9rout
       claude.targetFormat = "openai-responses";
       // Even wrongly tagged, a claude-* id resolves to the native shim (the
       // name match is case-insensitive), never /responses.
-<<<<<<< HEAD
-      assert.equal(exec.buildUrl("claude-sonnet-4.6", false), MESSAGES_URL);
-=======
       assert.equal(exec.buildUrl("claude-sonnet-5", false), MESSAGES_URL);
->>>>>>> upstream/main
     } finally {
       claude.targetFormat = original;
     }

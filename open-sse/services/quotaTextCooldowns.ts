@@ -125,11 +125,6 @@ export function isWeeklyUsageLimitText(lower: string): boolean {
 
 const MAX_WEEKLY_QUOTA_COOLDOWN_MS = 30 * 24 * 60 * 60 * 1000;
 
-<<<<<<< HEAD
-export function buildWeeklyQuotaFallback(errorStr: string): QuotaTextFallback | null {
-  if (!isWeeklyUsageLimitText(errorStr.toLowerCase())) return null;
-  const parsedResetMs = parseDayGranularityResetMs(errorStr, MAX_WEEKLY_QUOTA_COOLDOWN_MS);
-=======
 export function buildWeeklyQuotaFallback(
   errorStr: string,
   nowMs: number = Date.now(),
@@ -142,7 +137,6 @@ export function buildWeeklyQuotaFallback(
     nowMs,
     provider
   );
->>>>>>> upstream/main
   const cooldownMs =
     typeof parsedResetMs === "number" && parsedResetMs > 0
       ? parsedResetMs
@@ -152,12 +146,8 @@ export function buildWeeklyQuotaFallback(
     cooldownMs,
     reason: RateLimitReason.QUOTA_EXHAUSTED,
     usedUpstreamRetryHint: typeof parsedResetMs === "number" && parsedResetMs > 0,
-<<<<<<< HEAD
-    quotaResetHintMs: typeof parsedResetMs === "number" && parsedResetMs > 0 ? parsedResetMs : undefined,
-=======
     quotaResetHintMs:
       typeof parsedResetMs === "number" && parsedResetMs > 0 ? parsedResetMs : undefined,
->>>>>>> upstream/main
   };
 }
 

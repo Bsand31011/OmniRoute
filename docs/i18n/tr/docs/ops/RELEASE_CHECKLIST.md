@@ -4,15 +4,6 @@ version: 3.8.50
 lastUpdated: 2026-08-23
 ---
 
-<<<<<<< HEAD
-# Sürüm Kontrol Listesi (Türkçe)
-
-🌐 **Languages:** 🇺🇸 [English](../../../../docs/ops/RELEASE_CHECKLIST.md) · 🇸🇦 [ar](../../ar/docs/ops/RELEASE_CHECKLIST.md) · 🇧🇬 [bg](../../bg/docs/ops/RELEASE_CHECKLIST.md) · 🇧🇩 [bn](../../bn/docs/ops/RELEASE_CHECKLIST.md) · 🇨🇿 [cs](../../cs/docs/ops/RELEASE_CHECKLIST.md) · 🇩🇰 [da](../../da/docs/ops/RELEASE_CHECKLIST.md) · 🇩🇪 [de](../../de/docs/ops/RELEASE_CHECKLIST.md) · 🇪🇸 [es](../../es/docs/ops/RELEASE_CHECKLIST.md) · 🇮🇷 [fa](../../fa/docs/ops/RELEASE_CHECKLIST.md) · 🇫🇮 [fi](../../fi/docs/ops/RELEASE_CHECKLIST.md) · 🇫🇷 [fr](../../fr/docs/ops/RELEASE_CHECKLIST.md) · 🇮🇳 [gu](../../gu/docs/ops/RELEASE_CHECKLIST.md) · 🇮🇱 [he](../../he/docs/ops/RELEASE_CHECKLIST.md) · 🇮🇳 [hi](../../hi/docs/ops/RELEASE_CHECKLIST.md) · 🇭🇺 [hu](../../hu/docs/ops/RELEASE_CHECKLIST.md) · 🇮🇩 [id](../../id/docs/ops/RELEASE_CHECKLIST.md) · 🇮🇹 [it](../../it/docs/ops/RELEASE_CHECKLIST.md) · 🇯🇵 [ja](../../ja/docs/ops/RELEASE_CHECKLIST.md) · 🇰🇷 [ko](../../ko/docs/ops/RELEASE_CHECKLIST.md) · 🇮🇳 [mr](../../mr/docs/ops/RELEASE_CHECKLIST.md) · 🇲🇾 [ms](../../ms/docs/ops/RELEASE_CHECKLIST.md) · 🇳🇱 [nl](../../nl/docs/ops/RELEASE_CHECKLIST.md) · 🇳🇴 [no](../../no/docs/ops/RELEASE_CHECKLIST.md) · 🇵🇭 [phi](../../phi/docs/ops/RELEASE_CHECKLIST.md) · 🇵🇱 [pl](../../pl/docs/ops/RELEASE_CHECKLIST.md) · 🇵🇹 [pt](../../pt/docs/ops/RELEASE_CHECKLIST.md) · 🇧🇷 [pt-BR](../../pt-BR/docs/ops/RELEASE_CHECKLIST.md) · 🇷🇴 [ro](../../ro/docs/ops/RELEASE_CHECKLIST.md) · 🇷🇺 [ru](../../ru/docs/ops/RELEASE_CHECKLIST.md) · 🇸🇰 [sk](../../sk/docs/ops/RELEASE_CHECKLIST.md) · 🇸🇪 [sv](../../sv/docs/ops/RELEASE_CHECKLIST.md) · 🇰🇪 [sw](../../sw/docs/ops/RELEASE_CHECKLIST.md) · 🇮🇳 [ta](../../ta/docs/ops/RELEASE_CHECKLIST.md) · 🇮🇳 [te](../../te/docs/ops/RELEASE_CHECKLIST.md) · 🇹🇭 [th](../../th/docs/ops/RELEASE_CHECKLIST.md) · 🇹🇷 [tr](../../tr/docs/ops/RELEASE_CHECKLIST.md) · 🇺🇦 [uk-UA](../../uk-UA/docs/ops/RELEASE_CHECKLIST.md) · 🇵🇰 [ur](../../ur/docs/ops/RELEASE_CHECKLIST.md) · 🇻🇳 [vi](../../vi/docs/ops/RELEASE_CHECKLIST.md) · 🇨🇳 [zh-CN](../../zh-CN/docs/ops/RELEASE_CHECKLIST.md)
-
----
-
-## Özet Akış
-=======
 🌐 **Languages:** 🇺🇸 [English](../../../../ops/RELEASE_CHECKLIST.md) · 🇪🇹 [am](../../../am/docs/ops/RELEASE_CHECKLIST.md) · 🇸🇦 [ar](../../../ar/docs/ops/RELEASE_CHECKLIST.md) · 🇦🇿 [az](../../../az/docs/ops/RELEASE_CHECKLIST.md) · 🇧🇬 [bg](../../../bg/docs/ops/RELEASE_CHECKLIST.md) · 🇧🇩 [bn](../../../bn/docs/ops/RELEASE_CHECKLIST.md) · 🇧🇦 [bs](../../../bs/docs/ops/RELEASE_CHECKLIST.md) · 🇨🇿 [cs](../../../cs/docs/ops/RELEASE_CHECKLIST.md) · 🇩🇰 [da](../../../da/docs/ops/RELEASE_CHECKLIST.md) · 🇩🇪 [de](../../../de/docs/ops/RELEASE_CHECKLIST.md) · 🇬🇷 [el](../../../el/docs/ops/RELEASE_CHECKLIST.md) · 🇪🇸 [es](../../../es/docs/ops/RELEASE_CHECKLIST.md) · 🇪🇪 [et](../../../et/docs/ops/RELEASE_CHECKLIST.md) · 🇮🇷 [fa](../../../fa/docs/ops/RELEASE_CHECKLIST.md) · 🇫🇮 [fi](../../../fi/docs/ops/RELEASE_CHECKLIST.md) · 🇫🇷 [fr](../../../fr/docs/ops/RELEASE_CHECKLIST.md) · 🇮🇪 [ga](../../../ga/docs/ops/RELEASE_CHECKLIST.md) · 🇮🇳 [gu](../../../gu/docs/ops/RELEASE_CHECKLIST.md) · 🇳🇬 [ha](../../../ha/docs/ops/RELEASE_CHECKLIST.md) · 🇮🇱 [he](../../../he/docs/ops/RELEASE_CHECKLIST.md) · 🇮🇳 [hi](../../../hi/docs/ops/RELEASE_CHECKLIST.md) · 🇭🇷 [hr](../../../hr/docs/ops/RELEASE_CHECKLIST.md) · 🇭🇺 [hu](../../../hu/docs/ops/RELEASE_CHECKLIST.md) · 🇦🇲 [hy](../../../hy/docs/ops/RELEASE_CHECKLIST.md) · 🇮🇩 [id](../../../id/docs/ops/RELEASE_CHECKLIST.md) · 🇳🇬 [ig](../../../ig/docs/ops/RELEASE_CHECKLIST.md) · 🇮🇹 [it](../../../it/docs/ops/RELEASE_CHECKLIST.md) · 🇯🇵 [ja](../../../ja/docs/ops/RELEASE_CHECKLIST.md) · 🇬🇪 [ka](../../../ka/docs/ops/RELEASE_CHECKLIST.md) · 🇰🇭 [km](../../../km/docs/ops/RELEASE_CHECKLIST.md) · 🇮🇳 [kn](../../../kn/docs/ops/RELEASE_CHECKLIST.md) · 🇰🇷 [ko](../../../ko/docs/ops/RELEASE_CHECKLIST.md) · 🇱🇹 [lt](../../../lt/docs/ops/RELEASE_CHECKLIST.md) · 🇱🇻 [lv](../../../lv/docs/ops/RELEASE_CHECKLIST.md) · 🇮🇳 [ml](../../../ml/docs/ops/RELEASE_CHECKLIST.md) · 🇮🇳 [mr](../../../mr/docs/ops/RELEASE_CHECKLIST.md) · 🇲🇾 [ms](../../../ms/docs/ops/RELEASE_CHECKLIST.md) · 🇲🇹 [mt](../../../mt/docs/ops/RELEASE_CHECKLIST.md) · 🇲🇲 [my](../../../my/docs/ops/RELEASE_CHECKLIST.md) · 🇳🇵 [ne](../../../ne/docs/ops/RELEASE_CHECKLIST.md) · 🇳🇱 [nl](../../../nl/docs/ops/RELEASE_CHECKLIST.md) · 🇳🇴 [no](../../../no/docs/ops/RELEASE_CHECKLIST.md) · 🇮🇳 [or](../../../or/docs/ops/RELEASE_CHECKLIST.md) · 🇮🇳 [pa](../../../pa/docs/ops/RELEASE_CHECKLIST.md) · 🇵🇭 [phi](../../../phi/docs/ops/RELEASE_CHECKLIST.md) · 🇵🇱 [pl](../../../pl/docs/ops/RELEASE_CHECKLIST.md) · 🇵🇹 [pt](../../../pt/docs/ops/RELEASE_CHECKLIST.md) · 🇧🇷 [pt-BR](../../../pt-BR/docs/ops/RELEASE_CHECKLIST.md) · 🇷🇴 [ro](../../../ro/docs/ops/RELEASE_CHECKLIST.md) · 🇷🇺 [ru](../../../ru/docs/ops/RELEASE_CHECKLIST.md) · 🇱🇰 [si](../../../si/docs/ops/RELEASE_CHECKLIST.md) · 🇸🇰 [sk](../../../sk/docs/ops/RELEASE_CHECKLIST.md) · 🇸🇮 [sl](../../../sl/docs/ops/RELEASE_CHECKLIST.md) · 🇷🇸 [sr](../../../sr/docs/ops/RELEASE_CHECKLIST.md) · 🇸🇪 [sv](../../../sv/docs/ops/RELEASE_CHECKLIST.md) · 🇰🇪 [sw](../../../sw/docs/ops/RELEASE_CHECKLIST.md) · 🇮🇳 [ta](../../../ta/docs/ops/RELEASE_CHECKLIST.md) · 🇮🇳 [te](../../../te/docs/ops/RELEASE_CHECKLIST.md) · 🇹🇭 [th](../../../th/docs/ops/RELEASE_CHECKLIST.md) · 🇺🇦 [uk-UA](../../../uk-UA/docs/ops/RELEASE_CHECKLIST.md) · 🇵🇰 [ur](../../../ur/docs/ops/RELEASE_CHECKLIST.md) · 🇺🇿 [uz](../../../uz/docs/ops/RELEASE_CHECKLIST.md) · 🇻🇳 [vi](../../../vi/docs/ops/RELEASE_CHECKLIST.md) · 🇳🇬 [yo](../../../yo/docs/ops/RELEASE_CHECKLIST.md) · 🇨🇳 [zh-CN](../../../zh-CN/docs/ops/RELEASE_CHECKLIST.md) · 🇹🇼 [zh-TW](../../../zh-TW/docs/ops/RELEASE_CHECKLIST.md)
 
 ---
@@ -532,7 +523,6 @@ Sürümde kritik bir sorun varsa:
 ## Otomatik Senkronizasyon Kontrolü
 
 Bir PR açmadan önce dokümantasyon senkronizasyon korumasını yerel olarak çalıştırın:
->>>>>>> upstream/main
 
 ```bash
 # 1. Sürümü artırın + CHANGELOG oluşturun
@@ -556,24 +546,4 @@ npm run test:e2e           # isteğe bağlı ancak önerilir
 /capture-release-evidences-cc
 ```
 
-<<<<<<< HEAD
----
-
-## Aşamalı Yayınlama (npm Staged Publishing)
-
-npm-publish iş akışı doğrudan yayınlama yapmaz: paketlenmiş tarball'ı (`check:pack-boot`) başlatır ve ardından `npm stage publish` çalıştırır — tam baytlar kayıt defterine park edilir, **sahibi onaylayana kadar kurulamaz**. İnsan 2FA kapısı kanıttan SONRA gelir.
-
-### Onay Akışı
-
-1. `npm stage list omniroute` — aşama kimliğini (stage id) bulun.
-2. Paketlenmiş baytları doğrulayın: `npm stage download <id>`, ardından geçici bir dizine kurun ve başlatın (`npm run check:pack-boot`).
-3. `npm stage approve <id>` — 2FA istemi yayını tamamlar. `npm stage reject <id>` iptal eder.
-
----
-
-## Acil Düzeltme Hızlı Şeridi (`hotfix` Etiketi)
-
-`hotfix` etiketli bir PR, ağır CI matrisini (9 parçalı E2E, kapsam kontrolü) atlar ve hızlı, yüksek sinyalli kapıları korur: build, unit, integration, vitest, lint/typecheck, docs-sync, `check:pack-artifact` ve tarball boot-smoke (`check:pack-boot`). Hedef: ~33 dakika yerine ≤15 dakikada yeşil.
-=======
 CI da bu kontrolü `.github/workflows/ci.yml` içinde çalıştırır (lint işi).
->>>>>>> upstream/main

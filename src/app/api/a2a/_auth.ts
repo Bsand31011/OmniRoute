@@ -35,11 +35,7 @@ export async function authorizeA2ATaskRoute(request: Request): Promise<A2ARestAu
   const apiKey = extractApiKey(request);
 
   if (isRequireApiKeyEnabled()) {
-<<<<<<< HEAD
-    if (apiKey && (await isValidApiKey(apiKey))) return { owner: resolveA2AOwner(request) };
-=======
     if (apiKey && (await isValidApiKey(apiKey))) return { owner: await resolveA2AOwner(request) };
->>>>>>> upstream/main
     const managementError = await requireManagementAuth(request, {
       invalidApiKeyStatus: 401,
       alwaysRequireAuth: true,
@@ -50,10 +46,6 @@ export async function authorizeA2ATaskRoute(request: Request): Promise<A2ARestAu
 
   const managementError = await requireManagementAuth(request, { invalidApiKeyStatus: 401 });
   if (managementError === null) return { owner: undefined };
-<<<<<<< HEAD
-  if (apiKey && (await isValidApiKey(apiKey))) return { owner: resolveA2AOwner(request) };
-=======
   if (apiKey && (await isValidApiKey(apiKey))) return { owner: await resolveA2AOwner(request) };
->>>>>>> upstream/main
   return managementError;
 }

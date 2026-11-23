@@ -45,15 +45,6 @@ function flatten(value: Json, prefix = ""): Map<string, string> {
 
 /**
  * Names an ICU message interpolates: `{name}` and the argument of a typed
-<<<<<<< HEAD
- * placeholder such as `{count, plural, ...}`. Nested sub-messages are covered
- * because the scan is a plain sweep of the whole string.
- */
-function placeholders(message: string): Set<string> {
-  return new Set(
-    [...message.matchAll(/\{\s*([a-zA-Z0-9_]+)\s*[,}]/g)].map((match) => match[1])
-  );
-=======
  * placeholder such as `{count, plural, ...}`.
  *
  * The scan follows the ICU grammar rather than matching every `{…}` pair:
@@ -204,7 +195,6 @@ function placeholders(message: string): Set<string> {
 
 function tags(message: string): Set<string> {
   return scan(message).tags;
->>>>>>> upstream/main
 }
 
 const english = flatten(loadLocale("en.json"));
@@ -212,11 +202,7 @@ const locales = readdirSync(messagesDir)
   .filter((file) => file.endsWith(".json") && file !== "en.json")
   .sort();
 
-<<<<<<< HEAD
-test("every locale keeps the placeholders its English source defines", () => {
-=======
 test("every locale keeps the placeholders and tags its English source defines", () => {
->>>>>>> upstream/main
   const drift: string[] = [];
 
   for (const file of locales) {
@@ -224,13 +210,6 @@ test("every locale keeps the placeholders and tags its English source defines", 
       const source = english.get(key);
       if (typeof source !== "string") continue;
 
-<<<<<<< HEAD
-      const expected = placeholders(source);
-      const actual = placeholders(translated);
-      const missing = [...expected].filter((name) => !actual.has(name));
-      const unknown = [...actual].filter((name) => !expected.has(name));
-      if (missing.length === 0 && unknown.length === 0) continue;
-=======
       const expected = scan(source);
       const actual = scan(translated);
       const missing = [...expected.placeholders].filter((name) => !actual.placeholders.has(name));
@@ -244,18 +223,13 @@ test("every locale keeps the placeholders and tags its English source defines", 
         unknownTags.length === 0
       )
         continue;
->>>>>>> upstream/main
 
       drift.push(
         `${file} ${key}\n` +
           `      en: ${source}\n` +
           `      ${file.replace(".json", "")}: ${translated}\n` +
-<<<<<<< HEAD
-          `      missing=[${missing.join(", ")}] unknown=[${unknown.join(", ")}]`
-=======
           `      missing=[${missing.join(", ")}] unknown=[${unknown.join(", ")}]` +
           ` missingTags=[${missingTags.join(", ")}] unknownTags=[${unknownTags.join(", ")}]`
->>>>>>> upstream/main
       );
     }
   }
@@ -266,11 +240,6 @@ test("every locale keeps the placeholders and tags its English source defines", 
 test("the checker itself recognises the drift it is meant to catch", () => {
   // Without this the test above could pass by never matching anything.
   assert.deepEqual([...placeholders("of {total} total")], ["total"]);
-<<<<<<< HEAD
-  assert.deepEqual([...placeholders("ok (task {taskId}{stateSuffix}).")], ["taskId", "stateSuffix"]);
-  assert.deepEqual([...placeholders("{count, plural, one {# item} other {# items}}")], ["count"]);
-  assert.deepEqual([...placeholders("Acertos")], []);
-=======
   assert.deepEqual(
     [...placeholders("ok (task {taskId}{stateSuffix}).")],
     ["taskId", "stateSuffix"]
@@ -330,5 +299,4 @@ test("the checker itself recognises the drift it is meant to catch", () => {
   // A tag inside a plural branch is followed like a placeholder there.
   assert.deepEqual([...tags("{count, plural, one {<em>one</em>} other {many}}")].sort(), ["em"]);
   assert.deepEqual([...tags("a < b")], []);
->>>>>>> upstream/main
 });

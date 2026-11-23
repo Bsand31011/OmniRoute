@@ -1017,19 +1017,9 @@
     "batchFilePreview": "ตัวอย่าง",
     "batchFilePreviewTruncated": "แสดง {shown} บรรทัดแรก ({total} บรรทัดรวม)",
     "batchFileDownloadFull": "ดาวน์โหลดไฟล์ทั้งหมด",
-<<<<<<< HEAD
-    "batchHeaderSubtitle": "Run many requests as one job",
-    "batchStep1": "1 · Upload JSONL",
-    "batchStep1Desc": "Add requests",
-    "batchStep2": "2 · Create batch",
-    "batchStep2Desc": "Run job",
-    "batchStep3": "3 · Get results",
-    "batchStep3Desc": "Download output"
-=======
     "tokensPageTitle": "โทเค็น",
     "tokensPageDescription": "ส่งโทเค็นระหว่างคีย์ API แชร์รหัสเชิญ และเชื่อมต่อเซิร์ฟเวอร์ชุมชน",
     "tokensServerUrlLabel": "URL เซิร์ฟเวอร์"
->>>>>>> upstream/main
   },
   "disabled": "ปิดใช้งาน",
   "featureFlagOmnirouteEmergencyFallbackDescription": "กำหนดเส้นทางคำขอที่งบประมาณหมดไปยังผู้ให้บริการ/โมเดลสำรองฟรีในกรณีฉุกเฉิน",
@@ -1370,12 +1360,8 @@
       "close": "ปิด"
     },
     "noResults": "ไม่มีผลลัพธ์",
-<<<<<<< HEAD
-    "trafficInspectorPurpose": "See exactly what your application sends to and receives from AI providers. Works with any OpenAI-compatible client."
-=======
     "costsTeams": "ทีม",
     "costsTeamsSubtitle": "ศูนย์ต้นทุนของทีม"
->>>>>>> upstream/main
   },
   "webhooks": {
     "title": "เว็บฮุค",
@@ -1945,22 +1931,6 @@
     "releaseNotes": "หมายเหตุการปล่อย",
     "readMore": "อ่านเพิ่มเติม",
     "noAuthLabel": "ไม่มีการตรวจสอบสิทธิ์",
-<<<<<<< HEAD
-    "recentRequests": "Recent Requests",
-    "recentRequestsEmpty": "No requests yet.",
-    "recentRequestsModel": "Model",
-    "recentRequestsTokens": "In / Out",
-    "recentRequestsWhen": "When",
-    "readinessEyebrow": "Get ready to route",
-    "readinessTitle": "Send your first request",
-    "readinessSubtitle": "Four small steps. OmniRoute checks readiness as you go.",
-    "readinessStep1": "Connect a provider",
-    "readinessStep2": "Configure endpoint authentication",
-    "readinessStep3": "Copy your endpoint",
-    "readinessStep4": "Send a test request",
-    "readinessContinue": "Continue setup",
-    "readinessDismiss": "Dismiss for now"
-=======
     "readinessEyebrow": "เตรียมพร้อมสำหรับการกำหนดเส้นทาง",
     "readinessTitle": "ส่งคำขอแรกของคุณ",
     "readinessSubtitle": "เพียงสี่ขั้นตอนสั้น ๆ โดย OmniRoute จะตรวจสอบความพร้อมให้คุณในแต่ละขั้นตอน",
@@ -1986,7 +1956,6 @@
     "systemMetricsCpuCount": "{count} vCPUs • {platform}",
     "systemMetricsProcessCpu": "OmniRoute (process)",
     "systemMetricsProcessMemory": "OmniRoute (RSS / Heap)"
->>>>>>> upstream/main
   },
   "analytics": {
     "title": "การวิเคราะห์",
@@ -3091,13 +3060,9 @@
       "prime-agent": "Prime Agent — ระบบการเขียนโค้ด RLM ที่พัฒนาตนเองได้ พร้อมรองรับผู้ให้บริการที่เข้ากันได้กับ OpenAI",
       "warp": "เทอร์มินัล Warp AI ที่รองรับผู้ให้บริการแบบกำหนดเอง",
       "agent-deck": "ตัวประสานงานหลายเอเจนต์ Agent Deck",
-<<<<<<< HEAD
-      "prime-agent": "Prime Agent — self-improving RLM coding harness with OpenAI-compatible provider support"
-=======
       "5dive": "5dive — ฟลีตเอเจนต์เขียนโค้ดที่โฮสต์เอง; โปรไฟล์ auth เดียวชี้ทั้งหมดไปที่ OmniRoute",
       "whycodes": "เอเจนต์ CLI อัตโนมัติ WhyCodes พร้อม base URL ที่เข้ากันได้กับ OpenAI",
       "zed": "โปรแกรมแก้ไขโค้ด Zed — เอเจนต์ในตัวผ่านผู้ให้บริการที่เข้ากันได้กับ OpenAI"
->>>>>>> upstream/main
     },
     "guides": {
       "cursor": {
@@ -6457,13 +6422,8 @@
     "rateLimitOverridesSection": "การเขียนทับการจำกัดอัตรา",
     "rateLimitOverridesMaxConcurrentHint": "การเขียนทับจำนวนคำขอพร้อมกันสูงสุดสำหรับการเชื่อมต่อนี้ ซึ่งจะเขียนทับขีดจำกัดในระดับบัญชี",
     "rateLimitOverridesMaxConcurrentLabel": "จำนวนพร้อมกันสูงสุด (การจำกัดอัตรา)",
-<<<<<<< HEAD
-    "rateLimitOverridesMaxWaitMsHint": "__MISSING__:Maximum time (ms) a request may wait for a rate-limit slot before failing. Overrides the global Resilience setting for this connection only.",
-    "rateLimitOverridesMaxWaitMsLabel": "__MISSING__:Max Queue Wait (ms)",
-=======
     "rateLimitOverridesMaxWaitMsHint": "ระยะเวลาสูงสุด (ms) ที่คำขอสามารถรอช่องโควตาอัตราการใช้งานก่อนที่จะล้มเหลว โดยจะแทนที่การตั้งค่า Resilience ส่วนกลางสำหรับการเชื่อมต่อนี้เท่านั้น",
     "rateLimitOverridesMaxWaitMsLabel": "เวลารอคิวสูงสุด (ms)",
->>>>>>> upstream/main
     "rateLimitOverridesMinTimeHint": "เวลาขั้นต่ำ (มิลลิวินาที) ระหว่างคำขอ ซึ่งจะเขียนทับการหน่วงเวลาของตัวจำกัดอัตราเริ่มต้น",
     "rateLimitOverridesMinTimeLabel": "ช่วงเวลาขั้นต่ำ (มิลลิวินาที)",
     "rateLimitOverridesRpdHint": "จำนวนคำขอสูงสุดต่อวันสำหรับการเชื่อมต่อนี้ แทนที่ค่าเริ่มต้นของผู้ให้บริการ",
@@ -6756,11 +6716,7 @@
       "bigmodel": "สร้างคีย์ API ที่ https://bigmodel.cn/usercenter/proj-mgmt/apikeys OmniRoute ใช้เอนด์พอยต์แชทอย่างเป็นทางการที่เข้ากันได้กับ OpenAI ของ BigModel.cn",
       "glmt": "โปรไฟล์ GLM ที่ตั้งค่าไว้ล่วงหน้าพร้อมงบประมาณโทเค็นที่สูงขึ้น เปิดใช้งานการคิด และหมดเวลาการทำงานที่นานขึ้น",
       "getgoapi": "เชื่อมต่อ GoAPI ด้วยคีย์ API",
-<<<<<<< HEAD
-      "groq": "ระดับการใช้งานฟรี: 30 RPM / 14.4K RPD — ไม่ต้องใช้บัตรเครดิต",
-=======
       "groq": "แพ็กเกจฟรี: จำกัดการใช้งานแยกตามโมเดล (200K โทเค็น/วันต่อโมเดลแชต โปรดดู RPM/RPD ที่ console.groq.com/docs/rate-limits) — ไม่มีวิธีการชำระเงินที่บันทึกไว้",
->>>>>>> upstream/main
       "haiper": "รับคีย์ API ได้ที่ haiper.ai/haiper-api",
       "heroku": "เชื่อมต่อ Heroku AI ด้วยคีย์ API",
       "hcnsec": "รับ API key ได้ที่ api.hcnsec.cn",
@@ -7067,22 +7023,6 @@
     "searchByModelAria": "ค้นหาตามรุ่น",
     "selectSupportedEndpoint": "เลือกจุดสิ้นสุดที่รองรับอย่างน้อยหนึ่งจุด",
     "antigravityClientProfileHarness": "Harness / CLI",
-<<<<<<< HEAD
-    "harImportButtonLabel": "Import .har file",
-    "harImportButtonBusy": "Importing…",
-    "harImportButtonHint": "Export from DevTools Network tab after sending at least one chat message.",
-    "harImportStatusValid": "Imported — valid for ~{minutes}m.",
-    "harImportStatusExpiringSoon": "Imported — valid for only ~{minutes}m more.",
-    "harImportStatusExpired": "Imported, but this token already expired ({minutes}m ago) — export a fresh HAR.",
-    "harImportStatusUnknownExpiry": "Imported. Couldn't read its expiry.",
-    "harImportErrorNotJson": "That file isn't valid JSON — is it really a .har export?",
-    "harImportErrorNoEntries": "This HAR has no network entries recorded.",
-    "harImportErrorNoChathubUrl": "No Copilot chat connection found in this HAR. Send at least one chat message in m365.cloud.microsoft before exporting.",
-    "harImportErrorUnparsableUrl": "Found the chat connection, but couldn't read its URL.",
-    "harImportErrorMissingFields": "Found the chat connection, but the token was missing from it.",
-    "harImportErrorReadFailed": "Couldn't read that file.",
-    "harImportErrorUnknown": "Couldn't extract a credential from that HAR file."
-=======
     "rateLimitOverridesModelConcurrencyLabel": "ขีดจำกัดการทำงานพร้อมกันต่อโมเดล",
     "rateLimitOverridesModelConcurrencyPlaceholder": "glm-5=1\nglm-4.7=3",
     "rateLimitOverridesModelConcurrencyHint": "ไม่บังคับ: หนึ่ง model=cap ต่อบรรทัด จับคู่กับ ID โมเดลอัปสตรีมที่ตรงกันทุกตัวอักษร คำขอส่วนเกินจะเข้าคิวในเครื่อง ปล่อยว่างหมายถึงไม่จำกัดต่อโมเดล",
@@ -7107,7 +7047,6 @@
     "doctorChecking": "กำลังตรวจสอบสถานะ…",
     "doctorCheck": "ตรวจสถานะ doctor",
     "fallbackRetryBackendTitle": "ระบบสำรองสำหรับทดลองใหม่"
->>>>>>> upstream/main
   },
   "settings": {
     "title": "การตั้งค่า",
@@ -9099,20 +9038,6 @@
     "cliproxyapiPort": "พอร์ต",
     "qdrantHost": "โฮสต์",
     "qdrantCollection": "การรวบรวม",
-<<<<<<< HEAD
-    "presetAll": "All",
-    "presetAllDesc": "Show everything",
-    "presetEssentials": "Essentials",
-    "presetEssentialsDesc": "Beginner path - Advanced tools stay searchable",
-    "presetMinimal": "Minimal",
-    "presetMinimalDesc": "Core pages only",
-    "presetDeveloper": "Developer",
-    "presetDeveloperDesc": "Dev & proxy tools",
-    "presetAdmin": "Admin",
-    "presetAdminDesc": "Monitoring & audit",
-    "settingsSidebarTitle": "Sidebar Customization",
-    "settingsSidebarDesc": "Choose which sidebar items to show. Essentials keeps Advanced tools searchable."
-=======
     "catalogVisibilityHint": "ยังเรียกใช้รหัสโมเดลที่ซ่อนไว้ได้ด้วยสิทธิ์การเข้าถึงเดิม",
     "exposeCombosOnly": "แสดงเฉพาะคอมโบใน /v1/models",
     "exposeCombosOnlyDesc": "ไคลเอนต์ที่ค้นหาโมเดลอัตโนมัติจะเห็นคอมโบของคุณ (และ auto/* หากไม่ได้ซ่อนไว้) แทนโมเดลดิบของผู้ให้บริการ ID แบบ provider/model ที่ระบุชัดเจนยังคงถูกกำหนดเส้นทางตามปกติ",
@@ -9293,7 +9218,6 @@
       "statsEmpty": "ยังไม่มีการตรวจพบ",
       "statsRequest": "คำขอ"
     }
->>>>>>> upstream/main
   },
   "contextRtk": {
     "title": "RTK Engine",
@@ -14237,11 +14161,6 @@
       "SKILLS_SANDBOX_NETWORK_ENABLED": {
         "description": "เปิดใช้งานการเข้าถึงเครือข่ายใน skills sandbox"
       },
-<<<<<<< HEAD
-      "DISABLE_CONTEXT_WINDOW_CHECKS": {
-        "label": "Disable Context Window Checks",
-        "description": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active."
-=======
       "SERVER_OWNED_TOOL_LOOP_ENABLED": {
         "label": "ลูปเครื่องมือที่เซิร์ฟเวอร์เป็นผู้ควบคุม",
         "description": "ดำเนินการเรียกเครื่องมือแบบไม่สตรีมที่เซิร์ฟเวอร์เป็นผู้ควบคุมต่อไป จนกว่าโมเดลจะส่งคืนการตอบกลับที่ไคลเอนต์ใช้งานได้"
@@ -14537,7 +14456,6 @@
       "UNPRICED_USAGE_BUDGET_POLICY": {
         "label": "นโยบายงบประมาณการใช้งานที่ไม่มีราคา",
         "description": "วิธีที่ขีดจำกัด USD ต่อคีย์รายวัน/รายสัปดาห์จัดการกับการใช้งานที่สำเร็จซึ่งผู้ให้บริการ/โมเดลไม่มีแถวราคากำหนดไว้ โดย fail_closed (ค่าเริ่มต้น) จะทำเครื่องหมายว่าหน้าต่างถูกเกินโควต้า ดังนั้นต้นทุนที่ไม่ทราบจะไม่สามารถหลุดผ่านเพดานแบบแข็งได้ ส่วน count_as_zero จะนับการใช้งานนั้นเป็น $0 และยังคงบังคับใช้การใช้จ่ายที่มีราคา โมเดลที่ไม่มีราคาจะยังคงถูกแสดงในหน้าหลักของแดชบอร์ดทั้งสองกรณี."
->>>>>>> upstream/main
       }
     }
   },
@@ -15822,15 +15740,6 @@
     "structuredOutputMismatch": "ผู้ให้บริการไม่รองรับการส่งออกแบบมีโครงสร้าง",
     "contextWindowMismatch": "คำขอเกินขอบเขตบริบทของผู้ให้บริการ"
   },
-<<<<<<< HEAD
-  "featureFlagDisableContextWindowChecksDescription": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active.",
-  "cheaperInferenceSponsorBanner": {
-    "title": "Cheaper Inference is an OmniRoute Open Source Friend",
-    "description": "A cost-ranked gateway reselling dozens of frontier models behind one OpenAI-compatible endpoint — routing each request to the cheapest eligible provider, never above list price.",
-    "cta": "Get an API Key",
-    "partnerLinkNote": "Partner link",
-    "dismissAriaLabel": "Dismiss"
-=======
   "cheaperInferenceSponsorBanner": {
     "title": "Cheaper Inference เป็นเพื่อนโอเพนซอร์สของ OmniRoute",
     "description": "เกตเวย์ที่จัดอันดับตามต้นทุน ซึ่งจำหน่ายโมเดลระดับแนวหน้าหลายสิบรายการผ่าน endpoint เดียวที่เข้ากันได้กับ OpenAI โดยกำหนดเส้นทางคำขอแต่ละรายการไปยังผู้ให้บริการที่เข้าเกณฑ์และมีราคาถูกที่สุด โดยไม่เกินราคาปลีก",
@@ -16088,6 +15997,5 @@
     "greetingFallbackName": "ที่นั่น",
     "errNoReply": "⚠️ ไม่มีการตอบกลับจาก gateway.",
     "btnSend": "ส่ง"
->>>>>>> upstream/main
   }
 }

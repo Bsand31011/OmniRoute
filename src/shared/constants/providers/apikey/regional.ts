@@ -232,10 +232,7 @@ export const APIKEY_PROVIDERS_REGIONAL = {
   },
   "volcengine-agent-plan": {
     id: "volcengine-agent-plan",
-<<<<<<< HEAD
-=======
     serviceKinds: ["llm"],
->>>>>>> upstream/main
     alias: "veap",
     name: "Volcengine Ark Agent Plan",
     icon: "local_fire_department",
@@ -246,10 +243,7 @@ export const APIKEY_PROVIDERS_REGIONAL = {
   },
   "volcengine-coding-plan": {
     id: "volcengine-coding-plan",
-<<<<<<< HEAD
-=======
     serviceKinds: ["llm"],
->>>>>>> upstream/main
     alias: "vecp",
     name: "Volcengine Ark Coding Plan",
     icon: "code",

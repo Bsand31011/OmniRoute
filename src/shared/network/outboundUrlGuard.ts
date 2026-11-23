@@ -40,21 +40,7 @@ export class OutboundUrlGuardError extends Error {
 // Matching the dotted spelling alone therefore misses every mapped address that
 // arrives through a parsed URL. Fold the embedded IPv4 back out before deciding.
 export function mappedIpv4Host(hostname: string): string | null {
-<<<<<<< HEAD
-  const normalized = normalizeHost(hostname);
-  if (!normalized.startsWith("::ffff:")) return null;
-  const embedded = normalized.slice("::ffff:".length);
-  if (ipVersion(embedded) === 4) return embedded;
-  const hextets = embedded.split(":");
-  if (hextets.length !== 2) return null;
-  const [high, low] = hextets.map((part) =>
-    /^[0-9a-f]{1,4}$/.test(part) ? parseInt(part, 16) : Number.NaN
-  );
-  if (Number.isNaN(high) || Number.isNaN(low)) return null;
-  return `${high >> 8}.${high & 0xff}.${low >> 8}.${low & 0xff}`;
-=======
   return embeddedIpv4Host(hostname, true);
->>>>>>> upstream/main
 }
 
 const CLOUD_METADATA_HOSTNAMES = new Set([

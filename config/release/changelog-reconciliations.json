@@ -1,8 +1,5 @@
 {
   "schemaVersion": 1,
-<<<<<<< HEAD
-  "reconciliations": []
-=======
   "reconciliations": [
     {
       "id": "provider-takedown-2026-08-30",
@@ -683,5 +680,4 @@
       ]
     }
   ]
->>>>>>> upstream/main
 }

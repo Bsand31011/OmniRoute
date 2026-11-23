@@ -139,11 +139,7 @@ test("CLI rejects an unledgered loss", () => {
     assert.match(result.stderr, /1 bullet\(s\).*MISSING/s);
     assert.doesNotMatch(result.stderr, /reporting only, not failing/);
   } finally {
-<<<<<<< HEAD
-    rmSync(root, { recursive: true, force: true });
-=======
     rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
->>>>>>> upstream/main
   }
 });
 
@@ -156,11 +152,7 @@ test("CLI fails closed when the removed legacy bypass is still configured", () =
     assert.match(result.stderr, /ALLOW_CHANGELOG_REMOVALS.*removed/);
     assert.match(result.stderr, /changelog-reconciliations\.json/);
   } finally {
-<<<<<<< HEAD
-    rmSync(root, { recursive: true, force: true });
-=======
     rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
->>>>>>> upstream/main
   }
 });
 
@@ -187,11 +179,7 @@ test("CLI accepts only an exact, reviewable ledgered reconciliation", () => {
     assert.equal(result.status, 0, `${result.stdout}\n${result.stderr}`);
     assert.match(result.stdout, /OK.*ledgered reconciliation "clarify-fix-b"/s);
   } finally {
-<<<<<<< HEAD
-    rmSync(root, { recursive: true, force: true });
-=======
     rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
->>>>>>> upstream/main
   }
 });
 
@@ -223,11 +211,7 @@ test("CLI keeps an additional loss RED after an approved result is tampered with
     assert.match(result.stderr, /2 bullet\(s\).*MISSING/s);
     assert.doesNotMatch(result.stdout, /ledgered reconciliation/);
   } finally {
-<<<<<<< HEAD
-    rmSync(root, { recursive: true, force: true });
-=======
     rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
->>>>>>> upstream/main
   }
 });
 
@@ -255,11 +239,7 @@ test("CLI rejects exact file hashes when the ledger omits one removed occurrence
     assert.equal(result.status, 1, `${result.stdout}\n${result.stderr}`);
     assert.match(result.stderr, /2 bullet\(s\).*MISSING/s);
   } finally {
-<<<<<<< HEAD
-    rmSync(root, { recursive: true, force: true });
-=======
     rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
->>>>>>> upstream/main
   }
 });
 
@@ -287,11 +267,7 @@ test("CLI rejects exact file hashes when the ledger omits one removed duplicate"
     assert.equal(result.status, 1, `${result.stdout}\n${result.stderr}`);
     assert.match(result.stderr, /2 bullet\(s\).*MISSING/s);
   } finally {
-<<<<<<< HEAD
-    rmSync(root, { recursive: true, force: true });
-=======
     rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
->>>>>>> upstream/main
   }
 });
 
@@ -318,11 +294,7 @@ test("CLI rejects exact bullet deltas when the ledger base hash is wrong", () =>
     assert.equal(result.status, 1, `${result.stdout}\n${result.stderr}`);
     assert.match(result.stderr, /1 bullet\(s\).*MISSING/s);
   } finally {
-<<<<<<< HEAD
-    rmSync(root, { recursive: true, force: true });
-=======
     rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
->>>>>>> upstream/main
   }
 });
 
@@ -339,11 +311,7 @@ test("CLI validates a new fragment without treating it as a reconciliation", () 
     assert.equal(result.status, 0, `${result.stdout}\n${result.stderr}`);
     assert.match(result.stdout, /OK — no base bullets lost/);
   } finally {
-<<<<<<< HEAD
-    rmSync(root, { recursive: true, force: true });
-=======
     rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
->>>>>>> upstream/main
   }
 });
 
@@ -358,11 +326,7 @@ test("CLI fails closed on a malformed reconciliation ledger", () => {
     assert.match(result.stderr, /invalid reconciliation ledger/);
     assert.match(result.stderr, /reconciliations must be an array/);
   } finally {
-<<<<<<< HEAD
-    rmSync(root, { recursive: true, force: true });
-=======
     rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
->>>>>>> upstream/main
   }
 });
 
@@ -374,10 +338,6 @@ test("CLI fails closed when an explicit base ref is unreadable", () => {
     assert.equal(result.status, 1, `${result.stdout}\n${result.stderr}`);
     assert.match(result.stderr, /FAIL.*CHANGELOG\.md.*missing-explicit-base/s);
   } finally {
-<<<<<<< HEAD
-    rmSync(root, { recursive: true, force: true });
-=======
     rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
->>>>>>> upstream/main
   }
 });

@@ -16,9 +16,6 @@ const TOOL_ONLY_SERVICE_KINDS = new Set<string>(["webSearch", "webFetch"]);
  * are intentionally NOT curated: their model list is discovered live from the
  * console API (see volcenginePlanModelDiscovery.ts) and merged into the synced
  * catalog, so the static registry only acts as a capability-seed fallback. */
-<<<<<<< HEAD
-const CURATED_MODEL_ONLY_PROVIDERS = new Set<string>(["chatgpt-web", "kimi-web", "zai-web"]);
-=======
 const CURATED_MODEL_ONLY_PROVIDERS = new Set<string>([
   "kimi-web",
   "zai-web",
@@ -29,7 +26,6 @@ const CURATED_MODEL_ONLY_PROVIDERS = new Set<string>([
   // its authenticated, account-specific roster from /v3/config.
   "codebuddy-intl",
 ]);
->>>>>>> upstream/main
 
 export function providerUsesCuratedModelsOnly(providerId: string): boolean {
   return CURATED_MODEL_ONLY_PROVIDERS.has(providerId.trim().toLowerCase());

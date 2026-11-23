@@ -1094,19 +1094,9 @@
     "batchFilePreview": "Pré-visualização",
     "batchFilePreviewTruncated": "A mostrar as primeiras {shown} linhas ({total} linhas no total)",
     "batchFileDownloadFull": "Transferir Ficheiro Completo",
-<<<<<<< HEAD
-    "batchHeaderSubtitle": "Run many requests as one job",
-    "batchStep1": "1 · Upload JSONL",
-    "batchStep1Desc": "Add requests",
-    "batchStep2": "2 · Create batch",
-    "batchStep2Desc": "Run job",
-    "batchStep3": "3 · Get results",
-    "batchStep3Desc": "Download output"
-=======
     "tokensPageTitle": "Tokens",
     "tokensPageDescription": "Envie tokens entre chaves de API, partilhe códigos de convite e ligue servidores da comunidade.",
     "tokensServerUrlLabel": "URL do servidor"
->>>>>>> upstream/main
   },
   "disabled": "Desativado",
   "featureFlagOmnirouteEmergencyFallbackDescription": "Encaminhar pedidos com orçamento esgotado para o fornecedor/modelo de contingência gratuito de emergência.",
@@ -1405,10 +1395,7 @@
     "agentBridgeSubtitle": "Intercetar tráfego do agente do IDE",
     "trafficInspector": "Inspetor de Tráfego",
     "trafficInspectorSubtitle": "Inspecione o tráfego de pedidos e respostas das suas aplicações",
-<<<<<<< HEAD
-=======
     "trafficInspectorPurpose": "Veja exatamente o que a sua aplicação envia e recebe dos fornecedores de IA. Funciona com qualquer cliente compatível com OpenAI.",
->>>>>>> upstream/main
     "cliCode": "Código da CLI",
     "cliCodeSubtitle": "Ferramentas de código a apontar para o OmniRoute",
     "cliAgents": "Agentes de CLI",
@@ -1450,12 +1437,8 @@
       "close": "fechar"
     },
     "noResults": "Sem resultados",
-<<<<<<< HEAD
-    "trafficInspectorPurpose": "See exactly what your application sends to and receives from AI providers. Works with any OpenAI-compatible client."
-=======
     "costsTeams": "Equipas",
     "costsTeamsSubtitle": "Centros de custo da equipa"
->>>>>>> upstream/main
   },
   "webhooks": {
     "title": "Webhooks",
@@ -2025,22 +2008,6 @@
     "releaseNotes": "Notas de Lançamento",
     "readMore": "Leia Mais",
     "noAuthLabel": "Sem Autenticação",
-<<<<<<< HEAD
-    "recentRequests": "Recent Requests",
-    "recentRequestsEmpty": "No requests yet.",
-    "recentRequestsModel": "Model",
-    "recentRequestsTokens": "In / Out",
-    "recentRequestsWhen": "When",
-    "readinessEyebrow": "Get ready to route",
-    "readinessTitle": "Send your first request",
-    "readinessSubtitle": "Four small steps. OmniRoute checks readiness as you go.",
-    "readinessStep1": "Connect a provider",
-    "readinessStep2": "Configure endpoint authentication",
-    "readinessStep3": "Copy your endpoint",
-    "readinessStep4": "Send a test request",
-    "readinessContinue": "Continue setup",
-    "readinessDismiss": "Dismiss for now"
-=======
     "readinessEyebrow": "Prepare-se para encaminhar",
     "readinessTitle": "Envie o seu primeiro pedido",
     "readinessSubtitle": "Quatro passos simples. O OmniRoute verifica se está tudo pronto à medida que avança.",
@@ -2066,7 +2033,6 @@
     "systemMetricsCpuCount": "{count} vCPUs • {platform}",
     "systemMetricsProcessCpu": "OmniRoute (process)",
     "systemMetricsProcessMemory": "OmniRoute (RSS / Heap)"
->>>>>>> upstream/main
   },
   "analytics": {
     "title": "Análise",
@@ -3171,13 +3137,9 @@
       "prime-agent": "Prime Agent — ambiente de programação RLM com autoaperfeiçoamento e suporte para fornecedores compatíveis com OpenAI",
       "warp": "Terminal Warp AI com suporte para fornecedor personalizado",
       "agent-deck": "Orquestrador multi-agente Agent Deck",
-<<<<<<< HEAD
-      "prime-agent": "Prime Agent — self-improving RLM coding harness with OpenAI-compatible provider support"
-=======
       "5dive": "5dive — frota auto-alojada de agentes de codificação; um perfil de autenticação aponta todos para o OmniRoute",
       "whycodes": "Agente CLI autónomo WhyCodes com URL base compatível com OpenAI",
       "zed": "Editor de código Zed — agente integrado através de um fornecedor compatível com OpenAI"
->>>>>>> upstream/main
     },
     "guides": {
       "cursor": {
@@ -6537,13 +6499,8 @@
     "rateLimitOverridesSection": "Substituições de limite de taxa",
     "rateLimitOverridesMaxConcurrentHint": "Substituição de pedidos simultâneos máximos para esta ligação. Substitui o limite ao nível da conta.",
     "rateLimitOverridesMaxConcurrentLabel": "Máximo de simultâneos (limite de taxa)",
-<<<<<<< HEAD
-    "rateLimitOverridesMaxWaitMsHint": "__MISSING__:Maximum time (ms) a request may wait for a rate-limit slot before failing. Overrides the global Resilience setting for this connection only.",
-    "rateLimitOverridesMaxWaitMsLabel": "__MISSING__:Max Queue Wait (ms)",
-=======
     "rateLimitOverridesMaxWaitMsHint": "Tempo máximo (ms) que um pedido pode aguardar por uma vaga sujeita ao limite de taxa antes de falhar. Substitui a definição global de Resiliência apenas para esta ligação.",
     "rateLimitOverridesMaxWaitMsLabel": "Espera máxima na fila (ms)",
->>>>>>> upstream/main
     "rateLimitOverridesMinTimeHint": "Tempo mínimo (ms) entre pedidos. Substitui o atraso predefinido do limitador de taxa.",
     "rateLimitOverridesMinTimeLabel": "Intervalo mín. (ms)",
     "rateLimitOverridesRpdHint": "Máximo de pedidos por dia para esta ligação. Substitui a predefinição do fornecedor.",
@@ -6836,11 +6793,7 @@
       "bigmodel": "Crie uma chave de API em https://bigmodel.cn/usercenter/proj-mgmt/apikeys. O OmniRoute usa o endpoint oficial de chat compatível com OpenAI do BigModel.cn.",
       "glmt": "Perfil predefinido do GLM com maior orçamento de tokens, raciocínio ativado e tempo limite mais longo.",
       "getgoapi": "Ligue a GoAPI com uma chave de API.",
-<<<<<<< HEAD
-      "groq": "Nível gratuito: 30 RPM / 14,4K RPD — sem cartão de crédito",
-=======
       "groq": "Plano gratuito: limites por modelo (200 mil tokens/dia por modelo de chat; consulte console.groq.com/docs/rate-limits para RPM/RPD) — sem método de pagamento registado.",
->>>>>>> upstream/main
       "haiper": "Obtenha a chave de API em haiper.ai/haiper-api",
       "heroku": "Ligue o Heroku AI com uma chave de API.",
       "hcnsec": "Obtenha a chave de API em api.hcnsec.cn",
@@ -7147,22 +7100,6 @@
     "searchByModelAria": "Pesquisar por modelo",
     "selectSupportedEndpoint": "Selecione pelo menos um endpoint suportado",
     "antigravityClientProfileHarness": "Harness / CLI",
-<<<<<<< HEAD
-    "harImportButtonLabel": "Import .har file",
-    "harImportButtonBusy": "Importing…",
-    "harImportButtonHint": "Export from DevTools Network tab after sending at least one chat message.",
-    "harImportStatusValid": "Imported — valid for ~{minutes}m.",
-    "harImportStatusExpiringSoon": "Imported — valid for only ~{minutes}m more.",
-    "harImportStatusExpired": "Imported, but this token already expired ({minutes}m ago) — export a fresh HAR.",
-    "harImportStatusUnknownExpiry": "Imported. Couldn't read its expiry.",
-    "harImportErrorNotJson": "That file isn't valid JSON — is it really a .har export?",
-    "harImportErrorNoEntries": "This HAR has no network entries recorded.",
-    "harImportErrorNoChathubUrl": "No Copilot chat connection found in this HAR. Send at least one chat message in m365.cloud.microsoft before exporting.",
-    "harImportErrorUnparsableUrl": "Found the chat connection, but couldn't read its URL.",
-    "harImportErrorMissingFields": "Found the chat connection, but the token was missing from it.",
-    "harImportErrorReadFailed": "Couldn't read that file.",
-    "harImportErrorUnknown": "Couldn't extract a credential from that HAR file."
-=======
     "rateLimitOverridesModelConcurrencyLabel": "Limites de concorrência por modelo",
     "rateLimitOverridesModelConcurrencyPlaceholder": "glm-5=1\nglm-4.7=3",
     "rateLimitOverridesModelConcurrencyHint": "Opcional: um modelo=limite por linha, comparado com o ID exato do modelo no fornecedor. Os pedidos excedentes ficam em fila localmente; em branco significa sem limite por modelo.",
@@ -7187,7 +7124,6 @@
     "doctorChecking": "A verificar o estado…",
     "doctorCheck": "Verificar estado do diagnóstico",
     "fallbackRetryBackendTitle": "Back-end de nova tentativa de recurso"
->>>>>>> upstream/main
   },
   "settings": {
     "title": "Configurações",
@@ -9179,20 +9115,6 @@
     "cliproxyapiPort": "Porto",
     "qdrantHost": "Anfitrião",
     "qdrantCollection": "Coleção",
-<<<<<<< HEAD
-    "presetAll": "All",
-    "presetAllDesc": "Show everything",
-    "presetEssentials": "Essentials",
-    "presetEssentialsDesc": "Beginner path - Advanced tools stay searchable",
-    "presetMinimal": "Minimal",
-    "presetMinimalDesc": "Core pages only",
-    "presetDeveloper": "Developer",
-    "presetDeveloperDesc": "Dev & proxy tools",
-    "presetAdmin": "Admin",
-    "presetAdminDesc": "Monitoring & audit",
-    "settingsSidebarTitle": "Sidebar Customization",
-    "settingsSidebarDesc": "Choose which sidebar items to show. Essentials keeps Advanced tools searchable."
-=======
     "catalogVisibilityHint": "Os IDs de modelos ocultos continuam a poder ser invocados com as mesmas permissões de acesso.",
     "exposeCombosOnly": "Listar apenas combinações em /v1/models",
     "exposeCombosOnlyDesc": "Os clientes que descobrem modelos automaticamente veem as suas combinações (e auto/*, salvo se estiverem ocultos) em vez dos modelos brutos dos fornecedores. Os IDs explícitos provider/model continuam a ser encaminhados.",
@@ -9373,7 +9295,6 @@
       "statsEmpty": "Ainda sem deteções.",
       "statsRequest": "Pedidos"
     }
->>>>>>> upstream/main
   },
   "contextRtk": {
     "title": "Motor RTK",
@@ -14317,11 +14238,6 @@
       "SKILLS_SANDBOX_NETWORK_ENABLED": {
         "description": "Ativar o acesso à rede na sandbox de competências."
       },
-<<<<<<< HEAD
-      "DISABLE_CONTEXT_WINDOW_CHECKS": {
-        "label": "Disable Context Window Checks",
-        "description": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active."
-=======
       "SERVER_OWNED_TOOL_LOOP_ENABLED": {
         "label": "Ciclo de ferramentas gerido pelo servidor",
         "description": "Continue as chamadas de ferramentas geridas pelo servidor sem streaming até que o modelo devolva uma resposta utilizável pelo cliente."
@@ -14617,7 +14533,6 @@
       "UNPRICED_USAGE_BUDGET_POLICY": {
         "label": "Política de Orçamento de Utilização sem Preço",
         "description": "Como os limites diários/semanais por chave em USD tratam utilização bem-sucedida cujo fornecedor/modelo não tem uma linha de preços. fail_closed (predefinido) marca a janela como excedida, de modo que um custo desconhecido nunca possa ultrapassar um limite rígido. count_as_zero conta essa utilização como $0 e continua a aplicar o gasto tarifado. Os modelos sem preço são listados na página inicial do painel de qualquer forma."
->>>>>>> upstream/main
       }
     }
   },
@@ -15909,9 +15824,6 @@
     "partnerLinkNote": "Link de parceiro",
     "dismissAriaLabel": "Dispensar"
   },
-<<<<<<< HEAD
-  "featureFlagDisableContextWindowChecksDescription": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active."
-=======
   "featureFlagOmnirouteDisableThinkingLevelVariantsDescription": "Desative a geração de variantes de nível de pensamento (por exemplo, -low, -medium, -high) no catálogo /v1/models.",
   "connectionTest": {
     "title": "Mensagem de teste",
@@ -16086,5 +15998,4 @@
     "errNoReply": "⚠️ Sem resposta do gateway.",
     "btnSend": "Enviar"
   }
->>>>>>> upstream/main
 }

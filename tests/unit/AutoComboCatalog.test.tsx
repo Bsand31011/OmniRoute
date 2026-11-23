@@ -53,11 +53,6 @@ function makeContainer(): HTMLElement {
 // that then failed every remaining test in the file in ~20ms ("You seem to have
 // overlapping act() calls"). Paying the import once here, on the hook's own
 // budget, keeps each test's timeout covering only render + assertions.
-<<<<<<< HEAD
-let AutoComboCatalog: React.ComponentType<{ onComboCreated?: (comboId: string) => void }>;
-
-describe("AutoComboCatalog", { timeout: 60_000 }, () => {
-=======
 let AutoComboCatalog: React.ComponentType<{
   onComboCreated?: (comboId: string) => void;
   onTestCombo?: (combo: { name: string }) => void;
@@ -120,7 +115,6 @@ async function expand(container: HTMLElement) {
 describe("AutoComboCatalog", { timeout: 60_000 }, () => {
   const realFetch = globalThis.fetch;
 
->>>>>>> upstream/main
   beforeAll(async () => {
     ({ default: AutoComboCatalog } =
       await import("@/app/(dashboard)/dashboard/combos/AutoComboCatalog"));

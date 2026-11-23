@@ -188,8 +188,6 @@ export const ALWAYS_PROTECTED_API_PATHS: ReadonlyArray<string> = [
   // which is false under requireLogin=false. (GHSA-v7g9-7f55-5g46)
   "/api/settings/export-json",
   "/api/settings/import-json",
-<<<<<<< HEAD
-=======
   // Selective provider-account transfer: export hands out the selected accounts'
   // credentials (passphrase-sealed) and import writes connections. Same tier as
   // the -json siblings above; the prefix covers catalog/export/preview/import.
@@ -288,7 +286,6 @@ export const ALWAYS_PROTECTED_API_PATTERNS: ReadonlyArray<RegExp> = [
   // closes the anonymous hole without breaking an operator driving the dashboard
   // through a tunnel.
   /^\/api\/providers\/[^/]+\/(claude|codex)-auth\/(export|apply-local)\/?$/,
->>>>>>> upstream/main
 ];
 
 export function isLoopbackHost(hostHeader: string | null): boolean {

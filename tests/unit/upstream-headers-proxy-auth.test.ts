@@ -56,11 +56,6 @@ test("the canonical list now covers every hop-by-hop name reverseProxy strips", 
 });
 
 test("ordinary headers are still allowed", () => {
-<<<<<<< HEAD
-  for (const name of ["x-custom", "x-forwarded-for", "user-agent", "accept"]) {
-    assert.equal(isForbiddenUpstreamHeaderName(name), false, name);
-  }
-=======
   for (const name of ["x-custom", "x-request-id", "user-agent", "accept"]) {
     assert.equal(isForbiddenUpstreamHeaderName(name), false, name);
   }
@@ -69,7 +64,6 @@ test("ordinary headers are still allowed", () => {
   for (const name of ["x-forwarded-for", "x-real-ip", "cf-connecting-ip", "forwarded", "via"]) {
     assert.equal(isForbiddenUpstreamHeaderName(name), true, name);
   }
->>>>>>> upstream/main
   // Auth headers stay allowed as *upstream* headers (the credential layer owns
   // them) while remaining forbidden as operator-supplied custom headers.
   assert.equal(isForbiddenUpstreamHeaderName("authorization"), false);

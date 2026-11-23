@@ -759,14 +759,9 @@ export async function checkConnection(conn: any) {
 
       let refreshedProviderSpecificData: Record<string, unknown> | null = null;
       const hideLogs = await shouldHideLogs();
-<<<<<<< HEAD
-      const proxyResolution = await resolveProxyForConnection(conn.id);
-      const proxyConfig = extractResolvedProxyConfig(proxyResolution);
-=======
       const { proxyConfig, blocked } = await resolveGuardedProxyConfig(conn.id, conn.provider);
       if (blocked)
         return void logWarn(`#13470 proxy-pool guard: skipping Copilot refresh for ${conn.id}`);
->>>>>>> upstream/main
       const healthCheckLog = {
         info: (tag: string, msg: string) => {
           if (!hideLogs) console.log(LOG_PREFIX, `[${tag}]`, msg);
@@ -779,14 +774,6 @@ export async function checkConnection(conn: any) {
         },
       };
 
-<<<<<<< HEAD
-      const copilotResult = await refreshCopilotToken(
-        conn.accessToken,
-        healthCheckLog,
-        proxyConfig,
-        getCopilotTokenBaseUrl(conn)
-      );
-=======
       // Rotate the Copilot sub-token only when it needs renewal or when an
       // expired connection needs a recovery probe. A healthy sub-token still
       // gets a cheap GitHub /user probe so a revoked access token demotes.
@@ -804,7 +791,6 @@ export async function checkConnection(conn: any) {
             apiBaseUrl: getCopilotTokenBaseUrl(conn),
             proxyConfig,
           });
->>>>>>> upstream/main
       if (copilotResult?.status === 401) {
         await updateProviderConnection(conn.id, {
           testStatus: "expired",
@@ -817,16 +803,12 @@ export async function checkConnection(conn: any) {
         });
         return;
       }
-<<<<<<< HEAD
-      if (copilotResult?.token && copilotAboutToExpire) {
-=======
       if (
         copilotResult &&
         "token" in copilotResult &&
         copilotResult.token &&
         copilotAboutToExpire
       ) {
->>>>>>> upstream/main
         refreshedProviderSpecificData = {
           ...providerSpecificData,
           copilotToken: copilotResult.token,

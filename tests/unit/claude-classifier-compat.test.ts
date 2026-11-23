@@ -26,17 +26,12 @@ const core = await import("../../src/lib/db/core.ts");
 const { updateSettings } = await import("../../src/lib/db/settings.ts");
 const { waitForCallLogSaves } = await import("../../src/lib/usage/callLogs.ts");
 const { handleChatCore } = await import("../../open-sse/handlers/chatCore.ts");
-<<<<<<< HEAD
-const { shouldDefaultAllowClassifier, detectClassifierFormat, buildDefaultAllowClaudeMessage } =
-  await import("../../open-sse/handlers/chatCore/claudeClassifierCompat.ts");
-=======
 const {
   shouldDefaultAllowClassifier,
   detectClassifierFormat,
   buildDefaultAllowClaudeMessage,
   applyClaudeClassifierReasoningDefault,
 } = await import("../../open-sse/handlers/chatCore/claudeClassifierCompat.ts");
->>>>>>> upstream/main
 const { FORMATS } = await import("../../open-sse/translator/formats.ts");
 
 const originalFetch = globalThis.fetch;
@@ -220,8 +215,6 @@ test("detector: always fires when classifier marker is present", () => {
   );
 });
 
-<<<<<<< HEAD
-=======
 test("classifier requests without reasoning default to disabled native thinking on both stages", () => {
   assert.equal(
     typeof applyClaudeClassifierReasoningDefault,
@@ -305,7 +298,6 @@ test("ordinary requests and explicit classifier reasoning controls stay unchange
   }
 });
 
->>>>>>> upstream/main
 // ─── Pure detector: detectClassifierFormat (#11289) ──────────────────────────
 
 test("format detector: defaults to 'block' for the legacy </block> classifier shape", () => {

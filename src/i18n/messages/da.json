@@ -1094,19 +1094,9 @@
     "batchFilePreview": "Forhåndsvisning",
     "batchFilePreviewTruncated": "Viser de første {shown} linjer ({total} linjer i alt)",
     "batchFileDownloadFull": "Download Fuld Fil",
-<<<<<<< HEAD
-    "batchHeaderSubtitle": "Run many requests as one job",
-    "batchStep1": "1 · Upload JSONL",
-    "batchStep1Desc": "Add requests",
-    "batchStep2": "2 · Create batch",
-    "batchStep2Desc": "Run job",
-    "batchStep3": "3 · Get results",
-    "batchStep3Desc": "Download output"
-=======
     "tokensPageTitle": "Tokens",
     "tokensPageDescription": "Send tokens mellem API-nøgler, del invitationskoder, og forbind community-servere.",
     "tokensServerUrlLabel": "Server-URL"
->>>>>>> upstream/main
   },
   "disabled": "Deaktiveret",
   "featureFlagOmnirouteEmergencyFallbackDescription": "Diriger budgetudtømte anmodninger til den gratis nød-fallback-udbyder/-model.",
@@ -1404,12 +1394,8 @@
     "agentBridge": "Agentbro",
     "agentBridgeSubtitle": "Opsnap IDE-agenttrafik",
     "trafficInspector": "Trafikinspektør",
-<<<<<<< HEAD
-    "trafficInspectorSubtitle": "__MISSING__:Inspect request and response traffic from your apps",
-=======
     "trafficInspectorSubtitle": "Undersøg anmodnings- og svartrafik fra dine apps",
     "trafficInspectorPurpose": "Se præcis, hvad din applikation sender til og modtager fra AI-udbydere. Fungerer med enhver OpenAI-kompatibel klient.",
->>>>>>> upstream/main
     "cliCode": "CLI-kode",
     "cliCodeSubtitle": "Kodeværktøjer, der peger på OmniRoute",
     "cliAgents": "CLI-agenter",
@@ -1451,12 +1437,8 @@
       "close": "luk"
     },
     "noResults": "Ingen resultater",
-<<<<<<< HEAD
-    "trafficInspectorPurpose": "See exactly what your application sends to and receives from AI providers. Works with any OpenAI-compatible client."
-=======
     "costsTeams": "Teams",
     "costsTeamsSubtitle": "Omkostningssteder for teams"
->>>>>>> upstream/main
   },
   "webhooks": {
     "title": "Webhooks",
@@ -2026,22 +2008,6 @@
     "releaseNotes": "Udgivelsesnoter",
     "readMore": "Læs Mere",
     "noAuthLabel": "Ingen godkendelse",
-<<<<<<< HEAD
-    "recentRequests": "Recent Requests",
-    "recentRequestsEmpty": "No requests yet.",
-    "recentRequestsModel": "Model",
-    "recentRequestsTokens": "In / Out",
-    "recentRequestsWhen": "When",
-    "readinessEyebrow": "Get ready to route",
-    "readinessTitle": "Send your first request",
-    "readinessSubtitle": "Four small steps. OmniRoute checks readiness as you go.",
-    "readinessStep1": "Connect a provider",
-    "readinessStep2": "Configure endpoint authentication",
-    "readinessStep3": "Copy your endpoint",
-    "readinessStep4": "Send a test request",
-    "readinessContinue": "Continue setup",
-    "readinessDismiss": "Dismiss for now"
-=======
     "readinessEyebrow": "Gør klar til routing",
     "readinessTitle": "Send din første anmodning",
     "readinessSubtitle": "Fire små trin. OmniRoute kontrollerer undervejs, om alt er klar.",
@@ -2067,7 +2033,6 @@
     "systemMetricsCpuCount": "{count} vCPUs • {platform}",
     "systemMetricsProcessCpu": "OmniRoute (process)",
     "systemMetricsProcessMemory": "OmniRoute (RSS / Heap)"
->>>>>>> upstream/main
   },
   "analytics": {
     "title": "Analyse",
@@ -3172,13 +3137,9 @@
       "prime-agent": "Prime Agent — selvforbedrende RLM-kodningsramme med understøttelse af OpenAI-kompatible providere",
       "warp": "Warp AI-terminal med understøttelse af brugerdefineret udbyder",
       "agent-deck": "Agent Deck multi-agent-orkestrator",
-<<<<<<< HEAD
-      "prime-agent": "Prime Agent — self-improving RLM coding harness with OpenAI-compatible provider support"
-=======
       "5dive": "5dive — selv-hostet flåde af kodningsagenter; én auth-profil peger dem alle mod OmniRoute",
       "whycodes": "WhyCodes autonom CLI-agent med OpenAI-kompatibel base-URL",
       "zed": "Zed-kodeeditor — indbygget agent via en OpenAI-kompatibel udbyder"
->>>>>>> upstream/main
     },
     "guides": {
       "cursor": {
@@ -6538,13 +6499,8 @@
     "rateLimitOverridesSection": "Tilsidesættelser af hastighedsbegrænsning",
     "rateLimitOverridesMaxConcurrentHint": "Tilsidesættelse af maks. samtidige anmodninger for denne forbindelse. Tilsidesætter loftet på kontoniveau.",
     "rateLimitOverridesMaxConcurrentLabel": "Maks. samtidige (hastighedsbegrænsning)",
-<<<<<<< HEAD
-    "rateLimitOverridesMaxWaitMsHint": "__MISSING__:Maximum time (ms) a request may wait for a rate-limit slot before failing. Overrides the global Resilience setting for this connection only.",
-    "rateLimitOverridesMaxWaitMsLabel": "__MISSING__:Max Queue Wait (ms)",
-=======
     "rateLimitOverridesMaxWaitMsHint": "Det maksimale tidsrum (ms), en anmodning må vente på en ledig plads inden for hastighedsgrænsen, før den mislykkes. Tilsidesætter kun den globale robusthedsindstilling for denne forbindelse.",
     "rateLimitOverridesMaxWaitMsLabel": "Maks. ventetid i kø (ms)",
->>>>>>> upstream/main
     "rateLimitOverridesMinTimeHint": "Minimumstid (ms) mellem anmodninger. Tilsidesætter standardforsinkelsen for hastighedsbegrænseren.",
     "rateLimitOverridesMinTimeLabel": "Min. interval (ms)",
     "rateLimitOverridesRpdHint": "Maksimalt antal anmodninger pr. dag for denne forbindelse. Tilsidesætter udbyderens standard.",
@@ -6837,11 +6793,7 @@
       "bigmodel": "Opret en API-nøgle på https://bigmodel.cn/usercenter/proj-mgmt/apikeys. OmniRoute bruger BigModel.cn's officielle OpenAI-kompatible chat-endpoint.",
       "glmt": "Forudindstillet GLM-profil med højere token-budget, tænkning aktiveret og længere timeout.",
       "getgoapi": "Forbind GoAPI med en API-nøgle.",
-<<<<<<< HEAD
-      "groq": "Gratis niveau: 30 RPM / 14,4K RPD — intet kreditkort",
-=======
       "groq": "Gratis abonnement: grænser pr. model (200K tokens/dag pr. chatmodel; se console.groq.com/docs/rate-limits for RPM/RPD) – ingen betalingsmetode registreret.",
->>>>>>> upstream/main
       "haiper": "Hent API-nøgle på haiper.ai/haiper-api",
       "heroku": "Forbind Heroku AI med en API-nøgle.",
       "hcnsec": "Få API-nøgle på api.hcnsec.cn",
@@ -7148,22 +7100,6 @@
     "searchByModelAria": "Søg efter model",
     "selectSupportedEndpoint": "Vælg mindst én understøttet endpoint",
     "antigravityClientProfileHarness": "Harness / CLI",
-<<<<<<< HEAD
-    "harImportButtonLabel": "Import .har file",
-    "harImportButtonBusy": "Importing…",
-    "harImportButtonHint": "Export from DevTools Network tab after sending at least one chat message.",
-    "harImportStatusValid": "Imported — valid for ~{minutes}m.",
-    "harImportStatusExpiringSoon": "Imported — valid for only ~{minutes}m more.",
-    "harImportStatusExpired": "Imported, but this token already expired ({minutes}m ago) — export a fresh HAR.",
-    "harImportStatusUnknownExpiry": "Imported. Couldn't read its expiry.",
-    "harImportErrorNotJson": "That file isn't valid JSON — is it really a .har export?",
-    "harImportErrorNoEntries": "This HAR has no network entries recorded.",
-    "harImportErrorNoChathubUrl": "No Copilot chat connection found in this HAR. Send at least one chat message in m365.cloud.microsoft before exporting.",
-    "harImportErrorUnparsableUrl": "Found the chat connection, but couldn't read its URL.",
-    "harImportErrorMissingFields": "Found the chat connection, but the token was missing from it.",
-    "harImportErrorReadFailed": "Couldn't read that file.",
-    "harImportErrorUnknown": "Couldn't extract a credential from that HAR file."
-=======
     "rateLimitOverridesModelConcurrencyLabel": "Per-model concurrency caps",
     "rateLimitOverridesModelConcurrencyPlaceholder": "glm-5=1\nglm-4.7=3",
     "rateLimitOverridesModelConcurrencyHint": "Optional: one model=cap per line, matched against the exact upstream model id. Queues excess requests locally; blank means no per-model cap.",
@@ -7188,7 +7124,6 @@
     "doctorChecking": "Tjekker status…",
     "doctorCheck": "Tjek lægestatus",
     "fallbackRetryBackendTitle": "Fallback genforsøg backend"
->>>>>>> upstream/main
   },
   "settings": {
     "title": "Indstillinger",
@@ -9180,20 +9115,6 @@
     "cliproxyapiPort": "Port",
     "qdrantHost": "Vært",
     "qdrantCollection": "Samling",
-<<<<<<< HEAD
-    "presetAll": "All",
-    "presetAllDesc": "Show everything",
-    "presetEssentials": "Essentials",
-    "presetEssentialsDesc": "Beginner path - Advanced tools stay searchable",
-    "presetMinimal": "Minimal",
-    "presetMinimalDesc": "Core pages only",
-    "presetDeveloper": "Developer",
-    "presetDeveloperDesc": "Dev & proxy tools",
-    "presetAdmin": "Admin",
-    "presetAdminDesc": "Monitoring & audit",
-    "settingsSidebarTitle": "Sidebar Customization",
-    "settingsSidebarDesc": "Choose which sidebar items to show. Essentials keeps Advanced tools searchable."
-=======
     "catalogVisibilityHint": "Skjulte model-id’er kan stadig kaldes med de samme adgangsrettigheder.",
     "exposeCombosOnly": "Vis kun kombinationer i /v1/models",
     "exposeCombosOnlyDesc": "Klienter, der automatisk finder modeller, ser dine kombinationer (og auto/*, medmindre de er skjult) i stedet for rå udbydermodeller. Eksplicitte provider/model-id'er bliver fortsat routet.",
@@ -9374,7 +9295,6 @@
       "statsEmpty": "Ingen fund endnu.",
       "statsRequest": "Anmodninger"
     }
->>>>>>> upstream/main
   },
   "contextRtk": {
     "title": "RTK Engine",
@@ -14318,11 +14238,6 @@
       "SKILLS_SANDBOX_NETWORK_ENABLED": {
         "description": "Aktivér netværksadgang i skills-sandkassen."
       },
-<<<<<<< HEAD
-      "DISABLE_CONTEXT_WINDOW_CHECKS": {
-        "label": "Disable Context Window Checks",
-        "description": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active."
-=======
       "SERVER_OWNED_TOOL_LOOP_ENABLED": {
         "label": "Serverstyret værktøjsløkke",
         "description": "Fortsæt ikke-streamede, serverstyrede værktøjskald, indtil modellen returnerer et svar, som klienten kan bruge."
@@ -14618,7 +14533,6 @@
       "UNPRICED_USAGE_BUDGET_POLICY": {
         "label": "Politik for uprissat forbrugsbudget",
         "description": "Hvordan per-nøgle daglige/ugentlige USD-grænser behandler vellykket brug, hvor leverandøren/modellen ikke har en prissætningspost. fail_closed (standard) markerer vinduet som overskredet, så en ukendt omkostning aldrig kan slippe forbi et hårdt loft. count_as_zero tæller den brug som $0 og fortsætter med at håndhæve det prissatte forbrug. Uprissatte modeller vises på dashboardets startside under alle omstændigheder."
->>>>>>> upstream/main
       }
     }
   },
@@ -15903,15 +15817,6 @@
     "structuredOutputMismatch": "Udbyderen understøtter ikke struktureret output",
     "contextWindowMismatch": "Anmodningen overskrider udbyderens kontekstvindue"
   },
-<<<<<<< HEAD
-  "featureFlagDisableContextWindowChecksDescription": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active.",
-  "cheaperInferenceSponsorBanner": {
-    "title": "Cheaper Inference is an OmniRoute Open Source Friend",
-    "description": "A cost-ranked gateway reselling dozens of frontier models behind one OpenAI-compatible endpoint — routing each request to the cheapest eligible provider, never above list price.",
-    "cta": "Get an API Key",
-    "partnerLinkNote": "Partner link",
-    "dismissAriaLabel": "Dismiss"
-=======
   "cheaperInferenceSponsorBanner": {
     "title": "Cheaper Inference er en af open source-vennerne hos OmniRoute",
     "description": "En prisrangeret gateway, der videresælger snesevis af førende modeller via ét OpenAI-kompatibelt endpoint — og dirigerer hver anmodning til den billigste kvalificerede udbyder, aldrig over listeprisen.",
@@ -16092,6 +15997,5 @@
     "greetingFallbackName": "der",
     "errNoReply": "⚠️ Intet svar fra gatewayen.",
     "btnSend": "Send"
->>>>>>> upstream/main
   }
 }

@@ -26,12 +26,6 @@
 // merge-train batch — independently bumped the gateways family too, landing at 231; Freebuff
 // (gateways, #10531) brings it to 232. #8864 moves uncloseai (gateways family) into
 // NOAUTH_PROVIDERS, dropping the APIKEY_PROVIDERS count to 231. Logfare (gateways, #10987) brings it back to 232.
-<<<<<<< HEAD
-// #11176 removes hackclub (gateways family), landing at 231. The Volcano Ark plan providers
-// (volcengine-agent-plan + volcengine-coding-plan, regional family, commit d732cf615) bring it
-// to 233 - measured on the tip: merged 233 keys, 233 unique, family sum 233 with an empty
-// cross-family duplicate set, so the strict partition is intact.
-=======
 // #11176 removes hackclub (gateways family), landing at 231.
 // The v3.8.50 back-merge (f95b03d) adds Synthetic (specialty-media) and
 // Kilo Gateway (gateways); #11434 adds volcengine-agent-plan and
@@ -54,7 +48,6 @@
 // from the barrel — 245.
 // TypeSafe System One (#15278, non-chat `typesafe` credential provider) adds one specialty-media entry — 249.
 // ainetcafe (#13862, OpenAI-compatible gateway) adds one apikey/gateways entry — 253.
->>>>>>> upstream/main
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
@@ -95,14 +88,6 @@ test("barrel still exports every catalog + key helpers", () => {
   }
 });
 
-<<<<<<< HEAD
-test("APIKEY_PROVIDERS merges the 6 family files into 233 entries (no loss / no dup)", async () => {
-  const keys = Object.keys((P as Record<string, object>).APIKEY_PROVIDERS);
-  assert.equal(keys.length, 233);
-  assert.equal(new Set(keys).size, 233, "duplicate keys after spread-merge");
-  // the merged object's entry-count equals the sum of the 6 semantic family files; families are a
-  // strict partition (every provider in exactly one), so the sum must be exactly 233.
-=======
 test(`APIKEY_PROVIDERS merges the 6 family files plus the beatapi extract into ${APIKEY_PROVIDER_COUNT} entries (no loss / no dup)`, async () => {
   const keys = Object.keys((P as Record<string, object>).APIKEY_PROVIDERS);
   assert.equal(keys.length, APIKEY_PROVIDER_COUNT);
@@ -111,7 +96,6 @@ test(`APIKEY_PROVIDERS merges the 6 family files plus the beatapi extract into $
   // the merged object's entry-count equals the sum of the 6 semantic family files plus the
   // beatapi overflow extract; they are a strict partition (every provider in exactly one),
   // so the sum must be exactly APIKEY_PROVIDER_COUNT.
->>>>>>> upstream/main
   const families: [string, string][] = [
     ["gateways", "APIKEY_PROVIDERS_GATEWAYS"],
     ["beatapi", "APIKEY_PROVIDERS_BEATAPI"],
@@ -132,16 +116,12 @@ test(`APIKEY_PROVIDERS merges the 6 family files plus the beatapi extract into $
       seen.add(k);
     }
   }
-<<<<<<< HEAD
-  assert.equal(famTotal, 233, "families must partition all 233 providers");
-=======
   assert.equal(
     famTotal,
     APIKEY_PROVIDER_COUNT,
     `families must partition all ${APIKEY_PROVIDER_COUNT} providers`
   );
   assert.ok(seen.has("ainetcafe"), "ainetcafe must live in a family file");
->>>>>>> upstream/main
 });
 
 test("AI_PROVIDERS Proxy aggregates all sections; lookups resolve", () => {

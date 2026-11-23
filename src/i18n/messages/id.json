@@ -1017,19 +1017,9 @@
     "batchFilePreview": "Prabaca",
     "batchFilePreviewTruncated": "Menampilkan {shown} baris pertama ({total} total baris)",
     "batchFileDownloadFull": "Unduh File Lengkap",
-<<<<<<< HEAD
-    "batchHeaderSubtitle": "Run many requests as one job",
-    "batchStep1": "1 · Upload JSONL",
-    "batchStep1Desc": "Add requests",
-    "batchStep2": "2 · Create batch",
-    "batchStep2Desc": "Run job",
-    "batchStep3": "3 · Get results",
-    "batchStep3Desc": "Download output"
-=======
     "tokensPageTitle": "Token",
     "tokensPageDescription": "Kirim token antar-kunci API, bagikan kode undangan, dan hubungkan server komunitas.",
     "tokensServerUrlLabel": "URL server"
->>>>>>> upstream/main
   },
   "disabled": "Dinonaktifkan",
   "featureFlagOmnirouteEmergencyFallbackDescription": "Arahkan permintaan yang kehabisan anggaran ke penyedia/model fallback gratis darurat.",
@@ -1327,12 +1317,8 @@
     "agentBridge": "Jembatan Agen",
     "agentBridgeSubtitle": "Cegat lalu lintas agen IDE",
     "trafficInspector": "Traffic Inspector",
-<<<<<<< HEAD
-    "trafficInspectorSubtitle": "__MISSING__:Inspect request and response traffic from your apps",
-=======
     "trafficInspectorSubtitle": "Periksa lalu lintas permintaan dan respons dari aplikasi Anda",
     "trafficInspectorPurpose": "Lihat secara persis apa yang dikirim aplikasi Anda kepada penyedia AI dan apa yang diterimanya dari penyedia tersebut. Berfungsi dengan klien apa pun yang kompatibel dengan OpenAI.",
->>>>>>> upstream/main
     "cliCode": "CLI Code",
     "cliCodeSubtitle": "Alat kode yang mengarah ke OmniRoute",
     "cliAgents": "Agen CLI",
@@ -1374,12 +1360,8 @@
       "close": "tutup"
     },
     "noResults": "Tidak ada hasil",
-<<<<<<< HEAD
-    "trafficInspectorPurpose": "See exactly what your application sends to and receives from AI providers. Works with any OpenAI-compatible client."
-=======
     "costsTeams": "Tim",
     "costsTeamsSubtitle": "Pusat biaya tim"
->>>>>>> upstream/main
   },
   "webhooks": {
     "title": "Webhook",
@@ -1949,22 +1931,6 @@
     "releaseNotes": "Catatan Rilis",
     "readMore": "Baca Selengkapnya",
     "noAuthLabel": "Tidak Ada Autentikasi",
-<<<<<<< HEAD
-    "recentRequests": "Recent Requests",
-    "recentRequestsEmpty": "No requests yet.",
-    "recentRequestsModel": "Model",
-    "recentRequestsTokens": "In / Out",
-    "recentRequestsWhen": "When",
-    "readinessEyebrow": "Get ready to route",
-    "readinessTitle": "Send your first request",
-    "readinessSubtitle": "Four small steps. OmniRoute checks readiness as you go.",
-    "readinessStep1": "Connect a provider",
-    "readinessStep2": "Configure endpoint authentication",
-    "readinessStep3": "Copy your endpoint",
-    "readinessStep4": "Send a test request",
-    "readinessContinue": "Continue setup",
-    "readinessDismiss": "Dismiss for now"
-=======
     "readinessEyebrow": "Bersiaplah untuk melakukan perutean",
     "readinessTitle": "Kirim permintaan pertama Anda",
     "readinessSubtitle": "Empat langkah sederhana. OmniRoute memeriksa kesiapan seiring proses berjalan.",
@@ -1990,7 +1956,6 @@
     "systemMetricsCpuCount": "{count} vCPUs • {platform}",
     "systemMetricsProcessCpu": "OmniRoute (process)",
     "systemMetricsProcessMemory": "OmniRoute (RSS / Heap)"
->>>>>>> upstream/main
   },
   "analytics": {
     "title": "Analisis",
@@ -3095,13 +3060,9 @@
       "prime-agent": "Prime Agent — kerangka kerja coding RLM yang dapat meningkatkan diri dengan dukungan penyedia yang kompatibel dengan OpenAI",
       "warp": "Terminal AI Warp dengan dukungan penyedia kustom",
       "agent-deck": "Orkestrator multi-agen Agent Deck",
-<<<<<<< HEAD
-      "prime-agent": "Prime Agent — self-improving RLM coding harness with OpenAI-compatible provider support"
-=======
       "5dive": "5dive — armada agen coding yang di-host sendiri; satu profil auth mengarahkan semuanya ke OmniRoute",
       "whycodes": "Agen CLI otonom WhyCodes dengan base URL yang kompatibel dengan OpenAI",
       "zed": "Editor kode Zed — agen bawaan melalui penyedia yang kompatibel dengan OpenAI"
->>>>>>> upstream/main
     },
     "guides": {
       "cursor": {
@@ -6461,13 +6422,8 @@
     "rateLimitOverridesSection": "Override Batas Tarif",
     "rateLimitOverridesMaxConcurrentHint": "Override permintaan bersamaan maksimum untuk koneksi ini. Menimpa batas tingkat akun.",
     "rateLimitOverridesMaxConcurrentLabel": "Maks Bersamaan (Batar Tarif)",
-<<<<<<< HEAD
-    "rateLimitOverridesMaxWaitMsHint": "__MISSING__:Maximum time (ms) a request may wait for a rate-limit slot before failing. Overrides the global Resilience setting for this connection only.",
-    "rateLimitOverridesMaxWaitMsLabel": "__MISSING__:Max Queue Wait (ms)",
-=======
     "rateLimitOverridesMaxWaitMsHint": "Waktu maksimum (ms) permintaan dapat menunggu slot batas laju sebelum gagal. Menggantikan pengaturan Ketahanan global hanya untuk koneksi ini.",
     "rateLimitOverridesMaxWaitMsLabel": "Waktu Tunggu Antrean Maksimum (ms)",
->>>>>>> upstream/main
     "rateLimitOverridesMinTimeHint": "Waktu minimum (ms) antar permintaan. Menimpa penundaan pembatas tarif default.",
     "rateLimitOverridesMinTimeLabel": "Interval Min (ms)",
     "rateLimitOverridesRpdHint": "Permintaan maksimum per hari untuk koneksi ini. Mengganti default penyedia.",
@@ -6760,11 +6716,7 @@
       "bigmodel": "Buat kunci API di https://bigmodel.cn/usercenter/proj-mgmt/apikeys. OmniRoute menggunakan endpoint chat resmi BigModel.cn yang kompatibel dengan OpenAI.",
       "glmt": "Profil GLM prasetel dengan anggaran token yang lebih tinggi, proses berpikir diaktifkan, dan batas waktu yang lebih lama.",
       "getgoapi": "Hubungkan GoAPI dengan kunci API.",
-<<<<<<< HEAD
-      "groq": "Tingkat gratis: 30 RPM / 14,4K RPD — tanpa kartu kredit",
-=======
       "groq": "Paket gratis: batas per model (200 ribu token/hari per model chat; lihat console.groq.com/docs/rate-limits untuk RPM/RPD) — tidak ada metode pembayaran yang tersimpan.",
->>>>>>> upstream/main
       "haiper": "Dapatkan kunci API di haiper.ai/haiper-api",
       "heroku": "Hubungkan Heroku AI dengan kunci API.",
       "hcnsec": "Dapatkan kunci API di api.hcnsec.cn",
@@ -7071,22 +7023,6 @@
     "searchByModelAria": "Cari berdasarkan model",
     "selectSupportedEndpoint": "Pilih setidaknya satu endpoint yang didukung",
     "antigravityClientProfileHarness": "Harness / CLI",
-<<<<<<< HEAD
-    "harImportButtonLabel": "Import .har file",
-    "harImportButtonBusy": "Importing…",
-    "harImportButtonHint": "Export from DevTools Network tab after sending at least one chat message.",
-    "harImportStatusValid": "Imported — valid for ~{minutes}m.",
-    "harImportStatusExpiringSoon": "Imported — valid for only ~{minutes}m more.",
-    "harImportStatusExpired": "Imported, but this token already expired ({minutes}m ago) — export a fresh HAR.",
-    "harImportStatusUnknownExpiry": "Imported. Couldn't read its expiry.",
-    "harImportErrorNotJson": "That file isn't valid JSON — is it really a .har export?",
-    "harImportErrorNoEntries": "This HAR has no network entries recorded.",
-    "harImportErrorNoChathubUrl": "No Copilot chat connection found in this HAR. Send at least one chat message in m365.cloud.microsoft before exporting.",
-    "harImportErrorUnparsableUrl": "Found the chat connection, but couldn't read its URL.",
-    "harImportErrorMissingFields": "Found the chat connection, but the token was missing from it.",
-    "harImportErrorReadFailed": "Couldn't read that file.",
-    "harImportErrorUnknown": "Couldn't extract a credential from that HAR file."
-=======
     "rateLimitOverridesModelConcurrencyLabel": "Batas konkurensi per model",
     "rateLimitOverridesModelConcurrencyPlaceholder": "glm-5=1\nglm-4.7=3",
     "rateLimitOverridesModelConcurrencyHint": "Opsional: satu model=cap per baris, dicocokkan dengan ID model upstream yang persis sama. Permintaan berlebih diantrekan secara lokal; kosong berarti tanpa batas per model.",
@@ -7111,7 +7047,6 @@
     "doctorChecking": "Memeriksa status…",
     "doctorCheck": "Periksa status doctor",
     "fallbackRetryBackendTitle": "Backend percobaan ulang fallback"
->>>>>>> upstream/main
   },
   "settings": {
     "title": "Pengaturan",
@@ -9103,20 +9038,6 @@
     "cliproxyapiPort": "Port",
     "qdrantHost": "Host",
     "qdrantCollection": "Koleksi",
-<<<<<<< HEAD
-    "presetAll": "All",
-    "presetAllDesc": "Show everything",
-    "presetEssentials": "Essentials",
-    "presetEssentialsDesc": "Beginner path - Advanced tools stay searchable",
-    "presetMinimal": "Minimal",
-    "presetMinimalDesc": "Core pages only",
-    "presetDeveloper": "Developer",
-    "presetDeveloperDesc": "Dev & proxy tools",
-    "presetAdmin": "Admin",
-    "presetAdminDesc": "Monitoring & audit",
-    "settingsSidebarTitle": "Sidebar Customization",
-    "settingsSidebarDesc": "Choose which sidebar items to show. Essentials keeps Advanced tools searchable."
-=======
     "catalogVisibilityHint": "ID model yang disembunyikan tetap dapat dipanggil dengan izin akses yang sama.",
     "exposeCombosOnly": "Tampilkan hanya kombinasi di /v1/models",
     "exposeCombosOnlyDesc": "Klien yang menemukan model secara otomatis akan melihat kombinasi Anda (dan auto/* kecuali disembunyikan) alih-alih model mentah penyedia. ID provider/model eksplisit tetap dirutekan.",
@@ -9297,7 +9218,6 @@
       "statsEmpty": "Belum ada deteksi.",
       "statsRequest": "Permintaan"
     }
->>>>>>> upstream/main
   },
   "contextRtk": {
     "title": "Mesin RTK",
@@ -14241,11 +14161,6 @@
       "SKILLS_SANDBOX_NETWORK_ENABLED": {
         "description": "Aktifkan akses jaringan di sandbox keterampilan."
       },
-<<<<<<< HEAD
-      "DISABLE_CONTEXT_WINDOW_CHECKS": {
-        "label": "Disable Context Window Checks",
-        "description": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active."
-=======
       "SERVER_OWNED_TOOL_LOOP_ENABLED": {
         "label": "Loop Alat yang Dikelola Server",
         "description": "Lanjutkan panggilan alat non-streaming yang dikelola server hingga model mengembalikan respons yang dapat digunakan klien."
@@ -14541,7 +14456,6 @@
       "UNPRICED_USAGE_BUDGET_POLICY": {
         "label": "Kebijakan Anggaran Penggunaan Tanpa Harga",
         "description": "Bagaimana batas USD harian/mingguan per-kunci memperlakukan penggunaan yang berhasil apabila penyedia/modelnya tidak memiliki baris harga. fail_closed (bawaan) menandai jendela sebagai terlampaui, sehingga biaya yang tidak diketahui tidak pernah bisa melewati batas keras. count_as_zero menghitung penggunaan itu sebagai $0 dan terus menegakkan pengeluaran yang diberi harga. Model tanpa harga tetap ditampilkan di halaman utama dasbor dalam kedua kasus."
->>>>>>> upstream/main
       }
     }
   },
@@ -15826,15 +15740,6 @@
     "structuredOutputMismatch": "Penyedia tidak mendukung keluaran terstruktur",
     "contextWindowMismatch": "Permintaan melebihi jendela konteks penyedia"
   },
-<<<<<<< HEAD
-  "featureFlagDisableContextWindowChecksDescription": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active.",
-  "cheaperInferenceSponsorBanner": {
-    "title": "Cheaper Inference is an OmniRoute Open Source Friend",
-    "description": "A cost-ranked gateway reselling dozens of frontier models behind one OpenAI-compatible endpoint — routing each request to the cheapest eligible provider, never above list price.",
-    "cta": "Get an API Key",
-    "partnerLinkNote": "Partner link",
-    "dismissAriaLabel": "Dismiss"
-=======
   "cheaperInferenceSponsorBanner": {
     "title": "Cheaper Inference adalah Sahabat Open Source OmniRoute",
     "description": "Gateway berperingkat berdasarkan biaya yang menjual kembali puluhan model terdepan melalui satu endpoint yang kompatibel dengan OpenAI — merutekan setiap permintaan ke penyedia termurah yang memenuhi syarat, tanpa pernah melebihi harga resmi.",
@@ -16092,6 +15997,5 @@
     "greetingFallbackName": "di sana",
     "errNoReply": "⚠️ Tidak ada respons dari gerbang.",
     "btnSend": "Kirim"
->>>>>>> upstream/main
   }
 }

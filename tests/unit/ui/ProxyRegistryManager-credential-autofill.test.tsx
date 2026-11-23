@@ -176,17 +176,11 @@ describe("ProxyRegistryManager credential autofill regression #8855", () => {
 
       setInputValue(editUsername, "edit-user-sentinel");
       setInputValue(editPassword, "edit-password-sentinel");
-<<<<<<< HEAD
-      await click(container.querySelector<HTMLButtonElement>('button[aria-label="close"]')!);
-      await click(
-        container.querySelector<HTMLButtonElement>('[data-testid="proxy-registry-open-create"]')!
-=======
       await click(document.body.querySelector<HTMLButtonElement>('button[aria-label="close"]')!);
       await click(
         document.body.querySelector<HTMLButtonElement>(
           '[data-testid="proxy-registry-open-create"]'
         )!
->>>>>>> upstream/main
       );
 
       const createUsername = findCredentialInput("labelUsername");
@@ -202,19 +196,11 @@ describe("ProxyRegistryManager credential autofill regression #8855", () => {
       }
 
       setInputValue(
-<<<<<<< HEAD
-        container.querySelector<HTMLInputElement>('[data-testid="proxy-registry-name-input"]')!,
-        "New proxy"
-      );
-      setInputValue(
-        container.querySelector<HTMLInputElement>('[data-testid="proxy-registry-host-input"]')!,
-=======
         document.body.querySelector<HTMLInputElement>('[data-testid="proxy-registry-name-input"]')!,
         "New proxy"
       );
       setInputValue(
         document.body.querySelector<HTMLInputElement>('[data-testid="proxy-registry-host-input"]')!,
->>>>>>> upstream/main
         "proxy.example.test"
       );
       await click(findButton("save"));
@@ -239,11 +225,7 @@ describe("ProxyRegistryManager credential autofill regression #8855", () => {
       await waitFor(() => expect(container.textContent).toContain(DEAD_PROXY.name));
 
       await click(findButton("edit"));
-<<<<<<< HEAD
-      const statusSelect = container.querySelector<HTMLSelectElement>(
-=======
       const statusSelect = document.body.querySelector<HTMLSelectElement>(
->>>>>>> upstream/main
         '[data-testid="proxy-registry-status-select"]'
       );
       expect(statusSelect).not.toBeNull();
@@ -255,11 +237,7 @@ describe("ProxyRegistryManager credential autofill regression #8855", () => {
       expect(patchBody).toMatchObject({ id: DEAD_PROXY.id, status: "dead" });
 
       await click(findButton("managePool"));
-<<<<<<< HEAD
-      const scopeSelect = container.querySelector<HTMLSelectElement>(
-=======
       const scopeSelect = document.body.querySelector<HTMLSelectElement>(
->>>>>>> upstream/main
         '[data-testid="proxy-registry-pool-scope"]'
       );
       expect(scopeSelect).not.toBeNull();
@@ -273,17 +251,6 @@ describe("ProxyRegistryManager credential autofill regression #8855", () => {
         scopeSelect.dispatchEvent(new Event("change", { bubbles: true }));
       });
       await click(
-<<<<<<< HEAD
-        container.querySelector<HTMLButtonElement>('[data-testid="proxy-registry-pool-load"]')!
-      );
-      await waitFor(() =>
-        expect(
-          container.querySelector('[data-testid="proxy-registry-pool-add-select"]')
-        ).not.toBeNull()
-      );
-
-      const poolAddSelect = container.querySelector<HTMLSelectElement>(
-=======
         document.body.querySelector<HTMLButtonElement>('[data-testid="proxy-registry-pool-load"]')!
       );
       await waitFor(() =>
@@ -293,7 +260,6 @@ describe("ProxyRegistryManager credential autofill regression #8855", () => {
       );
 
       const poolAddSelect = document.body.querySelector<HTMLSelectElement>(
->>>>>>> upstream/main
         '[data-testid="proxy-registry-pool-add-select"]'
       );
       expect(poolAddSelect?.querySelector(`option[value="${DEAD_PROXY.id}"]`)).toBeNull();

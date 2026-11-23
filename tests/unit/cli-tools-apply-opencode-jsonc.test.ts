@@ -79,12 +79,8 @@ test.afterEach(async () => {
   if (originalAllowContainerWrite === undefined)
     delete process.env.OMNIROUTE_ALLOW_CONTAINER_CONFIG_WRITE;
   else process.env.OMNIROUTE_ALLOW_CONTAINER_CONFIG_WRITE = originalAllowContainerWrite;
-<<<<<<< HEAD
-  for (const root of testRoots) await fs.rm(root, { recursive: true, force: true });
-=======
   for (const root of testRoots)
     await fs.rm(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
->>>>>>> upstream/main
   testRoots.clear();
 });
 

@@ -83,11 +83,7 @@ test("buildUrl uses responses endpoint for gpt-5.4-mini and gpt-5.6-sol", () => 
   );
 });
 
-<<<<<<< HEAD
-test("buildUrl routes Claude to the native /v1/messages shim (not chat/completions)", () => {
-=======
 test("buildUrl routes unregistered GPT-6 models to the Responses endpoint", () => {
->>>>>>> upstream/main
   const executor = new GheCopilotExecutor({
     gheUrl: "https://ghe.company.com",
     clientId: "test-client",
@@ -96,17 +92,6 @@ test("buildUrl routes unregistered GPT-6 models to the Responses endpoint", () =
   const credentials: ProviderCredentials = {
     providerSpecificData: { gheUrl: "https://ghe.company.com" },
   };
-<<<<<<< HEAD
-  // Claude must ALWAYS use the Anthropic-native shim (prompt-cache token counts +
-  // lossless tool_use/tool_result/thinking blocks), same as github.com Copilot.
-  assert.strictEqual(
-    executor.buildUrl("claude-opus-5", true, 0, credentials),
-    "https://ghe.company.com/v1/messages"
-  );
-});
-
-test("buildUrl uses chat/completions endpoint for gemini models", () => {
-=======
 
   assert.strictEqual(
     executor.buildUrl("ghe-copilot/gpt-6-luna", true, 0, credentials),
@@ -178,7 +163,6 @@ function outboundBody(
 }
 
 test("GPT-6 requests routed to /responses send a Responses body, not chat completions", () => {
->>>>>>> upstream/main
   const executor = new GheCopilotExecutor({
     gheUrl: "https://ghe.company.com",
     clientId: "test-client",
@@ -187,10 +171,6 @@ test("GPT-6 requests routed to /responses send a Responses body, not chat comple
   const credentials: ProviderCredentials = {
     providerSpecificData: { gheUrl: "https://ghe.company.com" },
   };
-<<<<<<< HEAD
-  // Gemini has no native shim on Copilot — it stays on /chat/completions.
-  assert.strictEqual(
-=======
 
   for (const model of UNREGISTERED_GPT6_MODELS) {
     assert.strictEqual(
@@ -267,7 +247,6 @@ test("buildUrl uses chat/completions endpoint for gemini models", () => {
   };
   // Gemini has no native shim on Copilot — it stays on /chat/completions.
   assert.strictEqual(
->>>>>>> upstream/main
     executor.buildUrl("gemini-3.7-flash", true, 0, credentials),
     "https://ghe.company.com/chat/completions"
   );

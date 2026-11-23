@@ -232,11 +232,7 @@ export function getStaticModelsForProvider(provider: string): LocalCatalogModel[
   const speechProvider = getSpeechProvider(provider);
   if (speechProvider) {
     appendModels(speechProvider.models, {
-<<<<<<< HEAD
-      apiFormat: "audio",
-=======
       apiFormat: "audio-speech",
->>>>>>> upstream/main
       supportedEndpoints: ["audio-speech"],
     });
   }
@@ -244,11 +240,7 @@ export function getStaticModelsForProvider(provider: string): LocalCatalogModel[
   const transcriptionProvider = getTranscriptionProvider(provider);
   if (transcriptionProvider) {
     appendModels(transcriptionProvider.models, {
-<<<<<<< HEAD
-      apiFormat: "audio",
-=======
       apiFormat: "audio-transcriptions",
->>>>>>> upstream/main
       supportedEndpoints: ["audio-transcriptions"],
     });
   }

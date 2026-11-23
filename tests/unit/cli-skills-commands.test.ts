@@ -1,9 +1,5 @@
 import test from "node:test";
-<<<<<<< HEAD
-import { makeMcpStreamFetch } from "./helpers/mcpStreamMock.ts";
-=======
 import { makeMcpStreamFetch, type McpFetchCall } from "./helpers/mcpStreamMock.ts";
->>>>>>> upstream/main
 import assert from "node:assert/strict";
 
 const SKILLS_DATA = [
@@ -134,13 +130,9 @@ test("runSkillsEnable usa JSON-RPC tools/call", async () => {
 
   globalThis.fetch = origFetch;
   assert.ok(calls.some((x) => String(x.url).includes("/api/mcp/stream")));
-<<<<<<< HEAD
-  const callBody = JSON.parse(calls.find((x) => String(x.init?.body || "").includes("tools/call"))?.init?.body || "{}");
-=======
   const callBody = JSON.parse(
     calls.find((x) => String(x.init?.body || "").includes("tools/call"))?.init?.body || "{}"
   );
->>>>>>> upstream/main
   assert.equal(callBody.method, "tools/call");
   assert.equal(callBody.params.name, "omniroute_skills_enable");
   assert.equal(callBody.params.arguments.skillId, "sk_pdf");
@@ -164,13 +156,9 @@ test("runSkillsExecute usa JSON-RPC tools/call", async () => {
   );
 
   globalThis.fetch = origFetch;
-<<<<<<< HEAD
-  const callBody = JSON.parse(calls.find((x) => String(x.init?.body || "").includes("tools/call"))?.init?.body || "{}");
-=======
   const callBody = JSON.parse(
     calls.find((x) => String(x.init?.body || "").includes("tools/call"))?.init?.body || "{}"
   );
->>>>>>> upstream/main
   assert.equal(callBody.method, "tools/call");
   assert.equal(callBody.params.name, "omniroute_skills_execute");
   assert.equal(callBody.params.arguments.skillId, "sk_pdf");

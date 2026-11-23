@@ -1,9 +1,5 @@
 import test from "node:test";
-<<<<<<< HEAD
-import { makeMcpStreamFetch } from "./helpers/mcpStreamMock.ts";
-=======
 import { makeMcpStreamFetch, type McpFetchCall } from "./helpers/mcpStreamMock.ts";
->>>>>>> upstream/main
 import assert from "node:assert/strict";
 
 function makeResp(data: unknown, status = 200) {
@@ -103,14 +99,10 @@ test("resilience profile set usa JSON-RPC tools/call", async () => {
   globalThis.fetch = makeMcpStreamFetch({ toolResult: {} });
   const inner = globalThis.fetch;
   globalThis.fetch = ((url: any, init: any) => {
-<<<<<<< HEAD
-    if (String(url).includes("/api/mcp/stream") && String(init?.body || "").includes("tools/call")) {
-=======
     if (
       String(url).includes("/api/mcp/stream") &&
       String(init?.body || "").includes("tools/call")
     ) {
->>>>>>> upstream/main
       capturedCall = JSON.parse(init.body);
     }
     return inner(url, init);

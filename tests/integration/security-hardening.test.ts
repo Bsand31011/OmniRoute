@@ -309,22 +309,6 @@ test("OAuth routes that can create provider connections require auth guard", () 
     const content = readIfExists(relPath);
     assert.ok(content, `${relPath} should exist`);
 
-<<<<<<< HEAD
-    // Two accepted guard shapes. GHSA-mg76 moved the cursor/kiro *import* routes
-    // onto requireManagementAuth, which is strictly STRONGER than the legacy
-    // pair: it demands a management principal (dashboard session, manage-scoped
-    // key, CLI token) instead of merely "any authenticated caller", and answers
-    // 401/403 itself — so the literal "Unauthorized" no longer appears in the
-    // route file. The remaining routes still carry the legacy triple.
-    const usesManagementGuard = content.includes("requireManagementAuth(request");
-    const usesLegacyGuard =
-      content.includes("isAuthRequired") &&
-      content.includes("isAuthenticated") &&
-      content.includes("Unauthorized");
-    assert.ok(
-      usesManagementGuard || usesLegacyGuard,
-      `${relPath} must guard connection-creating handlers with requireManagementAuth or the isAuthRequired/isAuthenticated pair`
-=======
     // `/api/oauth/` is a public route prefix, so the pipeline leaves the decision to the
     // handler, and isAuthenticated() there accepts any valid client API key. Every handler
     // that can create or overwrite a provider connection must ask for a management
@@ -340,7 +324,6 @@ test("OAuth routes that can create provider connections require auth guard", () 
     assert.ok(
       !/isAuthenticated\s*\(/.test(code),
       `${relPath} must not fall back to isAuthenticated(), which accepts any client API key`
->>>>>>> upstream/main
     );
 
     // Positive anchor: a guard somewhere in the file proves nothing if one of the

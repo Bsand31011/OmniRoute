@@ -1017,19 +1017,9 @@
     "batchFilePreview": "Előnézet",
     "batchFilePreviewTruncated": "Az első {shown} sor megjelenítése ({total} összes sor)",
     "batchFileDownloadFull": "Teljes fájl letöltése",
-<<<<<<< HEAD
-    "batchHeaderSubtitle": "Run many requests as one job",
-    "batchStep1": "1 · Upload JSONL",
-    "batchStep1Desc": "Add requests",
-    "batchStep2": "2 · Create batch",
-    "batchStep2Desc": "Run job",
-    "batchStep3": "3 · Get results",
-    "batchStep3Desc": "Download output"
-=======
     "tokensPageTitle": "Tokenek",
     "tokensPageDescription": "Tokenek küldése API-kulcsok között, meghívókódok megosztása és közösségi szerverek csatlakoztatása.",
     "tokensServerUrlLabel": "Szerver URL-címe"
->>>>>>> upstream/main
   },
   "disabled": "Letiltva",
   "featureFlagOmnirouteEmergencyFallbackDescription": "A keretet kimerítő kérések átirányítása a vészhelyzeti ingyenes tartalék szolgáltatóhoz/modellhez.",
@@ -1327,12 +1317,8 @@
     "agentBridge": "Ügynökhíd",
     "agentBridgeSubtitle": "IDE-ügynök forgalmának elfogása",
     "trafficInspector": "Forgalomvizsgáló",
-<<<<<<< HEAD
-    "trafficInspectorSubtitle": "__MISSING__:Inspect request and response traffic from your apps",
-=======
     "trafficInspectorSubtitle": "Az alkalmazásaiból érkező kérés- és válaszforgalom vizsgálata",
     "trafficInspectorPurpose": "Pontosan megtekintheti, hogy alkalmazása mit küld az AI-szolgáltatóknak, és mit kap tőlük. Bármely OpenAI-kompatibilis klienssel működik.",
->>>>>>> upstream/main
     "cliCode": "CLI kód",
     "cliCodeSubtitle": "Az OmniRoute-ra mutató kódeszközök",
     "cliAgents": "CLI ügynökök",
@@ -1374,12 +1360,8 @@
       "close": "bezárás"
     },
     "noResults": "Nincs találat",
-<<<<<<< HEAD
-    "trafficInspectorPurpose": "See exactly what your application sends to and receives from AI providers. Works with any OpenAI-compatible client."
-=======
     "costsTeams": "Csapatok",
     "costsTeamsSubtitle": "Csapat költséghelyek"
->>>>>>> upstream/main
   },
   "webhooks": {
     "title": "Webhookok",
@@ -1949,22 +1931,6 @@
     "releaseNotes": "Kiadási Megjegyzések",
     "readMore": "Tovább olvasom",
     "noAuthLabel": "Nincs hitelesítés",
-<<<<<<< HEAD
-    "recentRequests": "Recent Requests",
-    "recentRequestsEmpty": "No requests yet.",
-    "recentRequestsModel": "Model",
-    "recentRequestsTokens": "In / Out",
-    "recentRequestsWhen": "When",
-    "readinessEyebrow": "Get ready to route",
-    "readinessTitle": "Send your first request",
-    "readinessSubtitle": "Four small steps. OmniRoute checks readiness as you go.",
-    "readinessStep1": "Connect a provider",
-    "readinessStep2": "Configure endpoint authentication",
-    "readinessStep3": "Copy your endpoint",
-    "readinessStep4": "Send a test request",
-    "readinessContinue": "Continue setup",
-    "readinessDismiss": "Dismiss for now"
-=======
     "readinessEyebrow": "Készüljön fel az útválasztásra",
     "readinessTitle": "Küldje el az első kérését",
     "readinessSubtitle": "Négy rövid lépés. Az OmniRoute menet közben ellenőrzi a készenléti állapotot.",
@@ -1990,7 +1956,6 @@
     "systemMetricsCpuCount": "{count} vCPUs • {platform}",
     "systemMetricsProcessCpu": "OmniRoute (process)",
     "systemMetricsProcessMemory": "OmniRoute (RSS / Heap)"
->>>>>>> upstream/main
   },
   "analytics": {
     "title": "Analitika",
@@ -3095,13 +3060,9 @@
       "prime-agent": "Prime Agent — önfejlesztő RLM kódolási keretrendszer OpenAI-kompatibilis szolgáltatók támogatásával",
       "warp": "Warp AI terminál egyéni szolgáltató támogatásával",
       "agent-deck": "Agent Deck többágenses orkesztrátor",
-<<<<<<< HEAD
-      "prime-agent": "Prime Agent — self-improving RLM coding harness with OpenAI-compatible provider support"
-=======
       "5dive": "5dive — saját üzemeltetésű kódolóügynök-flotta; egyetlen auth profil mindet az OmniRoute-ra irányítja",
       "whycodes": "WhyCodes autonóm CLI ágens OpenAI-kompatibilis alap URL-lel",
       "zed": "Zed kódszerkesztő — beépített ágens OpenAI-kompatibilis szolgáltatón keresztül"
->>>>>>> upstream/main
     },
     "guides": {
       "cursor": {
@@ -6461,13 +6422,8 @@
     "rateLimitOverridesSection": "Sebességkorlátok felülbírálása",
     "rateLimitOverridesMaxConcurrentHint": "Maximális párhuzamos kérések felülbírálása ehhez a kapcsolathoz. Felülbírálja a fiókszintű korlátot.",
     "rateLimitOverridesMaxConcurrentLabel": "Max. párhuzamos (sebességkorlát)",
-<<<<<<< HEAD
-    "rateLimitOverridesMaxWaitMsHint": "__MISSING__:Maximum time (ms) a request may wait for a rate-limit slot before failing. Overrides the global Resilience setting for this connection only.",
-    "rateLimitOverridesMaxWaitMsLabel": "__MISSING__:Max Queue Wait (ms)",
-=======
     "rateLimitOverridesMaxWaitMsHint": "Az a maximális idő (ms), ameddig egy kérés várhat egy sebességkorlátozási helyre, mielőtt meghiúsul. Csak ennél a kapcsolatnál írja felül a globális Resilience-beállítást.",
     "rateLimitOverridesMaxWaitMsLabel": "Maximális várakozás a sorban (ms)",
->>>>>>> upstream/main
     "rateLimitOverridesMinTimeHint": "Kérések közötti minimális idő (ms). Felülbírálja az alapértelmezett sebességkorlátozó késleltetést.",
     "rateLimitOverridesMinTimeLabel": "Min. intervallum (ms)",
     "rateLimitOverridesRpdHint": "Maximális kérések száma naponta ehhez a kapcsolathoz. Felülbírálja a szolgáltató alapértelmezését.",
@@ -6760,11 +6716,7 @@
       "bigmodel": "Hozzon létre API-kulcsot a https://bigmodel.cn/usercenter/proj-mgmt/apikeys oldalon. Az OmniRoute a BigModel.cn hivatalos, OpenAI-kompatibilis chat végpontját használja.",
       "glmt": "Előre beállított GLM-profil magasabb tokenkerettel, engedélyezett gondolkodással és hosszabb időtúllépéssel.",
       "getgoapi": "Csatlakoztassa a GoAPI-t egy API-kulccsal.",
-<<<<<<< HEAD
-      "groq": "Ingyenes csomag: 30 RPM / 14,4K RPD — bankkártya nem szükséges",
-=======
       "groq": "Ingyenes csomag: modellenkénti korlátok (napi 200K token csevegési modellenként; az RPM/RPD-korlátokat lásd itt: console.groq.com/docs/rate-limits) — nincs megadva fizetési mód.",
->>>>>>> upstream/main
       "haiper": "Szerezzen API-kulcsot a haiper.ai/haiper-api oldalon",
       "heroku": "Csatlakoztassa a Heroku AI-t egy API-kulccsal.",
       "hcnsec": "Szerezzen API-kulcsot itt: api.hcnsec.cn",
@@ -7070,23 +7022,6 @@
     "savedModelEndpointSettings": "Mentett modell végpont beállításai",
     "searchByModelAria": "Keresés modell szerint",
     "selectSupportedEndpoint": "Válasszon ki legalább egy támogatott végpontot",
-<<<<<<< HEAD
-    "antigravityClientProfileHarness": "Harness / CLI",
-    "harImportButtonLabel": "Import .har file",
-    "harImportButtonBusy": "Importing…",
-    "harImportButtonHint": "Export from DevTools Network tab after sending at least one chat message.",
-    "harImportStatusValid": "Imported — valid for ~{minutes}m.",
-    "harImportStatusExpiringSoon": "Imported — valid for only ~{minutes}m more.",
-    "harImportStatusExpired": "Imported, but this token already expired ({minutes}m ago) — export a fresh HAR.",
-    "harImportStatusUnknownExpiry": "Imported. Couldn't read its expiry.",
-    "harImportErrorNotJson": "That file isn't valid JSON — is it really a .har export?",
-    "harImportErrorNoEntries": "This HAR has no network entries recorded.",
-    "harImportErrorNoChathubUrl": "No Copilot chat connection found in this HAR. Send at least one chat message in m365.cloud.microsoft before exporting.",
-    "harImportErrorUnparsableUrl": "Found the chat connection, but couldn't read its URL.",
-    "harImportErrorMissingFields": "Found the chat connection, but the token was missing from it.",
-    "harImportErrorReadFailed": "Couldn't read that file.",
-    "harImportErrorUnknown": "Couldn't extract a credential from that HAR file."
-=======
     "antigravityClientProfileHarness": "Tesztkeretrendszer / CLI",
     "rateLimitOverridesModelConcurrencyLabel": "Per-model concurrency caps",
     "rateLimitOverridesModelConcurrencyPlaceholder": "glm-5=1\nglm-4.7=3",
@@ -7112,7 +7047,6 @@
     "doctorChecking": "Állapot ellenőrzése…",
     "doctorCheck": "Orvos állapotának ellenőrzése",
     "fallbackRetryBackendTitle": "Visszaterelési újrapróbálkozás háttérrendszere"
->>>>>>> upstream/main
   },
   "settings": {
     "title": "Beállítások elemre",
@@ -9104,20 +9038,6 @@
     "cliproxyapiPort": "Port",
     "qdrantHost": "Gazda",
     "qdrantCollection": "Gyűjtemény",
-<<<<<<< HEAD
-    "presetAll": "All",
-    "presetAllDesc": "Show everything",
-    "presetEssentials": "Essentials",
-    "presetEssentialsDesc": "Beginner path - Advanced tools stay searchable",
-    "presetMinimal": "Minimal",
-    "presetMinimalDesc": "Core pages only",
-    "presetDeveloper": "Developer",
-    "presetDeveloperDesc": "Dev & proxy tools",
-    "presetAdmin": "Admin",
-    "presetAdminDesc": "Monitoring & audit",
-    "settingsSidebarTitle": "Sidebar Customization",
-    "settingsSidebarDesc": "Choose which sidebar items to show. Essentials keeps Advanced tools searchable."
-=======
     "catalogVisibilityHint": "A rejtett modellazonosítók továbbra is hívhatók ugyanazokkal a hozzáférési jogosultságokkal.",
     "exposeCombosOnly": "Csak kombinációk listázása a /v1/models alatt",
     "exposeCombosOnlyDesc": "A modelleket automatikusan felderítő kliensek a nyers szolgáltatói modellek helyett a kombinációidat (és az auto/* elemeket, ha nincsenek elrejtve) látják. A kifejezett provider/model azonosítók továbbra is továbbításra kerülnek.",
@@ -9298,7 +9218,6 @@
       "statsEmpty": "Még nincs észlelés.",
       "statsRequest": "Kérések"
     }
->>>>>>> upstream/main
   },
   "contextRtk": {
     "title": "RTK-motor",
@@ -14242,11 +14161,6 @@
       "SKILLS_SANDBOX_NETWORK_ENABLED": {
         "description": "Hálózati hozzáférés engedélyezése a készségek homokozójában."
       },
-<<<<<<< HEAD
-      "DISABLE_CONTEXT_WINDOW_CHECKS": {
-        "label": "Disable Context Window Checks",
-        "description": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active."
-=======
       "SERVER_OWNED_TOOL_LOOP_ENABLED": {
         "label": "Kiszolgáló által kezelt eszközhívási ciklus",
         "description": "A kiszolgáló által kezelt, nem streamelt eszközhívások folytatása addig, amíg a modell az ügyfél által használható választ nem ad."
@@ -14542,7 +14456,6 @@
       "UNPRICED_USAGE_BUDGET_POLICY": {
         "label": "Árazatlan használati költségpolitika",
         "description": "Hogyan kezelik a kulcsonkénti napi/hetentei USD-korlátok a sikeres használatot, amelynél a szolgáltatónál vagy a modellnél nincs árazási bejegyzés. fail_closed (alapértelmezett) a periódust túllépettnek jelöli, így egy ismeretlen költség soha nem kerülhet át a kemény plafonon. count_as_zero ezt a használatot $0-ként számolja, és továbbra is érvényesíti a beárazott költést. Az árazatlan modelleket mindenesetre listázza a műszerfal kezdőlapja."
->>>>>>> upstream/main
       }
     }
   },
@@ -15827,15 +15740,6 @@
     "structuredOutputMismatch": "A szolgáltató nem támogatja a strukturált kimenetet",
     "contextWindowMismatch": "A kérés meghaladja a szolgáltató kontextusablakát"
   },
-<<<<<<< HEAD
-  "featureFlagDisableContextWindowChecksDescription": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active.",
-  "cheaperInferenceSponsorBanner": {
-    "title": "Cheaper Inference is an OmniRoute Open Source Friend",
-    "description": "A cost-ranked gateway reselling dozens of frontier models behind one OpenAI-compatible endpoint — routing each request to the cheapest eligible provider, never above list price.",
-    "cta": "Get an API Key",
-    "partnerLinkNote": "Partner link",
-    "dismissAriaLabel": "Dismiss"
-=======
   "cheaperInferenceSponsorBanner": {
     "title": "A Cheaper Inference az OmniRoute nyílt forráskódú barátja",
     "description": "Költség szerint rangsoroló átjáró, amely több tucat élvonalbeli modellt értékesít tovább egyetlen, OpenAI-kompatibilis végponton keresztül — minden kérést a legolcsóbb megfelelő szolgáltatóhoz irányítva, a listaárat soha meg nem haladva.",
@@ -16093,6 +15997,5 @@
     "greetingFallbackName": "ott",
     "errNoReply": "⚠️ Nincs válasz a kaputól.",
     "btnSend": "Küldés"
->>>>>>> upstream/main
   }
 }

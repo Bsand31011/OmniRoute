@@ -1,14 +1,8 @@
 import { existsSync } from "node:fs";
-<<<<<<< HEAD
-import { dirname, join } from "node:path";
-import { fileURLToPath, pathToFileURL } from "node:url";
-import { Worker } from "node:worker_threads";
-=======
 import { dirname, join, resolve } from "node:path";
 import { Worker } from "node:worker_threads";
 import { sanitizeErrorMessage } from "../../utils/errorSanitization.ts";
 import { notifyCompressionFailOpen } from "./failOpenNotifier.ts";
->>>>>>> upstream/main
 import type { CompressionResult } from "./types.ts";
 import type { StackedCompressionStep } from "./strategySelector.ts";
 import type {
@@ -21,22 +15,6 @@ function positiveInteger(value: string | undefined, fallback: number): number {
   const parsed = Number(value);
   return Number.isSafeInteger(parsed) && parsed > 0 ? parsed : fallback;
 }
-<<<<<<< HEAD
-function workerUrl(): URL {
-  const dir = dirname(fileURLToPath(import.meta.url));
-  for (const name of ["compressionWorker.js", "compressionWorker.ts"]) {
-    const candidate = join(dir, name);
-    if (existsSync(candidate)) return pathToFileURL(candidate);
-  }
-  return pathToFileURL(join(dir, "compressionWorker.js"));
-}
-function unchanged(body: Record<string, unknown>): CompressionResult {
-  return { body, compressed: false, stats: null };
-}
-interface PendingJob extends CompressionWorkerJob {
-  originalBody: Record<string, unknown>;
-  resolve: (result: CompressionResult) => void;
-=======
 
 /** Relative path (from an install root) to the compression worker. */
 const WORKER_JS_REL = join("open-sse", "services", "compression", "compressionWorker.js");
@@ -160,7 +138,6 @@ interface PendingJob extends CompressionWorkerJob {
   // pool could only degrade to `unchanged(...)`, which silently disabled compression for
   // the whole request while every layer above still believed the plan had been applied.
   reject: (error: Error) => void;
->>>>>>> upstream/main
   onEngineStep?: (step: StackedCompressionStep) => void;
 }
 interface PoolWorker {
@@ -177,8 +154,6 @@ export class CompressionWorkerPool {
   private readonly size: number;
   private readonly timeoutMs: number;
   private readonly idleMs: number;
-<<<<<<< HEAD
-=======
   private readonly maxOldGenerationSizeMb: number;
   private readonly spawnWorker: () => Worker;
   /**
@@ -189,18 +164,11 @@ export class CompressionWorkerPool {
    * (unbounded main-isolate heap leak, one full request body per job).
    */
   private broken = false;
->>>>>>> upstream/main
 
   constructor({
     size = positiveInteger(process.env.OMNI_COMPRESSION_WORKERS, 2),
     timeoutMs = positiveInteger(process.env.OMNI_COMPRESSION_WORKER_TIMEOUT_MS, 120_000),
     idleMs = positiveInteger(process.env.OMNI_COMPRESSION_WORKER_IDLE_MS, 60_000),
-<<<<<<< HEAD
-  }: { size?: number; timeoutMs?: number; idleMs?: number } = {}) {
-    this.size = Math.max(1, Math.floor(size));
-    this.timeoutMs = Math.max(1, Math.floor(timeoutMs));
-    this.idleMs = Math.max(1, Math.floor(idleMs));
-=======
     maxOldGenerationSizeMb = positiveInteger(process.env.OMNI_COMPRESSION_WORKER_MAX_OLD_MB, 1024),
     workerFactory,
   }: {
@@ -223,7 +191,6 @@ export class CompressionWorkerPool {
             maxOldGenerationSizeMb: this.maxOldGenerationSizeMb,
           },
         }));
->>>>>>> upstream/main
   }
 
   run(
@@ -232,9 +199,6 @@ export class CompressionWorkerPool {
     options?: CompressionWorkerOptions,
     onEngineStep?: (step: StackedCompressionStep) => void
   ): Promise<CompressionResult> {
-<<<<<<< HEAD
-    return new Promise((resolve) => {
-=======
     if (this.broken) {
       // Without this the pool fails open silently forever after the one startup
       // warn — exactly the invisibility that let issue #2 leak for hours.
@@ -243,7 +207,6 @@ export class CompressionWorkerPool {
       return Promise.reject(new CompressionWorkerError(reason, true));
     }
     return new Promise((resolve, reject) => {
->>>>>>> upstream/main
       this.queue.push({
         id: this.nextId++,
         body,
@@ -251,10 +214,7 @@ export class CompressionWorkerPool {
         options,
         originalBody: body,
         resolve,
-<<<<<<< HEAD
-=======
         reject,
->>>>>>> upstream/main
         onEngineStep,
       });
       this.dispatch();
@@ -262,13 +222,6 @@ export class CompressionWorkerPool {
   }
   async close(): Promise<void> {
     for (const job of this.queue.splice(0)) job.resolve(unchanged(job.originalBody));
-<<<<<<< HEAD
-    await Promise.all([...this.workers].map((slot) => this.remove(slot, true)));
-  }
-  private spawn(): PoolWorker {
-    const slot: PoolWorker = {
-      worker: new Worker(workerUrl()),
-=======
     for (const slot of this.workers) {
       const job = slot.job;
       if (job) job.resolve(unchanged(job.originalBody));
@@ -279,7 +232,6 @@ export class CompressionWorkerPool {
   private spawn(): PoolWorker {
     const slot: PoolWorker = {
       worker: this.spawnWorker(),
->>>>>>> upstream/main
       job: null,
       timeout: null,
       idle: null,
@@ -288,18 +240,6 @@ export class CompressionWorkerPool {
     slot.worker.on("message", (message: CompressionWorkerMessage) =>
       this.handleMessage(slot, message)
     );
-<<<<<<< HEAD
-    slot.worker.on("error", () => this.fail(slot));
-    slot.worker.on("exit", () => {
-      if (this.workers.has(slot)) this.fail(slot);
-    });
-    return slot;
-  }
-  private dispatch(): void {
-    while (this.queue.length) {
-      let slot = [...this.workers].find((candidate) => !candidate.job);
-      if (!slot && this.workers.size < this.size) slot = this.spawn();
-=======
     slot.worker.on("error", (error) =>
       this.fail(
         slot,
@@ -348,18 +288,11 @@ export class CompressionWorkerPool {
     while (this.queue.length) {
       let slot = [...this.workers].find((candidate) => !candidate.job);
       if (!slot && this.workers.size < this.size) slot = this.spawnOrFailOpen() ?? undefined;
->>>>>>> upstream/main
       if (!slot) return;
       if (slot.idle) clearTimeout(slot.idle);
       const job = this.queue.shift();
       if (!job) return;
       slot.job = job;
-<<<<<<< HEAD
-      slot.timeout = setTimeout(() => this.fail(slot!), this.timeoutMs);
-      slot.timeout.unref();
-      const { originalBody: _body, resolve: _resolve, onEngineStep: _step, ...wireJob } = job;
-      slot.worker.postMessage(wireJob);
-=======
       slot.timeout = setTimeout(
         () => this.fail(slot!, `worker job timeout after ${this.timeoutMs}ms`, false),
         this.timeoutMs
@@ -385,7 +318,6 @@ export class CompressionWorkerPool {
         this.fail(slot, `worker postMessage failed: ${errorText(error)}`);
         return;
       }
->>>>>>> upstream/main
     }
   }
   private handleMessage(slot: PoolWorker, message: CompressionWorkerMessage): void {
@@ -399,9 +331,6 @@ export class CompressionWorkerPool {
       }
       return;
     }
-<<<<<<< HEAD
-    this.finish(slot, message.type === "result" ? message.result : unchanged(job.originalBody));
-=======
     if (message.type === "result") {
       this.finish(slot, message.result);
       return;
@@ -412,7 +341,6 @@ export class CompressionWorkerPool {
       slot,
       new CompressionWorkerError(`compression worker error: ${message.error}`, true)
     );
->>>>>>> upstream/main
   }
   private finish(slot: PoolWorker, result: CompressionResult): void {
     const job = slot.job;
@@ -421,23 +349,6 @@ export class CompressionWorkerPool {
     slot.timeout = null;
     slot.job = null;
     job.resolve(result);
-<<<<<<< HEAD
-    slot.idle = setTimeout(() => void this.remove(slot, false), this.idleMs);
-    slot.idle.unref();
-    this.dispatch();
-  }
-  private fail(slot: PoolWorker): void {
-    const job = slot.job;
-    if (job) job.resolve(unchanged(job.originalBody));
-    slot.job = null;
-    void this.remove(slot, true).finally(() => this.dispatch());
-  }
-  private async remove(slot: PoolWorker, terminate: boolean): Promise<void> {
-    if (!this.workers.delete(slot)) return;
-    if (slot.timeout) clearTimeout(slot.timeout);
-    if (slot.idle) clearTimeout(slot.idle);
-    if (terminate) await slot.worker.terminate().catch(() => undefined);
-=======
     // Idle eviction MUST terminate. Dropping the slot from the set only releases our
     // reference - the thread, its MessagePort and its private heap outlive the pool
     // for the whole process lifetime, invisible to process.memoryUsage(). (#12812)
@@ -477,26 +388,17 @@ export class CompressionWorkerPool {
     if (slot.timeout) clearTimeout(slot.timeout);
     if (slot.idle) clearTimeout(slot.idle);
     await slot.worker.terminate().catch(() => undefined);
->>>>>>> upstream/main
   }
 }
 
 let pool: CompressionWorkerPool | null = null;
-<<<<<<< HEAD
-=======
 let workerFactoryOverride: (() => Worker) | undefined;
->>>>>>> upstream/main
 export function runCompressionInWorker(
   body: Record<string, unknown>,
   mode: CompressionWorkerJob["mode"],
   options?: CompressionWorkerOptions,
   onEngineStep?: (step: StackedCompressionStep) => void
 ): Promise<CompressionResult> {
-<<<<<<< HEAD
-  pool ??= new CompressionWorkerPool();
-  return pool.run(body, mode, options, onEngineStep);
-}
-=======
   pool ??= new CompressionWorkerPool({ workerFactory: workerFactoryOverride });
   return pool.run(body, mode, options, onEngineStep);
 }
@@ -508,7 +410,6 @@ export async function __setCompressionWorkerFactoryForTests(
   await closeCompressionWorkerPoolForTests();
   workerFactoryOverride = factory ?? undefined;
 }
->>>>>>> upstream/main
 export async function closeCompressionWorkerPoolForTests(): Promise<void> {
   const active = pool;
   pool = null;

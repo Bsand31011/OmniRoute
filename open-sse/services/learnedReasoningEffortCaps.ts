@@ -181,8 +181,6 @@ export function clampToLearned(effortStr: string, accepted: Set<string>): string
   return nearestAbove ?? highest;
 }
 
-<<<<<<< HEAD
-=======
 // ── Single-step probe for 4xx bodies that name no enum ────────────────────
 // Most gateways that reject an out-of-range reasoning_effort DO advertise the
 // accepted set ("expected one of `low`, `medium`, `high`"), and
@@ -278,7 +276,6 @@ export function recordLearnedProbeReasoningEffort(
   return recordLearnedReasoningEffort(provider, model, [acceptedProbe]);
 }
 
->>>>>>> upstream/main
 // Matches prose shapes: OVH's "@ai-sdk/openai-compatible" deserializer
 // ("expected one of `a`, `b`"), generic ("Supported types are a, b, and c"),
 // and "please use a, b, or c".
@@ -295,11 +292,7 @@ export function parseReasoningEffortEnum(errText: unknown): string[] | null {
   const match = LIST_INTRO.exec(errText);
   if (!match) return null;
   const tokens = match[1]
-<<<<<<< HEAD
-    .split(/,|\b(?:and|or)\b|&/i)
-=======
     .split(/,|\||\b(?:and|or)\b|&/i)
->>>>>>> upstream/main
     .map((t) =>
       t
         .replace(/`/g, "")

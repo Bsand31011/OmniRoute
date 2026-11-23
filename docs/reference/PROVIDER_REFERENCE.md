@@ -1,27 +1,16 @@
 ---
 title: "Provider Reference"
-<<<<<<< HEAD
-version: 3.8.50
-lastUpdated: 2026-08-25
-=======
 version: 3.8.53
 lastUpdated: 2026-10-29
->>>>>>> upstream/main
 ---
 
 # Provider Reference
 
 > **Auto-generated** from `src/shared/constants/providers.ts` — do not edit by hand.
 > Regenerate with: `npm run gen:provider-reference`
-<<<<<<< HEAD
-> **Last generated:** 2026-08-25
-
-Total providers: **352**. See category breakdown below.
-=======
 > **Last generated:** 2026-10-29
 
 Total providers: **380**. See category breakdown below.
->>>>>>> upstream/main
 
 ## Categories
 
@@ -134,11 +123,7 @@ Use the dashboard at `/dashboard/providers` to enable, configure, and test each 
 | `zai-web` | `zw` | Z.ai Web | Web cookie | [link](https://chat.z.ai) | Copy the "token" value from chat.z.ai → DevTools → Application → Local Storage. Do not copy cookies; OmniRoute handles the per-request CAPTCHA through its browser transport. | — |
 | `zenmux-free` | `zmf` | ZenMux Free (Web) | Web cookie | [link](https://zenmux.ai) | Login at zenmux.ai, then export all cookies using EditThisCookie or Cookie-Editor and paste the full Cookie header string here. Refresh every ~30 days. | — |
 
-<<<<<<< HEAD
-## API Key Providers (paid / paid-with-free-credits) (233)
-=======
 ## API Key Providers (paid / paid-with-free-credits) (255)
->>>>>>> upstream/main
 
 | ID | Alias | Name | Tags | Website | Notes |
 |----|-------|------|------|---------|-------|
@@ -238,12 +223,8 @@ Use the dashboard at `/dashboard/providers` to enable, configure, and test each 
 | `glm` | `glm` | GLM Coding | API key | [link](https://z.ai/subscribe) | — |
 | `glm-cn` | `glmcn` | GLM Coding (China) | API key | [link](https://open.bigmodel.cn) | — |
 | `glmt` | `glmt` | GLM Thinking | API key | [link](https://open.bigmodel.cn) | — |
-<<<<<<< HEAD
-| `groq` | `groq` | Groq | API key | [link](https://groq.com) | Free tier: 30 RPM / 14.4K RPD — no credit card |
-=======
 | `greenpt` | `greenpt` | GreenPT | API key | [link](https://greenpt.com) | API subscription is free to create; inference is billed per token. No free inference allowance is published. |
 | `groq` | `groq` | Groq | API key | [link](https://groq.com) | Free plan: per-model caps (200K tokens/day per chat model; see console.groq.com/docs/rate-limits for RPM/RPD) — no payment method on file. |
->>>>>>> upstream/main
 | `haiper` | `hp` | Haiper | API key, video | [link](https://haiper.ai) | Get API key at haiper.ai/haiper-api |
 | `hcnsec` | `hcnsec` | Huancheng Public API | API key | [link](https://api.hcnsec.cn) | Get API key at api.hcnsec.cn |
 | `helixmind` | `helixmind` | HelixMind | API key, aggregator | [link](https://helixmind.online) | Previously circulated 3 RPM/50 RPD and no-card claims were not confirmed during the 2026-08-02 audit; current quota and billing require account verification. |
@@ -487,11 +468,7 @@ Use the dashboard at `/dashboard/providers` to enable, configure, and test each 
 
 - Catalog: [`src/shared/constants/providers.ts`](../../src/shared/constants/providers.ts)
 - Registry (per-model details): [`open-sse/config/providerRegistry.ts`](../../open-sse/config/providerRegistry.ts)
-<<<<<<< HEAD
-- Executors: [`open-sse/executors/`](../../open-sse/executors/) (109 implementations)
-=======
 - Executors: [`open-sse/executors/`](../../open-sse/executors/) (158 implementations)
->>>>>>> upstream/main
 - Translators: [`open-sse/translator/`](../../open-sse/translator/)
 
 ## See Also

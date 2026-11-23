@@ -74,14 +74,10 @@ test("pt-BR.json tem todas as seções top-level de en.json", () => {
   assert.deepEqual(missing, [], `Seções top-level faltando em pt-BR.json: ${missing.join(", ")}`);
 });
 
-<<<<<<< HEAD
-for (const [name, cat] of [["zh-CN", zhCN], ["zh-TW", zhTW]] as const) {
-=======
 for (const [name, cat] of [
   ["zh-CN", zhCN],
   ["zh-TW", zhTW],
 ] as const) {
->>>>>>> upstream/main
   test(name + ".json tem paridade total de chaves com en.json", () => {
     const catKeys = flattenKeys(cat as Record<string, unknown>);
     const missing = [...enKeys].filter((k) => !catKeys.has(k));

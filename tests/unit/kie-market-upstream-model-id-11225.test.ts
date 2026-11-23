@@ -103,11 +103,7 @@ function resolveLiveKieMarketCatalog() {
   }));
 }
 
-<<<<<<< HEAD
-test("KIE Market resolver changes exactly the 4 google-imagen ids in the live market catalog", () => {
-=======
 test("KIE Market resolver changes exactly the documented mismatched ids in the live market catalog", () => {
->>>>>>> upstream/main
   const roundTrips = resolveLiveKieMarketCatalog();
   const changed = roundTrips.filter(({ publicModelId, upstreamModelId }) => {
     return upstreamModelId !== publicModelId;
@@ -146,12 +142,6 @@ test("KIE Market resolver changes exactly the documented mismatched ids in the l
       publicModelId: "google-imagen/nano-banana-edit",
       upstreamModelId: "google/nano-banana-edit",
     },
-<<<<<<< HEAD
-  ]);
-});
-
-const REWRITTEN_GOOGLE_IMAGEN_MARKET_IDS = new Set([
-=======
     {
       publicModelId: "flux/2-pro-image-to-image",
       upstreamModelId: "flux-2/pro-image-to-image",
@@ -198,13 +188,10 @@ const REWRITTEN_GOOGLE_IMAGEN_MARKET_IDS = new Set([
 const REWRITTEN_MARKET_IDS = new Set([
   "z-image/4.0-text-to-image",
   "z-image/4.5-text-to-image",
->>>>>>> upstream/main
   "google-imagen/nano-banana",
   "google-imagen/nano-banana-2",
   "google-imagen/nano-banana-pro",
   "google-imagen/nano-banana-edit",
-<<<<<<< HEAD
-=======
   "gpt/gpt-image-2-text-to-image",
   "gpt/gpt-image-2-image-to-image",
   "gpt/gpt-image-1.5-text-to-image",
@@ -217,16 +204,11 @@ const REWRITTEN_MARKET_IDS = new Set([
   "flux/2-image-to-image",
   "wan/2.7-image",
   "wan/2.7-image-pro",
->>>>>>> upstream/main
 ]);
 
 test("KIE Market resolver preserves every other live market catalog id byte-identically", () => {
   for (const { publicModelId, upstreamModelId } of resolveLiveKieMarketCatalog()) {
-<<<<<<< HEAD
-    if (!REWRITTEN_GOOGLE_IMAGEN_MARKET_IDS.has(publicModelId)) {
-=======
     if (!REWRITTEN_MARKET_IDS.has(publicModelId)) {
->>>>>>> upstream/main
       assert.equal(
         upstreamModelId,
         publicModelId,
@@ -236,13 +218,8 @@ test("KIE Market resolver preserves every other live market catalog id byte-iden
   }
 });
 
-<<<<<<< HEAD
-test("KIE Market resolver keeps exactly the explicit google-imagen upstream id mappings (#11296)", () => {
-  assert.equal(KIE_MARKET_UPSTREAM_MODEL_IDS.size, 4);
-=======
 test("KIE Market resolver keeps exactly the explicit upstream id mappings (#11296)", () => {
   assert.equal(KIE_MARKET_UPSTREAM_MODEL_IDS.size, 18);
->>>>>>> upstream/main
 });
 
 test("KIE Market resolver passes an unknown namespaced id through byte-identically", () => {
@@ -302,8 +279,6 @@ test("KIE Market createTask sends the KIE upstream id for Nano Banana Edit (#112
   );
 });
 
-<<<<<<< HEAD
-=======
 test("KIE Market createTask sends the unprefixed upstream id for GPT Image 2 T2I (#11296)", async () => {
   const captured = await runKieMarketGeneration("kie/gpt/gpt-image-2-text-to-image");
 
@@ -376,7 +351,6 @@ test("KIE Market createTask sends the dash-separated id for Wan 2.7 Image Pro (#
   assert.equal(captured.create.body.model, "wan/2-7-image-pro");
 });
 
->>>>>>> upstream/main
 test("KIE Market createTask leaves genuinely namespaced upstream ids untouched (#11225 control)", async () => {
   const captured = await runKieMarketGeneration("kie/seedream/4.5-text-to-image");
 

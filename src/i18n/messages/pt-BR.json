@@ -1946,9 +1946,6 @@
     "readinessStep3": "Copie seu endpoint",
     "readinessStep4": "Envie uma requisição de teste",
     "readinessContinue": "Continuar configuração",
-<<<<<<< HEAD
-    "readinessDismiss": "Dispensar por agora"
-=======
     "readinessDismiss": "Dispensar por agora",
     "unpricedUsageTitle": "{count, plural, one {# modelo} other {# modelos}} com uso recente mas sem preço configurado",
     "unpricedUsageFailClosed": "{keys, plural, one {# chave API com limite de uso} other {# chaves API com limite de uso}} usaram esses modelos nos últimos 8 dias. Enquanto esse uso estiver dentro da janela diária ou semanal da chave, a chave é considerada com cota excedida e suas requisições são bloqueadas (UNPRICED_USAGE_BUDGET_POLICY=fail_closed).",
@@ -1966,7 +1963,6 @@
     "systemMetricsCpuCount": "{count} vCPUs • {platform}",
     "systemMetricsProcessCpu": "OmniRoute (process)",
     "systemMetricsProcessMemory": "OmniRoute (RSS / Heap)"
->>>>>>> upstream/main
   },
   "analytics": {
     "title": "Análises",
@@ -6423,13 +6419,8 @@
     "rateLimitOverridesSection": "Substituições de Limite de Taxa",
     "rateLimitOverridesMaxConcurrentHint": "Sobrescrição do máximo de requisições concorrentes para esta conexão. Sobrescreve o limite de nível de conta.",
     "rateLimitOverridesMaxConcurrentLabel": "Máximo Concorrente (Limite de Taxa)",
-<<<<<<< HEAD
-    "rateLimitOverridesMaxWaitMsHint": "__MISSING__:Maximum time (ms) a request may wait for a rate-limit slot before failing. Overrides the global Resilience setting for this connection only.",
-    "rateLimitOverridesMaxWaitMsLabel": "__MISSING__:Max Queue Wait (ms)",
-=======
     "rateLimitOverridesMaxWaitMsHint": "Tempo máximo (ms) que uma solicitação pode aguardar por uma vaga de limitação de taxa antes de falhar. Substitui a configuração global de Resiliência somente para esta conexão.",
     "rateLimitOverridesMaxWaitMsLabel": "Espera máxima na fila (ms)",
->>>>>>> upstream/main
     "rateLimitOverridesMinTimeHint": "Tempo mínimo (ms) entre solicitações. Substitui o atraso padrão do limitador de taxa.",
     "rateLimitOverridesMinTimeLabel": "Min Intervalo (ms)",
     "rateLimitOverridesRpdHint": "Máximo de requisições por dia para esta conexão. Substitui o padrão do provedor.",
@@ -6722,11 +6713,7 @@
       "bigmodel": "Crie uma chave de API em https://bigmodel.cn/usercenter/proj-mgmt/apikeys. O OmniRoute usa o endpoint oficial de chat compatível com OpenAI do BigModel.cn.",
       "glmt": "Perfil GLM pré-configurado com orçamento de tokens maior, thinking ativado e timeout mais longo.",
       "getgoapi": "Conecte o GoAPI com uma chave de API.",
-<<<<<<< HEAD
-      "groq": "Nível gratuito: 30 RPM / 14,4K RPD — sem cartão de crédito",
-=======
       "groq": "Plano gratuito: limites por modelo (200K tokens/dia por modelo de chat; veja console.groq.com/docs/rate-limits para RPM/RPD) — sem meio de pagamento cadastrado.",
->>>>>>> upstream/main
       "haiper": "Obtenha a chave de API em haiper.ai/haiper-api",
       "heroku": "Conecte o Heroku AI com uma chave de API.",
       "hcnsec": "Obtenha a chave de API em api.hcnsec.cn",
@@ -7344,11 +7331,8 @@
     "sidebarVisibility": "Ocultar itens da barra lateral",
     "sidebarVisibilityDesc": "Hide any sidebar navigation entry to reduce visual clutter.",
     "sidebarVisibilityHint": "Any sidebar section is hidden automatically when a...",
-<<<<<<< HEAD
-=======
     "sidebarSectionShow": "Mostrar todos os itens desta seção",
     "sidebarSectionHide": "Ocultar todos os itens desta seção",
->>>>>>> upstream/main
     "presetAll": "Tudo",
     "presetAllDesc": "Mostrar tudo",
     "presetEssentials": "Essenciais",
@@ -7357,11 +7341,7 @@
     "presetMinimalDesc": "Apenas páginas principais",
     "presetDeveloper": "Desenvolvedor",
     "presetDeveloperDesc": "Ferramentas de dev & proxy",
-<<<<<<< HEAD
-    "presetAdmin": "Admin",
-=======
     "presetAdmin": "Administrador",
->>>>>>> upstream/main
     "presetAdminDesc": "Monitoramento & auditoria",
     "settingsSidebarTitle": "Personalização da Barra Lateral",
     "settingsSidebarDesc": "Escolha quais itens da barra lateral exibir. Essenciais mantém as ferramentas avançadas pesquisáveis.",

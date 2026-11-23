@@ -3,15 +3,12 @@ import {
   getProviderConnections,
   updateProviderConnection,
 } from "@/models";
-<<<<<<< HEAD
-=======
 import {
   readConsoleApiResponse,
   record,
   stringField,
   type ConsoleApiResult,
 } from "./volcengineConsoleResponse";
->>>>>>> upstream/main
 
 type JsonRecord = Record<string, unknown>;
 
@@ -45,24 +42,7 @@ const PLAN_CONFIG = {
 
 type PlanKind = keyof typeof PLAN_CONFIG;
 
-<<<<<<< HEAD
-export interface ConsoleApiResult {
-  ok: boolean;
-  status: number;
-  json: JsonRecord;
-  error: string | null;
-}
-
-export function stringField(value: unknown): string {
-  return typeof value === "string" ? value.trim() : "";
-}
-
-export function record(value: unknown): JsonRecord {
-  return value && typeof value === "object" && !Array.isArray(value) ? (value as JsonRecord) : {};
-}
-=======
 export type { ConsoleApiResult } from "./volcengineConsoleResponse";
->>>>>>> upstream/main
 
 function buildCookieHeader(credentials: JsonRecord): string {
   const rawCookie = stringField(credentials.volcConsoleCookie);
@@ -103,26 +83,7 @@ export async function callConsoleApi(
     },
     body: JSON.stringify(payload),
   });
-<<<<<<< HEAD
-  const text = await response.text();
-  let json: JsonRecord = {};
-  try {
-    json = record(JSON.parse(text));
-  } catch {
-    // Non-JSON console failures are reported through `error` below.
-  }
-  const meta = record(json.ResponseMetadata);
-  const err = record(meta.Error);
-  const message = stringField(err.Message);
-  return {
-    ok: response.ok && !message,
-    status: response.status,
-    json,
-    error: message || (response.ok ? null : text.slice(0, 200)),
-  };
-=======
   return readConsoleApiResponse(response);
->>>>>>> upstream/main
 }
 
 export async function detectPlan(
@@ -135,9 +96,6 @@ export async function detectPlan(
   if (!result.ok) {
     return { available: false, usage: {}, error: result.error };
   }
-<<<<<<< HEAD
-  return { available: true, usage: record(result.json.Result), error: null };
-=======
   const usage = record(result.json.Result);
   if (kind === "coding") {
     const quotaUsage = usage.QuotaUsage;
@@ -154,7 +112,6 @@ export async function detectPlan(
     }
   }
   return { available: true, usage, error: null };
->>>>>>> upstream/main
 }
 
 function firstApiKeyItem(result: JsonRecord): JsonRecord | null {
@@ -209,9 +166,6 @@ async function fetchRawApiKey(
   return { apiKey, id, maskedKey: stringField(item?.Key) || null, error: null };
 }
 
-<<<<<<< HEAD
-async function upsertConnection(
-=======
 export interface FindTargetConnectionCriteria {
   targetConnectionId?: string;
   provider: string;
@@ -289,18 +243,11 @@ export function findTargetConnection(
 }
 
 export async function upsertConnection(
->>>>>>> upstream/main
   kind: PlanKind,
   apiKey: string,
   cookieHeader: string,
   csrfToken: string,
   apiKeyId: number | null,
-<<<<<<< HEAD
-  usage: JsonRecord
-) {
-  const cfg = PLAN_CONFIG[kind];
-  const providerSpecificData = {
-=======
   usage: JsonRecord,
   targetConnectionId?: string
 ) {
@@ -318,7 +265,6 @@ export async function upsertConnection(
   const existingPsd = matched ? record(matched.providerSpecificData) : {};
   const providerSpecificData = {
     ...existingPsd,
->>>>>>> upstream/main
     volcConsoleCookie: cookieHeader,
     volcCsrfToken: csrfToken,
     volcApiKeyId: apiKeyId,
@@ -328,21 +274,10 @@ export async function upsertConnection(
     autoSync: true,
   };
 
-<<<<<<< HEAD
-  const existing = (await getProviderConnections({ provider: cfg.provider })).find(
-    (conn: JsonRecord) => stringField(conn.name) === cfg.name
-  );
-
-  if (existing?.id) {
-    return await updateProviderConnection(stringField(existing.id), {
-      apiKey,
-      name: cfg.name,
-=======
   if (matched?.id) {
     return await updateProviderConnection(stringField(matched.id), {
       apiKey,
       name: stringField(matched.name) || cfg.name,
->>>>>>> upstream/main
       providerSpecificData,
       isActive: true,
       testStatus: "active",
@@ -360,14 +295,10 @@ export async function upsertConnection(
   });
 }
 
-<<<<<<< HEAD
-export async function bindVolcenginePlansFromConsoleCredentials(credentials: JsonRecord) {
-=======
 export async function bindVolcenginePlansFromConsoleCredentials(
   credentials: JsonRecord,
   options?: { targetConnectionId?: string }
 ) {
->>>>>>> upstream/main
   const cookieHeader = buildCookieHeader(credentials);
   const csrfToken = extractCsrf(credentials, cookieHeader);
   if (!cookieHeader || !csrfToken) {
@@ -410,12 +341,8 @@ export async function bindVolcenginePlansFromConsoleCredentials(
       cookieHeader,
       csrfToken,
       key.id,
-<<<<<<< HEAD
-      detected.usage
-=======
       detected.usage,
       options?.targetConnectionId
->>>>>>> upstream/main
     );
     results.push({
       plan: kind,
@@ -432,11 +359,8 @@ export async function bindVolcenginePlansFromConsoleCredentials(
     results,
   };
 }
-<<<<<<< HEAD
-=======
 
 export const __testing = {
   findTargetConnection,
   upsertConnection,
 };
->>>>>>> upstream/main

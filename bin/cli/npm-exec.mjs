@@ -11,8 +11,6 @@
 // line, not `execFile`. Every argv element passed alongside these options must be
 // a literal — never a runtime value — or it must be validated first. Callers that
 // need to pass a user-supplied name have to guard it themselves.
-<<<<<<< HEAD
-=======
 //
 // DEP0190 (Node ≥ 24): `normalizeSpawnArguments` also emits a deprecation warning
 // whenever `shell` is set alongside a non-empty args array, because the shell only
@@ -21,7 +19,6 @@
 // win32 — the two fixes collided. `npmExecInvocation` resolves it by handing
 // `execFile` the already-joined command line and an EMPTY args array, which is the
 // same string Node would have built, minus the warning.
->>>>>>> upstream/main
 
 /** The npm binary to spawn on this platform. */
 export function npmBin(platform = process.platform) {
@@ -43,8 +40,6 @@ export function npmExecOptions(platform = process.platform, options = {}) {
   if (platform !== "win32") return { ...base, shell: false };
   return { ...base, shell: true, windowsHide: true };
 }
-<<<<<<< HEAD
-=======
 
 /**
  * A token that cannot change how a shell splits a command line: no whitespace, no
@@ -107,4 +102,3 @@ export function npmExecInvocation(
 
   return [tokens.join(" "), [], execOptions];
 }
->>>>>>> upstream/main

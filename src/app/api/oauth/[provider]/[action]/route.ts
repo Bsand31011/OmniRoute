@@ -26,14 +26,10 @@ import {
 import { getConsistentMachineId } from "@/shared/utils/machineId";
 import { isValidGheUrl } from "@/shared/validation/providerSpecificData";
 import { AWS_REGION_PATTERN } from "@/lib/oauth/constants/oauth";
-<<<<<<< HEAD
-import { antigravityDegradedProjectState } from "@/lib/oauth/antigravityProjectGate";
-=======
 import {
   antigravityDegradedProjectState,
   antigravityPersistStatus,
 } from "@/lib/oauth/antigravityProjectGate";
->>>>>>> upstream/main
 import { syncToCloud } from "@/lib/cloudSync";
 import { startLocalServer } from "@/lib/oauth/utils/server";
 import { runWithProxyContextOrDirect } from "@omniroute/open-sse/utils/proxyFetch.ts";
@@ -585,15 +581,8 @@ export async function POST(
         const matchId = typeof match?.id === "string" ? match.id : null;
         if (matchId) {
           connection = await updateProviderConnection(matchId, {
-<<<<<<< HEAD
-            ...tokenData,
-            expiresAt,
-            testStatus: degradedProject?.testStatus ?? "active",
-            ...(degradedProject ?? {}),
-=======
             ...buildOAuthTokenUpdate(tokenData, expiresAt),
             ...antigravityPersistStatus(degradedProject),
->>>>>>> upstream/main
             isActive: true,
           });
         }
@@ -822,15 +811,8 @@ export async function POST(
           const matchId = typeof match?.id === "string" ? match.id : null;
           if (matchId) {
             connection = await updateProviderConnection(matchId, {
-<<<<<<< HEAD
-              ...tokenData,
-              expiresAt,
-              testStatus: degradedProject?.testStatus ?? "active",
-              ...(degradedProject ?? {}),
-=======
               ...buildOAuthTokenUpdate(tokenData, expiresAt),
               ...antigravityPersistStatus(degradedProject),
->>>>>>> upstream/main
               isActive: true,
             });
           }

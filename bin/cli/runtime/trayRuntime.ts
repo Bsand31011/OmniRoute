@@ -2,13 +2,9 @@ import { existsSync, mkdirSync, writeFileSync, chmodSync } from "node:fs";
 import { join } from "node:path";
 import { homedir } from "node:os";
 import { execSync } from "node:child_process";
-<<<<<<< HEAD
-import { pathToFileURL } from "node:url";
-=======
 import { createRequire } from "node:module";
 import { pathToFileURL } from "node:url";
 import { persistTrayFailure } from "./processSupervisor.mjs";
->>>>>>> upstream/main
 
 const RUNTIME_DIR = join(homedir(), ".omniroute", "runtime");
 // systray2 is a maintained fork with prebuilt binaries — installed lazily at runtime,
@@ -23,16 +19,6 @@ export const SYSTRAY_PACKAGE = "systray2";
 export const SYSTRAY_VERSION = "2.1.4";
 const SYSTRAY_SPEC = `${SYSTRAY_PACKAGE}@${SYSTRAY_VERSION}`;
 
-<<<<<<< HEAD
-// Dynamic `import()` resolves its specifier as a URL, not a filesystem path.
-// On Windows the lazily-installed systray2 lives at an absolute path whose
-// leading drive letter the ESM loader parses as an unsupported URL scheme
-// (e.g. `c:`) and rejects. Build a file:// URL so the tray import works on
-// Windows too. Same defect fixed for the CLI db-fallback imports in #11238,
-// missed at this call site.
-export function systrayModuleSpecifier(runtimeDir: string): string {
-  return pathToFileURL(join(runtimeDir, "node_modules", SYSTRAY_PACKAGE)).href;
-=======
 // Resolve the package entry first: native ESM cannot import a directory URL.
 // Convert that file path to a URL so Windows drive letters and special path
 // characters are also accepted by import().
@@ -61,7 +47,6 @@ function resolveSystrayConstructor(mod: {
   } catch {
     return null;
   }
->>>>>>> upstream/main
 }
 
 export function resolveSystrayBinName(platform: NodeJS.Platform): string | null {
@@ -108,13 +93,9 @@ export async function loadSystray(): Promise<SystrayConstructor | null> {
   chmodSystrayBinAt(RUNTIME_DIR, process.platform);
   try {
     const mod = await import(systrayModuleSpecifier(RUNTIME_DIR));
-<<<<<<< HEAD
-    return (mod.default ?? mod.SysTray ?? mod) as (new (...args: unknown[]) => unknown) | null;
-=======
     const constructor = resolveSystrayConstructor(mod);
     if (!constructor) persistTrayFailure("constructor", new TypeError("Invalid tray export"));
     return constructor;
->>>>>>> upstream/main
   } catch (err) {
     persistTrayFailure("import", err);
     console.warn("[omniroute] tray runtime import failed; run omniroute doctor for details");

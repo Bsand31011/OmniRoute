@@ -27,15 +27,12 @@ import { restoreDeclaredToolName } from "../services/declaredToolCasing.ts";
 import { extractReplayableResponsesReasoningText } from "../services/reasoningInputPolicy.ts";
 import { sanitizeToolId } from "../translator/helpers/schemaCoercion.ts";
 import { stripEmptyOptionalToolArgs } from "../translator/response/openai-responses/pureHelpers.ts";
-<<<<<<< HEAD
-=======
 import { toNumber as toFiniteNumber } from "../utils/numeric.ts";
 import { geminiExtraUsageCounts } from "../translator/response/geminiUsageMetadata.ts";
 import {
   extractThinkingFromContent,
   shouldParseTextualReasoningTags,
 } from "./responseSanitizer/reasoning.ts";
->>>>>>> upstream/main
 
 type JsonRecord = Record<string, unknown>;
 
@@ -161,42 +158,30 @@ export function translateNonStreamingResponse(
   targetFormat: string,
   sourceFormat: string,
   toolNameMap?: Map<string, string> | null,
-<<<<<<< HEAD
-  toolSchemas?: Map<string, JsonRecord> | null
-=======
   toolSchemas?: Map<string, JsonRecord> | null,
   requestedThinking?: boolean,
   clientTools?: unknown,
   options?: TranslateNonStreamingOptions
->>>>>>> upstream/main
 ): JsonRecord;
 export function translateNonStreamingResponse(
   responseBody: unknown,
   targetFormat: string,
   sourceFormat: string,
   toolNameMap?: Map<string, string> | null,
-<<<<<<< HEAD
-  toolSchemas?: Map<string, JsonRecord> | null
-=======
   toolSchemas?: Map<string, JsonRecord> | null,
   requestedThinking?: boolean,
   clientTools?: unknown,
   options?: TranslateNonStreamingOptions
->>>>>>> upstream/main
 ): unknown;
 export function translateNonStreamingResponse(
   responseBody: unknown,
   targetFormat: string,
   sourceFormat: string,
   toolNameMap?: Map<string, string> | null,
-<<<<<<< HEAD
-  toolSchemas?: Map<string, JsonRecord> | null
-=======
   toolSchemas?: Map<string, JsonRecord> | null,
   requestedThinking?: boolean,
   clientTools?: unknown,
   options?: TranslateNonStreamingOptions
->>>>>>> upstream/main
 ): unknown {
   // If already in source format, return as-is
   if (targetFormat === sourceFormat) {

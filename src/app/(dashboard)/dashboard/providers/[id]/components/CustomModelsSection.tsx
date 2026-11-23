@@ -12,11 +12,7 @@ import Icon from "@/shared/components/Icon";
  */
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { useTranslations } from "next-intl";
-<<<<<<< HEAD
-import { Button } from "@/shared/components";
-=======
 import { Button, CapabilityBadge, Checkbox, Input, Select } from "@/shared/components";
->>>>>>> upstream/main
 import {
   normalizeModelSupportedEndpoints,
   type ModelSupportedEndpoint,
@@ -71,19 +67,6 @@ const MODEL_ENDPOINT_OPTIONS: ModelSupportedEndpoint[] = [
   "videos",
   "audio-speech",
   "audio-transcriptions",
-<<<<<<< HEAD
-];
-
-function endpointLabel(endpoint: ModelSupportedEndpoint, t: (key: string) => string): string {
-  const labels: Partial<Record<ModelSupportedEndpoint, string>> = {
-    chat: `💬 ${t("supportedEndpointChat")}`,
-    embeddings: `📐 ${t("supportedEndpointEmbeddings")}`,
-    rerank: providerText(t, "rerankEndpoint", "Rerank"),
-    images: `🖼️ ${t("supportedEndpointImages")}`,
-    videos: "🎬 Video",
-    "audio-speech": `🔊 ${t("audioSpeech")}`,
-    "audio-transcriptions": `🎙️ ${t("audioTranscriptions")}`,
-=======
   "music",
 ];
 
@@ -104,24 +87,10 @@ function endpointLabel(endpoint: ModelSupportedEndpoint, t: (key: string) => str
     "audio-speech": t("audioSpeech"),
     "audio-transcriptions": t("audioTranscriptions"),
     music: "Music",
->>>>>>> upstream/main
   };
   return labels[endpoint] || endpoint;
 }
 
-<<<<<<< HEAD
-/**
- * #4125: parse the free-text "Context Window Override" field. Blank → no override
- * (`value: null`, not an error). A non-empty value must be a positive whole number of
- * tokens; anything else is rejected. Pulled out of saveEdit so its own branching stays
- * off that handler's cyclomatic complexity.
- */
-function parseContextWindowOverrideInput(raw: string): { value: number | null; invalid: boolean } {
-  const trimmed = raw.trim();
-  if (!trimmed) return { value: null, invalid: false };
-  if (!/^\d+$/.test(trimmed) || Number(trimmed) <= 0) return { value: null, invalid: true };
-  return { value: Number(trimmed), invalid: false };
-=======
 // Fetch + parse extracted from the component so errors surface as a return
 // value (logged here) instead of state writes inside catch/finally blocks —
 // the load callback then only sets state after the await, which lets the
@@ -139,7 +108,6 @@ async function fetchProviderModelsPayload(providerId: string): Promise<{
     console.error("Failed to fetch custom models:", e);
     return null;
   }
->>>>>>> upstream/main
 }
 
 // ---------------------------------------------------------------------------
@@ -535,13 +503,8 @@ export default function CustomModelsSection({
               <option value="audio-transcriptions">{t("audioTranscriptions")}</option>
               <option value="audio-speech">{t("audioSpeech")}</option>
               <option value="images-generations">{t("imagesGenerations")}</option>
-<<<<<<< HEAD
-              <option value="video">Video</option>
-            </select>
-=======
               <option value="video">{t("video")}</option>
             </Select>
->>>>>>> upstream/main
           </div>
           <div className="min-w-0 lg:w-48">
             <Select
@@ -563,28 +526,6 @@ export default function CustomModelsSection({
             <span className="text-xs text-text-muted mb-1 block">
               {t("supportedEndpointsLabel")}
             </span>
-<<<<<<< HEAD
-            <div className="flex items-center gap-3">
-              {MODEL_ENDPOINT_OPTIONS.map((ep) => (
-                <label
-                  key={ep}
-                  className="flex items-center gap-1.5 text-xs text-text-main cursor-pointer"
-                >
-                  <input
-                    type="checkbox"
-                    checked={newEndpoints.includes(ep)}
-                    onChange={(e) => {
-                      if (e.target.checked) {
-                        setNewEndpoints((prev) => [...prev, ep]);
-                      } else {
-                        setNewEndpoints((prev) => prev.filter((x) => x !== ep));
-                      }
-                    }}
-                    className="rounded border-border"
-                  />
-                  {endpointLabel(ep, t)}
-                </label>
-=======
             <div className={ENDPOINTS_GRID}>
               {MODEL_ENDPOINT_OPTIONS.map((ep) => (
                 <Checkbox
@@ -600,7 +541,6 @@ export default function CustomModelsSection({
                   className={CHECK_LABEL}
                   label={endpointLabel(ep, t)}
                 />
->>>>>>> upstream/main
               ))}
             </div>
           </div>
@@ -818,13 +758,8 @@ export default function CustomModelsSection({
                             <option value="audio-transcriptions">{t("audioTranscriptions")}</option>
                             <option value="audio-speech">{t("audioSpeech")}</option>
                             <option value="images-generations">{t("imagesGenerations")}</option>
-<<<<<<< HEAD
-                            <option value="video">Video</option>
-                          </select>
-=======
                             <option value="video">{t("video")}</option>
                           </Select>
->>>>>>> upstream/main
                         </div>
                         <div className="min-w-0 lg:w-[11rem] lg:shrink-0">
                           <Select
@@ -900,30 +835,6 @@ export default function CustomModelsSection({
                           <span className="text-xs text-text-muted shrink-0">
                             {t("supportedEndpointsLabel")}
                           </span>
-<<<<<<< HEAD
-                          <div className="flex flex-wrap items-center gap-x-2 sm:gap-x-3 gap-y-1 min-w-0">
-                            {MODEL_ENDPOINT_OPTIONS.map((ep) => (
-                              <label
-                                key={ep}
-                                className="flex items-center gap-1.5 text-xs text-text-main cursor-pointer whitespace-nowrap"
-                              >
-                                <input
-                                  type="checkbox"
-                                  checked={editingEndpoints.includes(ep)}
-                                  onChange={(e) => {
-                                    if (e.target.checked) {
-                                      setEditingEndpoints((prev) =>
-                                        prev.includes(ep) ? prev : [...prev, ep]
-                                      );
-                                    } else {
-                                      setEditingEndpoints((prev) => prev.filter((x) => x !== ep));
-                                    }
-                                  }}
-                                  className="rounded border-border"
-                                />
-                                {endpointLabel(ep, t)}
-                              </label>
-=======
                           <div className={ENDPOINTS_GRID}>
                             {MODEL_ENDPOINT_OPTIONS.map((ep) => (
                               <Checkbox
@@ -941,7 +852,6 @@ export default function CustomModelsSection({
                                 className={CHECK_LABEL}
                                 label={endpointLabel(ep, t)}
                               />
->>>>>>> upstream/main
                             ))}
                           </div>
                         </div>

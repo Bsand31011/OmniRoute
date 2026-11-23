@@ -44,9 +44,6 @@ const EXPECTED: Record<InventoryKind, Record<string, number>> = {
     "src/app/api/memory/rerank-providers/route.ts": 1,
     "src/app/api/search/providers/route.ts": 3,
     "src/app/api/v1/_shared/elevenLabsProxy.ts": 1,
-<<<<<<< HEAD
-    "src/app/api/v1/audio/speech/route.ts": 1,
-=======
     "src/app/api/v1/_shared/fishAudioProxy.ts": 1,
     // #13987: System One decisions (/v1/systemone), same
     // scoped quota-preflight credential lookup as /v1/classify (class B).
@@ -55,7 +52,6 @@ const EXPECTED: Record<InventoryKind, Record<string, number>> = {
     // remotes) look up an in-scope connection for a connection-scoped API key
     // before running (chat's #9057 rule) — one extra scoped lookup per site.
     "src/app/api/v1/audio/speech/route.ts": 2,
->>>>>>> upstream/main
     "src/app/api/v1/_shared/videoModelResolution.ts": 1,
     "src/app/api/v1/audio/transcriptions/route.ts": 3,
     "src/app/api/v1/audio/translations/route.ts": 2,
@@ -89,19 +85,12 @@ const EXPECTED: Record<InventoryKind, Record<string, number>> = {
     // lookup as web/fetch (class B).
     "src/app/api/v1/alpha/search/route.ts": 1,
     "src/app/api/v1/web/fetch/route.ts": 1,
-<<<<<<< HEAD
-=======
     // #15703: Firecrawl Map endpoint, same quota-preflight credential lookup as web/fetch (class B).
     "src/app/api/v1/web/map/route.ts": 1,
->>>>>>> upstream/main
     // #11088/#11271: third site is the synced local-endpoint route — it resolves
     // credentials through getProviderCredentials with the connection allowlist
     // from resolveLocalSyncedEndpointRoute, and handles allRateLimited, so it is
     // fenced the same way as the two pre-existing sites.
-<<<<<<< HEAD
-    "src/lib/embeddings/service.ts": 3,
-    "src/lib/memory/embedding/index.ts": 1,
-=======
     // #15761: local embeddings resolve credentials through the serving-connection allowlist
     // (getProviderCredentials(provider, null, servingIds)) — one more site (3 -> 4).
     // GHSA-3w2r: keyless providers (local zero-config defaults, keyless
@@ -113,7 +102,6 @@ const EXPECTED: Record<InventoryKind, Record<string, number>> = {
     // read-only key presence probe used to decide whether a configured chat
     // provider may appear in the memory embedding-source dropdown.
     "src/lib/memory/embedding/index.ts": 2,
->>>>>>> upstream/main
     "src/lib/search/executeWebSearch.ts": 2,
     "src/lib/skills/webFetchExecution.ts": 1,
     "src/sse/handlers/chat.ts": 2,
@@ -152,13 +140,6 @@ const EXPECTED: Record<InventoryKind, Record<string, number>> = {
     "open-sse/handlers/cursorCliProxy.ts": 1,
     "open-sse/services/alibabaFreeTier.ts": 1,
     "open-sse/services/alibabaFreeTierQuotaFetcher.ts": 1,
-<<<<<<< HEAD
-    // Volcano Ark plan cycle: readConnectionForCooldownGate() reads the row backing the
-    // pre-dispatch persisted-cooldown gate, i.e. it is on the routing/dispatch path - same
-    // class as providerWildcard/autoComboCandidates, so it is classified B below.
-    "open-sse/services/combo.ts": 1,
-    "open-sse/services/combo/providerWildcard.ts": 1,
-=======
     // Family cooldown persist looks the row up to write PSD, not dispatch.
     "open-sse/services/antigravityFamilyCooldown.ts": 1,
     // #12864: on the first REQUEST_REJECTED refusal seen by this process the
@@ -184,7 +165,6 @@ const EXPECTED: Record<InventoryKind, Record<string, number>> = {
     // (open-sse/services/providerConnectionPool.ts), which goes through the shared
     // getCachedProviderConnections() read cache (its getProviderConnections site is the one
     // already inventoried under src/lib/db/readCache.ts). Read-only state lookup, no dispatch, 1->0.
->>>>>>> upstream/main
     "open-sse/services/tokenRefresh.ts": 1,
     // Read-only adoption for the already-selected connection; it never selects an account.
     "open-sse/services/tokenRefresh/passiveCodex.ts": 1,
@@ -389,11 +369,7 @@ const CLASSIFICATION: Record<InventoryKind, Record<string, BypassClass>> = {
       file,
       [
         "open-sse/handlers/chatCore.ts",
-<<<<<<< HEAD
-        "open-sse/services/combo.ts",
-=======
         "open-sse/handlers/chatCore/streamingResponse.ts",
->>>>>>> upstream/main
         "open-sse/services/alibabaFreeTier.ts",
         "open-sse/services/alibabaFreeTierQuotaFetcher.ts",
         "open-sse/services/combo/executeTargetGates.ts",

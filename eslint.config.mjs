@@ -163,8 +163,7 @@ const eslintConfig = [
       "react-hooks/rules-of-hooks": "off",
     },
   },
-<<<<<<< HEAD
-=======
+
   {
     files: ["tests/**/*.mjs"],
     plugins: {
@@ -175,6 +174,7 @@ const eslintConfig = [
       "react-hooks/rules-of-hooks": "off",
     },
   },
+
   // JS/JSX files do not match eslint-config-next's TypeScript block. Register
   // the plugin only for that disjoint scope so the shared unused-vars ratchet
   // works without redefining the plugin for TS/TSX under ESLint 10.
@@ -184,24 +184,14 @@ const eslintConfig = [
       "@typescript-eslint": tseslint.plugin,
     },
   },
->>>>>>> upstream/main
+
   // Ratchet: bar NEW unused vars/args/catches outside the `_` escape hatch.
   // Pre-existing violations are frozen via config/quality/eslint-suppressions.json
   // (same pattern as #7879 toNumber); only genuinely NEW unused bindings fail
   // lint. `args: "all"` (not `after-used`) so a leading unused param is never
   // silently skipped, e.g. `function handle(req, _opts, next)` must flag `req`.
-<<<<<<< HEAD
   {
     files: ["src/**/*.{ts,tsx,js,jsx}", "open-sse/**/*.ts", "tests/**/*.{ts,tsx,mjs}"],
-    plugins: {
-      "@typescript-eslint": tseslint.plugin,
-    },
-=======
-  // eslint-config-next already registers @typescript-eslint; registering it again
-  // in this block is rejected by ESLint 10.
-  {
-    files: ["src/**/*.{ts,tsx,js,jsx}", "open-sse/**/*.ts", "tests/**/*.{ts,tsx,mjs}"],
->>>>>>> upstream/main
     rules: {
       "@typescript-eslint/no-unused-vars": [
         "error",

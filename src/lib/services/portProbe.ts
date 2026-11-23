@@ -16,10 +16,7 @@
 import { createConnection } from "node:net";
 import { spawn } from "node:child_process";
 import os from "node:os";
-<<<<<<< HEAD
-=======
 import { getOriginalFetch } from "@omniroute/open-sse/utils/proxyFetch.ts";
->>>>>>> upstream/main
 
 /** Result of probing the service before spawning. */
 export interface PreSpawnProbe {

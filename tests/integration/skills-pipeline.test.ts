@@ -1,17 +1,5 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-<<<<<<< HEAD
-import { OMNIROUTE_WEB_SEARCH_FALLBACK_TOOL_NAME } from "../../open-sse/services/webSearchFallback.ts";
-// Skill identifiers sao name@version, que viola o ^[a-zA-Z0-9_-]+$ exigido por
-// OpenAI/DeepSeek/Groq, entao injection.ts os codifica como omr_skill_<base64url>
-// (#9058). Derivar o nome esperado do MESMO helper que a producao usa, em vez de
-// repetir a string codificada, mantem o teste preso ao contrato: se a codificacao
-// mudar de novo, o assert acompanha; se ela sumir, o assert continua exigindo que
-// producao e teste concordem.
-import { encodeSkillToolName } from "../../src/lib/skills/injection.ts";
-
-=======
->>>>>>> upstream/main
 import { createChatPipelineHarness } from "./_chatPipelineHarness.ts";
 
 const harness = await createChatPipelineHarness("skills-pipeline");
@@ -159,11 +147,7 @@ test("enabling a disabled skill makes it available in the request pipeline", asy
   assert.ok(Array.isArray(fetchBodies[0].tools));
   assert.ok(
     fetchBodies[0].tools.some(
-<<<<<<< HEAD
-      (tool) => tool.function.name === encodeSkillToolName("lookupWeather", "1.0.0")
-=======
       (tool) => decodeSkillToolName(tool.function.name) === "lookupWeather@1.0.0"
->>>>>>> upstream/main
     )
   );
 });
@@ -379,11 +363,7 @@ test("injectSkills() correctly injects skill context into a request", async () =
   assert.ok(Array.isArray(tools), "injectSkills should return an array");
   assert.equal(tools.length, 1, "should inject exactly one skill tool");
   assert.equal((tools[0] as any).type, "function");
-<<<<<<< HEAD
-  assert.equal((tools as any)[0].function.name, encodeSkillToolName("translateText", "1.0.0"));
-=======
   assert.equal(decodeSkillToolName((tools as any)[0].function.name), "translateText@1.0.0");
->>>>>>> upstream/main
   (assert as any).equal(
     (tools[0] as any).function.description,
     "Translate text to another language"
@@ -419,15 +399,10 @@ test("injectSkills() merges with existing tools without duplicating", async () =
   });
 
   assert.equal(tools.length, 2, "should have injected skill + existing tool");
-<<<<<<< HEAD
-  const names = tools.map((t) => (t as any).function?.name || (t as any).name);
-  assert.ok(names.includes(encodeSkillToolName("calcRoute", "1.0.0")));
-=======
   const names = tools
     .map((t) => decodeSkillToolName((t as any).function?.name || (t as any).name))
     .filter((name) => name.length > 0);
   assert.ok(names.includes("calcRoute@1.0.0"));
->>>>>>> upstream/main
   assert.ok(names.includes("preExistingTool"));
 });
 

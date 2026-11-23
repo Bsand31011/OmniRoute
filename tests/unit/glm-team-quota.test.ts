@@ -318,8 +318,6 @@ describe("getGlmUsage team quota parsing", () => {
   });
 });
 
-<<<<<<< HEAD
-=======
 describe("getGlmUsage reset-card integration", () => {
   const RESETTABLE_QUOTA_RESPONSE = {
     code: 200,
@@ -426,7 +424,6 @@ describe("getGlmUsage reset-card integration", () => {
   });
 });
 
->>>>>>> upstream/main
 describe("getGlmUsage CREDIT_LIMIT (coding-plan subscription keys)", () => {
   // Real-world response from https://api.z.ai/api/monitor/usage/quota/limit
   // for a GLM Coding Max subscription key (2026-08): limits use CREDIT_LIMIT

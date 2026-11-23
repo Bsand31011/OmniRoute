@@ -31,13 +31,9 @@ describe("S2 — agent-card topology sanitisation", () => {
 
   it("agent-card.json derives URL from request.nextUrl.origin when OMNIROUTE_BASE_URL is unset", async () => {
     const mod = await import("../../src/app/.well-known/agent-card.json/route.ts");
-<<<<<<< HEAD
-    const request = new Request("https://gateway.example.com/.well-known/agent-card.json") as unknown as NextRequest;
-=======
     const request = new Request(
       "https://gateway.example.com/.well-known/agent-card.json"
     ) as unknown as NextRequest;
->>>>>>> upstream/main
     Object.defineProperty(request, "nextUrl", {
       value: new URL("https://gateway.example.com/.well-known/agent-card.json"),
       configurable: true,
@@ -47,13 +43,6 @@ describe("S2 — agent-card topology sanitisation", () => {
     assert.equal(res.status, 200);
     const card = (await res.json()) as { url?: string; supportedInterfaces?: { url?: string }[] };
     assert.ok(card.url, "card must have a url");
-<<<<<<< HEAD
-    assert.ok(card.url.startsWith("https://gateway.example.com"), `expected gateway.example.com, got ${card.url}`);
-    if (card.supportedInterfaces && card.supportedInterfaces.length > 0) {
-      assert.ok(
-        card.supportedInterfaces[0].url?.startsWith("https://gateway.example.com"),
-        `interface URL should use dynamic origin, got ${card.supportedInterfaces[0].url}`
-=======
     assert.equal(
       new URL(card.url).origin,
       "https://gateway.example.com",
@@ -65,7 +54,6 @@ describe("S2 — agent-card topology sanitisation", () => {
         ifaceUrl ? new URL(ifaceUrl).origin : undefined,
         "https://gateway.example.com",
         `interface URL should use dynamic origin, got ${ifaceUrl}`
->>>>>>> upstream/main
       );
     }
   });
@@ -73,13 +61,9 @@ describe("S2 — agent-card topology sanitisation", () => {
   it("agent-card.json uses OMNIROUTE_BASE_URL when set", async () => {
     process.env.OMNIROUTE_BASE_URL = "https://custom.example.com";
     const mod = await import("../../src/app/.well-known/agent-card.json/route.ts");
-<<<<<<< HEAD
-    const request = new Request("http://localhost:20128/.well-known/agent-card.json") as unknown as NextRequest;
-=======
     const request = new Request(
       "http://localhost:20128/.well-known/agent-card.json"
     ) as unknown as NextRequest;
->>>>>>> upstream/main
     Object.defineProperty(request, "nextUrl", {
       value: new URL("http://localhost:20128/.well-known/agent-card.json"),
       configurable: true,
@@ -88,27 +72,19 @@ describe("S2 — agent-card topology sanitisation", () => {
     const res = await mod.GET(request);
     assert.equal(res.status, 200);
     const card = (await res.json()) as { url?: string };
-<<<<<<< HEAD
-    assert.ok(card.url?.startsWith("https://custom.example.com"), `expected custom.example.com, got ${card.url}`);
-=======
     assert.ok(card.url, "card must have a url");
     assert.equal(
       new URL(card.url).origin,
       "https://custom.example.com",
       `expected custom.example.com origin, got ${card.url}`
     );
->>>>>>> upstream/main
   });
 
   it("agent.json derives URL from request.nextUrl.origin when OMNIROUTE_BASE_URL is unset", async () => {
     const mod = await import("../../src/app/.well-known/agent.json/route.ts");
-<<<<<<< HEAD
-    const request = new Request("https://gateway.example.com/.well-known/agent.json") as unknown as NextRequest;
-=======
     const request = new Request(
       "https://gateway.example.com/.well-known/agent.json"
     ) as unknown as NextRequest;
->>>>>>> upstream/main
     Object.defineProperty(request, "nextUrl", {
       value: new URL("https://gateway.example.com/.well-known/agent.json"),
       configurable: true,
@@ -117,16 +93,12 @@ describe("S2 — agent-card topology sanitisation", () => {
     const res = await mod.GET(request);
     assert.equal(res.status, 200);
     const card = (await res.json()) as { url?: string };
-<<<<<<< HEAD
-    assert.ok(card.url?.startsWith("https://gateway.example.com"), `expected gateway.example.com, got ${card.url}`);
-=======
     assert.ok(card.url, "card must have a url");
     assert.equal(
       new URL(card.url).origin,
       "https://gateway.example.com",
       `expected gateway.example.com origin, got ${card.url}`
     );
->>>>>>> upstream/main
   });
 });
 
@@ -136,17 +108,8 @@ const loginGuardMod = await import("../../src/server/auth/loginGuard");
 // ── S4: login guard Retry-After tests ─────────────────────────────────
 
 describe("S4 — 429 Retry-After header", () => {
-<<<<<<< HEAD
-  const {
-    checkLoginGuard,
-    recordLoginFailure,
-    resetLoginGuardForTests,
-    LOGIN_GUARD_TUNABLES,
-  } = loginGuardMod;
-=======
   const { checkLoginGuard, recordLoginFailure, resetLoginGuardForTests, LOGIN_GUARD_TUNABLES } =
     loginGuardMod;
->>>>>>> upstream/main
 
   beforeEach(() => {
     resetLoginGuardForTests();
@@ -159,15 +122,10 @@ describe("S4 — 429 Retry-After header", () => {
     }
     const decision = checkLoginGuard(ip, { enabled: true });
     assert.equal(decision.allowed, false);
-<<<<<<< HEAD
-    assert.ok(typeof decision.retryAfterSeconds === "number" && decision.retryAfterSeconds > 0,
-      `retryAfterSeconds should be > 0, got ${decision.retryAfterSeconds}`);
-=======
     assert.ok(
       typeof decision.retryAfterSeconds === "number" && decision.retryAfterSeconds > 0,
       `retryAfterSeconds should be > 0, got ${decision.retryAfterSeconds}`
     );
->>>>>>> upstream/main
   });
 
   it("recordLoginFailure returns retryAfterSeconds on threshold hit", () => {
@@ -178,15 +136,10 @@ describe("S4 — 429 Retry-After header", () => {
         assert.equal(dec.allowed, true, `attempt #${i + 1} should still be allowed`);
       } else {
         assert.equal(dec.allowed, false, `attempt #${i + 1} (threshold) should be locked`);
-<<<<<<< HEAD
-        assert.ok(typeof dec.retryAfterSeconds === "number" && dec.retryAfterSeconds > 0,
-          `retryAfterSeconds should be > 0 on threshold hit, got ${dec.retryAfterSeconds}`);
-=======
         assert.ok(
           typeof dec.retryAfterSeconds === "number" && dec.retryAfterSeconds > 0,
           `retryAfterSeconds should be > 0 on threshold hit, got ${dec.retryAfterSeconds}`
         );
->>>>>>> upstream/main
       }
     }
   });
@@ -199,14 +152,10 @@ describe("S4 — 429 Retry-After header", () => {
     const guardDec = checkLoginGuard(ip, { enabled: true });
     assert.equal(guardDec.allowed, false);
     const headerValue = String(guardDec.retryAfterSeconds || 60);
-<<<<<<< HEAD
-    assert.ok(/^\d+$/.test(headerValue), `Retry-After should be an integer string, got ${headerValue}`);
-=======
     assert.ok(
       /^\d+$/.test(headerValue),
       `Retry-After should be an integer string, got ${headerValue}`
     );
->>>>>>> upstream/main
     assert.ok(Number.parseInt(headerValue, 10) > 0, "Retry-After should be positive");
 
     resetLoginGuardForTests();
@@ -217,14 +166,10 @@ describe("S4 — 429 Retry-After header", () => {
     }
     assert.equal(failureDec!.allowed, false);
     const headerValue2 = String(failureDec!.retryAfterSeconds || 60);
-<<<<<<< HEAD
-    assert.ok(/^\d+$/.test(headerValue2), `Retry-After should be an integer string, got ${headerValue2}`);
-=======
     assert.ok(
       /^\d+$/.test(headerValue2),
       `Retry-After should be an integer string, got ${headerValue2}`
     );
->>>>>>> upstream/main
     assert.ok(Number.parseInt(headerValue2, 10) > 0, "Retry-After should be positive");
   });
 });
@@ -271,11 +216,7 @@ describe("S1 — login rate-limit key uses anti-spoofed peer IP", () => {
   });
 
   after(() => {
-<<<<<<< HEAD
-    fs.rmSync(TEST_DATA_DIR, { recursive: true, force: true });
-=======
     fs.rmSync(TEST_DATA_DIR, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
->>>>>>> upstream/main
     if (JWT_SAVED !== undefined) {
       process.env.JWT_SECRET = JWT_SAVED;
     } else {
@@ -325,13 +266,6 @@ describe("S1 — login rate-limit key uses anti-spoofed peer IP", () => {
         // Locked out — rate-limit key is tied to the trusted peer IP, not XFF
         const retryAfter = res.headers.get("Retry-After");
         assert.ok(retryAfter !== null, "429 response must include Retry-After header");
-<<<<<<< HEAD
-        assert.ok(/^\d+$/.test(retryAfter!), `Retry-After should be a positive integer, got ${retryAfter}`);
-        return;
-      }
-    }
-    assert.fail("Expected at least one 429 response after threshold failed attempts with the same trusted peer IP");
-=======
         assert.ok(
           /^\d+$/.test(retryAfter!),
           `Retry-After should be a positive integer, got ${retryAfter}`
@@ -342,7 +276,6 @@ describe("S1 — login rate-limit key uses anti-spoofed peer IP", () => {
     assert.fail(
       "Expected at least one 429 response after threshold failed attempts with the same trusted peer IP"
     );
->>>>>>> upstream/main
   });
 
   it("ignores spoofed x-omniroute-trusted-peer-ip when OMNIROUTE_PEER_STAMP_TOKEN is not set", async () => {
@@ -384,13 +317,9 @@ describe("S1 — login rate-limit key uses anti-spoofed peer IP", () => {
         return;
       }
     }
-<<<<<<< HEAD
-    assert.fail("Expected 429 after threshold failures — spoofed header should not bypass rate-limit");
-=======
     assert.fail(
       "Expected 429 after threshold failures — spoofed header should not bypass rate-limit"
     );
->>>>>>> upstream/main
   });
 
   it("falls back to auditContext.ipAddress when trusted peer IP header is absent", async () => {
@@ -422,14 +351,10 @@ describe("S1 — login rate-limit key uses anti-spoofed peer IP", () => {
         // Locked out — rate-limit key is tied to the XFF-derived IP
         const retryAfter = res.headers.get("Retry-After");
         assert.ok(retryAfter !== null, "429 response must include Retry-After header");
-<<<<<<< HEAD
-        assert.ok(Number.parseInt(retryAfter!, 10) > 0, `Retry-After should be > 0, got ${retryAfter}`);
-=======
         assert.ok(
           Number.parseInt(retryAfter!, 10) > 0,
           `Retry-After should be > 0, got ${retryAfter}`
         );
->>>>>>> upstream/main
         return;
       }
     }
@@ -457,21 +382,13 @@ describe("S1 — login rate-limit key uses anti-spoofed peer IP", () => {
       if (res.status === 429) {
         const retryAfter = res.headers.get("Retry-After");
         assert.ok(retryAfter !== null, "429 response must include Retry-After header");
-<<<<<<< HEAD
-        assert.ok(Number.parseInt(retryAfter!, 10) > 0, `Retry-After should be > 0, got ${retryAfter}`);
-=======
         assert.ok(
           Number.parseInt(retryAfter!, 10) > 0,
           `Retry-After should be > 0, got ${retryAfter}`
         );
->>>>>>> upstream/main
         return;
       }
     }
     assert.fail("Expected at least one 429 response after threshold failed attempts");
   });
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> upstream/main

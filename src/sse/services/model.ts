@@ -8,10 +8,7 @@ import { getSyncedAutoAliases } from "@/lib/providerModels/syncedAutoAliases.ts"
 import { getActiveSyncedCatalog } from "@/lib/db/models/activeSyncedCatalog";
 import { getModelCompatOverrides } from "@/lib/db/models/compat";
 import { getNoAuthHydrationProviderIds } from "./noAuthProviderSiblings";
-<<<<<<< HEAD
-=======
 import { inferGithubUnsyncedTargetFormat } from "./githubResponsesFallback";
->>>>>>> upstream/main
 import {
   parseModel,
   getModelInfoCore,
@@ -24,9 +21,6 @@ import { getLearnedReasoningEffortForModel } from "@omniroute/open-sse/services/
 import { REGISTRY } from "@omniroute/open-sse/config/providerRegistry.ts";
 import { ANTIGRAVITY_MODEL_ALIASES } from "@omniroute/open-sse/config/antigravityModelAliases.ts";
 import { getRegisteredProviderEffortBaseModelId } from "@omniroute/open-sse/utils/registeredEffortVariants.ts";
-<<<<<<< HEAD
-import { getReservedProviderPrefixes } from "@/shared/constants/reservedProviderPrefixes";
-=======
 import { canGrandfatherProviderPrefix } from "@/lib/providers/providerPrefixCollision";
 import { getReservedProviderPrefixes } from "@/shared/constants/reservedProviderPrefixes";
 import { getProviderByAlias } from "@/shared/constants/providers";
@@ -46,7 +40,6 @@ import {
 import { commonChatGptWebRetirementResponse } from "@/lib/providers/chatgptWebRetirementResponse";
 import { errorResponse } from "@omniroute/open-sse/utils/error.ts";
 import { HTTP_STATUS } from "@omniroute/open-sse/config/constants.ts";
->>>>>>> upstream/main
 
 export { parseModel, stripContextWindowSuffix };
 
@@ -142,16 +135,6 @@ function isSyncedEffortSkippedProvider(providerId: string): boolean {
  * C1: effective tier set for suffix validation = learned ?? sync. The catalog
  * advertises variants from the learned set; validating the suffix against raw
  * synced metadata would strand learned-only tiers (dead-on-arrival ids).
-<<<<<<< HEAD
- */
-function effectiveKnownEfforts(
-  modelId: string,
-  syncedEfforts: readonly string[] | null | undefined
-): string[] {
-  const learned = getLearnedReasoningEffortForModel(modelId);
-  if (learned) return [...learned];
-  return Array.isArray(syncedEfforts) ? [...syncedEfforts] : [];
-=======
  * A candidate that declares no tiers is still worth consulting: its
  * effective set may come from the learned store alone.
  */
@@ -165,7 +148,6 @@ function effectiveKnownEfforts(candidate: {
   return Array.isArray(candidate?.supportedThinkingEfforts)
     ? [...(candidate.supportedThinkingEfforts as string[])]
     : [];
->>>>>>> upstream/main
 }
 
 /** Resolve a suffix against an explicitly tiered static registry model. */
@@ -182,16 +164,8 @@ function resolveRegistryModelIdAndEffort(
   }
 
   for (const candidate of registryModels) {
-<<<<<<< HEAD
-    if (!Array.isArray(candidate?.supportedThinkingEfforts)) continue;
-    const attempt = splitSyncedEffortSuffix(
-      modelId,
-      effectiveKnownEfforts(candidate.id, candidate.supportedThinkingEfforts)
-    );
-=======
     if (typeof candidate?.id !== "string" || !modelId.startsWith(candidate.id)) continue;
     const attempt = splitSyncedEffortSuffix(modelId, effectiveKnownEfforts(candidate));
->>>>>>> upstream/main
     if (attempt.effort && attempt.baseModel === candidate.id) {
       return { modelId: attempt.baseModel, effort: attempt.effort };
     }
@@ -261,14 +235,7 @@ export function resolveSyncedModelIdAndEffort(
     if (typeof candidate?.id !== "string" || !modelId.startsWith(candidate.id)) {
       continue;
     }
-<<<<<<< HEAD
-    const attempt = splitSyncedEffortSuffix(
-      modelId,
-      effectiveKnownEfforts(candidate.id, candidate.supportedThinkingEfforts as string[])
-    );
-=======
     const attempt = splitSyncedEffortSuffix(modelId, effectiveKnownEfforts(candidate));
->>>>>>> upstream/main
     if (attempt.effort && attempt.baseModel === candidate.id) {
       return { modelId: attempt.baseModel, effort: attempt.effort };
     }
@@ -448,15 +415,9 @@ async function lookupModelMeta(
       getActiveSyncedCatalog(providerId),
       // #10898 / #7620: model-compat overrides (apiFormat/targetFormat/
       // supportsVision, isHidden, ...) are stored keyed on the id the operator
-<<<<<<< HEAD
-      // wrote them under. For a no-auth alias the model prefix resolves to the
-      // APIKEY gateway id (e.g. "opencode/x" -> providerId "opencode-zen") but
-      // the override was written on the sibling "opencode" row. Merge overrides
-=======
       // wrote them under. For a no-auth alias the model prefix can resolve to an
       // APIKEY gateway id while the override was written on the sibling no-auth
       // row (see noAuthProviderSiblings.ts). Merge overrides
->>>>>>> upstream/main
       // across the provider AND its no-auth sibling ids (requested id first)
       // instead of canonicalizing the low-level compat key, which would break
       // paths that legitimately key on the raw id (e.g. getHiddenModelsByProvider).
@@ -628,21 +589,9 @@ export async function getModelInfo(modelStr) {
     // Ensure prefixToCheck is always a concise identifier, not a full model string
     const prefixToCheck = parsed.providerAlias || parsed.provider;
 
-<<<<<<< HEAD
-    // Compatible-node prefixes are user-defined. They must not be allowed to
-    // shadow built-in provider ids/aliases (e.g. `cf` → cloudflare-ai). When
-    // prefixToCheck matches a built-in registry id/alias, skip the compatible-
-    // node prefix lookup so the request still routes to the built-in provider.
-    // Internal UUID-prefixed node ids (e.g. "openai-compatible-responses-...")
-    // are never in the reserved set, so the #2778 combo path still works.
-    // Ported from upstream 9router 047fdc89. Set shared with the write-path
-    // validation guard (src/shared/constants/reservedProviderPrefixes.ts) so
-    // both sides can never drift apart.
-=======
     // New nodes still cannot claim reserved prefixes. Persisted legacy nodes
     // keep a live builtin's prefix only while it has no active configured
     // connections (#17278). Retirement guards above always run first.
->>>>>>> upstream/main
     const isReservedPrefix =
       typeof prefixToCheck === "string" && getReservedProviderPrefixes().has(prefixToCheck);
 

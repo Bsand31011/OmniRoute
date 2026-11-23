@@ -135,11 +135,7 @@ const SAFE_FORMATS = new Set([
   "webm",
 ]);
 const SAFE_FORMAT_WHITELIST = [...SAFE_FORMATS].join(",");
-<<<<<<< HEAD
-const defaultRunner: VideoCommandRunner = async (executable, args, options) => {
-=======
 export const defaultRunner: VideoCommandRunner = async (executable, args, options) => {
->>>>>>> upstream/main
   const result = await execFileAsync(executable, [...args], {
     encoding: "utf8",
     maxBuffer: 1024 * 1024,
@@ -149,11 +145,7 @@ export const defaultRunner: VideoCommandRunner = async (executable, args, option
   });
   return { stdout: String(result.stdout), stderr: String(result.stderr) };
 };
-<<<<<<< HEAD
-function assertLocalPath(filePath: string): void {
-=======
 export function assertLocalPath(filePath: string): void {
->>>>>>> upstream/main
   if (!isAbsolute(filePath) || filePath.includes("\0") || filePath.includes("://")) {
     throw new Error("Video runtime requires a local path");
   }

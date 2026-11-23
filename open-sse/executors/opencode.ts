@@ -1,4 +1,3 @@
-import { randomUUID } from "node:crypto";
 import {
   BaseExecutor,
   type ExecuteInput,
@@ -11,10 +10,6 @@ import {
   injectReasoningContentForThinkingModel,
   isThinkingMessageModel,
 } from "../utils/reasoningContentInjector.ts";
-<<<<<<< HEAD
-import { runWithDirectFetchContext, runWithProxyContext } from "../utils/proxyFetch.ts";
-import { forwardOpencodeClientHeaders } from "../utils/opencodeHeaders.ts";
-=======
 import {
   hasAmbientProxyContext,
   currentAppliedProxySink,
@@ -42,7 +37,6 @@ import { listForRequest, releaseRequestList } from "./opencodeAccountScope.ts";
 import { applyOpencodeToolNameLengthAliases } from "./toolNameLengthAlias.ts";
 import type { ScopedAccount, ScopedAccountHealth } from "./opencodeAccountScope.ts";
 import { guardRequiredAccountProxies } from "./opencodeRequiredProxy.ts";
->>>>>>> upstream/main
 import {
   type AccountProxyConfig,
   type RotationAccountSnapshot,
@@ -710,20 +704,11 @@ export class OpencodeExecutor extends BaseExecutor {
               const normalized = normalizer(line);
               controller.enqueue(encoder.encode(normalized + "\n"));
               if (isResponsesTerminalLine(line)) {
-<<<<<<< HEAD
-                // OpenCode Zen sends a ping after response.completed and may keep
-                // the HTTP connection alive. The Responses terminal event is
-                // authoritative; do not let those post-completion pings hold Chat
-                // Completions open.
-                closed = true;
-                void reader.cancel().catch(() => undefined);
-=======
                 // OpenCode Zen may ping after response.completed and hold the socket.
                 // Close on that terminal event so Chat Completions is not held open.
                 closed = true;
                 void reader.cancel().catch(() => undefined);
                 controller.enqueue(encoder.encode("\n"));
->>>>>>> upstream/main
                 controller.close();
                 return;
               }
@@ -803,11 +788,7 @@ export class OpencodeExecutor extends BaseExecutor {
       // 200s ("Provider returned empty content"). Raise tiny budgets to the
       // floor before dispatch (see applyOpencodeOutputBudgetFloors).
       if (input.body && typeof input.body === "object" && !Array.isArray(input.body)) {
-<<<<<<< HEAD
-        applyMuseSparkMinOutputTokens(
-=======
         applyOpencodeOutputBudgetFloors(
->>>>>>> upstream/main
           String(input.model ?? ""),
           input.body as Record<string, unknown>
         );
@@ -867,12 +848,6 @@ export class OpencodeExecutor extends BaseExecutor {
       // rejection (same predicate and logging as the rotation loop). Everything
       // else passes untouched: this path deliberately preserves BaseExecutor's
       // intra-URL 429 retries (no skipUpstreamRetry here).
-<<<<<<< HEAD
-      if (this.accounts.length === 1 && !hasProxies) {
-        const single = (await runWithDirectFetchContext(() =>
-          super.execute(input)
-        )) as HttpExecuteResult;
-=======
       if (accounts.length === 1 && !hasProxies) {
         // #11894: a connection-level proxy assignment (proxy_assignments) reaches
         // the executor as the AMBIENT proxy context — the chat handler wraps
@@ -943,7 +918,6 @@ export class OpencodeExecutor extends BaseExecutor {
         if (single.response.status === 403 || single.response.status === 451) {
           await this.noteFreeTierRefusal(input, single.response, log);
         }
->>>>>>> upstream/main
         if (single.response.status === 400) {
           let bodyText: string | null = null;
           try {
@@ -1572,9 +1546,6 @@ export class OpencodeExecutor extends BaseExecutor {
       }
 
       // All accounts returned 429 (or errored) — surface the last response.
-<<<<<<< HEAD
-      return this.normalizeMuseSparkResponse(input, lastResult ?? (await super.execute(input)));
-=======
       if (attributionOn && skippedCooldown.size > 0) {
         this.logSkippedCooldownAccounts(log, cid, skippedCooldown);
       }
@@ -1585,7 +1556,6 @@ export class OpencodeExecutor extends BaseExecutor {
           lastResult ?? (await guardStall(await super.execute(input)))
         )
       );
->>>>>>> upstream/main
     } finally {
       this._requestFormat = null;
     }
@@ -1700,26 +1670,10 @@ export class OpencodeExecutor extends BaseExecutor {
       });
     }
 
-<<<<<<< HEAD
-    // Muse's Responses endpoint rejects the short conversation fingerprint used
-    // by the Chat endpoint in practice. Keep the workaround scoped to Muse.
-    if (
-      this._requestFormat === "openai-responses" &&
-      model.startsWith("muse-spark") &&
-      !/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(
-        headers["x-opencode-session"] || ""
-      )
-    ) {
-      headers["x-opencode-session"] = randomUUID();
-    }
-
-    void model;
-=======
     // The Muse Responses workaround that forced a UUID session here is gone: the shape it
     // produced is exactly what the upstream now refuses, and the canonical session it used
     // to overwrite is accepted on that surface (measured 2026-09-17, 200 on
     // muse-spark-1.3-contributor-free via /v1/responses).
->>>>>>> upstream/main
 
     return headers;
   }

@@ -133,10 +133,6 @@ const KNOWN_SVGS = new Set([
   "google",
   "grok",
   "groq",
-<<<<<<< HEAD
-  "haiper",
-=======
->>>>>>> upstream/main
   "hcnsec",
   "heroku",
   "huggingchat",
@@ -475,11 +471,7 @@ const ProviderIcon = memo(function ProviderIcon({
         className={className}
         style={{ display: "inline-flex", alignItems: "center", ...style }}
       >
-<<<<<<< HEAD
-        {/* eslint-disable-next-line @next/next/no-img-element -- themed local SVG asset; see the Tier 2 comment for why these use a plain <img> */}
-=======
         {/* eslint-disable-next-line @next/next/no-img-element -- themed local SVG asset; see the Tier 3 comment for why these use a plain <img> */}
->>>>>>> upstream/main
         <img
           src={themedSrc}
           alt={providerId}
@@ -488,15 +480,8 @@ const ProviderIcon = memo(function ProviderIcon({
           style={{
             objectFit: "contain",
             flex: "none",
-<<<<<<< HEAD
-            width: "auto",
-            height: "auto",
-            maxWidth: size,
-            maxHeight: size,
-=======
             width: size,
             height: size,
->>>>>>> upstream/main
           }}
           onError={() => setFailedAssets((current) => ({ ...current, [themedKey]: true }))}
         />
@@ -504,17 +489,6 @@ const ProviderIcon = memo(function ProviderIcon({
     );
   }
 
-<<<<<<< HEAD
-  // Tier 2: Local SVG — fastest, cached separately from the JS bundle.
-  // Rendered as a plain <img> (not next/image): provider SVGs carry their own
-  // intrinsic aspect ratio (e.g. opencode.svg is 234×42), and next/image's
-  // dev-mode check warns whenever the layout size differs from the square
-  // width/height attributes — a false positive for non-square logos rendered
-  // at fixed icon sizes. We keep `width/height` attributes for layout reserve
-  // but let the intrinsic ratio win on both axes (`width/height: "auto"`) so
-  // wide logos like opencode render at their true aspect ratio instead of
-  // being letterboxed into a 1:1 box.
-=======
   // Tier 3: Local SVG — fastest, cached separately from the JS bundle.
   // Rendered as a plain <img> (not next/image): provider SVGs carry their own
   // intrinsic aspect ratio (some wordmarks are much wider than tall), and next/image's
@@ -522,7 +496,6 @@ const ProviderIcon = memo(function ProviderIcon({
   // width/height attributes — a false positive for non-square logos rendered
   // at fixed icon sizes. Explicit CSS dimensions keep the flex item from
   // collapsing to 0×0; object-fit preserves each logo's intrinsic ratio.
->>>>>>> upstream/main
   if (hasSvg && !svgFailed) {
     return (
       <span
@@ -538,15 +511,8 @@ const ProviderIcon = memo(function ProviderIcon({
           style={{
             objectFit: "contain",
             flex: "none",
-<<<<<<< HEAD
-            width: "auto",
-            height: "auto",
-            maxWidth: size,
-            maxHeight: size,
-=======
             width: size,
             height: size,
->>>>>>> upstream/main
           }}
           onError={() => setFailedAssets((current) => ({ ...current, [svgKey]: true }))}
         />

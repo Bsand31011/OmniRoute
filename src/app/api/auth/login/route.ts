@@ -13,10 +13,6 @@ import { isFeatureFlagEnabled } from "@/shared/utils/featureFlags";
 import { isNextBuildPhase } from "@/lib/buildPhase";
 import { loginSchema } from "@/shared/validation/schemas";
 import { isValidationFailure, validateBody } from "@/shared/validation/helpers";
-<<<<<<< HEAD
-import { checkLoginGuard, clearLoginAttempts, recordLoginFailure } from "@/server/auth/loginGuard";
-import { AUTHZ_HEADER_TRUSTED_PEER_IP } from "@/server/authz/headers";
-=======
 import {
   beginLoginAttempt,
   clearLoginAttempts,
@@ -38,7 +34,6 @@ import {
   isHostOperatorRequest,
 } from "@/server/auth/loginPeer";
 import { getRequestPeerLocality } from "@/shared/utils/apiAuth";
->>>>>>> upstream/main
 
 /**
  * Whether the module-level missing-JWT_SECRET warning should fire. It is
@@ -117,10 +112,7 @@ export async function POST(request: NextRequest) {
       ? request.headers.get(AUTHZ_HEADER_TRUSTED_PEER_IP)
       : null;
     const clientIp = trustedPeerIp || auditContext.ipAddress || null;
-<<<<<<< HEAD
-=======
     const lockoutKey = getLoginLockoutKey(request, auditContext.ipAddress);
->>>>>>> upstream/main
     const oidcDisabledPassword =
       settings.oidcEnabled === true &&
       (settings.oidcDisablePasswordLogin === true ||

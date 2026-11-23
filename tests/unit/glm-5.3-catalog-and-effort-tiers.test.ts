@@ -23,15 +23,12 @@ const { shouldExposeSyncedEffortVariants, SYNCED_EFFORT_SKIP_PROVIDERS } =
   await import("../../open-sse/utils/syncedEffortVariants.ts");
 
 const GLM_5_3_IDS = ["glm-5.3", "glm-5.3-high", "glm-5.3-low", "glm-5.3-max"] as const;
-<<<<<<< HEAD
-=======
 const GLM_5_3_FLASH_IDS = [
   "glm-5.3-flash",
   "glm-5.3-flash-high",
   "glm-5.3-flash-low",
   "glm-5.3-flash-max",
 ] as const;
->>>>>>> upstream/main
 
 // transformForTransport returns an opaque body; surface only the fields asserted below.
 type TransformedRequest = {
@@ -110,13 +107,10 @@ test("catalog exposes only GLM effort tiers that each provider can route", () =>
     ["glm-5.3-high", ["high"]],
     ["glm-5.3-low", ["low"]],
     ["glm-5.3-max", ["max"]],
-<<<<<<< HEAD
-=======
     ["glm-5.3-flash", ["low", "high", "max"]],
     ["glm-5.3-flash-high", ["high"]],
     ["glm-5.3-flash-low", ["low"]],
     ["glm-5.3-flash-max", ["max"]],
->>>>>>> upstream/main
     ["glm-5.2", ["high", "max"]],
     ["glm-5.2-high", ["high"]],
     ["glm-5.2-max", ["max"]],
@@ -159,9 +153,6 @@ for (const provider of ["glm", "glm-cn", "glmt"]) {
 test("zai advertises the GLM-5.3 base model and GLM-5.3 Flash (DefaultExecutor sends ids verbatim)", () => {
   const ids = modelIds("zai");
   assert.ok(ids.includes("glm-5.3"), `zai should advertise glm-5.3; got ${ids.join(", ")}`);
-<<<<<<< HEAD
-  for (const alias of ["glm-5.3-high", "glm-5.3-low", "glm-5.3-max"]) {
-=======
   assert.ok(
     ids.includes("glm-5.3-flash"),
     `zai should advertise glm-5.3-flash; got ${ids.join(", ")}`
@@ -174,7 +165,6 @@ test("zai advertises the GLM-5.3 base model and GLM-5.3 Flash (DefaultExecutor s
     "glm-5.3-flash-low",
     "glm-5.3-flash-max",
   ]) {
->>>>>>> upstream/main
     assert.ok(
       !ids.includes(alias),
       `zai must not list ${alias}: GlmExecutor-only alias, unknown upstream on the Anthropic endpoint`

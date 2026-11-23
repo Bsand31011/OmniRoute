@@ -1237,11 +1237,6 @@ async function main() {
         // Respect the curated classification when the curated pass already ran an equivalent
         // gate under a different id — otherwise the same ratchet is reported as a HARD failure
         // here AND as drift above, in one self-contradicting verdict.
-<<<<<<< HEAD
-        kind: fullCiKindFor(g.id, results),
-        ok: code === 0,
-        detail: code === 0 ? "pass" : firstFailureLine(out),
-=======
         ...(g.id === "check:workflows"
           ? evaluateWorkflowRun({ code, out })
           : {
@@ -1249,7 +1244,6 @@ async function main() {
               ok: code === 0,
               detail: code === 0 ? "pass" : firstFailureLine(out),
             }),
->>>>>>> upstream/main
       });
     }
   }

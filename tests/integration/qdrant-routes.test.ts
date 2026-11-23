@@ -45,8 +45,6 @@ const qdrantEmbeddingModelsRoute =
 // returns the Fetch API Request, which is structurally sufficient at runtime.
 const asNextRequest = (req: Request) => req as unknown as import("next/server").NextRequest;
 
-<<<<<<< HEAD
-=======
 // Mirrors EmbeddingModelOption from the embedding-models route response shape.
 interface EmbeddingModelOptionLike {
   value: string;
@@ -54,7 +52,6 @@ interface EmbeddingModelOptionLike {
   dimensions?: number;
 }
 
->>>>>>> upstream/main
 async function resetStorage() {
   core.resetDbInstance();
   fs.rmSync(TEST_DATA_DIR, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
@@ -419,8 +416,6 @@ test("GET /api/settings/qdrant/embedding-models — lists only configured provid
   assert.ok(body.models.some((model: any) => model.value === "openai/text-embedding-3-small"));
   const defaultModel = body.models.find((m: any) => m.value === "openai/text-embedding-3-small");
   assert.match(defaultModel.label, /1536d/);
-<<<<<<< HEAD
-=======
 });
 
 test("GET /api/settings/qdrant/embedding-models — includes an active local no-API-key provider (#11949)", async () => {
@@ -508,7 +503,6 @@ test("GET /api/settings/qdrant/embedding-models — still excludes a remote prov
     body.models.every((model: EmbeddingModelOptionLike) => !model.value.startsWith("openai/")),
     "should not list a remote provider's models when its active connection has no API key"
   );
->>>>>>> upstream/main
 });
 
 test("GET /api/settings/qdrant/embedding-models — 401 without auth", async () => {

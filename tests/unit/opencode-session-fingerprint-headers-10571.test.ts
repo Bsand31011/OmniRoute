@@ -171,11 +171,7 @@ test("OpencodeExecutor.buildHeaders derives a stable x-opencode-session from the
   assert.equal(headersFirst["x-opencode-session"], headersSecond["x-opencode-session"]);
 });
 
-<<<<<<< HEAD
-test("Responses requests use a UUID x-opencode-session for Muse compatibility", () => {
-=======
 test("Responses requests use the same canonical session as every other surface", () => {
->>>>>>> upstream/main
   const executor = new OpencodeExecutor("opencode");
   executor._requestFormat = "openai-responses";
   const headers = executor.buildHeaders(
@@ -189,18 +185,10 @@ test("Responses requests use the same canonical session as every other surface",
       input: [],
     }
   );
-<<<<<<< HEAD
-  assert.match(
-    headers["x-opencode-session"] ?? "",
-    UUID_RE,
-    "Responses transport must use a UUID session"
-  );
-=======
   // The UUID this path used to force is now refused upstream. Measured 2026-09-17 on
   // muse-spark-1.3-contributor-free: the Responses surface answers 200 with a canonical
   // `ses_` session, so the transport no longer needs a shape of its own.
   assert.match(headers["x-opencode-session"] ?? "", SESSION_HASH_RE);
->>>>>>> upstream/main
 });
 
 test("OpencodeExecutor.buildHeaders derives a DIFFERENT x-opencode-session for a different conversation body", () => {

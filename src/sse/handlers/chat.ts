@@ -2777,8 +2777,6 @@ async function handleSingleModelChat(
             })
           );
 
-<<<<<<< HEAD
-=======
       if (avalancheRisk?.shouldSuppressFallback) {
         log.warn(
           "ANTI_AVALANCHE",
@@ -2787,7 +2785,6 @@ async function handleSingleModelChat(
         applyAvalancheSuppressionHeaders(result.response, avalancheRisk.reason);
       }
 
->>>>>>> upstream/main
       // An explicit pin (combo step `connectionId` / `x-omniroute-connection`) is an
       // operator instruction, not a suggestion: the account cooldown above is still
       // recorded, but selection must NOT silently rotate to a sibling account of the

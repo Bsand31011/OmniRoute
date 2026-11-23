@@ -42,12 +42,6 @@ function fallback(frames: readonly ContactSheetFrame[]): VideoContactSheetResult
   };
 }
 
-<<<<<<< HEAD
-function decodeFrame(dataUri: string): Buffer {
-  const match = /^data:image\/jpeg;base64,([A-Za-z0-9+/=]{4,5592408})$/i.exec(dataUri);
-  if (!match) throw new Error("Contact sheet requires JPEG data URIs");
-  return Buffer.from(match[1], "base64");
-=======
 function formatContactSheetTimestamp(timestampSeconds: number): string {
   const totalMilliseconds = Math.max(0, Math.round(timestampSeconds * 1000));
   const minutes = Math.floor(totalMilliseconds / 60_000);
@@ -66,7 +60,6 @@ function buildTimestampLabel(timestampSeconds: number): Buffer {
       <text x="${LABEL_PADDING}" y="${labelTop + 42}" fill="#ffffff" font-family="DejaVu Sans Mono, monospace" font-size="${LABEL_FONT_SIZE}" font-weight="700">${label}</text>
     </svg>`
   );
->>>>>>> upstream/main
 }
 
 function formatContactSheetTimestamp(timestampSeconds: number): string {

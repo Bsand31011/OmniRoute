@@ -1317,11 +1317,7 @@
     "agentBridge": "Cầu nối tác tử",
     "agentBridgeSubtitle": "Chặn lưu lượng agent IDE",
     "trafficInspector": "Traffic Inspector",
-<<<<<<< HEAD
-    "trafficInspectorSubtitle": "Kiểm tra lưu lượng yêu cầu và phản hồi từ ứng dụng của bạn",
-=======
     "trafficInspectorSubtitle": "Kiểm tra lưu lượng yêu cầu và phản hồi từ các ứng dụng của bạn",
->>>>>>> upstream/main
     "trafficInspectorPurpose": "Xem chính xác những gì ứng dụng của bạn gửi đến và nhận từ các nhà cung cấp AI. Hoạt động với bất kỳ ứng dụng khách nào tương thích với OpenAI.",
     "cliCode": "CLI Code",
     "cliCodeSubtitle": "Các công cụ lập trình trỏ đến OmniRoute",
@@ -1363,13 +1359,9 @@
       "open": "mở",
       "close": "đóng"
     },
-<<<<<<< HEAD
-    "noResults": "Không có kết quả"
-=======
     "noResults": "Không có kết quả",
     "costsTeams": "Nhóm",
     "costsTeamsSubtitle": "Trung tâm chi phí nhóm"
->>>>>>> upstream/main
   },
   "webhooks": {
     "title": "Webhook",
@@ -1947,9 +1939,6 @@
     "readinessStep3": "Sao chép endpoint của bạn",
     "readinessStep4": "Gửi một yêu cầu thử nghiệm",
     "readinessContinue": "Tiếp tục thiết lập",
-<<<<<<< HEAD
-    "readinessDismiss": "Bỏ qua lúc này"
-=======
     "readinessDismiss": "Bỏ qua lúc này",
     "unpricedUsageTitle": "{count, plural, one {# mô hình} other {# mô hình}} có hoạt động gần đây nhưng không có giá được cấu hình",
     "unpricedUsageFailClosed": "{keys, plural, one {# khóa API có giới hạn sử dụng} other {# khóa API có giới hạn sử dụng}} đã sử dụng các mô hình này trong 8 ngày qua. Khi lượng sử dụng đó nằm trong cửa sổ hàng ngày hoặc hàng tuần của khóa, khóa được coi là vượt hạn mức và các yêu cầu của nó bị chặn (UNPRICED_USAGE_BUDGET_POLICY=fail_closed).",
@@ -1967,7 +1956,6 @@
     "systemMetricsCpuCount": "{count} vCPUs • {platform}",
     "systemMetricsProcessCpu": "OmniRoute (process)",
     "systemMetricsProcessMemory": "OmniRoute (RSS / Heap)"
->>>>>>> upstream/main
   },
   "analytics": {
     "title": "Phân tích",
@@ -6711,11 +6699,7 @@
       "bigmodel": "Tạo khóa API tại https://bigmodel.cn/usercenter/proj-mgmt/apikeys. OmniRoute sử dụng endpoint chat chính thức tương thích OpenAI của BigModel.cn.",
       "glmt": "Hồ sơ GLM đặt sẵn với ngân sách token cao hơn, bật thinking và thời gian chờ dài hơn.",
       "getgoapi": "Kết nối GoAPI bằng khóa API.",
-<<<<<<< HEAD
-      "groq": "Gói miễn phí: 30 RPM / 14,4 nghìn RPD — không cần thẻ tín dụng",
-=======
       "groq": "Gói miễn phí: giới hạn theo từng mô hình (200K token/ngày cho mỗi mô hình chat; xem console.groq.com/docs/rate-limits để biết RPM/RPD) — không cần đăng ký phương thức thanh toán.",
->>>>>>> upstream/main
       "haiper": "Lấy khóa API tại haiper.ai/haiper-api",
       "heroku": "Kết nối Heroku AI bằng khóa API.",
       "hcnsec": "Lấy khóa API tại api.hcnsec.cn",
@@ -7340,11 +7324,8 @@
     "sidebarVisibility": "Ẩn các mục trên thanh bên",
     "sidebarVisibilityDesc": "Ẩn bất kỳ mục điều hướng nào trên thanh bên để giảm bớt sự lộn xộn về mặt trực quan mà không vô hiệu hóa bất kỳ tính năng nào",
     "sidebarVisibilityHint": "Bất kỳ phần nào trên thanh bên sẽ tự động bị ẩn khi tất cả các mục bên trong nó đều bị ẩn",
-<<<<<<< HEAD
-=======
     "sidebarSectionShow": "Hiển thị tất cả mục trong phần này",
     "sidebarSectionHide": "Ẩn tất cả mục trong phần này",
->>>>>>> upstream/main
     "presetAll": "Tất cả",
     "presetAllDesc": "Hiển thị mọi thứ",
     "presetEssentials": "Thiết yếu",

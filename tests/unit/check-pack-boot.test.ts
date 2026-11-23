@@ -82,8 +82,6 @@ test("installed package contract requires sql.js metadata, entrypoint, and WASM"
   assert.deepEqual(
     findMissingSqlJsRuntimeFiles("/pkg", (file) => present.has(file)),
     ["node_modules/sql.js/dist/sql-wasm.wasm"]
-<<<<<<< HEAD
-=======
   );
 });
 
@@ -100,7 +98,6 @@ test("installed package contract requires the translated docs mirrors and jsdom"
   assert.deepEqual(
     findMissingDocsI18nRuntimeFiles("/pkg", (file) => present.has(file)),
     ["dist/docs/i18n/pt-BR/docs/getting-started/QUICK-START.md", "node_modules/jsdom/package.json"]
->>>>>>> upstream/main
   );
 });
 

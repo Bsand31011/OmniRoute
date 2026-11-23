@@ -7,17 +7,10 @@ import { PROVIDERS } from "../config/constants.ts";
 import { BaseExecutor, type ExecuteInput, type ExecutorExecuteResult } from "./base.ts";
 import { CodexAppServerClient, type CodexAppServerClientOptions } from "./codex/appServerClient.ts";
 import {
-<<<<<<< HEAD
-  CodexAppServerClient,
-  type CodexAppServerClientOptions,
-} from "./codex/appServerClient.ts";
-import { resolveAppServerConfig, resolveThreadStartPolicy, type CodexAppServerConfig } from "./codex/appServerConfig.ts";
-=======
   resolveAppServerConfig,
   resolveThreadStartPolicy,
   type CodexAppServerConfig,
 } from "./codex/appServerConfig.ts";
->>>>>>> upstream/main
 import {
   translateNotification,
   translateToolCall,

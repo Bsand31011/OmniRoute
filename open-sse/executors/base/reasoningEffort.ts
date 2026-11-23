@@ -773,71 +773,13 @@ export function sanitizeReasoningEffortForProvider(
     return writeEffortValue(working, nearest.tier, c);
   }
 
-  // Generic learned clamp (downgrade-only: greatest accepted <= demand).
-  // Sits AFTER the per-provider early returns by design: deepseek/command-code/
-  // ollama-cloud have deliberate static translations that take precedence; the
-  // learned set governs every other provider and all effort values, before the
-  // xhigh/max static fallbacks below.
-  const learnedSet = getLearnedReasoningEffort(provider, modelStr);
-  if (learnedSet && learnedSet.size > 0 && !learnedSet.has(effortStr)) {
-    const clamped = clampToLearned(effortStr, learnedSet);
-    if (clamped && clamped !== effortStr) {
-      log?.info?.(
-        "REASONING_SANITIZE",
-        `${provider}/${modelStr}: clamped reasoning_effort ${effortStr} → ${clamped} (learned)`
-      );
-      return writeEffortValue(b, clamped, c);
-    }
-  }
-
-  // ── explicit per-model capability clamp ──────────────────────────────────
-  // When the registry declares supportedThinkingEfforts for this exact model
-  // and the requested effort falls outside that vocabulary, remap to the
-  // nearest declared tier: the smallest ranked value ≥ the request, else the
-  // highest declared (a request above the ceiling lands on the ceiling).
-  // Live case: opencode-go/ox-alpha-free (Console Go) only accepts
-  // {low, high, max} — a client's reasoning_effort:"medium" reached the
-  // upstream verbatim and 400'd every turn ("[1210] This model always engages
-  // in thinking and cannot be disabled; please use low, high, or max"). The
-  // learned-caps path can't help here (it only clamps down from xhigh/max,
-  // and this error text isn't a parseable enum), so the declaration is the
-  // only source of truth. Models without an explicit declaration keep
-  // #8057's trust-the-upstream pass-through.
-  const providerModelIdForClamp = modelStr.startsWith(`${provider}/`)
-    ? modelStr.slice(provider.length + 1)
-    : modelStr;
-  const declaredEfforts = getProviderModels(provider).find(
-    (entry) => entry.id === providerModelIdForClamp || entry.aliases?.includes(providerModelIdForClamp)
-  )?.supportedThinkingEfforts;
-  const declaredRanked = (
-    Array.isArray(declaredEfforts) ? declaredEfforts : []
-  )
-    .map((tier) => ({ tier, rank: REASONING_EFFORT_ORDER.indexOf(tier) }))
-    .filter((x) => x.rank >= 0)
-    .sort((a, b) => a.rank - b.rank);
-  if (declaredRanked.length > 0 && !declaredEfforts!.includes(effortStr)) {
-    const requestedRank = REASONING_EFFORT_ORDER.indexOf(effortStr);
-    const nearest =
-      declaredRanked.find((x) => x.rank >= requestedRank) ??
-      declaredRanked[declaredRanked.length - 1];
-    log?.info?.(
-      "REASONING_SANITIZE",
-      `${provider}/${modelStr}: mapped reasoning_effort ${effortStr} → ${nearest.tier} (model accepts ${declaredEfforts!.join("/")})`
-    );
-    return writeEffortValue(b, nearest.tier, c);
-  }
-
   const supportsXHigh = supportsXHighEffort(provider, modelStr);
   const supportsMax = supportsMaxEffortForProvider(provider, modelStr);
 
   // ── xhigh handling ──────────────────────────────────────────────────────
   // xhigh is OmniRoute-internal. Map it to the best effort the model accepts.
   if (effortStr === "xhigh") {
-<<<<<<< HEAD
-    if (supportsXHigh) return body; // model accepts xhigh natively
-=======
     if (supportsXHigh) return working; // model accepts xhigh natively
->>>>>>> upstream/main
     if (supportsMax) {
       log?.info?.(
         "REASONING_SANITIZE",
@@ -861,11 +803,7 @@ export function sanitizeReasoningEffortForProvider(
   // upstream, and if it 400s the user gets a clear signal. This prevents
   // new models from being unusable for weeks until they're whitelisted (#8057).
   if (effortStr === "max") {
-<<<<<<< HEAD
-    if (supportsMax) return body; // explicitly known to accept max
-=======
     if (supportsMax) return working; // explicitly known to accept max
->>>>>>> upstream/main
 
     // A model that explicitly advertises its accepted tiers is safe to normalize.
     // Keep the default pass-through for absent metadata: an unlisted model might

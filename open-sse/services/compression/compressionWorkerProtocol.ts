@@ -32,22 +32,6 @@ function isPlainObject(value: object): value is Record<string, unknown> {
   const prototype = Object.getPrototypeOf(value);
   return prototype === Object.prototype || prototype === null;
 }
-<<<<<<< HEAD
-export function isStrictlySerializable(value: unknown, seen = new Set<object>()): boolean {
-  if (
-    value === null ||
-    typeof value === "string" ||
-    typeof value === "boolean" ||
-    typeof value === "number"
-  ) {
-    return typeof value !== "number" || Number.isFinite(value);
-  }
-  if (typeof value !== "object" || seen.has(value)) return false;
-  seen.add(value);
-  if (Array.isArray(value)) return value.every((entry) => isStrictlySerializable(entry, seen));
-  if (!isPlainObject(value)) return false;
-  return Object.values(value).every((entry) => isStrictlySerializable(entry, seen));
-=======
 
 // Anything that is not a (non-null) object is either a structured-clone-safe primitive
 // or an unsupported value (e.g. a non-finite number, a function, a symbol). Isolated
@@ -82,7 +66,6 @@ export function isStrictlySerializable(value: unknown, seen = new Set<object>())
   } finally {
     seen.delete(value);
   }
->>>>>>> upstream/main
 }
 
 const WORKER_STACK_ENGINES = new Set(["caveman", "rtk", "standard"]);
@@ -91,8 +74,6 @@ export function isCompressionWorkerEligible(
   mode: CompressionMode,
   options?: CompressionWorkerOptions
 ): boolean {
-<<<<<<< HEAD
-=======
   if (mode === "ultra") {
     // Heuristic ultra can be CPU/heap heavy on large Native Codex /v1/responses
     // histories. Isolate it in the compression worker instead of running it in
@@ -104,7 +85,6 @@ export function isCompressionWorkerEligible(
     if (options?.config?.ultraEngine === "slm" || hasModelPath) return false;
     return isStrictlySerializable({ body, mode, ...(options ? { options } : {}) });
   }
->>>>>>> upstream/main
   if (mode !== "standard" && mode !== "rtk" && mode !== "stacked") return false;
   if (mode === "stacked") {
     const pipeline = options?.config?.stackedPipeline;

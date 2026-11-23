@@ -10,13 +10,8 @@
  *   GET https://g4f.space/api/groq/...              → live Groq backend
  *
  * Verifies each of the 5 sub-path providers is wired end-to-end the same way as
-<<<<<<< HEAD
- * the other no-key gateway providers (uncloseai):
- *   - present in the executor REGISTRY with a no-key OpenAI-compatible shape
-=======
  * the other OpenAI-compatible gateway providers:
  *   - present in the executor REGISTRY with an optional-auth OpenAI-compatible shape
->>>>>>> upstream/main
  *   - resolvable through getExecutor() (falls through to DefaultExecutor)
  *   - listed in AGGREGATOR_PROVIDER_IDS so it shows up in the aggregator
  *     category on the dashboard

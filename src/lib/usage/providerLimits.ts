@@ -101,8 +101,6 @@ const PROVIDER_LIMITS_APIKEY_PROVIDERS = new Set([
   "hyperagent",
   "ha",
   "firecrawl",
-<<<<<<< HEAD
-=======
   // Context7 rate limit quota (ratelimit-* headers of GET https://context7.com/api/v1/search)
   "context7",
   // Tavily API key → /usage account & plan credits
@@ -113,7 +111,6 @@ const PROVIDER_LIMITS_APIKEY_PROVIDERS = new Set([
   "jina",
   "jina-ai",
   "jina-reader",
->>>>>>> upstream/main
   // Volcano Ark Plan subscriptions (agent-plan / coding-plan)
   "volcengine-agent-plan",
   "volcengine-coding-plan",
@@ -596,106 +593,12 @@ function clearRecoveredClaudeQuotaModelLocks(connectionId: string, usage: JsonRe
   }
 }
 
-/**
- * May an active cooldown be released because the REAL quota windows recovered?
- *
- * Only the synthetic-cooldown case (#10534) qualifies: lastErrorType
- * "quota_exhausted" plus every governing window past its real reset with quota
- * left. A window that is still exhausted — or whose reset is unknown/unparseable
- * — keeps the connection locked, matching the kimi-coding partial-refresh
- * semantics.
- */
-function isQuotaExhaustedCooldownReleasable(
-  connection: Pick<
-    ProviderConnectionLike,
-    "lastErrorType" | "lastErrorSource" | "provider" | "providerSpecificData"
-  >,
-  usage: JsonRecord
-): boolean {
-  if (connection.lastErrorType !== "quota_exhausted") return false;
-  // An extra-usage block is a POLICY lock, not a quota window: the session and
-  // weekly windows genuinely look recovered in the very same fetch, so the
-  // window scan below would happily release it. It stays locked while the
-  // policy is on and upstream still reports extra usage queued.
-  if (
-    connection.lastErrorSource === CLAUDE_EXTRA_USAGE_ERROR_SOURCE &&
-    isClaudeExtraUsageBlockEnabled(connection.provider, connection.providerSpecificData) &&
-    isClaudeExtraUsageQueued(usage)
-  ) {
-    return false;
-  }
-  const quotas = usage?.quotas;
-  if (!isRecord(quotas)) return false;
-  const values = Object.values(quotas);
-  if (values.length === 0) return false;
-  const nowMs = Date.now();
-  return !values.some((value) => windowStillExhaustedAfterRealReset(value, nowMs));
-}
-
-/**
- * Is an explicit cooldown still in the future?
- *
- * A rateLimitedUntil set by the upstream 429 handler is a hard statement and
- * must never be overruled by a quota poll.
- *
- * Gate on the timestamp alone; lastErrorType stays irrelevant here.
- */
-export function hasActiveCooldown(
-  connection: Pick<ProviderConnectionLike, "rateLimitedUntil">,
-  now: number = Date.now()
-): boolean {
-  if (!connection.rateLimitedUntil) return false;
-  // #3954: the rate_limited_until TEXT column holds an ISO string (dashboard/AUTH
-  // path) OR numeric epoch ms (setConnectionRateLimitUntil, the chat path). A bare
-  // `new Date(String(...))` yields Invalid Date for the numeric form, which read as
-  // "no cooldown" and let every poller wipe a chat-path-written lockout. Use the
-  // canonical parser connectionRecovery.ts already relies on.
-  const until = cooldownUntilMs(connection.rateLimitedUntil as string | number | null | undefined);
-  return Number.isFinite(until) && until > now;
-}
-
-/**
- * Whether a connection test may wipe the persisted error/cooldown state.
- *
- * A successful probe proves the CREDENTIAL is valid; it does not prove an
- * exhausted quota window reopened — the probe is a cheap auth/models call that
- * never touches the chat quota a weekly cap applies to. The credential-health
- * scheduler runs that probe against every connection every 300s, so without this
- * gate a weekly-capped connection was reset to `active` / `rateLimitedUntil=null`
- * within 30s of every restart and dispatched straight back into the same 429.
- *
- * Same rule as `maybeClearRecoveredQuotaState`: a future `rateLimitedUntil` is
- * the 429 handler's hard statement and no poller may overrule it. Once the
- * window elapses, the next probe clears the state normally.
- */
-export function shouldClearErrorStateOnValidProbe(
-  connection: Pick<ProviderConnectionLike, "rateLimitedUntil">,
-  probeValid: boolean,
-  now: number = Date.now()
-): boolean {
-  return probeValid && !hasActiveCooldown(connection, now);
-}
-
 export async function maybeClearRecoveredQuotaState(
   connection: ProviderConnectionLike,
   usage: JsonRecord
 ): Promise<ProviderConnectionLike> {
   if (!hasUsableQuota(usage)) return connection;
   if (isTerminalStatusForQuotaRecovery(connection.testStatus)) return connection;
-<<<<<<< HEAD
-  if (hasActiveCooldown(connection)) {
-    // #11355 made an active rateLimitedUntil an unconditional stop, which is right
-    // for an upstream-derived cooldown but over-broad for the one case #10534 was
-    // built for: a Claude-subscription 429 persists a SYNTHETIC 1h cooldown because
-    // the upstream sent no parseable reset. When the later poll shows every window
-    // that governs this connection has really reset WITH quota available, holding
-    // that synthetic cooldown just deadlocks the connection for an hour.
-    //
-    // Narrow by design: only lastErrorType "quota_exhausted" (the synthetic-cooldown
-    // writer) is eligible, and a single still-exhausted or unknown-reset window keeps
-    // the lock. Every other reason keeps #11355/#11277 semantics untouched.
-    if (!isQuotaExhaustedCooldownReleasable(connection, usage)) return connection;
-=======
   // Google keeps reporting Antigravity quota for an account blocked by 403 VALIDATION_REQUIRED,
   // so usable quota says nothing about that block: keep the error until a passing connection
   // test drops the stored verification link.
@@ -717,7 +620,6 @@ export async function maybeClearRecoveredQuotaState(
     const observedResetOverride = canRecoverClaudeFromObservedReset(connection, usage);
     if (!syntheticRecoveryOverride && !observedResetOverride) return connection;
     verifiedResetRecovery = observedResetOverride;
->>>>>>> upstream/main
   }
 
   const hasTransientState =

@@ -61,10 +61,7 @@ import CustomModelsSection from "./components/CustomModelsSection";
 import ConnectionsListPanel from "./components/ConnectionsListPanel";
 import CoolingConnectionsPanel from "./components/CoolingConnectionsPanel";
 import ConnectionsHeaderToolbar from "./components/ConnectionsHeaderToolbar";
-<<<<<<< HEAD
-=======
 import { ConnectionPinTip } from "./components/ConnectionIdChip";
->>>>>>> upstream/main
 import VolcengineConnectModal from "./components/VolcengineConnectModal";
 import ProviderAccountRoutingCard from "../../settings/components/ProviderAccountRoutingCard";
 import ZedImportCard from "./components/ZedImportCard";
@@ -977,10 +974,7 @@ export default function ProviderDetailPageClient() {
         notify={notify}
         t={t}
       />
-<<<<<<< HEAD
-=======
       {confirmDialog}
->>>>>>> upstream/main
     </div>
   );
 }

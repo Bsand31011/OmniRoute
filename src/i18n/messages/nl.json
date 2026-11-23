@@ -1017,19 +1017,9 @@
     "batchFilePreview": "Voorbeeld",
     "batchFilePreviewTruncated": "Eerste {shown} regels weergeven ({total} totaal regels)",
     "batchFileDownloadFull": "Download Volledig Bestand",
-<<<<<<< HEAD
-    "batchHeaderSubtitle": "Run many requests as one job",
-    "batchStep1": "1 · Upload JSONL",
-    "batchStep1Desc": "Add requests",
-    "batchStep2": "2 · Create batch",
-    "batchStep2Desc": "Run job",
-    "batchStep3": "3 · Get results",
-    "batchStep3Desc": "Download output"
-=======
     "tokensPageTitle": "Tokens",
     "tokensPageDescription": "Stuur tokens tussen API-sleutels, deel uitnodigingscodes en verbind communityservers.",
     "tokensServerUrlLabel": "Server-URL"
->>>>>>> upstream/main
   },
   "disabled": "Uitgeschakeld",
   "featureFlagOmnirouteEmergencyFallbackDescription": "Routeer verzoeken met uitgeput budget naar de gratis nood-fallbackprovider/-model.",
@@ -1327,12 +1317,8 @@
     "agentBridge": "Agentbrug",
     "agentBridgeSubtitle": "IDE-agentverkeer onderscheppen",
     "trafficInspector": "Traffic Inspector",
-<<<<<<< HEAD
-    "trafficInspectorSubtitle": "__MISSING__:Inspect request and response traffic from your apps",
-=======
     "trafficInspectorSubtitle": "Inspecteer aanvraag- en antwoordverkeer van je apps",
     "trafficInspectorPurpose": "Bekijk precies wat je applicatie naar AI-providers verzendt en van hen ontvangt. Werkt met elke OpenAI-compatibele client.",
->>>>>>> upstream/main
     "cliCode": "CLI Code",
     "cliCodeSubtitle": "Codetools die naar OmniRoute verwijzen",
     "cliAgents": "CLI-agents",
@@ -1374,12 +1360,8 @@
       "close": "sluiten"
     },
     "noResults": "Geen resultaten",
-<<<<<<< HEAD
-    "trafficInspectorPurpose": "See exactly what your application sends to and receives from AI providers. Works with any OpenAI-compatible client."
-=======
     "costsTeams": "Teams",
     "costsTeamsSubtitle": "Kostenplaatsen van teams"
->>>>>>> upstream/main
   },
   "webhooks": {
     "title": "Webhaken",
@@ -1949,22 +1931,6 @@
     "releaseNotes": "Release-opmerkingen",
     "readMore": "Lees Meer",
     "noAuthLabel": "Geen Auth",
-<<<<<<< HEAD
-    "recentRequests": "Recent Requests",
-    "recentRequestsEmpty": "No requests yet.",
-    "recentRequestsModel": "Model",
-    "recentRequestsTokens": "In / Out",
-    "recentRequestsWhen": "When",
-    "readinessEyebrow": "Get ready to route",
-    "readinessTitle": "Send your first request",
-    "readinessSubtitle": "Four small steps. OmniRoute checks readiness as you go.",
-    "readinessStep1": "Connect a provider",
-    "readinessStep2": "Configure endpoint authentication",
-    "readinessStep3": "Copy your endpoint",
-    "readinessStep4": "Send a test request",
-    "readinessContinue": "Continue setup",
-    "readinessDismiss": "Dismiss for now"
-=======
     "readinessEyebrow": "Maak je klaar om te routeren",
     "readinessTitle": "Verstuur je eerste verzoek",
     "readinessSubtitle": "Vier kleine stappen. OmniRoute controleert gaandeweg of alles gereed is.",
@@ -1990,7 +1956,6 @@
     "systemMetricsCpuCount": "{count} vCPUs • {platform}",
     "systemMetricsProcessCpu": "OmniRoute (process)",
     "systemMetricsProcessMemory": "OmniRoute (RSS / Heap)"
->>>>>>> upstream/main
   },
   "analytics": {
     "title": "Analyses",
@@ -3095,13 +3060,9 @@
       "prime-agent": "Prime Agent — zelfverbeterende RLM-codeeromgeving met ondersteuning voor OpenAI-compatibele providers",
       "warp": "Warp AI-terminal met ondersteuning voor aangepaste providers",
       "agent-deck": "Agent Deck multi-agent-orchestrator",
-<<<<<<< HEAD
-      "prime-agent": "Prime Agent — self-improving RLM coding harness with OpenAI-compatible provider support"
-=======
       "5dive": "5dive — zelf gehoste vloot van codeeragents; één auth-profiel wijst ze allemaal naar OmniRoute",
       "whycodes": "WhyCodes autonome CLI-agent met OpenAI-compatibele basis-URL",
       "zed": "Zed-code-editor — ingebouwde agent via een OpenAI-compatibele provider"
->>>>>>> upstream/main
     },
     "guides": {
       "cursor": {
@@ -6461,13 +6422,8 @@
     "rateLimitOverridesSection": "Rate limit-overschrijvingen",
     "rateLimitOverridesMaxConcurrentHint": "Overschrijving van het maximaal aantal gelijktijdige verzoeken voor deze verbinding. Overschrijft de limiet op accountniveau.",
     "rateLimitOverridesMaxConcurrentLabel": "Max. gelijktijdig (rate limit)",
-<<<<<<< HEAD
-    "rateLimitOverridesMaxWaitMsHint": "__MISSING__:Maximum time (ms) a request may wait for a rate-limit slot before failing. Overrides the global Resilience setting for this connection only.",
-    "rateLimitOverridesMaxWaitMsLabel": "__MISSING__:Max Queue Wait (ms)",
-=======
     "rateLimitOverridesMaxWaitMsHint": "Maximale tijd (ms) dat een verzoek mag wachten op capaciteit binnen de snelheidslimiet voordat het mislukt. Overschrijft alleen voor deze verbinding de algemene Resilience-instelling.",
     "rateLimitOverridesMaxWaitMsLabel": "Max. wachttijd in wachtrij (ms)",
->>>>>>> upstream/main
     "rateLimitOverridesMinTimeHint": "Minimale tijd (ms) tussen verzoeken. Overschrijft de standaardvertraging van de rate limiter.",
     "rateLimitOverridesMinTimeLabel": "Min. interval (ms)",
     "rateLimitOverridesRpdHint": "Maximaal aantal verzoeken per dag voor deze verbinding. Overschrijft de standaardinstelling van de provider.",
@@ -6760,11 +6716,7 @@
       "bigmodel": "Maak een API-sleutel aan op https://bigmodel.cn/usercenter/proj-mgmt/apikeys. OmniRoute gebruikt het officiële OpenAI-compatibele chat-eindpunt van BigModel.cn.",
       "glmt": "Vooraf ingesteld GLM-profiel met een hoger tokenbudget, denken ingeschakeld en een langere time-out.",
       "getgoapi": "Verbind GoAPI met een API-sleutel.",
-<<<<<<< HEAD
-      "groq": "Gratis abonnement: 30 RPM / 14,4K RPD — geen creditcard",
-=======
       "groq": "Gratis abonnement: limieten per model (200K tokens/dag per chatmodel; zie console.groq.com/docs/rate-limits voor RPM/RPD) — geen betaalmethode geregistreerd.",
->>>>>>> upstream/main
       "haiper": "Haal de API-sleutel op via haiper.ai/haiper-api",
       "heroku": "Verbind Heroku AI met een API-sleutel.",
       "hcnsec": "Haal de API-sleutel op via api.hcnsec.cn",
@@ -7070,23 +7022,6 @@
     "savedModelEndpointSettings": "Instellingen voor opgeslagen model-eindpunt",
     "searchByModelAria": "Zoeken op model",
     "selectSupportedEndpoint": "Selecteer ten minste één ondersteunde eindpunt",
-<<<<<<< HEAD
-    "antigravityClientProfileHarness": "Harness / CLI",
-    "harImportButtonLabel": "Import .har file",
-    "harImportButtonBusy": "Importing…",
-    "harImportButtonHint": "Export from DevTools Network tab after sending at least one chat message.",
-    "harImportStatusValid": "Imported — valid for ~{minutes}m.",
-    "harImportStatusExpiringSoon": "Imported — valid for only ~{minutes}m more.",
-    "harImportStatusExpired": "Imported, but this token already expired ({minutes}m ago) — export a fresh HAR.",
-    "harImportStatusUnknownExpiry": "Imported. Couldn't read its expiry.",
-    "harImportErrorNotJson": "That file isn't valid JSON — is it really a .har export?",
-    "harImportErrorNoEntries": "This HAR has no network entries recorded.",
-    "harImportErrorNoChathubUrl": "No Copilot chat connection found in this HAR. Send at least one chat message in m365.cloud.microsoft before exporting.",
-    "harImportErrorUnparsableUrl": "Found the chat connection, but couldn't read its URL.",
-    "harImportErrorMissingFields": "Found the chat connection, but the token was missing from it.",
-    "harImportErrorReadFailed": "Couldn't read that file.",
-    "harImportErrorUnknown": "Couldn't extract a credential from that HAR file."
-=======
     "antigravityClientProfileHarness": "Testomgeving / CLI",
     "rateLimitOverridesModelConcurrencyLabel": "Gelijktijdigheidslimieten per model",
     "rateLimitOverridesModelConcurrencyPlaceholder": "glm-5=1\nglm-4.7=3",
@@ -7112,7 +7047,6 @@
     "doctorChecking": "Status wordt gecontroleerd…",
     "doctorCheck": "Doctor-status controleren",
     "fallbackRetryBackendTitle": "Fallback-back-end voor opnieuw proberen"
->>>>>>> upstream/main
   },
   "settings": {
     "title": "Instellingen",
@@ -9104,20 +9038,6 @@
     "cliproxyapiPort": "Haven",
     "qdrantHost": "Host",
     "qdrantCollection": "Verzameling",
-<<<<<<< HEAD
-    "presetAll": "All",
-    "presetAllDesc": "Show everything",
-    "presetEssentials": "Essentials",
-    "presetEssentialsDesc": "Beginner path - Advanced tools stay searchable",
-    "presetMinimal": "Minimal",
-    "presetMinimalDesc": "Core pages only",
-    "presetDeveloper": "Developer",
-    "presetDeveloperDesc": "Dev & proxy tools",
-    "presetAdmin": "Admin",
-    "presetAdminDesc": "Monitoring & audit",
-    "settingsSidebarTitle": "Sidebar Customization",
-    "settingsSidebarDesc": "Choose which sidebar items to show. Essentials keeps Advanced tools searchable."
-=======
     "catalogVisibilityHint": "Verborgen model-ID’s kunnen nog steeds worden aangeroepen met dezelfde toegangsrechten.",
     "exposeCombosOnly": "Alleen combo's tonen in /v1/models",
     "exposeCombosOnlyDesc": "Clients die modellen automatisch ontdekken zien je combo's (en auto/*, tenzij verborgen) in plaats van de ruwe providermodellen. Expliciete provider/model-id's worden nog steeds gerouteerd.",
@@ -9298,7 +9218,6 @@
       "statsEmpty": "Nog geen detecties.",
       "statsRequest": "Verzoeken"
     }
->>>>>>> upstream/main
   },
   "contextRtk": {
     "title": "RTK Engine",
@@ -14242,11 +14161,6 @@
       "SKILLS_SANDBOX_NETWORK_ENABLED": {
         "description": "Schakel netwerktoegang in de skills-sandbox in."
       },
-<<<<<<< HEAD
-      "DISABLE_CONTEXT_WINDOW_CHECKS": {
-        "label": "Disable Context Window Checks",
-        "description": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active."
-=======
       "SERVER_OWNED_TOOL_LOOP_ENABLED": {
         "label": "Door de server beheerde toolcyclus",
         "description": "Ga door met niet-streamende, door de server beheerde toolaanroepen totdat het model een voor de client bruikbaar antwoord retourneert."
@@ -14542,7 +14456,6 @@
       "UNPRICED_USAGE_BUDGET_POLICY": {
         "label": "Budgetbeleid voor ongeprijsd gebruik",
         "description": "Hoe per-sleutel dagelijkse/wekelijkse USD-limieten succesvol gebruik behandelen waarvan de provider of het model geen prijsregel heeft. fail_closed (standaard) markeert het venster als overschreden, zodat een onbekende kost nooit langs een harde limiet kan glippen. count_as_zero telt dat gebruik als $0 en blijft de geprijsde uitgaven afdwingen. Ongeprijsde modellen worden in beide gevallen op de startpagina van het dashboard vermeld."
->>>>>>> upstream/main
       }
     }
   },
@@ -15827,15 +15740,6 @@
     "structuredOutputMismatch": "Provider ondersteunt geen gestructureerde uitvoer",
     "contextWindowMismatch": "Verzoek overschrijdt de contextvenster van de provider"
   },
-<<<<<<< HEAD
-  "featureFlagDisableContextWindowChecksDescription": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active.",
-  "cheaperInferenceSponsorBanner": {
-    "title": "Cheaper Inference is an OmniRoute Open Source Friend",
-    "description": "A cost-ranked gateway reselling dozens of frontier models behind one OpenAI-compatible endpoint — routing each request to the cheapest eligible provider, never above list price.",
-    "cta": "Get an API Key",
-    "partnerLinkNote": "Partner link",
-    "dismissAriaLabel": "Dismiss"
-=======
   "cheaperInferenceSponsorBanner": {
     "title": "Cheaper Inference is een opensourcevriend van OmniRoute",
     "description": "Een op kosten gerangschikte gateway die tientallen geavanceerde modellen via één OpenAI-compatibel endpoint doorverkoopt — waarbij elk verzoek naar de goedkoopste geschikte provider wordt gerouteerd, nooit boven de catalogusprijs.",
@@ -16093,6 +15997,5 @@
     "greetingFallbackName": "daar",
     "errNoReply": "⚠️ Geen antwoord van de gateway.",
     "btnSend": "Verzenden"
->>>>>>> upstream/main
   }
 }

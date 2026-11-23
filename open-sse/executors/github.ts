@@ -364,24 +364,6 @@ export class GithubExecutor extends BaseExecutor {
         clientIntegrationId ? { integrationId: clientIntegrationId } : undefined
       ),
       Authorization: `Bearer ${token}`,
-<<<<<<< HEAD
-      "x-request-id":
-        crypto.randomUUID?.() || randomIdFallback(),
-    };
-
-    // Per-call / per-conversation / per-turn correlation ids the @github/copilot
-    // CLI 1.0.81-6 puts on every inference request (MITM-captured). The machine
-    // id (getGitHubCopilotMachineId) is stable per-install; these three are
-    // fresh uuids. A Copilot-aware client may pin the session/task ids across a
-    // conversation via its own headers — honor those when present, else mint.
-    const genId = () =>
-      crypto.randomUUID?.() || randomIdFallback();
-    headers["x-interaction-id"] = this.readClientHeader(clientHeaders, "x-interaction-id") || genId();
-    headers["x-client-session-id"] =
-      this.readClientHeader(clientHeaders, "x-client-session-id") || genId();
-    headers["x-agent-task-id"] =
-      this.readClientHeader(clientHeaders, "x-agent-task-id") || genId();
-=======
       "x-request-id": crypto.randomUUID?.() || randomIdFallback(),
     };
 
@@ -396,7 +378,6 @@ export class GithubExecutor extends BaseExecutor {
     headers["x-client-session-id"] =
       this.readClientHeader(clientHeaders, "x-client-session-id") || genId();
     headers["x-agent-task-id"] = this.readClientHeader(clientHeaders, "x-agent-task-id") || genId();
->>>>>>> upstream/main
     // Repository correlation sentinels. The CLI sends the working repo's nwo/host
     // or these literals when there is no repository context. OmniRoute is not
     // repo-scoped, so forward a client-supplied value when present, else sentinel.
@@ -422,15 +403,6 @@ export class GithubExecutor extends BaseExecutor {
     // /v1/messages proxy returns an empty content block for image turns unless
     // copilot-vision-request:true is present; a Copilot-aware harness that sends
     // it should have it honored rather than stripped.
-<<<<<<< HEAD
-    if ((this.readClientHeader(clientHeaders, "copilot-vision-request") || "").toLowerCase() === "true") {
-      headers["copilot-vision-request"] = "true";
-    }
-
-    return headers;
-  }
-
-=======
     // Also set it ourselves when the turn carries an image (chat
     // `messages` or Responses `input`), so plain OpenAI-SDK clients get vision too.
     const turns = (body as { messages?: unknown; input?: unknown } | null | undefined) || {};
@@ -539,7 +511,6 @@ export class GithubExecutor extends BaseExecutor {
     return { ok: true, decision, cached: false };
   }
 
->>>>>>> upstream/main
   // Case-insensitive read of a single client header value. Client header maps
   // arrive with inconsistent casing depending on the transport, so match on the
   // lowercased key rather than assuming a canonical form.

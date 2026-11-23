@@ -7,31 +7,20 @@ import CheaperInferenceSponsorBanner from "../dashboard/CheaperInferenceSponsorB
 import VscodeCopilotBanner from "../dashboard/VscodeCopilotBanner";
 import NewsBanner from "../dashboard/NewsBanner";
 import FirstRunReadinessCard from "../dashboard/FirstRunReadinessCard";
-<<<<<<< HEAD
-=======
 import HomeSystemMetricsCards from "./HomeSystemMetricsCards";
 import UnpricedUsageBanner from "../dashboard/UnpricedUsageBanner";
->>>>>>> upstream/main
 
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-<<<<<<< HEAD
-  const settings = await getSettings();
-  const machineId = await getMachineId();
-=======
   // Settings failures degrade to defaults here (display-only) — see loadHomeSettings (#14060).
   const [settings, machineId] = await Promise.all([loadHomeSettings(), getMachineId()]);
->>>>>>> upstream/main
   const isBootstrapped = process.env.OMNIROUTE_BOOTSTRAPPED === "true";
   return (
     <>
       {isBootstrapped && <BootstrapBanner />}
       <FirstRunReadinessCard setupComplete={Boolean(settings.setupComplete)} />
-<<<<<<< HEAD
-=======
       <UnpricedUsageBanner />
->>>>>>> upstream/main
       <KimiSponsorBanner />
       <CheaperInferenceSponsorBanner />
       <VscodeCopilotBanner />

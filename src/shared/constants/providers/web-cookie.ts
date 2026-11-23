@@ -270,10 +270,7 @@ export const WEB_COOKIE_PROVIDERS = {
   },
   huggingchat: {
     id: "huggingchat",
-<<<<<<< HEAD
-=======
     serviceKinds: ["llm"],
->>>>>>> upstream/main
     // huggingchat is addressed by its own id as alias (stable routing; the
     // historical "hc" alias collided with another provider and was retired).
     alias: "huggingchat",

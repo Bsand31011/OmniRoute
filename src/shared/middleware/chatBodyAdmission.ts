@@ -15,16 +15,10 @@
  * connection's burst cannot starve others (#9654).
  */
 
-<<<<<<< HEAD
-import { CORS_HEADERS } from "../utils/cors";
-import { createLogger } from "../utils/logger";
-import { createHmac } from "crypto";
-=======
 import { getCachedBodySizeSettings } from "../../lib/db/readCache";
 import { getSavedBodySizeLimitBytes } from "./bodySizeGuard";
 import { createLogger } from "../utils/logger";
 import { DEFAULT_REQUEST_QUEUE_MAX_WAIT_MS } from "../../lib/resilience/settings";
->>>>>>> upstream/main
 import v8 from "node:v8";
 import { trackRequest } from "../../lib/gracefulShutdown";
 import { resolveIngestByteBudget, type IngestBudgetSource } from "./admissionBudget";
@@ -244,9 +238,6 @@ interface AdmissionWaiter {
  * A client abort mid-wait is deliberately NOT a shed: capacity was never denied,
  * the caller simply left (its 503 is dropped on the dead connection).
  */
-<<<<<<< HEAD
-export type ChatAdmissionShedReason = "queue_timeout" | "queued_bytes_budget";
-=======
 export type ChatAdmissionShedReason =
   | "queue_timeout"
   | "queued_bytes_budget"
@@ -297,7 +288,6 @@ export function defaultPressureSeverity(): PressureSeverity {
     return "normal";
   }
 }
->>>>>>> upstream/main
 
 /**
  * One structural-shed observation, emitted to the shed sink at warn level.
@@ -357,14 +347,10 @@ export class ChatAdmissionController {
    * shed was invisible. Same in-memory lifetime as the rest of the snapshot state. */
   #shedTotal = 0;
   #shedsByReason = new Map<string, number>();
-<<<<<<< HEAD
-  readonly #onShed: ChatAdmissionShedSink;
-=======
   #queueTimestamps = new Map<string, number>();
   readonly #onShed: ChatAdmissionShedSink;
 
   readonly #ingestBudget: IngestByteAdmissionController;
->>>>>>> upstream/main
 
   constructor(
     readonly maxHeavyInFlight = 1,
@@ -375,9 +361,6 @@ export class ChatAdmissionController {
     readonly healthyHeadroom = CHAT_ADMISSION_HEALTHY_HEADROOM,
     /** #11244: sink notified once per structural shed. Defaults to the shared pino
      * logger (warn); tests inject a capture/no-op sink. */
-<<<<<<< HEAD
-    onShed: ChatAdmissionShedSink = defaultChatAdmissionShedSink
-=======
     onShed: ChatAdmissionShedSink = defaultChatAdmissionShedSink,
     /** #503-fanout: see the field-level comment above `#inflightBytes`. */
     budgetOptions: {
@@ -385,7 +368,6 @@ export class ChatAdmissionController {
       budgetSource?: IngestBudgetSource;
       checkPressureSeverity?: () => PressureSeverity;
     } = {}
->>>>>>> upstream/main
   ) {
     if (!Number.isSafeInteger(maxHeavyInFlight) || maxHeavyInFlight < 1) {
       throw new RangeError("maxHeavyInFlight must be a positive integer");
@@ -397,8 +379,6 @@ export class ChatAdmissionController {
       throw new RangeError("healthyHeadroom must be a non-negative integer");
     }
     this.#onShed = onShed;
-<<<<<<< HEAD
-=======
     this.#ingestBudget = new IngestByteAdmissionController({
       ...budgetOptions,
       onShed: (reason, lane) => this.recordShed(reason, lane),
@@ -424,7 +404,6 @@ export class ChatAdmissionController {
   }
   _queueTimestampCountForTest(): number {
     return this.#queueTimestamps.size;
->>>>>>> upstream/main
   }
 
   get activeHeavy(): number {
@@ -771,9 +750,6 @@ export class PerConnectionAdmissionController {
     // accepted for API compatibility and ignored — there are no per-session lanes
     // to evict. `onShed` (#11244) is live: it replaces the shed sink of the shared
     // controller (tests inject a capture/no-op sink; production keeps the pino warn).
-<<<<<<< HEAD
-    _opts?: { maxSessions?: number; sessionTtlMs?: number; onShed?: ChatAdmissionShedSink }
-=======
     // `budget` (#503-fanout) is live: the additive ingest byte-budget gate — see
     // `ChatAdmissionController`'s constructor comment. Absent for every caller
     // except the production singleton below.
@@ -787,18 +763,13 @@ export class PerConnectionAdmissionController {
         checkPressureSeverity?: () => PressureSeverity;
       };
     }
->>>>>>> upstream/main
   ) {
     this.#controller = new ChatAdmissionController(
       maxHeavyInFlight,
       undefined,
       undefined,
-<<<<<<< HEAD
-      _opts?.onShed
-=======
       _opts?.onShed,
       _opts?.budget
->>>>>>> upstream/main
     );
   }
 
@@ -820,8 +791,6 @@ export class PerConnectionAdmissionController {
     lanes: ReadonlyArray<{ key: string; waiting: number }>;
     shedTotal: number;
     shedsByReason: Record<string, number>;
-<<<<<<< HEAD
-=======
     /** #503-fanout: live ingest bytes reserved through the byte-budget gate. */
     inflightBytes: number;
     /** #503-fanout: the auto-derived (or overridden) budget ceiling. */
@@ -833,7 +802,6 @@ export class PerConnectionAdmissionController {
     /** #503-fanout: false on a default deployment — the legacy count cap only
      * binds when the operator explicitly set OMNIROUTE_CHAT_MAX_HEAVY_IN_FLIGHT. */
     countCapEnabled: boolean;
->>>>>>> upstream/main
   } {
     return {
       activeHeavy: this.#controller.activeHeavy,
@@ -843,14 +811,11 @@ export class PerConnectionAdmissionController {
       lanes: this.#controller.waitersByKey,
       shedTotal: this.#controller.shedTotal,
       shedsByReason: this.#controller.shedsByReason,
-<<<<<<< HEAD
-=======
       inflightBytes: this.#controller.inflightBytes,
       maxInflightBytes: this.#controller.maxInflightBytes,
       budgetSource: this.#controller.budgetSource,
       pressureSeverity: this.#controller.pressureSeverity(),
       countCapEnabled: this.#controller.maxHeavyInFlight < Number.MAX_SAFE_INTEGER,
->>>>>>> upstream/main
     };
   }
 

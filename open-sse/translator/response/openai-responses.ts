@@ -984,10 +984,7 @@ export function openaiResponsesToOpenAIResponse(chunk, state) {
 function openaiResponsesToOpenAIResponseStream(chunk, state) {
   if (state.responsesTextSnapshots?.closed) return null;
   if (!chunk) {
-<<<<<<< HEAD
-=======
     closeResponsesTextSnapshots(state);
->>>>>>> upstream/main
     // Iterate every still-open call with a buffered argument payload — argument
     // deltas are buffered for every tool, so an incomplete stream must flush every
     // buffered call, not only the historical uppercase Agent path.

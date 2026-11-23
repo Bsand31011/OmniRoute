@@ -99,13 +99,9 @@ export class GheCopilotExecutor extends GithubExecutor {
       (typeof psd?.copilotProxyUrl === "string" ? psd.copilotProxyUrl : undefined);
     const host = apiOrProxy || (psd?.gheUrl as string | undefined);
     if (!host) {
-<<<<<<< HEAD
-      throw new Error("GHE Copilot executor requires copilotApiUrl or gheUrl in providerSpecificData");
-=======
       throw new Error(
         "GHE Copilot executor requires copilotApiUrl or gheUrl in providerSpecificData"
       );
->>>>>>> upstream/main
     }
     const base = host
       .replace(/\/v1\/messages\/?$/, "")
@@ -132,9 +128,6 @@ export class GheCopilotExecutor extends GithubExecutor {
     credentials: ProviderCredentials | null = null
   ): string {
     const bareModel = this.stripPrefix(model);
-<<<<<<< HEAD
-    const targetFormat = getModelTargetFormat("ghe-copilot", bareModel);
-=======
     // Honor the per-request targetFormat (synced catalog / custom model)
     // threaded by chatCore/executionCredentials.ts, same as GithubExecutor.buildUrl.
     const overrideTargetFormat = (
@@ -144,7 +137,6 @@ export class GheCopilotExecutor extends GithubExecutor {
       typeof overrideTargetFormat === "string"
         ? overrideTargetFormat
         : getModelTargetFormat("ghe-copilot", bareModel);
->>>>>>> upstream/main
     // Claude models: ALWAYS route to the Anthropic-native /v1/messages shim
     // (same as github.com Copilot), matched on the model NAME so a Claude id
     // that is missing its registry targetFormat tag still gets the native shim
@@ -152,11 +144,8 @@ export class GheCopilotExecutor extends GithubExecutor {
     if ((targetFormat === "claude" || /claude/i.test(bareModel)) && this.config.messagesUrl) {
       return this.getMessagesBase(credentials);
     }
-<<<<<<< HEAD
-=======
     const hasExplicitNonResponsesOverride =
       typeof overrideTargetFormat === "string" && overrideTargetFormat !== "openai-responses";
->>>>>>> upstream/main
     if (
       (targetFormat === "openai-responses" ||
         (!hasExplicitNonResponsesOverride &&

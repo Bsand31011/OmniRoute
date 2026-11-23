@@ -148,8 +148,6 @@ test("closes the Muse Responses stream at response.completed before post-complet
     globalThis.fetch = originalFetch;
   }
 });
-<<<<<<< HEAD
-=======
 
 // Responses path (`/v1/responses`, Muse Spark Contributor): the budget travels as
 // `max_output_tokens`. muse-spark-*-contributor-free burns ~1-2k tokens on hidden
@@ -243,4 +241,3 @@ test("OpencodeExecutor floors max_output_tokens before dispatching a Responses b
     globalThis.fetch = originalFetch;
   }
 });
->>>>>>> upstream/main

@@ -8,11 +8,7 @@ import assert from "node:assert/strict";
 //
 // #10960 moved the MCP transport from the never-mounted `/api/mcp/tools/call`
 // to the real Streamable HTTP endpoint `/api/mcp/stream` (mcpClient.mjs ->
-<<<<<<< HEAD
-// callMcpEndpoint()). The REST-fallback trigger in these mocks must match
-=======
 // mcpCallTool()). The REST-fallback trigger in these mocks must match
->>>>>>> upstream/main
 // that endpoint, not the retired one, or mcpCallTool() throws on an
 // unmocked fetch instead of exercising the fallback path this test targets.
 

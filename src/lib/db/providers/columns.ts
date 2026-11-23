@@ -112,9 +112,6 @@ export type SanitizeOverridesResult = {
 export function sanitizeRateLimitOverrides(value: unknown): SanitizeOverridesResult {
   if (value === null || value === undefined) return { sanitized: null, rejected: [] };
   if (typeof value !== "object" || Array.isArray(value)) return { sanitized: null, rejected: [] };
-<<<<<<< HEAD
-  const allowedKeys = new Set(["rpm", "tpm", "tpd", "minTime", "maxConcurrent", "maxWaitMs"]);
-=======
   const allowedKeys = new Set([
     "rpm",
     "rpd",
@@ -125,7 +122,6 @@ export function sanitizeRateLimitOverrides(value: unknown): SanitizeOverridesRes
     "maxWaitMs",
     "executionMaxWaitMs",
   ]);
->>>>>>> upstream/main
   const rejected: string[] = [];
   const map: ConnectionRateLimitOverrides = {};
   for (const [key, v] of Object.entries(value as Record<string, unknown>)) {

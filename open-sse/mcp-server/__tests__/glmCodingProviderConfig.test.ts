@@ -92,12 +92,9 @@ describe("GLM Coding provider registry surfaces", () => {
       "glm-5.3-high",
       "glm-5.3-low",
       "glm-5.3-max",
-<<<<<<< HEAD
-=======
       "glm-5.3-flash-high",
       "glm-5.3-flash-low",
       "glm-5.3-flash-max",
->>>>>>> upstream/main
       "glm-5.2",
       "glm-5.2-high",
       "glm-5.2-max",
@@ -121,13 +118,10 @@ describe("GLM Coding provider registry surfaces", () => {
       ["glm-5.3-high", ["high"]],
       ["glm-5.3-low", ["low"]],
       ["glm-5.3-max", ["max"]],
-<<<<<<< HEAD
-=======
       ["glm-5.3-flash", ["low", "high", "max"]],
       ["glm-5.3-flash-high", ["high"]],
       ["glm-5.3-flash-low", ["low"]],
       ["glm-5.3-flash-max", ["max"]],
->>>>>>> upstream/main
       ["glm-5.2", ["high", "max"]],
       ["glm-5.2-high", ["high"]],
       ["glm-5.2-max", ["max"]],

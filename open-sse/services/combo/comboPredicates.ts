@@ -134,8 +134,6 @@ export const MAX_GLOBAL_ATTEMPTS = 30;
 // but never above this cap — an unbounded attempt budget is the same runaway
 // background-request DoS risk that motivated MAX_COMBO_DEPTH_HARD_CAP.
 export const MAX_GLOBAL_ATTEMPTS_HARD_CAP = 200;
-<<<<<<< HEAD
-=======
 
 // A malformed/unsupported request shape (e.g. an incompatible tool-call
 // history for a provider's translation layer) fails the SAME way against
@@ -159,7 +157,6 @@ export function hasIdenticalModelErrorStreak(
     (e) => e.kind === first.kind && e.status === first.status && e.error === first.error
   );
 }
->>>>>>> upstream/main
 
 /**
  * Clamp an operator-configured combo nesting depth (config.maxComboDepth) to a
@@ -804,31 +801,15 @@ export function getPersistedConnectionCooldownSkipReason(
   connection: Record<string, unknown> | null | undefined,
   allowRateLimitedConnection = false
 ): string | null {
-<<<<<<< HEAD
-  if (allowRateLimitedConnection) return null;
-=======
->>>>>>> upstream/main
   if (!target.connectionId || !connection) return null;
   if (hasFutureRateLimitUntil(connection.rateLimitedUntil)) {
     return `Skipping ${target.modelStr} — connection ${target.connectionId} has persisted cooldown until ${String(connection.rateLimitedUntil)}`;
   }
-<<<<<<< HEAD
-=======
   if (allowRateLimitedConnection) return null;
->>>>>>> upstream/main
   const status = normalizeConnectionStatus(connection.testStatus);
   if (QUOTA_BLOCKING_CONNECTION_STATUSES.has(status)) {
     return `Skipping ${target.modelStr} — connection ${target.connectionId} status=${status}`;
   }
-<<<<<<< HEAD
-  // `unavailable` with no (or an already-expired) rateLimitedUntil still means AUTH
-  // took this connection out of rotation — markAccountUnavailable() writes the status
-  // before, and sometimes without, a timestamp ("Using zai account …" then a real
-  // upstream 429). Without this branch the pre-skip only fired once the timestamp had
-  // landed, so a burst still dispatched against a connection AUTH had already retired.
-  // Lazy recovery is unaffected: clearAccountError() resets the status on first success.
-  if (status === "unavailable") {
-=======
   // `unavailable` with no rateLimitedUntil still means AUTH took this connection out
   // of rotation — markAccountUnavailable() writes the status before, and sometimes
   // without, a timestamp ("Using zai account …" then a real upstream 429). Without
@@ -851,7 +832,6 @@ export function getPersistedConnectionCooldownSkipReason(
   // one real attempt then either succeeds (clearing the status) or re-arms the
   // cooldown with a fresh timestamp.
   if (status === "unavailable" && isWithinUnavailableGrace(connection.lastErrorAt)) {
->>>>>>> upstream/main
     return `Skipping ${target.modelStr} — connection ${target.connectionId} status=unavailable`;
   }
   return null;
@@ -876,10 +856,6 @@ export async function resolvePersistedConnectionCooldownSkipReason(
   fetchConnection: (id: string) => Promise<Record<string, unknown> | null | undefined>,
   allowRateLimitedConnection = false
 ): Promise<string | null> {
-<<<<<<< HEAD
-  if (allowRateLimitedConnection) return null;
-=======
->>>>>>> upstream/main
   if (!target.connectionId) return null;
   let connection: Record<string, unknown> | null | undefined;
   try {

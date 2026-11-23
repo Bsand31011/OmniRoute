@@ -1,21 +1,9 @@
 import { createCatalogConnectionExclusionFilter } from "@/lib/providerModels/copilotCatalogRejections";
 import { PROVIDER_MODELS, PROVIDER_ID_TO_ALIAS } from "@/shared/constants/models";
 import { NOAUTH_PROVIDERS } from "@/shared/constants/providers";
-<<<<<<< HEAD
-import {
-  getCachedRawProviderConnections,
-  getCombos,
-  getAllCustomModels,
-  getSettings,
-  getCachedProviderNodes,
-  getModelAliases,
-  getHiddenModelsByProvider,
-} from "@/lib/localDb";
-=======
 import { getCombos } from "@/lib/db/combos";
 import { createHiddenModelLookup } from "@/lib/hiddenModelLookup";
 import { getSettings } from "@/lib/db/settings";
->>>>>>> upstream/main
 import { getUserDatabaseSettings } from "@/lib/db/databaseSettings";
 import { createLazyConnectionView } from "@/lib/db/providers/lazyConnectionView";
 import { extractAliasBackedModels } from "./aliasBackedModels";
@@ -39,10 +27,7 @@ import { getAllMusicModels } from "@omniroute/open-sse/config/musicRegistry";
 import {
   getRegistryModelThinkingEfforts,
   getRegistryThinkingEfforts,
-<<<<<<< HEAD
-=======
   providerUsesAuthoritativeLiveCatalog,
->>>>>>> upstream/main
   REGISTRY,
 } from "@omniroute/open-sse/config/providerRegistry";
 import { CODEX_NATIVE_UNPREFIXED_MODELS } from "@omniroute/open-sse/services/model";
@@ -94,10 +79,6 @@ import {
 import type { ModelCapabilityEntry } from "@/lib/modelsDevSync";
 import { getModelSpec } from "@/shared/constants/modelSpecs";
 import { classifyModelSupportedEndpoints } from "@/shared/constants/modelSupportedEndpoints";
-<<<<<<< HEAD
-import { getModelsCatalogPrefixMode } from "@/shared/utils/featureFlags";
-import { buildReservedPrefixes, selectCompatibleNodeForPrefix } from "@/lib/providerNodePrefixes";
-=======
 import {
   getModelsCatalogPrefixMode,
   isModelsDevEffortTiersEnabled,
@@ -106,7 +87,6 @@ import {
   isProviderNodePrefixReserved,
   selectCompatibleNodeForPrefix,
 } from "@/lib/providerNodePrefixes";
->>>>>>> upstream/main
 import { applyCatalogPostFilters, finalizeCatalogResponse } from "./catalogResponse";
 import {
   isNoAuthProviderBlocked,
@@ -209,8 +189,6 @@ export type { CachedCatalog, BackgroundRefreshScheduler } from "./catalogCache";
  */
 export type CatalogResponseOptions = {
   scheduleBackgroundRefresh?: BackgroundRefreshScheduler;
-<<<<<<< HEAD
-=======
   /** Management-only build that keeps operator-hidden models (`/api/models/catalog`). */
   revealHidden?: boolean;
   /** Management/lookup callers keep provider rows even when `exposeCombosOnly` is on. */
@@ -223,7 +201,6 @@ type CatalogBuildFlags = {
   revealHidden?: boolean;
   /** Advertise only combos (`settings.exposeCombosOnly`). */
   combosOnly?: boolean;
->>>>>>> upstream/main
 };
 
 const BUILTIN_AUTO_YIELD_INTERVAL = 2;
@@ -298,16 +275,9 @@ export async function getUnifiedModelsResponse(
         hideAutoCombos:
           settingsForAuth?.hideAutoCombos === true || settingsForAuth?.autoRoutingEnabled === false,
         hideNoThinkVariants: settingsForAuth?.hideNoThinkVariants === true,
-<<<<<<< HEAD
-        // #11551: the route injects Next's `after()` here so the SWR background
-        // rebuild starts only once the stale response has been flushed. Without a
-        // scheduler the cache falls back to defaultBackgroundRefreshScheduler.
-        scheduleBackgroundRefresh: options.scheduleBackgroundRefresh,
-=======
         exposeCombosOnly: buildFlags.combosOnly,
         scheduleBackgroundRefresh: options.scheduleBackgroundRefresh,
         revealHidden: buildFlags.revealHidden,
->>>>>>> upstream/main
       }
     );
   } catch (err) {
@@ -340,13 +310,8 @@ async function buildCatalogPayload(
   let cacheTTL = CATALOG_CACHE_TTL_MS_DEFAULT;
   try {
     // Only the persisted cache section is needed here. The full database-settings
-<<<<<<< HEAD
-    // view also calculates dbstat, WAL, schema and integrity diagnostics, which are
-    // synchronous and can pin the event loop after an otherwise cooperative build.
-=======
     // view also calculates dbstat, WAL and schema, which are synchronous and can
     // pin the event loop after an otherwise cooperative build.
->>>>>>> upstream/main
     const dbSettings = getUserDatabaseSettings();
     cacheTTL = dbSettings.cache?.modelCatalogCacheTtlMs ?? CATALOG_CACHE_TTL_MS_DEFAULT;
   } catch {
@@ -377,19 +342,6 @@ async function buildUnifiedModelsResponseCore(
     if (++catYieldCount % catYIELD_EVERY === 0) await yieldCatalogBuildTurn();
   };
   try {
-<<<<<<< HEAD
-    // #9147: `getModelIsHidden()` is a SQLite read per call (custom row + compat list)
-    // and the build consults it ~16× per entry. Bulk-load the hidden-model map once
-    // (one query — `getHiddenModelsByProvider`) and resolve from memory for the whole
-    // build. A provider absent from the map has no hidden models at all — `false`,
-    // no on-demand fallback (that would reintroduce the per-call SQLite reads).
-    // Deliberately kept INSIDE this try block (not hoisted above it): the builder's
-    // own catch below is what converts a build-time failure into a sanitized 500
-    // Response instead of a rejected promise — hoisting this bulk read above the
-    // try would let a crash here propagate as an unhandled rejection instead
-    // (catalogCache.ts's in-flight coalescing does not fully consume rejections).
-    const hiddenModelsByProvider = getHiddenModelsByProvider();
-=======
     // #9147/#12172: bulk-load the hidden-model map once PER MODALITY (memoized below,
     // one SQLite query per modality actually used) instead of `getModelIsHidden()`'s
     // per-call read — per-modality because chat/images/etc. registries can share a
@@ -405,7 +357,6 @@ async function buildUnifiedModelsResponseCore(
       }
       return m;
     };
->>>>>>> upstream/main
     let settings: Record<string, any> = {};
     try {
       settings = await getSettings();
@@ -527,34 +478,15 @@ async function buildUnifiedModelsResponseCore(
     // diverged. Check every key a model could plausibly have been hidden under:
     // the raw key passed in, its resolved canonical provider id, that canonical id's
     // alias, and the compatible-provider-node prefix for either.
-<<<<<<< HEAD
-    const isModelHiddenBulk = (
-      providerKey: string | null | undefined,
-      modelId: string,
-      canonicalProviderId?: string | null
-=======
     const isModelHiddenStrict = (
       providerKey: string | null | undefined,
       modelId: string,
       canonicalProviderId?: string | null,
       modality: string = "chat"
->>>>>>> upstream/main
     ): boolean => {
       if (!providerKey || !modelId) return false;
       const canonical = canonicalProviderId || resolveCanonicalProviderId(providerKey);
       const alias = providerIdToAlias[canonical] || providerIdToAlias[providerKey] || undefined;
-<<<<<<< HEAD
-      const nodePrefix = providerIdToPrefix[providerKey] || providerIdToPrefix[canonical];
-      const keysToCheck = [providerKey, canonical, alias, nodePrefix].filter((k): k is string =>
-        Boolean(k)
-      );
-      for (const key of keysToCheck) {
-        const hiddenSet = hiddenModelsByProvider.get(key);
-        if (hiddenSet?.has(modelId)) return true;
-      }
-      return false;
-    };
-=======
       const prefix = providerIdToPrefix[providerKey] || providerIdToPrefix[canonical];
       const nodePrefix = [providerKey, canonical].includes(providerNodeIdByPrefix[prefix])
         ? prefix
@@ -568,7 +500,6 @@ async function buildUnifiedModelsResponseCore(
     // `revealHidden` (management catalog only) keeps hidden model rows; combos still drop hidden targets.
     const isModelHiddenBulk: typeof isModelHiddenStrict = (...args) =>
       !revealHidden && isModelHiddenStrict(...args);
->>>>>>> upstream/main
 
     // Get combos
     let combos = [];
@@ -755,12 +686,8 @@ async function buildUnifiedModelsResponseCore(
               eligibleConnectionIds,
               connectionCatalog || {},
               getRegistryModelThinkingEfforts(providerId, modelId),
-<<<<<<< HEAD
-              getRegistryThinkingEfforts(providerId, modelId)
-=======
               getRegistryThinkingEfforts(providerId, modelId),
               modelsDevEffortTiers
->>>>>>> upstream/main
             );
       if (
         connectionEfforts === undefined &&
@@ -864,13 +791,9 @@ async function buildUnifiedModelsResponseCore(
               modelId,
               canonical.capabilities.supportsThinking,
               getRegistryThinkingEfforts(providerId, modelId),
-<<<<<<< HEAD
-              true
-=======
               true,
               syncedReasoningEfforts,
               modelsDevEffortTiers
->>>>>>> upstream/main
             )
           : getThinkingCapabilityFields(
               providerId,
@@ -1414,9 +1337,6 @@ async function buildUnifiedModelsResponseCore(
           if (canonicalProviderId === "codex" && isCodexDiscoveryModelExcluded(sm)) {
             continue;
           }
-<<<<<<< HEAD
-          if (isModelHiddenBulk(providerId, sm.id, canonicalProviderId)) continue;
-=======
           const registryEntry = REGISTRY[providerId];
           const displayModelId =
             registryEntry?.modelIdPrefix && sm.id.startsWith(registryEntry.modelIdPrefix)
@@ -1439,7 +1359,6 @@ async function buildUnifiedModelsResponseCore(
               isModelHiddenBulk(providerId, bareModelId, canonicalProviderId))
           )
             continue;
->>>>>>> upstream/main
           if (isExcludedByProviderConnections(canonicalProviderId, sm.id)) continue;
           // #6457: some upstream discovery catalogs (e.g. HuggingFace's live
           // `/v1/models`) return image/diffusion models with no modality info,
@@ -1934,16 +1853,7 @@ async function buildUnifiedModelsResponseCore(
           if (curatedProvider && isDiscoveryImportedCustomSource(model.source)) continue;
           if (!isUnifiedChatSourceModelSelectable(canonicalProviderId, { ...model, id: modelId }))
             continue;
-<<<<<<< HEAD
-          if (model.isHidden === true) continue;
-          if (isModelHiddenBulk(providerId, modelId, canonicalProviderId)) continue;
-          if (isExcludedByProviderConnections(canonicalProviderId, modelId)) continue;
-          // #6328: apply hidePaidModels to user-defined custom rows too.
-          // Custom entries do not carry pricing, so shouldHidePaid() decides
-          // via FREE_MODEL_IDS_BY_PROVIDER — matches synced/PROVIDER_MODELS.
-=======
           if (model.isHidden === true && !revealHidden) continue;
->>>>>>> upstream/main
           if (
             isModelHiddenBulk(providerId, modelId, canonicalProviderId) ||
             (bareModelId !== modelId &&
@@ -2166,10 +2076,6 @@ async function buildUnifiedModelsResponseCore(
           continue;
         }
 
-<<<<<<< HEAD
-        if (isModelHiddenBulk(providerKey, modelId, canonicalProviderId)) continue;
-        if (isExcludedByProviderConnections(canonicalProviderId, modelId)) continue;
-=======
         // Alias values can embed the node prefix twice (qualified from an
         // already-prefixed id); collapse so emission stays `<alias>/<bare>`.
         // Scoped to nodes with a prefix (see the custom-row loop).
@@ -2190,7 +2096,6 @@ async function buildUnifiedModelsResponseCore(
             isExcludedByProviderConnections(canonicalProviderId, bareModelId))
         )
           continue;
->>>>>>> upstream/main
         // #6328: apply hidePaidModels to alias-backed rows too. Alias mappings
         // point at providerKey/modelId with no pricing, so shouldHidePaid()
         // decides via the FREE_MODEL_IDS_BY_PROVIDER catalog tier.

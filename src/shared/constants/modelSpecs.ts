@@ -86,13 +86,10 @@ const AUTHORITATIVE_CONTEXT_WINDOW_MODEL_IDS = new Set([
   "glm-5.3-high",
   "glm-5.3-low",
   "glm-5.3-max",
-<<<<<<< HEAD
-=======
   "glm-5.3-flash",
   "glm-5.3-flash-high",
   "glm-5.3-flash-low",
   "glm-5.3-flash-max",
->>>>>>> upstream/main
   "glm-5.2",
   "glm-5.2-high",
   "glm-5.2-max",
@@ -249,14 +246,8 @@ export const MODEL_SPECS: Record<string, ModelSpec> = {
     supportsTools: true,
     supportsVision: true,
   },
-<<<<<<< HEAD
-  // ── Gemini 3.7 Flash (current Antigravity/AGY live tiers) ─────────
-  // The tier suffix configures the thinking budget passed to the upstream
-  // gemini-3.7-flash-tiered backend (high: 24.5k, medium: 8k, low: 1k).
-=======
 
   // Gemini 3.7 Flash tiers: high 24.5k, medium 8k, low 1k thinking tokens.
->>>>>>> upstream/main
   "gemini-3.7-flash-high": {
     maxOutputTokens: 65536,
     contextWindow: 1048576,
@@ -866,14 +857,6 @@ export const MODEL_SPECS: Record<string, ModelSpec> = {
     supportsTools: true,
     supportsVision: true,
   },
-  "glm-5.3-max": {
-    maxOutputTokens: 131072,
-    contextWindow: 1000000,
-    thinkingBudgetCap: 38912,
-    supportsThinking: true,
-    supportsTools: true,
-  },
-
   // ── Z.AI GLM-5.2 (1M context, 128K max output, effort tiers) ────
   "glm-5.2": {
     maxOutputTokens: 131072,

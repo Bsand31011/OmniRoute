@@ -244,14 +244,10 @@ describe("ModalityBridgeVideoTab", () => {
       "health.degradationFull",
       "modalityBridgeTaskAware",
     ]);
-<<<<<<< HEAD
-    const description = element.querySelector("#modality-bridge-video-analysis-mode-description");
-=======
     // KEA-7886: the description is the Select adapter's hint, wired through aria-describedby.
     const describedBy = analysisMode?.getAttribute("aria-describedby") ?? "";
     expect(describedBy).toBe("modality-bridge-video-analysis-mode-hint");
     const description = element.querySelector(`#${describedBy}`);
->>>>>>> upstream/main
     expect(description?.textContent).toBe("modalityBridgeVideoDesc");
     await act(async () => {
       if (!analysisMode) return;

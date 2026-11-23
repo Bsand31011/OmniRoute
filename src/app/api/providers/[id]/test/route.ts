@@ -32,13 +32,9 @@ import {
 import { providerAllowsOptionalApiKey } from "@/shared/constants/providers";
 import { shouldUseApiKeyConnectionTest } from "./webSessionTestDispatch";
 import { testCodexAppServerConnection, makeDiagnosis } from "./codexAppServerHealth";
-<<<<<<< HEAD
-import { removeConnectionHealth } from "@omniroute/open-sse/services/apiKeyRotator.ts";
-=======
 import { persistConnectionTestHealth } from "./connectionTestHealth";
 import { lockModelIfPerModelQuota } from "@omniroute/open-sse/services/accountFallback.ts";
 import { clearTestedBreakers } from "@/lib/resilience/clearTestedBreakers";
->>>>>>> upstream/main
 import { shouldClearErrorStateOnValidProbe } from "@/lib/usage/providerLimits";
 import { isConnectionUnavailableToAuxiliaryActivity } from "@/lib/exclusiveLeaseIsolation";
 import * as apiKeyTestResult from "./apiKeyTestResult";
@@ -1115,21 +1111,6 @@ export async function testSingleConnection(
       ? makeDiagnosis("ok", "local", null, null)
       : classifyFailure({ error: result.error, statusCode: result.statusCode, provider }));
 
-<<<<<<< HEAD
-  // #9623: a failed connection test must not paint the connection permanently red.
-  // Previously a non-terminal failure wrote `testStatus: "error"` with
-  // `rateLimitedUntil: null` — since the cooldown filter only ever skips entries
-  // whose rateLimitedUntil is in the future, a null cooldown left the connection
-  // permanently unavailable after a transient outage. Give non-terminal test
-  // failures a short cooldown so the lazy-recovery path retries them.
-  const terminalTestStatuses = new Set(["banned", "expired", "credits_exhausted"]);
-  const isTerminalFailure =
-    !result.valid &&
-    terminalTestStatuses.has(String(diagnosis.code ?? diagnosis.type ?? "").toLowerCase());
-  const testFailureCooldownMs = result.valid ? 0 : 30_000; // 30s retry window
-
-=======
->>>>>>> upstream/main
   // A successful credential probe proves the KEY is valid. It does NOT prove the
   // quota window reopened: the probe is a cheap auth/models call that never touches
   // the chat quota a weekly cap applies to. Clearing an ACTIVE cooldown here — which
@@ -1143,46 +1124,6 @@ export async function testSingleConnection(
     connection as { rateLimitedUntil?: string | null },
     result.valid
   );
-<<<<<<< HEAD
-
-  const updateData: Record<string, any> = {
-    testStatus: clearErrorState ? "active" : result.valid ? connection.testStatus : "error",
-    lastError: clearErrorState ? null : result.valid ? connection.lastError : result.error,
-    lastErrorAt: clearErrorState ? null : result.valid ? connection.lastErrorAt : now,
-    lastTested: now,
-    lastErrorType: clearErrorState ? null : result.valid ? connection.lastErrorType : diagnosis.type,
-    lastErrorSource: clearErrorState
-      ? null
-      : result.valid
-        ? connection.lastErrorSource
-        : diagnosis.source,
-    errorCode: clearErrorState
-      ? null
-      : result.valid
-        ? connection.errorCode
-        : diagnosis.code || result.statusCode || null,
-    rateLimitedUntil: clearErrorState
-      ? null
-      : isTerminalFailure
-        ? connection.rateLimitedUntil || null
-        : result.valid
-          ? connection.rateLimitedUntil || null
-          : new Date(Date.now() + testFailureCooldownMs).toISOString(),
-  };
-
-  if (clearErrorState) {
-    updateData.backoffLevel = 0;
-
-    const psd = connection?.providerSpecificData as Record<string, unknown> | undefined;
-    updateData.providerSpecificData = {
-      ...(psd || {}),
-      apiKeyHealth: {},
-    };
-
-    try {
-      removeConnectionHealth(connectionId);
-    } catch {}
-=======
   await persistConnectionTestHealth({
     connectionId,
     provider,
@@ -1208,7 +1149,6 @@ export async function testSingleConnection(
     ).catch(() => {
       console.warn("[ConnectionTest] Could not clear the antigravity verification link");
     });
->>>>>>> upstream/main
   }
 
   // Sync to cloud if token was refreshed

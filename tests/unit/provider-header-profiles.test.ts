@@ -4,14 +4,10 @@ import assert from "node:assert/strict";
 import {
   GITHUB_COPILOT_API_VERSION,
   GITHUB_COPILOT_CHAT_PLUGIN_VERSION,
-  GITHUB_COPILOT_CLI_USER_AGENT,
   GITHUB_COPILOT_CHAT_USER_AGENT,
   GITHUB_COPILOT_EDITOR_VERSION,
-<<<<<<< HEAD
-=======
   GITHUB_COPILOT_CLI_INTEGRATION_ID,
   GITHUB_COPILOT_CHAT_INTEGRATION_ID,
->>>>>>> upstream/main
   GITHUB_COPILOT_INTEGRATION_ID,
   GITHUB_COPILOT_INTERACTION_TYPE,
   GITHUB_COPILOT_HARNESS_ID,
@@ -33,15 +29,9 @@ import {
 
 test("provider header profiles expose current GitHub chat and internal headers", () => {
   const chatHeaders = getGitHubCopilotChatHeaders("text/event-stream", "agent");
-<<<<<<< HEAD
-  // Chat/inference path matches the @github/copilot CLI 1.0.81-6 wire identity.
-  assert.equal(chatHeaders["editor-version"], GITHUB_COPILOT_EDITOR_VERSION);
-  assert.equal(chatHeaders["user-agent"], GITHUB_COPILOT_CLI_USER_AGENT);
-=======
   // Header shape follows the captured CLI identity; the version uses the current pin.
   assert.equal(chatHeaders["editor-version"], GITHUB_COPILOT_EDITOR_VERSION);
   assert.equal(chatHeaders["user-agent"], `copilot/1.0.91 (${process.platform}) term/unknown`);
->>>>>>> upstream/main
   assert.equal(chatHeaders["x-github-api-version"], GITHUB_COPILOT_API_VERSION);
   assert.equal(chatHeaders["copilot-integration-id"], GITHUB_COPILOT_INTEGRATION_ID);
   assert.equal(chatHeaders["x-interaction-type"], GITHUB_COPILOT_INTERACTION_TYPE);
@@ -80,8 +70,6 @@ test("getGitHubCopilotMachineId is stable across calls and vision toggles the vi
   assert.equal(plain["x-client-machine-id"], vision["x-client-machine-id"]);
 });
 
-<<<<<<< HEAD
-=======
 test("Copilot chat headers honor the CLI version environment override", () => {
   const previous = process.env.GITHUB_COPILOT_CLI_VERSION;
   process.env.GITHUB_COPILOT_CLI_VERSION = "1.0.82";
@@ -99,7 +87,6 @@ test("Copilot chat headers honor the CLI version environment override", () => {
   }
 });
 
->>>>>>> upstream/main
 test("provider header profiles expose dedicated refresh, qoder and kiro variants", () => {
   const refreshHeaders = getGitHubCopilotRefreshHeaders("token gh-access");
   assert.equal(refreshHeaders.Authorization, "token gh-access");

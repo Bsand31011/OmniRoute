@@ -119,16 +119,6 @@ interface KieImageOptions {
 }
 
 // KIE Market catalog ids are namespaced for OmniRoute's catalog
-<<<<<<< HEAD
-// (`google-imagen/<model>`), but the KIE Market createTask API expects
-// vendor-specific upstream ids that do not follow a single consistent
-// pattern (confirmed against docs.kie.ai/market/google/* — see #11225,
-// #11296): nano-banana-2 and nano-banana-pro drop the vendor namespace
-// entirely, while nano-banana and nano-banana-edit use a `google/` prefix
-// instead of `google-imagen/`. Every other KIE Market namespace (seedream,
-// flux, ideogram, qwen, wan, grok-imagine, gpt) already matches its real
-// upstream id byte-for-byte, so this map stays scoped to google-imagen.
-=======
 // (`<vendor>/<model>`), but the KIE Market createTask API expects
 // vendor-specific upstream ids that do not follow a single consistent
 // pattern. Every entry below was confirmed individually against the literal
@@ -162,14 +152,11 @@ interface KieImageOptions {
 // Flux Kontext's dedicated API/tier is now explicit in the registry. The current
 // main docs also offer a Market API, but existing requests retain the documented
 // /old-model/flux-kontext-api contract rather than migrating endpoints implicitly.
->>>>>>> upstream/main
 export const KIE_MARKET_UPSTREAM_MODEL_IDS: ReadonlyMap<string, string> = new Map([
   ["google-imagen/nano-banana", "google/nano-banana"],
   ["google-imagen/nano-banana-2", "nano-banana-2"],
   ["google-imagen/nano-banana-pro", "nano-banana-pro"],
   ["google-imagen/nano-banana-edit", "google/nano-banana-edit"],
-<<<<<<< HEAD
-=======
   ["gpt/gpt-image-2-text-to-image", "gpt-image-2-text-to-image"],
   ["gpt/gpt-image-2-image-to-image", "gpt-image-2-image-to-image"],
   ["gpt/gpt-image-1.5-text-to-image", "gpt-image/1.5-text-to-image"],
@@ -184,7 +171,6 @@ export const KIE_MARKET_UPSTREAM_MODEL_IDS: ReadonlyMap<string, string> = new Ma
   ["wan/2.7-image-pro", "wan/2-7-image-pro"],
   ["z-image/4.0-text-to-image", "z-image"],
   ["z-image/4.5-text-to-image", "z-image"],
->>>>>>> upstream/main
 ]);
 
 export function resolveKieMarketUpstreamModelId(publicModelId: string): string {

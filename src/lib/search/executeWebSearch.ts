@@ -205,35 +205,8 @@ export async function executeWebSearch(
     }
 
     if (!credentials) {
-<<<<<<< HEAD
-      // A CONFIGURED provider always wins over a free `fallbackOnly` one (issue #11524):
-      // sweep every regular provider for real credentials BEFORE considering the
-      // last-resort ones. Running the fallbackOnly loop first made `duckduckgo-free`
-      // (costPerQuery 0, no credentials required) win unconditionally, so an operator's
-      // paid search connection was silently ignored whenever the cheapest auto-selected
-      // provider happened to have no credentials.
-      const sortedIds = Object.values(SEARCH_PROVIDERS)
-        .filter((provider) => !provider.fallbackOnly && supportsSearchType(provider, searchType))
-        .sort((a, b) => a.costPerQuery - b.costPerQuery)
-        .map((provider) => provider.id);
-
-      for (const providerId of sortedIds) {
-        if (providerId === providerConfig.id) continue;
-        const altConfig = getSearchProvider(providerId);
-        const altCreds = await resolveSearchCredentials(providerId);
-        if (altConfig && altCreds) {
-          providerConfig = altConfig;
-          credentials = altCreds;
-          break;
-        }
-      }
-    }
-
-    if (!credentials) {
-=======
       // Last resort: fallback-only providers so out-of-the-box search
       // still works when no credentialed provider is configured.
->>>>>>> upstream/main
       const fallbackProviders = Object.values(SEARCH_PROVIDERS)
         .filter((provider) => provider.fallbackOnly && supportsSearchType(provider, searchType))
         .sort((a, b) => a.costPerQuery - b.costPerQuery);

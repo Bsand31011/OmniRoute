@@ -2,12 +2,8 @@ import { timingSafeEqual } from "node:crypto";
 
 import { getLegacyCliTokenSync, getMachineTokenSync } from "../../lib/machineToken";
 import type { PolicyContext } from "./context";
-<<<<<<< HEAD
-import { CLI_TOKEN_HEADER, PEER_IP_HEADER, VIA_PROXY_HEADER } from "./headers";
-=======
 import { getTrustProxyMode } from "../origin/trustProxyMode";
 import { CLI_TOKEN_HEADER, CLIENT_IP_HEADER, PEER_IP_HEADER, VIA_PROXY_HEADER } from "./headers";
->>>>>>> upstream/main
 import { resolveStampedPeer, resolveStampedViaProxy } from "./peerStamp";
 import { isLoopbackHost, isPrivateLanHost } from "./routeGuard";
 
@@ -61,15 +57,6 @@ export function isLoopbackRequest(ctx: PolicyContext): boolean {
 
 // Owner-authorized (2026-05-30): allow LOCAL_ONLY *paths* from a trusted private
 // LAN, based on the real socket peer IP (not spoofable). Does NOT relax the
-<<<<<<< HEAD
-// CLI-token gate, which stays strictly loopback. Also falls back to "not LAN"
-// when a reverse-proxy hop is detected (the apparent LAN IP would be the proxy,
-// not the end-user — see isViaProxyRequest above).
-export function isPrivateLanRequest(ctx: PolicyContext): boolean {
-  if (isViaProxyRequest(ctx)) return false;
-  const peerAddress = requestPeerAddress(ctx);
-  return peerAddress ? isPrivateLanHost(peerAddress) : false;
-=======
 // CLI-token gate, which stays strictly loopback. When a reverse-proxy hop is
 // detected the apparent LAN IP is the proxy, not the end-user (see
 // isViaProxyRequest above), so the request is "not LAN" unless the operator
@@ -116,7 +103,6 @@ function comparableIp(address: string): string {
     .replace(/^\[([^\]]+)\]$/, "$1")
     .replace(/^::ffff:/i, "")
     .toLowerCase();
->>>>>>> upstream/main
 }
 
 /** Strictly-loopback machine-token check (constant-time). */

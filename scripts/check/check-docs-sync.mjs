@@ -78,6 +78,36 @@ function fail(message) {
   console.error(`[docs-sync] FAIL - ${message}`);
 }
 
+function getI18nLocales() {
+  const indexPath = path.join(i18nDocsPath, "README.md");
+  const index = readText(indexPath);
+
+  const matches = [...index.matchAll(/\(`([^`]+)`\):\s*\[Docs Root\]\(\.\/([^/]+)\/README\.md\)/g)];
+
+  const locales = matches
+    .map(([, locale, directory]) => {
+      if (locale !== directory) {
+        fail(`i18n index locale "${locale}" points to directory "${directory}"`);
+        return null;
+      }
+
+      return locale;
+    })
+    .filter(Boolean);
+
+  const uniqueLocales = [...new Set(locales)];
+
+  if (uniqueLocales.length !== locales.length) {
+    fail("duplicate locale entries found in docs/i18n/README.md");
+  }
+
+  if (uniqueLocales.length === 0) {
+    fail("no locales found in docs/i18n/README.md");
+  }
+
+  return uniqueLocales.sort();
+}
+
 function checkI18nMirrorFile(fileName, sourcePath) {
   if (!fs.existsSync(i18nDocsPath)) {
     fail("docs/i18n directory is missing");
@@ -85,11 +115,7 @@ function checkI18nMirrorFile(fileName, sourcePath) {
   }
 
   const sourceBody = normalizeMirrorBody(stripTopHeading(readText(sourcePath)));
-  const locales = fs
-    .readdirSync(i18nDocsPath, { withFileTypes: true })
-    .filter((entry) => entry.isDirectory())
-    .map((entry) => entry.name)
-    .sort();
+  const locales = getI18nLocales();
 
   let checked = 0;
   for (const locale of locales) {
@@ -140,11 +166,7 @@ function checkI18nChangelogFile(sourcePath) {
   const sourceContent = readText(sourcePath);
   const sourceBody = normalizeMirrorBody(stripTopHeading(sourceContent));
   const sourceVersions = extractChangelogSections(sourceContent);
-  const locales = fs
-    .readdirSync(i18nDocsPath, { withFileTypes: true })
-    .filter((entry) => entry.isDirectory())
-    .map((entry) => entry.name)
-    .sort();
+  const locales = getI18nLocales();
 
   let checked = 0;
   for (const locale of locales) {

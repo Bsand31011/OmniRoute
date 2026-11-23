@@ -1094,19 +1094,9 @@
     "batchFilePreview": "Önizləmə",
     "batchFilePreviewTruncated": "İlk {shown} sətir göstərilir ({total} cəmi sətir)",
     "batchFileDownloadFull": "Tam Faylı Yüklə",
-<<<<<<< HEAD
-    "batchHeaderSubtitle": "Run many requests as one job",
-    "batchStep1": "1 · Upload JSONL",
-    "batchStep1Desc": "Add requests",
-    "batchStep2": "2 · Create batch",
-    "batchStep2Desc": "Run job",
-    "batchStep3": "3 · Get results",
-    "batchStep3Desc": "Download output"
-=======
     "tokensPageTitle": "Tokenlər",
     "tokensPageDescription": "API açarları arasında tokenlər göndərin, dəvət kodlarını paylaşın və icma serverlərini qoşun.",
     "tokensServerUrlLabel": "Server URL-i"
->>>>>>> upstream/main
   },
   "disabled": "Deaktiv",
   "featureFlagOmnirouteEmergencyFallbackDescription": "Büdcəsi tükənmiş sorğuları təcili pulsuz ehtiyat təminatçıya/modelə yönləndirin.",
@@ -1404,12 +1394,8 @@
     "agentBridge": "Agent Körpüsü",
     "agentBridgeSubtitle": "IDE agenti trafikini ələ keçirin",
     "trafficInspector": "Trafik İnspektoru",
-<<<<<<< HEAD
-    "trafficInspectorSubtitle": "__MISSING__:Inspect request and response traffic from your apps",
-=======
     "trafficInspectorSubtitle": "Tətbiqlərinizdən gələn sorğu və cavab trafikini yoxlayın",
     "trafficInspectorPurpose": "Tətbiqinizin AI provayderlərinə nə göndərdiyini və onlardan nə aldığını dəqiq görün. OpenAI ilə uyğun gələn istənilən klientlə işləyir.",
->>>>>>> upstream/main
     "cliCode": "CLI Kodu",
     "cliCodeSubtitle": "OmniRoute-a yönəlmiş kod alətləri",
     "cliAgents": "CLI Agentləri",
@@ -1451,12 +1437,8 @@
       "close": "bağla"
     },
     "noResults": "Heç bir nəticə yoxdur",
-<<<<<<< HEAD
-    "trafficInspectorPurpose": "See exactly what your application sends to and receives from AI providers. Works with any OpenAI-compatible client."
-=======
     "costsTeams": "Komandalar",
     "costsTeamsSubtitle": "Komanda xərc mərkəzləri"
->>>>>>> upstream/main
   },
   "webhooks": {
     "title": "Vebhuklar",
@@ -2025,23 +2007,6 @@
     "directDownloadHint": "Yaxud müvafiq quraşdırıcı formatını birbaşa yükləyin:",
     "releaseNotes": "Buraxılış Qeydləri",
     "readMore": "Daha Çox Oxu",
-<<<<<<< HEAD
-    "noAuthLabel": "No Auth",
-    "recentRequests": "Recent Requests",
-    "recentRequestsEmpty": "No requests yet.",
-    "recentRequestsModel": "Model",
-    "recentRequestsTokens": "In / Out",
-    "recentRequestsWhen": "When",
-    "readinessEyebrow": "Get ready to route",
-    "readinessTitle": "Send your first request",
-    "readinessSubtitle": "Four small steps. OmniRoute checks readiness as you go.",
-    "readinessStep1": "Connect a provider",
-    "readinessStep2": "Configure endpoint authentication",
-    "readinessStep3": "Copy your endpoint",
-    "readinessStep4": "Send a test request",
-    "readinessContinue": "Continue setup",
-    "readinessDismiss": "Dismiss for now"
-=======
     "noAuthLabel": "Autentifikasiya yoxdur",
     "readinessEyebrow": "Yönləndirməyə hazırlaşın",
     "readinessTitle": "İlk sorğunuzu göndərin",
@@ -2068,7 +2033,6 @@
     "systemMetricsCpuCount": "{count} vCPUs • {platform}",
     "systemMetricsProcessCpu": "OmniRoute (process)",
     "systemMetricsProcessMemory": "OmniRoute (RSS / Heap)"
->>>>>>> upstream/main
   },
   "analytics": {
     "title": "Analitika",
@@ -3173,13 +3137,9 @@
       "prime-agent": "Prime Agent — OpenAI-uyğun provayder dəstəyi ilə özünü təkmilləşdirən RLM kodlaşdırma mühiti",
       "warp": "Fərdi provayder dəstəyinə malik Warp AI terminalı",
       "agent-deck": "Agent Deck çoxagentli orkestratoru",
-<<<<<<< HEAD
-      "prime-agent": "Prime Agent — self-improving RLM coding harness with OpenAI-compatible provider support"
-=======
       "5dive": "5dive — öz serverinizdə işləyən kodlaşdırma agentləri parkı; bir auth profili hamısını OmniRoute-a yönəldir",
       "whycodes": "OpenAI ilə uyğun base URL-li WhyCodes avtonom CLI agenti",
       "zed": "Zed kod redaktoru — OpenAI ilə uyğun provayder vasitəsilə daxili agent"
->>>>>>> upstream/main
     },
     "guides": {
       "cursor": {
@@ -6539,13 +6499,8 @@
     "rateLimitOverridesSection": "Sorğu Limiti Üstələmələri",
     "rateLimitOverridesMaxConcurrentHint": "Bu bağlantı üçün maksimum eyni vaxtda olan sorğuların üstələnməsi. Hesab səviyyəsindəki limiti üstələyir.",
     "rateLimitOverridesMaxConcurrentLabel": "Maksimum Eyni Vaxtda (Sorğu Limiti)",
-<<<<<<< HEAD
-    "rateLimitOverridesMaxWaitMsHint": "__MISSING__:Maximum time (ms) a request may wait for a rate-limit slot before failing. Overrides the global Resilience setting for this connection only.",
-    "rateLimitOverridesMaxWaitMsLabel": "__MISSING__:Max Queue Wait (ms)",
-=======
     "rateLimitOverridesMaxWaitMsHint": "Sorğunun uğursuz olmadan əvvəl sürət məhdudiyyəti növbəsində gözləyə biləcəyi maksimum müddət (ms). Yalnız bu bağlantı üçün qlobal Resilience parametrini əvəz edir.",
     "rateLimitOverridesMaxWaitMsLabel": "Maksimum növbə gözləmə müddəti (ms)",
->>>>>>> upstream/main
     "rateLimitOverridesMinTimeHint": "Sorğular arasındakı minimum vaxt (ms). Standart sorğu limiti gecikməsini üstələyir.",
     "rateLimitOverridesMinTimeLabel": "Min İnterval (ms)",
     "rateLimitOverridesRpdHint": "Bu bağlantı üçün gündəlik maksimum sorğu sayı. Təminatçı standartını ləğv edir.",
@@ -6838,11 +6793,7 @@
       "bigmodel": "https://bigmodel.cn/usercenter/proj-mgmt/apikeys ünvanında API açarı yaradın. OmniRoute BigModel.cn-in rəsmi OpenAI-uyğun söhbət endpoint-indən istifadə edir.",
       "glmt": "Daha yüksək token büdcəsi, düşünmə aktivləşdirilmiş və daha uzun vaxt aşımı olan hazır GLM profili.",
       "getgoapi": "GoAPI-ni API açarı ilə qoşun.",
-<<<<<<< HEAD
-      "groq": "Pulsuz tarif: 30 RPM / 14.4K RPD — kredit kartı tələb olunmur",
-=======
       "groq": "Pulsuz plan: model üzrə limitlər (hər çat modeli üçün gündə 200K token; RPM/RPD üçün console.groq.com/docs/rate-limits səhifəsinə baxın) — hesabda ödəniş üsulu yoxdur.",
->>>>>>> upstream/main
       "haiper": "API açarını haiper.ai/haiper-api ünvanından əldə edin",
       "heroku": "Heroku AI-ı API açarı ilə qoşun.",
       "hcnsec": "API açarını api.hcnsec.cn ünvanından əldə edin",
@@ -7148,23 +7099,6 @@
     "savedModelEndpointSettings": "Saxlanmış model son nöqtəsi parametrləri",
     "searchByModelAria": "Model üzrə axtarış edin",
     "selectSupportedEndpoint": "Ən azı bir dəstəklənən son nöqtəni seçin",
-<<<<<<< HEAD
-    "antigravityClientProfileHarness": "Harness / CLI",
-    "harImportButtonLabel": "Import .har file",
-    "harImportButtonBusy": "Importing…",
-    "harImportButtonHint": "Export from DevTools Network tab after sending at least one chat message.",
-    "harImportStatusValid": "Imported — valid for ~{minutes}m.",
-    "harImportStatusExpiringSoon": "Imported — valid for only ~{minutes}m more.",
-    "harImportStatusExpired": "Imported, but this token already expired ({minutes}m ago) — export a fresh HAR.",
-    "harImportStatusUnknownExpiry": "Imported. Couldn't read its expiry.",
-    "harImportErrorNotJson": "That file isn't valid JSON — is it really a .har export?",
-    "harImportErrorNoEntries": "This HAR has no network entries recorded.",
-    "harImportErrorNoChathubUrl": "No Copilot chat connection found in this HAR. Send at least one chat message in m365.cloud.microsoft before exporting.",
-    "harImportErrorUnparsableUrl": "Found the chat connection, but couldn't read its URL.",
-    "harImportErrorMissingFields": "Found the chat connection, but the token was missing from it.",
-    "harImportErrorReadFailed": "Couldn't read that file.",
-    "harImportErrorUnknown": "Couldn't extract a credential from that HAR file."
-=======
     "antigravityClientProfileHarness": "Test sistemi / CLI",
     "rateLimitOverridesModelConcurrencyLabel": "Per-model concurrency caps",
     "rateLimitOverridesModelConcurrencyPlaceholder": "glm-5=1\nglm-4.7=3",
@@ -7190,7 +7124,6 @@
     "doctorChecking": "Status yoxlanılır…",
     "doctorCheck": "Həkim statusunu yoxlayın",
     "fallbackRetryBackendTitle": "Əvəzleyici təkrar cəhd backendi"
->>>>>>> upstream/main
   },
   "settings": {
     "title": "Parametrlər",
@@ -9182,20 +9115,6 @@
     "cliproxyapiPort": "Port",
     "qdrantHost": "Ev sahibi",
     "qdrantCollection": "Kolleksiya",
-<<<<<<< HEAD
-    "presetAll": "All",
-    "presetAllDesc": "Show everything",
-    "presetEssentials": "Essentials",
-    "presetEssentialsDesc": "Beginner path - Advanced tools stay searchable",
-    "presetMinimal": "Minimal",
-    "presetMinimalDesc": "Core pages only",
-    "presetDeveloper": "Developer",
-    "presetDeveloperDesc": "Dev & proxy tools",
-    "presetAdmin": "Admin",
-    "presetAdminDesc": "Monitoring & audit",
-    "settingsSidebarTitle": "Sidebar Customization",
-    "settingsSidebarDesc": "Choose which sidebar items to show. Essentials keeps Advanced tools searchable."
-=======
     "catalogVisibilityHint": "Gizlədilmiş model identifikatorlarını eyni giriş icazələri ilə çağırmaq mümkündür.",
     "exposeCombosOnly": "/v1/models-də yalnız kombinasiyaları göstər",
     "exposeCombosOnlyDesc": "Modelləri avtomatik aşkar edən müştərilər xam provayder modelləri əvəzinə kombinasiyalarınızı (və gizlədilməyibsə auto/*) görür. Açıq provider/model identifikatorları marşrutlanmağa davam edir.",
@@ -9376,7 +9295,6 @@
       "statsEmpty": "Hələ aşkarlama yoxdur.",
       "statsRequest": "Sorğular"
     }
->>>>>>> upstream/main
   },
   "contextRtk": {
     "title": "RTK Mühərriki",
@@ -14320,11 +14238,6 @@
       "SKILLS_SANDBOX_NETWORK_ENABLED": {
         "description": "Bacarıqlar sandbox-unda şəbəkəyə girişi aktivləşdirin."
       },
-<<<<<<< HEAD
-      "DISABLE_CONTEXT_WINDOW_CHECKS": {
-        "label": "Disable Context Window Checks",
-        "description": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active."
-=======
       "SERVER_OWNED_TOOL_LOOP_ENABLED": {
         "label": "Serverə məxsus alət dövrəsi",
         "description": "Model müştərinin istifadə edə biləcəyi cavab qaytaranadək serverə məxsus axınsız alət çağırışlarını davam etdirin."
@@ -14620,7 +14533,6 @@
       "UNPRICED_USAGE_BUDGET_POLICY": {
         "label": "Qiymətsiz İstifadə Büdcə Siyasəti",
         "description": "Bir-açar günlük/həftəlik USD limitləri provideri/modeli üçün qiymət sətri olmayan uğurlu istifadəni necə idarə edir. fail_closed (varsayılan) pəncərəni aşılmış kimi qeyd edir, beləliklə naməlum xərc heç vaxt sərt limiti keçə bilməz. count_as_zero həmin istifadəni $0 kimi hesablayır və qiymətlənmiş xərclərin tətbiqini davam etdirir. Qiyməti təyin olunmamış modellər hər halda panelin ana səhifəsində siyahılanır."
->>>>>>> upstream/main
       }
     }
   },
@@ -15905,15 +15817,6 @@
     "structuredOutputMismatch": "Təchizatçı strukturlaşdırılmış çıxışı dəstəkləmir",
     "contextWindowMismatch": "Sorğu təminatçının kontekst pəncərəsini aşır"
   },
-<<<<<<< HEAD
-  "featureFlagDisableContextWindowChecksDescription": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active.",
-  "cheaperInferenceSponsorBanner": {
-    "title": "Cheaper Inference is an OmniRoute Open Source Friend",
-    "description": "A cost-ranked gateway reselling dozens of frontier models behind one OpenAI-compatible endpoint — routing each request to the cheapest eligible provider, never above list price.",
-    "cta": "Get an API Key",
-    "partnerLinkNote": "Partner link",
-    "dismissAriaLabel": "Dismiss"
-=======
   "cheaperInferenceSponsorBanner": {
     "title": "Cheaper Inference OmniRoute-un Açıq Mənbə Dostudur",
     "description": "Onlarla qabaqcıl modeli OpenAI ilə uyğun vahid endpoint vasitəsilə yenidən satan, qiymətə görə sıralanmış şlüz — hər sorğunu siyahı qiymətini heç vaxt aşmadan uyğun provayderlər arasında ən ucuzuna yönləndirir.",
@@ -16094,6 +15997,5 @@
     "greetingFallbackName": "orada",
     "errNoReply": "⚠️ Qəpazədən cavab gəlmir.",
     "btnSend": "Göndər"
->>>>>>> upstream/main
   }
 }

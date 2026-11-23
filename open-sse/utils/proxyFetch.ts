@@ -501,47 +501,6 @@ function isWreqProxySupported(proxyUrl: string): boolean {
   }
 }
 
-<<<<<<< HEAD
-/**
- * Redact proxy URLs (and any bare `user:pass@host` credential tokens) from an
- * upstream transport-error message before it is surfaced. #10032 keeps the
- * underlying failure reason in the propagated error for diagnosability, but
- * the raw message can embed the full proxy URL — including userinfo
- * credentials — which must never bubble into response bodies (#9837, Hard
- * Rule #12).
- */
-function redactProxyDetailsInMessage(message: string): string {
-  return message
-    .replace(/\b(?:https?|socks[45][ah]?|socks):\/\/\S+/gi, "[redacted-proxy]")
-    .replace(/\b[^\s:@/]+:[^\s@/]*@\S+/g, "[redacted-proxy]");
-}
-
-function sanitizeTransportError(
-  error: unknown,
-  message: string,
-  fallbackCode: string
-): Error & { code: string; errorCode?: string; statusCode?: number } {
-  const source = error && typeof error === "object" ? (error as Record<string, unknown>) : {};
-  const sanitized = new Error(message) as Error & {
-    code: string;
-    errorCode?: string;
-    statusCode?: number;
-  };
-  sanitized.code =
-    typeof source.code === "string" && /^[A-Z0-9_:-]{1,64}$/.test(source.code)
-      ? source.code
-      : fallbackCode;
-  if (typeof source.errorCode === "string" && /^[a-zA-Z0-9_:-]{1,64}$/.test(source.errorCode)) {
-    sanitized.errorCode = source.errorCode;
-  }
-  if (typeof source.statusCode === "number" && Number.isFinite(source.statusCode)) {
-    sanitized.statusCode = source.statusCode;
-  }
-  return sanitized;
-}
-
-=======
->>>>>>> upstream/main
 /** Injectable dependencies for testability (Approach B DI). */
 export type ProxyFetchDeps = {
   undiciFetch?: FetchWithDispatcher;
@@ -800,8 +759,6 @@ export function runWithDirectFetchContext<T>(fn: () => T): T {
   return proxyContext.run(DIRECT_PROXY_CONTEXT, fn);
 }
 
-<<<<<<< HEAD
-=======
 /**
  * True when the caller already runs inside an explicit proxy context — i.e. an
  * outer runWithProxyContext(proxyConfig, ...) pinned a proxy for this async
@@ -813,7 +770,6 @@ export function hasAmbientProxyContext(): boolean {
 }
 export const isDirectFetchContext = () => proxyContext.getStore() === DIRECT_PROXY_CONTEXT;
 
->>>>>>> upstream/main
 /**
  * Like {@link runWithProxyContext}, but if the assigned proxy is unreachable or fails
  * its pre-checks the request can degrade to a DIRECT connection instead of throwing.
@@ -835,8 +791,6 @@ async function patchedFetchUnrecorded(
   options: FetchWithDispatcherOptions = {},
   deps: ProxyFetchDeps = {}
 ) {
-<<<<<<< HEAD
-=======
   // Drop invisible characters (ZWSP, BOM, stray controls) a pasted key can carry;
   // undici would otherwise reject every request. Clean headers keep the same object.
   const cleanHeaders = options?.headers ? sanitizeHeaderValues(options.headers) : undefined;
@@ -844,7 +798,6 @@ async function patchedFetchUnrecorded(
   // #13593: a hop back to this listener carries the process self-hop token
   // so admission does not shed it with public traffic.
   stampOwnListenerSelfHop(input, options);
->>>>>>> upstream/main
   // Explicit direct contexts must win even when a caller supplied a stale
   // dispatcher. Native fetch preserves direct streaming semantics.
   if (proxyContext.getStore() === DIRECT_PROXY_CONTEXT) {

@@ -5,12 +5,6 @@ import { Spinner } from "@/shared/components/Loading";
 import { Alert } from "@omniroute/ui-kit/alert";
 
 import { useState, useEffect, useMemo, useCallback } from "react";
-<<<<<<< HEAD
-import { Card, Button, Input, Modal, CardSkeleton, SegmentedControl } from "@/shared/components";
-import Toggle from "@/shared/components/Toggle";
-import { useCopyToClipboard } from "@/shared/hooks/useCopyToClipboard";
-import { isPublicDisplayBaseUrl, useDisplayBaseUrl } from "@/shared/hooks";
-=======
 import { Checkbox } from "@omniroute/ui-kit/checkbox";
 import { PageHeader } from "@omniroute/ui-kit/page-header";
 import Button from "@/shared/components/Button";
@@ -24,7 +18,6 @@ import Toggle from "@/shared/components/Toggle";
 import { useCopyToClipboard } from "@/shared/hooks/useCopyToClipboard";
 import { isPublicDisplayBaseUrl, useDisplayBaseUrl } from "@/shared/hooks";
 import { extractApiErrorMessage } from "@/shared/http/apiErrorMessage";
->>>>>>> upstream/main
 import { useTranslations } from "next-intl";
 import A2ADashboardPage from "./components/A2ADashboard";
 import McpDashboardPage from "./components/MCPDashboard";
@@ -1275,12 +1268,7 @@ export default function APIPageClient({ machineId }: Readonly<APIPageClientProps
     <div className="flex flex-col gap-8">
       {/* Guided connection header (#11228): /v1 URL + test action lead; advanced protocols demoted */}
       <div className="flex flex-col gap-2">
-<<<<<<< HEAD
-        <h1 className="text-2xl font-bold">{t("title")}</h1>
-        <p className="text-text-muted">{t("subtitle")}</p>
-=======
         <PageHeader compact title={t("title")} description={t("subtitle")} />
->>>>>>> upstream/main
         <div className="flex items-center gap-3 mt-2">
           <code className="text-sm bg-card-subtle px-3 py-1 rounded-md text-text-main font-mono">
             {displayBaseUrl}/v1
@@ -2541,7 +2529,3 @@ function EndpointCard({
     </div>
   );
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> upstream/main

@@ -464,11 +464,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
         discovered = await fetchVolcPlanModels(volcPlanKind, cookie, csrf);
       } catch (err: unknown) {
         const message = err instanceof Error ? err.message : String(err);
-<<<<<<< HEAD
-        await saveCallLog({
-=======
         await saveTimedCallLog({
->>>>>>> upstream/main
           method: "POST",
           path: `/api/providers/${id}/sync-models`,
           status: 401,
@@ -493,11 +489,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
       const removed = previous.filter(
         (m) => !synced.some((n) => String(n.id) === String(m.id))
       ).length;
-<<<<<<< HEAD
-      await saveCallLog({
-=======
       await saveTimedCallLog({
->>>>>>> upstream/main
         method: "GET",
         path: `/api/providers/${id}/models`,
         status: 200,
@@ -532,12 +524,8 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
       });
     }
 
-<<<<<<< HEAD
-    if (providerUsesCuratedModelsOnly(logProvider)) {
-=======
     const isSearchProvider = getSearchProvider(logProvider) !== null;
     if (providerUsesCuratedModelsOnly(logProvider) || isSearchProvider) {
->>>>>>> upstream/main
       const [removedSyncedLists, removedImportedModelIds] = await Promise.all([
         deleteSyncedAvailableModelsForProvider(logProvider),
         deleteImportedCustomModels(logProvider),

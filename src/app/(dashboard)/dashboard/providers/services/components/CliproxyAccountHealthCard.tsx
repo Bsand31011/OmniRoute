@@ -1,30 +1,13 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-<<<<<<< HEAD
-=======
 import { useTranslations } from "next-intl";
->>>>>>> upstream/main
 import { Badge, Button, Card } from "@/shared/components";
 import type {
   CliproxyAccountHealth,
   CliproxyAccountHealthResult,
 } from "@/lib/services/cliproxyAccountHealth";
 
-<<<<<<< HEAD
-const STATE_LABELS: Record<CliproxyAccountHealthResult["state"], string> = {
-  ready: "Account health",
-  disabled: "CLIProxyAPI is not installed",
-  missing_key: "Management key is not configured",
-  unreachable: "Management API is unreachable",
-  unauthorized: "Management key was rejected",
-  unsupported: "This CLIProxyAPI version does not expose account health",
-  invalid_response: "Management API returned an unsupported response",
-};
-
-function AccountRow({ account }: { account: CliproxyAccountHealth }) {
-  const state = account.disabled ? "Disabled" : account.unavailable ? "Unavailable" : account.status;
-=======
 function stateLabels(
   t: ReturnType<typeof useTranslations>
 ): Record<CliproxyAccountHealthResult["state"], string> {
@@ -45,7 +28,6 @@ function AccountRow({ account }: { account: CliproxyAccountHealth }) {
     : account.unavailable
       ? "Unavailable"
       : account.status;
->>>>>>> upstream/main
   return (
     <li className="flex flex-wrap items-center justify-between gap-3 border-t border-border py-3 first:border-t-0">
       <div className="min-w-0">
@@ -71,9 +53,6 @@ function AccountRow({ account }: { account: CliproxyAccountHealth }) {
   );
 }
 
-<<<<<<< HEAD
-export function CliproxyAccountHealthCard() {
-=======
 // Network + parse concerns live outside the component so the load callback only
 // sets state after the await (no synchronous setState reachable from the effect).
 async function fetchAccountHealth(): Promise<CliproxyAccountHealthResult> {
@@ -88,36 +67,10 @@ async function fetchAccountHealth(): Promise<CliproxyAccountHealthResult> {
 
 export function CliproxyAccountHealthCard() {
   const t = useTranslations("cliproxyHealth");
->>>>>>> upstream/main
   const [result, setResult] = useState<CliproxyAccountHealthResult | null>(null);
   const [loading, setLoading] = useState(true);
 
   const load = useCallback(async () => {
-<<<<<<< HEAD
-    setLoading(true);
-    try {
-      const response = await fetch("/api/services/cliproxy/accounts", { cache: "no-store" });
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      setResult(await response.json());
-    } catch {
-      setResult({ state: "unreachable", accounts: [], version: null });
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    void load();
-  }, [load]);
-
-  return (
-    <Card
-      title="CLIProxyAPI accounts"
-      subtitle="Read-only status from the authenticated management API"
-      action={
-        <Button variant="secondary" size="sm" onClick={() => void load()} loading={loading}>
-          Refresh
-=======
     const next = await fetchAccountHealth();
     setResult(next);
     setLoading(false);
@@ -146,35 +99,22 @@ export function CliproxyAccountHealthCard() {
       action={
         <Button variant="secondary" size="sm" onClick={handleRefresh} loading={loading}>
           {t("btnRefresh")}
->>>>>>> upstream/main
         </Button>
       }
     >
       {result?.state === "ready" ? (
         result.accounts.length > 0 ? (
-<<<<<<< HEAD
-          <ul aria-label="CLIProxyAPI account health">
-=======
           <ul aria-label={t("listAria")}>
->>>>>>> upstream/main
             {result.accounts.map((account) => (
               <AccountRow key={account.authIndex} account={account} />
             ))}
           </ul>
         ) : (
-<<<<<<< HEAD
-          <p className="text-sm text-text-muted">No CLIProxyAPI accounts found.</p>
-        )
-      ) : (
-        <p className="text-sm text-text-muted">
-          {loading && !result ? "Loading account health…" : STATE_LABELS[result?.state ?? "unreachable"]}
-=======
           <p className="text-sm text-text-muted">{t("noAccounts")}</p>
         )
       ) : (
         <p className="text-sm text-text-muted">
           {loading && !result ? t("loading") : stateLabels(t)[result?.state ?? "unreachable"]}
->>>>>>> upstream/main
         </p>
       )}
     </Card>

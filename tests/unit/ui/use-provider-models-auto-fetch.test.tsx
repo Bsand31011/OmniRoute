@@ -5,11 +5,8 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 // The shared translator has stable identity like real next-intl. Returning a
 // fresh function on every render restarts the hook's load effect indefinitely.
 
-<<<<<<< HEAD
-=======
 const mountedCleanups = new Set<() => void>();
 
->>>>>>> upstream/main
 const { useProviderModels } =
   await import("@/app/(dashboard)/dashboard/providers/hooks/useProviderModels");
 
@@ -100,19 +97,7 @@ describe("useProviderModels upstream auto-fetch", () => {
     const mounted = await renderProviderModels();
     await flushQueuedSync();
 
-<<<<<<< HEAD
-    // Desmontar ANTES de asserir. O hook agenda a auto-sync num setTimeout e o
-    // callback so checa o flag `cancelled` na entrada; enquanto o componente
-    // estiver montado esse flag e false. Se o timer escapar da janela do teste,
-    // ele dispara depois do afterEach ja ter feito unstubAllGlobals() e cai no
-    // fetch REAL com uma URL relativa — `new URL` estoura e derruba o arquivo.
-    // Isso nao acontece com a maquina ociosa, so sob os 20 workers da suite
-    // cheia, e foi assim que este teste virou vermelho intermitente no CI.
-    // Desmontar primeiro faz `cancelled` virar true e o callback sair cedo; as
-    // chamadas ja registradas no fetchMock continuam disponiveis para o assert.
-=======
     // Drain controlled timers and unmount before releasing the fetch stub.
->>>>>>> upstream/main
     mounted.unmount();
 
     expect(fetchMock).not.toHaveBeenCalledWith(
@@ -148,14 +133,6 @@ describe("useProviderModels upstream auto-fetch", () => {
     const mounted = await renderProviderModels();
     await flushQueuedSync();
 
-<<<<<<< HEAD
-    // Mesmo motivo do teste acima: desmontar fecha a janela do timer vazado.
-    mounted.unmount();
-
-    expect(fetchMock).toHaveBeenCalledWith("/api/providers/connection-1/sync-models?mode=sync", {
-      method: "POST",
-    });
-=======
     expect(fetchMock).toHaveBeenCalledWith("/api/providers/connection-1/sync-models?mode=sync", {
       method: "POST",
     });
@@ -229,6 +206,5 @@ describe("useProviderModels upstream auto-fetch", () => {
       "/api/providers/connection-inactive/sync-models?mode=sync",
       expect.anything()
     );
->>>>>>> upstream/main
   });
 });

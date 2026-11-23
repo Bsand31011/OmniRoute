@@ -25,21 +25,14 @@ const { recordLearnedReasoningEffort, __test_resetLearnedReasoningEffortCaps } =
 
 async function resetStorage() {
   core.resetDbInstance();
-<<<<<<< HEAD
-  fs.rmSync(TEST_DATA_DIR, { recursive: true, force: true });
-=======
   fs.rmSync(TEST_DATA_DIR, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
->>>>>>> upstream/main
   fs.mkdirSync(TEST_DATA_DIR, { recursive: true });
 }
 
 const PROVIDER = "c1prov";
 const MODEL_ID = "c1-model";
-<<<<<<< HEAD
-=======
 const PROVIDER2 = "c2prov";
 const MODEL_NO_TIERS = "c2-model";
->>>>>>> upstream/main
 
 async function seed() {
   const connection = await providersDb.createProviderConnection({
@@ -54,8 +47,6 @@ async function seed() {
   await modelDiscovery.persistDiscoveredModels(PROVIDER, connection.id, [
     { id: MODEL_ID, reasoning: { supported_efforts: ["none", "low", "medium", "high"] } },
   ]);
-<<<<<<< HEAD
-=======
   const connection2 = await providersDb.createProviderConnection({
     provider: PROVIDER2,
     authType: "apikey",
@@ -70,7 +61,6 @@ async function seed() {
     { id: MODEL_NO_TIERS },
     { id: `${MODEL_NO_TIERS}-low`, name: "Literal low model" },
   ]);
->>>>>>> upstream/main
 }
 
 test.beforeEach(async () => {
@@ -81,11 +71,7 @@ test.beforeEach(async () => {
 
 test.after(async () => {
   core.resetDbInstance();
-<<<<<<< HEAD
-  fs.rmSync(TEST_DATA_DIR, { recursive: true, force: true });
-=======
   fs.rmSync(TEST_DATA_DIR, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
->>>>>>> upstream/main
 });
 
 test("-max resolves once the learned set advertises it (sync metadata does not)", async () => {
@@ -108,8 +94,6 @@ test("a tier neither learned nor synced is left untouched (literal id)", async (
   const info = await getModelInfo(`${PROVIDER}/${MODEL_ID}-ultra`);
   assert.equal(info.resolvedThinkingEffort, undefined);
 });
-<<<<<<< HEAD
-=======
 
 test("strips a learned-only tier suffix when the synced model declares no tiers", async () => {
   recordLearnedReasoningEffort("c2-learn-conn", MODEL_NO_TIERS, ["low", "medium", "xhigh"]);
@@ -138,4 +122,3 @@ test("strips a learned-only tier suffix for a registry model without declared ti
   assert.equal(info.model, "gpt-5");
   assert.equal(info.resolvedThinkingEffort, "low");
 });
->>>>>>> upstream/main

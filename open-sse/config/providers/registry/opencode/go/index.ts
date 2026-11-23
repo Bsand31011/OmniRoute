@@ -425,8 +425,6 @@ export const opencode_goProvider: RegistryEntry = {
       supportedThinkingEfforts: ["none", "low", "high", "max"],
       targetFormat: "openai-responses",
     },
-<<<<<<< HEAD
-=======
     // Experimental vision variant of DeepSeek V4 Flash. Declared explicitly so the
     // combo vision filter and the Vision Bridge do not rely on the `-vision` id
     // heuristic. Remove the row if the upstream retires the `-exp` id.
@@ -541,7 +539,6 @@ export const opencode_goProvider: RegistryEntry = {
       maxInputTokens: 524288,
       maxOutputTokens: 524288,
     },
->>>>>>> upstream/main
     // Console Go free GLM-tier model (live-verified 2026-08-23): the upstream
     // rejects every reasoning_effort outside {low, high, max} whenever tools
     // are present — "[1210] This model always engages in thinking and cannot

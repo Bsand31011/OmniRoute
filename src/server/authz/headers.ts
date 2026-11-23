@@ -94,8 +94,6 @@ export const AUTHZ_HEADER_PEER_LOCALITY = "x-omniroute-peer-locality";
 export const AUTHZ_HEADER_TRUSTED_PEER_IP = "x-omniroute-trusted-peer-ip";
 
 /**
-<<<<<<< HEAD
-=======
  * The resolved client address, stamped by the pipeline AFTER verifying the
  * token-stamped CLIENT_IP_HEADER: the TCP peer on a direct connection, or the
  * client a trusted proxy reported for it (loopback / private-network /
@@ -111,7 +109,6 @@ export const AUTHZ_HEADER_TRUSTED_PEER_IP = "x-omniroute-trusted-peer-ip";
 export const AUTHZ_HEADER_TRUSTED_CLIENT_IP = "x-omniroute-trusted-client-ip";
 
 /**
->>>>>>> upstream/main
  * Headers the pipeline must NEVER trust on incoming requests. They are
  * stripped before route classification to prevent header-spoofing attacks.
  */
@@ -123,8 +120,5 @@ export const AUTHZ_TRUSTED_HEADERS: ReadonlyArray<string> = [
   AUTHZ_HEADER_AUTH_SCOPES,
   AUTHZ_HEADER_PEER_LOCALITY,
   AUTHZ_HEADER_TRUSTED_PEER_IP,
-<<<<<<< HEAD
-=======
   AUTHZ_HEADER_TRUSTED_CLIENT_IP,
->>>>>>> upstream/main
 ];

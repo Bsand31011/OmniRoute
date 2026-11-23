@@ -41,13 +41,8 @@ test("CLI_TOOLS total code entries (including none) equals 28 (23 visible + 5 no
   assert.equal(codeAll.length, 28, `Expected 28 total code entries, got ${codeAll.length}`);
 });
 
-<<<<<<< HEAD
-test("CLI_TOOLS total (code + agent) = 35", () => {
-  assert.equal(all.length, 35, `Expected 35 total entries, got ${all.length}`);
-=======
 test("CLI_TOOLS total (code + agent) = 39", () => {
   assert.equal(all.length, 39, `Expected 39 total entries, got ${all.length}`);
->>>>>>> upstream/main
 });
 
 test("All code-none entries have configType mitm OR are legacy excluded entries", () => {
@@ -106,11 +101,7 @@ test("The 23 visible code entries include Qwen Code's rebuilt integration, Zed a
   }
 });
 
-<<<<<<< HEAD
-test("The 9 agent entries match D15 list exactly (+ omp + letta #6318, + prime-agent #11166)", () => {
-=======
 test("The 11 agent entries match D15 list exactly (+ omp + letta #6318, + prime-agent #11166, + 5dive #11578, + whycodes #14096)", () => {
->>>>>>> upstream/main
   const d15Agents = new Set([
     "hermes-agent",
     "openclaw",
@@ -121,11 +112,8 @@ test("The 11 agent entries match D15 list exactly (+ omp + letta #6318, + prime-
     "omp",
     "letta",
     "prime-agent",
-<<<<<<< HEAD
-=======
     "5dive",
     "whycodes",
->>>>>>> upstream/main
   ]);
   const agentIds = new Set(agentAll.map((t) => t.id));
   for (const id of d15Agents) {

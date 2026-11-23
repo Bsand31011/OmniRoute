@@ -66,8 +66,6 @@ function formatInterval(hours: number): string {
   return hours === 168 ? "7d" : `${hours}h`;
 }
 
-<<<<<<< HEAD
-=======
 async function fetchSyncStatusData(): Promise<ModelsDevStatus | null> {
   try {
     const res = await fetch("/api/settings/models-dev?action=status");
@@ -78,7 +76,6 @@ async function fetchSyncStatusData(): Promise<ModelsDevStatus | null> {
   return null;
 }
 
->>>>>>> upstream/main
 export default function ModelsDevSyncTab() {
   const t = useTranslations("settings");
   const [status, setStatus] = useState<ModelsDevStatus | null>(null);
@@ -287,26 +284,6 @@ export default function ModelsDevSyncTab() {
         {/* Sync interval */}
         {enabled && (
           <div className="p-4 rounded-lg bg-surface/30 border border-border/30 mb-4">
-<<<<<<< HEAD
-            <div className="flex items-center justify-between mb-3">
-              <p className="text-sm font-medium">{t("modelsDevInterval")}</p>
-              <span className="text-sm font-mono tabular-nums text-blue-400">
-                {formatInterval(positionToHours(draftPos))}
-              </span>
-            </div>
-            <input
-              type="range"
-              min="0"
-              max={INTERVAL_CHECKPOINTS.length - 1}
-              step="any"
-              value={draftPos}
-              onChange={(e) => setDraftPos(parseFloat(e.target.value))}
-              onMouseUp={commitDraftInterval}
-              onTouchEnd={commitDraftInterval}
-              onBlur={commitDraftInterval}
-              aria-label={t("modelsDevInterval")}
-              className="w-full accent-blue-500"
-=======
             <Slider
               label={t("modelsDevInterval")}
               min={0}
@@ -318,7 +295,6 @@ export default function ModelsDevSyncTab() {
               onMouseUp={commitDraftInterval}
               onTouchEnd={commitDraftInterval}
               onBlur={commitDraftInterval}
->>>>>>> upstream/main
             />
             <div className="flex justify-between text-xs text-text-muted mt-1">
               <span>1h</span>

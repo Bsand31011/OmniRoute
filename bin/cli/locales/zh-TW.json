@@ -259,10 +259,7 @@
     "headless": "僅執行代理引擎：停用儀表板（404），略過選用子系統（設定 OMNIROUTE_HEADLESS=1）",
     "tray": "顯示系統托盤圖示（僅桌面，選擇加入）",
     "no_tray": "停用系統托盤圖示",
-<<<<<<< HEAD
-=======
     "ready_timeout": "就緒探測逾時（毫秒）（也可用 OMNIROUTE_READY_TIMEOUT_MS，預設 60000）",
->>>>>>> upstream/main
     "tls_cert": "用於提供 HTTPS 服務的 TLS 憑證（PEM）路徑（也可用 OMNIROUTE_TLS_CERT）",
     "tls_key": "用於提供 HTTPS 服務的 TLS 私鑰（PEM）路徑（也可用 OMNIROUTE_TLS_KEY）"
   },
@@ -1281,28 +1278,6 @@
     "update": "更新已安裝的外掛",
     "scaffold": "搭建新的外掛模板"
   },
-<<<<<<< HEAD
-  "authExport": {
-    "description": "匯出已解密的提供者憑據（僅限本機，明文輸出）",
-    "idOpt": "僅匯出與此 id/名稱/提供者相符的連線",
-    "formatOpt": "輸出格式：json 或 env",
-    "outOpt": "將輸出寫入檔案而非標準輸出（以 0600 權限寫入）",
-    "forceOpt": "確認你了解此操作會列印/寫入明文密鑰",
-    "warning": "⚠ 此操作會列印/寫入已解密的明文 API 金鑰和 OAuth 令牌。請確保你的螢幕、shell 歷史記錄以及任何輸出檔案保持私密。",
-    "confirmHeading": "⚠ 警告：此操作會以明文匯出已解密的提供者憑據",
-    "confirmBody": "此命令會為所選連線解密並列印/寫入 apiKey、accessToken、refreshToken 和\nidToken。請將輸出視為機密。",
-    "confirmFooter": "如需確認，請執行：\n  omniroute auth export --force",
-    "missingKey": "匯出憑據需要 STORAGE_ENCRYPTION_KEY。",
-    "notFound": "找不到連線：{id}",
-    "invalidFormat": "無效格式：{format}。請使用 json 或 env。"
-  },
-  "radar": {
-    "description": "檢查並同步本機 Radar 目錄訂閱來源",
-    "status": "顯示本機 Radar 設定和訂閱來源快取狀態",
-    "sync": "透過本機伺服器同步目錄、推薦、優惠和 Intel"
-  },
-=======
->>>>>>> upstream/main
   "launch": {
     "description": "啟動指向 OmniRoute 的 Claude Code（本機或遠端，使用 --profile）",
     "token": "Claude 用戶端應傳送的令牌（ANTHROPIC_AUTH_TOKEN）",

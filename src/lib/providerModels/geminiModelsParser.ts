@@ -12,11 +12,8 @@
  * Imagen and Veo via long-running methods on the same endpoint:
  *   - id contains "veo"    → ensure "videos"
  *   - id contains "imagen" → force "images" (never "videos")
-<<<<<<< HEAD
-=======
  *   - Gemini *-tts[-preview] via generateContent → "audio-speech"
  *   - Gemini *-transcribe via generateContent  → "audio-transcriptions"
->>>>>>> upstream/main
  *
  * Note: `gemini-*-image` models (e.g. gemini-3-pro-image) generate images via the
  * regular `generateContent` path, so they stay "chat" (image output is a chat
@@ -59,8 +56,6 @@ export interface GeminiDiscoveryModel {
   [key: string]: unknown;
 }
 
-<<<<<<< HEAD
-=======
 /** Keep specialty inference outside the catalog parsing hot path. */
 function inferGeminiAudioEndpoint(
   lowerId: string,
@@ -72,7 +67,6 @@ function inferGeminiAudioEndpoint(
   return null;
 }
 
->>>>>>> upstream/main
 export function parseGeminiModelsList(data: any): GeminiDiscoveryModel[] {
   return (data?.models || [])
     .map((m: Record<string, unknown>) => {
@@ -88,31 +82,20 @@ export function parseGeminiModelsList(data: any): GeminiDiscoveryModel[] {
 
       const id = ((m.name as string) || (m.id as string) || "").replace(/^models\//, "");
       const lowerId = id.toLowerCase();
-<<<<<<< HEAD
-=======
       let inferredById = false;
->>>>>>> upstream/main
 
       // Google exposes Imagen (image) and Veo (video) via long-running methods; the
       // method alone can't always distinguish them, so refine by model id.
       if (lowerId.includes("veo")) {
-<<<<<<< HEAD
-        endpoints.add("videos");
-      }
-      if (lowerId.includes("imagen")) {
-=======
         inferredById = true;
         endpoints.add("videos");
       }
       if (lowerId.includes("imagen")) {
         inferredById = true;
->>>>>>> upstream/main
         endpoints.delete("videos");
         endpoints.add("images");
       }
 
-<<<<<<< HEAD
-=======
       // Lyria generates music, not chat responses, even when advertised via
       // generateContent. A matching Vertex music adapter exists, but AI Studio
       // must remain visibly unsupported until it has its own adapter.
@@ -142,7 +125,6 @@ export function parseGeminiModelsList(data: any): GeminiDiscoveryModel[] {
       ) {
         return null;
       }
->>>>>>> upstream/main
       if (endpoints.size === 0) endpoints.add("chat");
 
       return {
@@ -150,8 +132,6 @@ export function parseGeminiModelsList(data: any): GeminiDiscoveryModel[] {
         id,
         name: (m.displayName as string) || id,
         supportedEndpoints: [...endpoints],
-<<<<<<< HEAD
-=======
         endpointCapabilitySource: inferredById
           ? "inferred"
           : methods.some((method) =>
@@ -159,19 +139,14 @@ export function parseGeminiModelsList(data: any): GeminiDiscoveryModel[] {
               )
             ? "declared"
             : "defaulted",
->>>>>>> upstream/main
         ...(typeof m.inputTokenLimit === "number" ? { inputTokenLimit: m.inputTokenLimit } : {}),
         ...(typeof m.outputTokenLimit === "number" ? { outputTokenLimit: m.outputTokenLimit } : {}),
         ...(typeof m.description === "string" ? { description: m.description } : {}),
         ...(m.thinking === true ? { supportsThinking: true } : {}),
       } as GeminiDiscoveryModel;
     })
-<<<<<<< HEAD
-    .filter((model: GeminiDiscoveryModel) => !RETIRED_GEMINI_MODEL_IDS.has(model.id));
-=======
     .filter(
       (model: GeminiDiscoveryModel | null): model is GeminiDiscoveryModel =>
         Boolean(model) && !RETIRED_GEMINI_MODEL_IDS.has(model.id)
     );
->>>>>>> upstream/main
 }

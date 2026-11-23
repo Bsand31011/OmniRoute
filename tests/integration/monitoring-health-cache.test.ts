@@ -132,10 +132,7 @@ test("concurrent cold-cache GETs share one health payload rebuild", async () => 
 });
 
 test("DELETE (circuit-breaker reset) invalidates the cache immediately", async () => {
-<<<<<<< HEAD
-=======
   __test_resetMonitoringHealthPayloadCache();
->>>>>>> upstream/main
   const t1 = await healthTimestamp(); // populate cache
   const delRes = await DELETE(authedRequest("DELETE"));
   assert.ok(delRes.status < 400, `DELETE should succeed, got ${delRes.status}`);

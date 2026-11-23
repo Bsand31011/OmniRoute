@@ -25,11 +25,7 @@ const scriptPath = "scripts/router-eval/index.ts";
 // DATA_DIR — the exact resolution the guard message prescribes — instead of loosening
 // the assertions.
 const cliDataDir = mkdtempSync(join(tmpdir(), "router-eval-cli-datadir-"));
-<<<<<<< HEAD
-after(() => rmSync(cliDataDir, { recursive: true, force: true }));
-=======
 after(() => rmSync(cliDataDir, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 }));
->>>>>>> upstream/main
 
 function runCli(args: string[]) {
   return spawnSync(process.execPath, ["--import", "tsx", scriptPath, ...args], {

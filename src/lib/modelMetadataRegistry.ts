@@ -46,11 +46,8 @@ type JsonRecord = Record<string, unknown>;
 
 export interface CatalogEnrichmentSnapshot {
   modelsDevPricing: PricingByProvider | null;
-<<<<<<< HEAD
-=======
   /** #15528: bulk-loaded user `pricing` namespace (PATCH /api/pricing overrides). */
   userPricing?: UserPricingByProvider | null;
->>>>>>> upstream/main
   providerNodeIdsByPrefix?: Readonly<Record<string, string>>;
   /** #9147: build-local bulk load of synced capabilities + token/context overrides
    * so per-entry enrichment never hits SQLite again (see catalogResponse.ts). */

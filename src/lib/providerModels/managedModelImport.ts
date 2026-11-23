@@ -23,11 +23,6 @@ import {
   isDiscoverableAntigravityModelId,
 } from "@omniroute/open-sse/config/antigravityModelAliases.ts";
 import { isDiscoverableAgyModelId } from "@omniroute/open-sse/config/agyModels.ts";
-<<<<<<< HEAD
-import { filterChatSelectableModels } from "@omniroute/open-sse/services/modelEndpointPolicy.ts";
-import { filterSelectableModels } from "@omniroute/open-sse/services/modelLifecycle.ts";
-import { isSelfHostedChatProvider } from "@/shared/constants/providers";
-=======
 import {
   declaresOnlyNonChatEndpoints,
   filterChatSelectableModels,
@@ -35,7 +30,6 @@ import {
 import { filterSelectableModels } from "@omniroute/open-sse/services/modelLifecycle.ts";
 import { isSelfHostedChatProvider } from "@/shared/constants/providers";
 import type { VertexModelMetadataProvenance } from "@/lib/providerModels/vertexModelMetadata";
->>>>>>> upstream/main
 
 type JsonRecord = Record<string, unknown>;
 

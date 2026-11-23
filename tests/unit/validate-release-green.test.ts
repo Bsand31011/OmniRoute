@@ -18,8 +18,6 @@ const {
   fullCiTimeoutFor,
   curatedEquivalentId,
   fullCiKindFor,
-<<<<<<< HEAD
-=======
   ESLINT_TIMEOUT_MS,
   unitShardCountFromCi,
   shardCountFromCi,
@@ -29,7 +27,6 @@ const {
   unitShardPool,
   runPool,
   mergeUnitShardResults,
->>>>>>> upstream/main
 } = mod;
 
 const extract = extractCiGates as (
@@ -577,8 +574,6 @@ test("extractCiGates: the REAL ci.yml yields the base-reds that leaked in v3.8.4
   assert.ok(ids.size >= 20, "the real gate set is substantial (>= 20 static gates)");
 });
 
-<<<<<<< HEAD
-=======
 test("validate-release-green parses workflow YAML via the declared js-yaml dependency", async () => {
   const fs = await import("node:fs");
   const src = fs.readFileSync(
@@ -589,7 +584,6 @@ test("validate-release-green parses workflow YAML via the declared js-yaml depen
   assert.doesNotMatch(src, /from ["']yaml["']/);
 });
 
->>>>>>> upstream/main
 // ─── Verdict accuracy (review of the #9985 release-green verdict) ────────────
 
 test("firstFailureLine never blames a PASSING line whose test FILE NAME contains 'fail' (#9985)", () => {
@@ -703,8 +697,6 @@ test("the --full-ci loop classifies from the curated results, not a hardcoded ki
     "--full-ci must classify each ci.yml gate through fullCiKindFor()"
   );
 });
-<<<<<<< HEAD
-=======
 
 test("extractCiGates: skips steps guarded to pull_request events (no PR range outside a PR)", () => {
   const yaml = `
@@ -815,4 +807,3 @@ test("--suites-from replaces the local suite lanes and keeps only the build on t
   assert.match(src, /const BUILD_GATE_ENV = \{ OMNIROUTE_BUILD_MEMORY_MB: "12288" \};/);
   assert.match(src, /args: \["run", "build:cli"\], env: BUILD_GATE_ENV/);
 });
->>>>>>> upstream/main

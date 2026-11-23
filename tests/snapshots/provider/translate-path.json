@@ -2713,15 +2713,9 @@
         "X-Initiator": "user",
         "copilot-harness-id": "copilot-sdk",
         "copilot-integration-id": "copilot-developer-cli",
-<<<<<<< HEAD
-        "editor-version": "copilot/1.0.81-6",
-        "openai-intent": "conversation-agent",
-        "user-agent": "copilot/1.0.81-6",
-=======
         "editor-version": "copilot/1.0.91",
         "openai-intent": "conversation-agent",
         "user-agent": "copilot/1.0.91 (linux) term/unknown",
->>>>>>> upstream/main
         "x-client-machine-id": "<UUID>",
         "x-github-api-version": "2026-08-01",
         "x-interaction-type": "conversation-user"
@@ -2733,15 +2727,9 @@
         "X-Initiator": "user",
         "copilot-harness-id": "copilot-sdk",
         "copilot-integration-id": "copilot-developer-cli",
-<<<<<<< HEAD
-        "editor-version": "copilot/1.0.81-6",
-        "openai-intent": "conversation-agent",
-        "user-agent": "copilot/1.0.81-6",
-=======
         "editor-version": "copilot/1.0.91",
         "openai-intent": "conversation-agent",
         "user-agent": "copilot/1.0.91 (linux) term/unknown",
->>>>>>> upstream/main
         "x-client-machine-id": "<UUID>",
         "x-github-api-version": "2026-08-01",
         "x-interaction-type": "conversation-user"
@@ -2753,15 +2741,9 @@
         "X-Initiator": "user",
         "copilot-harness-id": "copilot-sdk",
         "copilot-integration-id": "copilot-developer-cli",
-<<<<<<< HEAD
-        "editor-version": "copilot/1.0.81-6",
-        "openai-intent": "conversation-agent",
-        "user-agent": "copilot/1.0.81-6",
-=======
         "editor-version": "copilot/1.0.91",
         "openai-intent": "conversation-agent",
         "user-agent": "copilot/1.0.91 (linux) term/unknown",
->>>>>>> upstream/main
         "x-client-machine-id": "<UUID>",
         "x-github-api-version": "2026-08-01",
         "x-interaction-type": "conversation-user"
@@ -2828,15 +2810,9 @@
         "X-Initiator": "user",
         "copilot-harness-id": "copilot-sdk",
         "copilot-integration-id": "copilot-developer-cli",
-<<<<<<< HEAD
-        "editor-version": "copilot/1.0.81-6",
-        "openai-intent": "conversation-agent",
-        "user-agent": "copilot/1.0.81-6",
-=======
         "editor-version": "copilot/1.0.91",
         "openai-intent": "conversation-agent",
         "user-agent": "copilot/1.0.91 (linux) term/unknown",
->>>>>>> upstream/main
         "x-client-machine-id": "<UUID>",
         "x-github-api-version": "2026-08-01",
         "x-interaction-type": "conversation-user",
@@ -2849,15 +2825,9 @@
         "X-Initiator": "user",
         "copilot-harness-id": "copilot-sdk",
         "copilot-integration-id": "copilot-developer-cli",
-<<<<<<< HEAD
-        "editor-version": "copilot/1.0.81-6",
-        "openai-intent": "conversation-agent",
-        "user-agent": "copilot/1.0.81-6",
-=======
         "editor-version": "copilot/1.0.91",
         "openai-intent": "conversation-agent",
         "user-agent": "copilot/1.0.91 (linux) term/unknown",
->>>>>>> upstream/main
         "x-client-machine-id": "<UUID>",
         "x-github-api-version": "2026-08-01",
         "x-interaction-type": "conversation-user",
@@ -2870,15 +2840,9 @@
         "X-Initiator": "user",
         "copilot-harness-id": "copilot-sdk",
         "copilot-integration-id": "copilot-developer-cli",
-<<<<<<< HEAD
-        "editor-version": "copilot/1.0.81-6",
-        "openai-intent": "conversation-agent",
-        "user-agent": "copilot/1.0.81-6",
-=======
         "editor-version": "copilot/1.0.91",
         "openai-intent": "conversation-agent",
         "user-agent": "copilot/1.0.91 (linux) term/unknown",
->>>>>>> upstream/main
         "x-client-machine-id": "<UUID>",
         "x-github-api-version": "2026-08-01",
         "x-interaction-type": "conversation-user",

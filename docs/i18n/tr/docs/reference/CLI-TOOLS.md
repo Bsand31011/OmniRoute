@@ -1,35 +1,3 @@
-<<<<<<< HEAD
----
-title: "CLI Araçları — OmniRoute"
-version: 3.8.50
-lastUpdated: 2026-08-23
----
-
-# CLI Araçları — OmniRoute (Türkçe)
-
-🌐 **Languages:** 🇺🇸 [English](../../../../docs/reference/CLI-TOOLS.md) · 🇸🇦 [ar](../../ar/docs/reference/CLI-TOOLS.md) · 🇧🇬 [bg](../../bg/docs/reference/CLI-TOOLS.md) · 🇧🇩 [bn](../../bn/docs/reference/CLI-TOOLS.md) · 🇨🇿 [cs](../../cs/docs/reference/CLI-TOOLS.md) · 🇩🇰 [da](../../da/docs/reference/CLI-TOOLS.md) · 🇩🇪 [de](../../de/docs/reference/CLI-TOOLS.md) · 🇪🇸 [es](../../es/docs/reference/CLI-TOOLS.md) · 🇮🇷 [fa](../../fa/docs/reference/CLI-TOOLS.md) · 🇫🇮 [fi](../../fi/docs/reference/CLI-TOOLS.md) · 🇫🇷 [fr](../../fr/docs/reference/CLI-TOOLS.md) · 🇮🇳 [gu](../../gu/docs/reference/CLI-TOOLS.md) · 🇮🇱 [he](../../he/docs/reference/CLI-TOOLS.md) · 🇮🇳 [hi](../../hi/docs/reference/CLI-TOOLS.md) · 🇭🇺 [hu](../../hu/docs/reference/CLI-TOOLS.md) · 🇮🇩 [id](../../id/docs/reference/CLI-TOOLS.md) · 🇮🇹 [it](../../it/docs/reference/CLI-TOOLS.md) · 🇯🇵 [ja](../../ja/docs/reference/CLI-TOOLS.md) · 🇰🇷 [ko](../../ko/docs/reference/CLI-TOOLS.md) · 🇮🇳 [mr](../../mr/docs/reference/CLI-TOOLS.md) · 🇲🇾 [ms](../../ms/docs/reference/CLI-TOOLS.md) · 🇳🇱 [nl](../../nl/docs/reference/CLI-TOOLS.md) · 🇳🇴 [no](../../no/docs/reference/CLI-TOOLS.md) · 🇵🇭 [phi](../../phi/docs/reference/CLI-TOOLS.md) · 🇵🇱 [pl](../../pl/docs/reference/CLI-TOOLS.md) · 🇵🇹 [pt](../../pt/docs/reference/CLI-TOOLS.md) · 🇧🇷 [pt-BR](../../pt-BR/docs/reference/CLI-TOOLS.md) · 🇷🇴 [ro](../../ro/docs/reference/CLI-TOOLS.md) · 🇷🇺 [ru](../../ru/docs/reference/CLI-TOOLS.md) · 🇸🇰 [sk](../../sk/docs/reference/CLI-TOOLS.md) · 🇸🇪 [sv](../../sv/docs/reference/CLI-TOOLS.md) · 🇰🇪 [sw](../../sw/docs/reference/CLI-TOOLS.md) · 🇮🇳 [ta](../../ta/docs/reference/CLI-TOOLS.md) · 🇮🇳 [te](../../te/docs/reference/CLI-TOOLS.md) · 🇹🇭 [th](../../th/docs/reference/CLI-TOOLS.md) · 🇹🇷 [tr](../../tr/docs/reference/CLI-TOOLS.md) · 🇺🇦 [uk-UA](../../uk-UA/docs/reference/CLI-TOOLS.md) · 🇵🇰 [ur](../../ur/docs/reference/CLI-TOOLS.md) · 🇻🇳 [vi](../../vi/docs/reference/CLI-TOOLS.md) · 🇨🇳 [zh-CN](../../zh-CN/docs/reference/CLI-TOOLS.md)
-
----
-
-OmniRoute, üç özel pano sayfasına yayılmış üç CLI araçları kategorisiyle entegre olur:
-
-| Sayfa          | Rota                    | Konsept                                                                    | Sayı         |
-| -------------- | ----------------------- | -------------------------------------------------------------------------- | ------------ |
-| **CLI Code's** | `/dashboard/cli-code`   | OmniRoute'a yönlendirdiğiniz kodlama araçları (İstemci → CLI → OmniRoute → Sağlayıcı) | 26           |
-| **CLI Ajanları**| `/dashboard/cli-agents` | OmniRoute'a yönlendirdiğiniz özerk ajanlar (aynı akış, daha geniş kapsam)  | 8            |
-| **ACP Ajanları**| `/dashboard/acp-agents` | OmniRoute'un stdio/ACP ile başlattığı CLI'lar (ters başlatma akışı)       | bkz. kayıt   |
-
----
-
-## Nasıl Çalışır?
-
-```
-CLI Araçları (Tüketim Akışı):
-Claude / Codex / OpenCode / Cline / KiloCode / Continue / Hermes / Goose / ...
-           │
-           ▼  (hepsi OmniRoute'a yönlendirilir)
-    http://SUNUCUNUZ:20128/v1
-=======
 # CLI Tools — OmniRoute (Türkçe)
 
 🌐 **Languages:** 🇺🇸 [English](../../../../reference/CLI-TOOLS.md) · 🇪🇹 [am](../../../am/docs/reference/CLI-TOOLS.md) · 🇸🇦 [ar](../../../ar/docs/reference/CLI-TOOLS.md) · 🇦🇿 [az](../../../az/docs/reference/CLI-TOOLS.md) · 🇧🇬 [bg](../../../bg/docs/reference/CLI-TOOLS.md) · 🇧🇩 [bn](../../../bn/docs/reference/CLI-TOOLS.md) · 🇧🇦 [bs](../../../bs/docs/reference/CLI-TOOLS.md) · 🇨🇿 [cs](../../../cs/docs/reference/CLI-TOOLS.md) · 🇩🇰 [da](../../../da/docs/reference/CLI-TOOLS.md) · 🇩🇪 [de](../../../de/docs/reference/CLI-TOOLS.md) · 🇬🇷 [el](../../../el/docs/reference/CLI-TOOLS.md) · 🇪🇸 [es](../../../es/docs/reference/CLI-TOOLS.md) · 🇪🇪 [et](../../../et/docs/reference/CLI-TOOLS.md) · 🇮🇷 [fa](../../../fa/docs/reference/CLI-TOOLS.md) · 🇫🇮 [fi](../../../fi/docs/reference/CLI-TOOLS.md) · 🇫🇷 [fr](../../../fr/docs/reference/CLI-TOOLS.md) · 🇮🇪 [ga](../../../ga/docs/reference/CLI-TOOLS.md) · 🇮🇳 [gu](../../../gu/docs/reference/CLI-TOOLS.md) · 🇳🇬 [ha](../../../ha/docs/reference/CLI-TOOLS.md) · 🇮🇱 [he](../../../he/docs/reference/CLI-TOOLS.md) · 🇮🇳 [hi](../../../hi/docs/reference/CLI-TOOLS.md) · 🇭🇷 [hr](../../../hr/docs/reference/CLI-TOOLS.md) · 🇭🇺 [hu](../../../hu/docs/reference/CLI-TOOLS.md) · 🇦🇲 [hy](../../../hy/docs/reference/CLI-TOOLS.md) · 🇮🇩 [id](../../../id/docs/reference/CLI-TOOLS.md) · 🇳🇬 [ig](../../../ig/docs/reference/CLI-TOOLS.md) · 🇮🇹 [it](../../../it/docs/reference/CLI-TOOLS.md) · 🇯🇵 [ja](../../../ja/docs/reference/CLI-TOOLS.md) · 🇬🇪 [ka](../../../ka/docs/reference/CLI-TOOLS.md) · 🇰🇭 [km](../../../km/docs/reference/CLI-TOOLS.md) · 🇮🇳 [kn](../../../kn/docs/reference/CLI-TOOLS.md) · 🇰🇷 [ko](../../../ko/docs/reference/CLI-TOOLS.md) · 🇱🇹 [lt](../../../lt/docs/reference/CLI-TOOLS.md) · 🇱🇻 [lv](../../../lv/docs/reference/CLI-TOOLS.md) · 🇮🇳 [ml](../../../ml/docs/reference/CLI-TOOLS.md) · 🇮🇳 [mr](../../../mr/docs/reference/CLI-TOOLS.md) · 🇲🇾 [ms](../../../ms/docs/reference/CLI-TOOLS.md) · 🇲🇹 [mt](../../../mt/docs/reference/CLI-TOOLS.md) · 🇲🇲 [my](../../../my/docs/reference/CLI-TOOLS.md) · 🇳🇵 [ne](../../../ne/docs/reference/CLI-TOOLS.md) · 🇳🇱 [nl](../../../nl/docs/reference/CLI-TOOLS.md) · 🇳🇴 [no](../../../no/docs/reference/CLI-TOOLS.md) · 🇮🇳 [or](../../../or/docs/reference/CLI-TOOLS.md) · 🇮🇳 [pa](../../../pa/docs/reference/CLI-TOOLS.md) · 🇵🇭 [phi](../../../phi/docs/reference/CLI-TOOLS.md) · 🇵🇱 [pl](../../../pl/docs/reference/CLI-TOOLS.md) · 🇵🇹 [pt](../../../pt/docs/reference/CLI-TOOLS.md) · 🇧🇷 [pt-BR](../../../pt-BR/docs/reference/CLI-TOOLS.md) · 🇷🇴 [ro](../../../ro/docs/reference/CLI-TOOLS.md) · 🇷🇺 [ru](../../../ru/docs/reference/CLI-TOOLS.md) · 🇱🇰 [si](../../../si/docs/reference/CLI-TOOLS.md) · 🇸🇰 [sk](../../../sk/docs/reference/CLI-TOOLS.md) · 🇸🇮 [sl](../../../sl/docs/reference/CLI-TOOLS.md) · 🇷🇸 [sr](../../../sr/docs/reference/CLI-TOOLS.md) · 🇸🇪 [sv](../../../sv/docs/reference/CLI-TOOLS.md) · 🇰🇪 [sw](../../../sw/docs/reference/CLI-TOOLS.md) · 🇮🇳 [ta](../../../ta/docs/reference/CLI-TOOLS.md) · 🇮🇳 [te](../../../te/docs/reference/CLI-TOOLS.md) · 🇹🇭 [th](../../../th/docs/reference/CLI-TOOLS.md) · 🇺🇦 [uk-UA](../../../uk-UA/docs/reference/CLI-TOOLS.md) · 🇵🇰 [ur](../../../ur/docs/reference/CLI-TOOLS.md) · 🇺🇿 [uz](../../../uz/docs/reference/CLI-TOOLS.md) · 🇻🇳 [vi](../../../vi/docs/reference/CLI-TOOLS.md) · 🇳🇬 [yo](../../../yo/docs/reference/CLI-TOOLS.md) · 🇨🇳 [zh-CN](../../../zh-CN/docs/reference/CLI-TOOLS.md) · 🇹🇼 [zh-TW](../../../zh-TW/docs/reference/CLI-TOOLS.md)
@@ -58,39 +26,26 @@ Claude / Codex / OpenCode / Cline / KiloCode / Continue / Hermes Agent / Goose /
            │
            ▼  (tümü OmniRoute'a yönlendirilir)
     http://YOUR_SERVER:20128/v1
->>>>>>> upstream/main
            │
            ▼  (OmniRoute, isteği doğru sağlayıcıya yönlendirir)
     Anthropic / OpenAI / Gemini / DeepSeek / Groq / Mistral / ...
-<<<<<<< HEAD
-=======
 
 ACP Aracıları (ters başlatma akışı):
     İstemci isteği → OmniRoute → CLI'ı stdio/ACP aracılığıyla başlatır → yanıt
->>>>>>> upstream/main
 ```
 
 **Avantajlar:**
 
 - Tüm araçları yönetmek için tek bir API anahtarı
 - Panoda tüm CLI'lar genelinde maliyet takibi
-<<<<<<< HEAD
-- Her aracı yeniden yapılandırmadan anında model değiştirme
-- Yerel ortamda ve uzak sunucularda (VPS, Docker, Cloudflare Tunnel) sorunsuz çalışma
-=======
 - Her aracı yeniden yapılandırmadan model değiştirme
 - Yerel olarak ve uzak sunucularda çalışır (VPS, Docker, Akamai, Cloudflare Tunnel)
->>>>>>> upstream/main
 
 ---
 
 ## `setup-*` ile otomatik yapılandırma
 
-<<<<<<< HEAD
-Her aracın yapılandırmasını elle yazmanıza gerek yoktur:
-=======
 Her aracın yapılandırmasını elle yazmanıza gerek yoktur. OmniRoute desteklenen CLI başına şunu okuyan bir `setup-*` komutu gönderir:** canlı** çalışan bir OmniRoute (yerel veya uzak) model kataloğunu alır ve aracın kendi yapılandırmasını makinenize yazar:
->>>>>>> upstream/main
 
 ```bash
 omniroute setup-codex        omniroute setup-claude       omniroute setup-opencode
@@ -100,8 +55,6 @@ omniroute setup-goose        omniroute setup-qwen         omniroute setup-aider
 omniroute setup-5dive        omniroute setup-zed
 omniroute setup-whycodes
 ```
-<<<<<<< HEAD
-=======
 
 Her biri `--remote <url> --api-key <key>` (uzak bir OmniRoute karşı yerel bir araç yapılandırma), `--dry-run` (yazmadan önizleme) ve `--port` kabul eder. Otomatik model bulma özelliğine sahip olmayan araçlar (Cline, Kilo, Roo, Goose, Aider, Qwen, 5dive, WhyCodes) `--model <id>` (ve etkileşimli olmayan çalışmalar için `--yes` ) alır. `setup-5dive` `$HOME` altına yazılmayan tek tariftir: filo ana bilgisayarına root'a ait bir kimlik doğrulama profili yazarak 5dive aracı filosunu yapılandırır, böylece `sudo` aracılığıyla yeniden çalıştırılır ve kendine ait bir uzaktan modu yoktur. Doğru env enjekte edilmiş ve hiçbir yapılandırma yazılmamış bir CLI başlatmak için genel `omniroute run <target>` başlatıcısını kullanın (claude, codex, aider, goose, opencode, qwen, gemini, Whycodes — hedefler ve takma adlar `bin/cli/cli-manifest.mjs` gelir); eski araç başına başlatıcılar `omniroute launch` (Claude Code) ve `omniroute launch-codex` (Codex) kullanılabilir durumda kalır. Gemini CLI yalnızca başlatma amaçlıdır: bir `omniroute run` hedefidir ancak `setup-*`/`configure` tarifi yoktur.
 
@@ -863,4 +816,3 @@ omniroute --output json keys policy show KEY_ID
 `--rate-limit 30`, dakika başına istek sayısını ayarlar ve diğer zaman aralıklarına yönelik kuralları korur. `--max-cost 5`, haftalık üst sınırı değiştirmeden günlük USD üst sınırını etkinleştirir; `--max-cost 0`, günlük üst sınırı kaldırır ve mevcut kullanım sınırı ayarıyla haftalık üst sınırı korur. Belirtilmeyen politika alanları değiştirilmeden kalır. Hız değişiklikleri önce mevcut politikayı okur; aynı anahtarın hız sınırı dizisinde eş zamanlı düzenlemeler yapmaktan kaçının.
 
 Politika komutları, kimliği doğrulanmış `GET`/`PATCH /api/keys/{id}` kullanır ve etkin bağlama ve genel `--api-key` seçeneğine uyar. JSON çıktısı yalnızca politika alanlarını içerir; saklanan anahtarı veya anahtarın maskelenmiş gösterimini içermez. Yalnızca çıkarım için kullanılan bir kimlik bilgisi, yönetim değişikliklerine yetki veremez. 401/403 yanıtı, yönetim kimlik bilgisinin ve bağlamın kontrol edilmesini gerektirir; yerel bir CLI belirteci veya salt hatasını kanıtlamaz. Ayrı yerel kimlik doğrulama sözleşmesi için [CLI Belirteci](../security/CLI_TOKEN.md) bölümüne bakın.
->>>>>>> upstream/main

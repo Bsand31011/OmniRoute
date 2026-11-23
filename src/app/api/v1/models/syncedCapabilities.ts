@@ -12,30 +12,15 @@
  * model-scoped: executors record under connection ids while this module sees
  * provider ids, so an exact provider:model key would always miss.
  *
-<<<<<<< HEAD
- * Exclusion gate: `ownedBy` is REQUIRED and checked against
- * `isSkippedEffortProvider` (codex/glm/kimi — providers that already own a
- * conflicting `-{effort}` suffix mechanism, see syncedEffortVariants.ts, #7694).
- * Without this, the blind opencode-plugin mapping (`capabilities.effort_tiers`
- * -> ModelV2 `variants`) would double-handle those providers' native suffix
- * ids. `shouldExposeSyncedEffortVariants` gates only the *synthetic*
- * `<id>-<tier>` catalog entries (open-sse/utils/syncedEffortVariants.ts) — it
- * never runs over the base entry's `capabilities`, so it cannot substitute
- * for this check. Required (not optional) so no call site can silently skip it.
-=======
  * Kimi and GLM keep their existing suffix mechanisms. Kimi K3 base models
  * may expose their native tiers without generating synthetic suffix entries.
  * Codex discovery advertises wire efforts from upstream metadata; generated
  * variants drop effort_tiers to prevent clients from appending a second suffix.
->>>>>>> upstream/main
  */
 // Use the same canonical alias as catalogModelPolicy.ts (l.1) — a relative path from
 // src/app/api/v1/models/ to open-sse/ would need 5 `../` and silently breaks under
 // refactors. (Confirmed convention: grep "from \"@omniroute/open-sse" src/app/api/v1/models/)
-<<<<<<< HEAD
-=======
 import { getCodexWireEfforts } from "@/shared/reasoning/codexEfforts";
->>>>>>> upstream/main
 import { getLearnedReasoningEffortForModel } from "@omniroute/open-sse/services/learnedReasoningEffortCaps.ts";
 import { isSkippedEffortProvider } from "@omniroute/open-sse/utils/syncedEffortVariants.ts";
 import {
@@ -50,10 +35,6 @@ interface SyncedCapabilityFlags {
   supportedThinkingEfforts?: string[];
 }
 
-<<<<<<< HEAD
-function effectiveEffortTiers(sm: SyncedCapabilityFlags, ownedBy: string): string[] | undefined {
-  if (isSkippedEffortProvider(ownedBy)) return undefined;
-=======
 // Model-id pattern for the Kimi K3 family (#12299): the kmca catalog syncs
 // `k3`/`k3-256k` (and prefixed forms such as `kmca/k3`). Same shape the
 // executor/translator layers use to recognize K3 elsewhere
@@ -79,7 +60,6 @@ function effectiveEffortTiers(sm: SyncedCapabilityFlags, ownedBy: string): strin
     const efforts = getCodexWireEfforts(sm.supportedThinkingEfforts || []);
     return efforts.length > 0 ? efforts : undefined;
   }
->>>>>>> upstream/main
   const learned = sm.id ? getLearnedReasoningEffortForModel(sm.id) : null;
   const synced =
     Array.isArray(sm.supportedThinkingEfforts) && sm.supportedThinkingEfforts.length > 0

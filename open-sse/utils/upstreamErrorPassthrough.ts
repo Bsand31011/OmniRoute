@@ -21,20 +21,10 @@ const EXCLUDED_STATUSES = new Set([401, 403, 407]);
 const INTERNAL_LEAK_RE = /\sat\s\/|node_modules|omniroute\//i;
 // #10898-sec / secret-in-error hardening: some providers echo the offending
 // request (including an Authorization header or api key) inside a 400/422/429
-<<<<<<< HEAD
-// validation body. Passthrough relays the body VERBATIM (the Claude Code
-// capability-recovery contract needs the exact wording), so we cannot key-drop
-// via sanitizeUpstreamDetails without breaking that contract. Instead, if the
-// body actually carries a credential pattern, REFUSE passthrough and let the
-// caller fall back to the sanitized buildErrorBody path. Bodies without a
-// secret (the overwhelming majority, carrying capability/quota wording) still
-// relay verbatim. Mirrors the vocabulary of redactSensitiveErrorText in error.ts.
-=======
 // validation body. If the body carries a credential pattern, REFUSE passthrough
 // before the recursive sanitizer so the caller falls back to buildErrorBody.
 // Eligible JSON retains its safe shape and capability/quota wording after the
 // recursive projection. Mirrors redactSensitiveErrorText in errorSanitization.ts.
->>>>>>> upstream/main
 const CREDENTIAL_LEAK_RE =
   /\b(?:Bearer|Basic)\s+[A-Za-z0-9._~+/=-]{8,}|\bsk-[A-Za-z0-9._-]{8,}|(?:api[_-]?key|access[_-]?token|refresh[_-]?token|authorization|cookie|secret)\\?["']?\s*[:=]\s*\\?["']?[^"'\\,\s}]{6,}/i;
 
@@ -52,11 +42,7 @@ export function shouldPassthroughUpstreamError(statusCode: number, upstreamBody:
   if (typeof text !== "string") return false;
   if (INTERNAL_LEAK_RE.test(text)) return false;
   // Refuse passthrough when the provider echoed a credential back to us.
-<<<<<<< HEAD
-  if (CREDENTIAL_LEAK_RE.test(text)) return false;
-=======
   if (CREDENTIAL_LEAK_RE.test(text) || containsSensitiveErrorCredential(text)) return false;
->>>>>>> upstream/main
   return true;
 }
 

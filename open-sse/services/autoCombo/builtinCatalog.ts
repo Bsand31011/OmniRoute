@@ -139,13 +139,9 @@ export function isPaidTierAutoId(autoId: string): boolean {
  * a candidate filter so the virtual combo only scores vision-capable models.
  */
 export type BuiltinAutoSpec =
-<<<<<<< HEAD
-  { variant: AutoVariant | undefined } | { category: AutoCategory; tier?: AutoTier };
-=======
   | { variant: AutoVariant | undefined }
   | { category: AutoCategory; tier?: AutoTier }
   | { family: ModelFamily };
->>>>>>> upstream/main
 
 /**
  * Vision-flavored flat ids that MUST resolve to the `vision` category (candidate
@@ -186,16 +182,6 @@ export function resolveBuiltinAutoSpec(modelStr: string, suffix: string): Builti
   return { variant: undefined };
 }
 
-<<<<<<< HEAD
-export async function prepareBuiltinAutoComboInputs(
-  resolutionSnapshot?: ModelCapabilityResolutionSnapshot
-): Promise<PreparedVirtualAutoComboInputs> {
-  const { prepareVirtualAutoComboInputs } = await import("./virtualFactory.ts");
-  return prepareVirtualAutoComboInputs({
-    includeResolvedCapabilities: true,
-    resolutionSnapshot,
-  });
-=======
 /**
  * Catalog-side check: true iff `modelStr` is exactly `auto/<suffix>` for a
  * non-empty suffix that `createBuiltinAutoCombo(modelStr, suffix)` materializes
@@ -211,7 +197,6 @@ export function isResolvableBuiltinAutoId(modelStr: string): boolean {
   const suffix = modelStr.slice("auto/".length);
   if (!suffix) return false;
   return isRecognizedBuiltinAuto(modelStr, suffix);
->>>>>>> upstream/main
 }
 
 /** The `(variant, spec)` pair `createBuiltinAutoCombo` hands to the virtual factory. */

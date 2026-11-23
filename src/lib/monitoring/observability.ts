@@ -4,10 +4,7 @@ import {
 } from "@omniroute/open-sse/services/codexAccount/index.ts";
 import type { AdaptiveAdmissionPublicSnapshot } from "@omniroute/open-sse/services/admission/runtime.ts";
 import type { PerConnectionAdmissionController } from "@/shared/middleware/chatBodyAdmission";
-<<<<<<< HEAD
-=======
 import type { WalMaintenanceState } from "@/lib/db/walMaintenance";
->>>>>>> upstream/main
 
 type JsonRecord = Record<string, unknown>;
 
@@ -28,11 +25,6 @@ export type ChatAdmissionHealthSummary = {
   shedTotal: number;
   shedsByReason: Record<string, number>;
   lanes: Array<{ key: string; waiting: number }>;
-<<<<<<< HEAD
-};
-
-/**
-=======
   /** #503-fanout: live ingest bytes reserved through the byte-budget gate. */
   inflightBytes: number;
   /** #503-fanout: the auto-derived (or overridden) budget ceiling. */
@@ -73,7 +65,6 @@ export function projectWalMaintenanceSummary(
 }
 
 /**
->>>>>>> upstream/main
  * Explicit allowlisted projection of the structural admission snapshot.
  * Never spreads the snapshot — only the documented low-cardinality fields pass.
  */
@@ -89,14 +80,11 @@ export function projectChatAdmissionSummary(
     shedTotal: snapshot.shedTotal,
     shedsByReason: { ...(snapshot.shedsByReason ?? {}) },
     lanes: (snapshot.lanes ?? []).map((lane) => ({ key: lane.key, waiting: lane.waiting })),
-<<<<<<< HEAD
-=======
     inflightBytes: snapshot.inflightBytes,
     maxInflightBytes: snapshot.maxInflightBytes,
     budgetSource: snapshot.budgetSource,
     pressureSeverity: snapshot.pressureSeverity,
     countCapEnabled: snapshot.countCapEnabled,
->>>>>>> upstream/main
   };
 }
 
@@ -270,13 +258,10 @@ interface BuildHealthPayloadOptions {
   adaptiveAdmission?: AdaptiveAdmissionPublicSnapshot | null;
   /** #11244: optional structural chat-admission snapshot; projected, never raw-spread. */
   chatAdmission?: ChatAdmissionSnapshot | null;
-<<<<<<< HEAD
-=======
   /** #12853: optional WAL maintenance snapshot; projected, never raw-spread. */
   walMaintenance?: WalMaintenanceSnapshot | null;
   /** Stall counters from the boot recorder (healthzLag); additive key, nothing moves. */
   eventLoopStall?: EventLoopStallSummary | null;
->>>>>>> upstream/main
 }
 
 function limitMonitors(monitors: QuotaMonitorSnapshot[], maxItems = 8): QuotaMonitorSnapshot[] {
@@ -507,11 +492,8 @@ export function buildHealthPayload({
   credentialHealth,
   adaptiveAdmission = null,
   chatAdmission = null,
-<<<<<<< HEAD
-=======
   walMaintenance = null,
   eventLoopStall = null,
->>>>>>> upstream/main
   buildSha = null,
 }: BuildHealthPayloadOptions) {
   const timestamp = new Date().toISOString();
@@ -617,15 +599,12 @@ export function buildHealthPayload({
     // #11244: the STRUCTURAL gate (chatBodyAdmission.ts) next to the adaptive one —
     // distinct key so clients reading `adaptiveAdmission` are untouched.
     chatAdmission: projectChatAdmissionSummary(chatAdmission),
-<<<<<<< HEAD
-=======
     // #12853: WAL maintenance next to the admission gates — additive key,
     // nothing existing moves.
     walMaintenance: projectWalMaintenanceSummary(walMaintenance),
     // Stall counters from the boot recorder — additive key, nothing moves.
     // A caller that never starts the recorder passes null and reads {0,0}.
     eventLoopStall: eventLoopStall ?? { count: 0, maxMs: 0 },
->>>>>>> upstream/main
     dedup: {
       inflightRequests,
     },

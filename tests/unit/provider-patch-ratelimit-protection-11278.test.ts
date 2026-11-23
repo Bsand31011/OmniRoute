@@ -38,11 +38,7 @@ const rateLimitManager = await import("../../open-sse/services/rateLimitManager.
 
 function resetDb() {
   core.resetDbInstance();
-<<<<<<< HEAD
-  fs.rmSync(TEST_DATA_DIR, { recursive: true, force: true });
-=======
   fs.rmSync(TEST_DATA_DIR, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
->>>>>>> upstream/main
   fs.mkdirSync(TEST_DATA_DIR, { recursive: true });
 }
 
@@ -52,11 +48,7 @@ test.beforeEach(() => {
 
 test.after(() => {
   core.resetDbInstance();
-<<<<<<< HEAD
-  fs.rmSync(TEST_DATA_DIR, { recursive: true, force: true });
-=======
   fs.rmSync(TEST_DATA_DIR, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
->>>>>>> upstream/main
 });
 
 async function createConnection(rateLimitProtection: boolean) {

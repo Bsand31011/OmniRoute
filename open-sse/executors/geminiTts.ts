@@ -1,9 +1,5 @@
 import { Buffer } from "node:buffer";
-<<<<<<< HEAD
-import { extractInlineAudio, parsePcmSampleRate, pcmToWav } from "./vertexMedia.ts";
-=======
 import { buildGeminiSpeechStyle, extractInlineAudio, normalizeAudioOutput } from "./vertexMedia.ts";
->>>>>>> upstream/main
 import { CORS_HEADERS } from "../utils/cors.ts";
 import { upstreamErrorResponse } from "../utils/audioResponse.ts";
 import { errorResponse } from "../utils/error.ts";
@@ -24,10 +20,6 @@ export class GeminiTtsUpstreamError extends Error {
 
 export async function geminiGenerateSpeech(
   credentials: GeminiTtsCredentials,
-<<<<<<< HEAD
-  options: { model: string; text: string; voice: string }
-): Promise<Buffer> {
-=======
   options: {
     model: string;
     text: string;
@@ -37,7 +29,6 @@ export async function geminiGenerateSpeech(
     response_format?: string;
   }
 ): Promise<{ audio: Buffer; contentType: string }> {
->>>>>>> upstream/main
   const headers: Record<string, string> = { "Content-Type": "application/json" };
   if (credentials.apiKey) {
     headers["x-goog-api-key"] = credentials.apiKey;
@@ -45,20 +36,14 @@ export async function geminiGenerateSpeech(
     headers.Authorization = `Bearer ${credentials.accessToken}`;
   }
 
-<<<<<<< HEAD
-=======
   const style = buildGeminiSpeechStyle(options.instructions, options.speed);
 
->>>>>>> upstream/main
   const response = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(options.model)}:generateContent`,
     {
       method: "POST",
       headers,
       body: JSON.stringify({
-<<<<<<< HEAD
-        contents: [{ parts: [{ text: options.text }] }],
-=======
         contents: [
           {
             parts: [
@@ -69,7 +54,6 @@ export async function geminiGenerateSpeech(
             ],
           },
         ],
->>>>>>> upstream/main
         generationConfig: {
           responseModalities: ["AUDIO"],
           speechConfig: {
@@ -87,30 +71,12 @@ export async function geminiGenerateSpeech(
 
   const inline = extractInlineAudio(await response.json());
   if (!inline) throw new Error("Gemini TTS response did not contain audio data");
-<<<<<<< HEAD
-  return pcmToWav(Buffer.from(inline.base64, "base64"), parsePcmSampleRate(inline.mimeType));
-=======
   const rawBuffer = Buffer.from(inline.base64, "base64");
   return normalizeAudioOutput(rawBuffer, inline.mimeType, options.response_format);
->>>>>>> upstream/main
 }
 
 export async function handleGeminiTtsSpeech(
   credentials: GeminiTtsCredentials,
-<<<<<<< HEAD
-  options: { model: string; text: string; voice?: unknown }
-): Promise<Response> {
-  try {
-    const wav = await geminiGenerateSpeech(credentials, {
-      model: options.model,
-      text: options.text,
-      voice:
-        typeof options.voice === "string" && options.voice.trim() ? options.voice.trim() : "Kore",
-    });
-    return new Response(new Uint8Array(wav), {
-      status: 200,
-      headers: { ...CORS_HEADERS, "Content-Type": "audio/wav" },
-=======
   options: {
     model: string;
     text: string;
@@ -144,7 +110,6 @@ export async function handleGeminiTtsSpeech(
     return new Response(new Uint8Array(audio), {
       status: 200,
       headers: { ...CORS_HEADERS, "Content-Type": contentType },
->>>>>>> upstream/main
     });
   } catch (error) {
     if (error instanceof GeminiTtsUpstreamError) {

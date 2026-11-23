@@ -8,16 +8,9 @@ type AdaptaTutorialModalProps = {
   onClose: () => void;
 };
 
-<<<<<<< HEAD
-// The Adapta CTA href points at https://link.omniroute.online/adapta (our own
-// shortener, the `adapta` slug) so the click lands in our Kutt metrics. The visible
-// link text intentionally stays the real domain (agent.adapta.one/agentic-chat) so
-// users still see where they are going.
-=======
 // The Adapta CTA href used to go through our own link.omniroute.online shortener
 // for click metrics, but that domain no longer resolves after the move to
 // omniskill.online, so href and visible text are the real destination again.
->>>>>>> upstream/main
 export function AdaptaTutorialModal({ isOpen, onClose }: AdaptaTutorialModalProps) {
   const t = useTranslations("providers.adaptaTutorial");
 

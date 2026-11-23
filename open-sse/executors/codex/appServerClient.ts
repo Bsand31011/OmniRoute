@@ -54,12 +54,7 @@ const APPROVAL_REQUEST_METHODS = new Set<string>([
 ]);
 
 const ROUTER_APPROVAL_NOTE = "router: harness-controlled execution";
-<<<<<<< HEAD
-const ROUTER_DENIAL_NOTE =
-  "router: denied by default (set codexAppServerAutoApprove to opt in)";
-=======
 const ROUTER_DENIAL_NOTE = "router: denied by default (set codexAppServerAutoApprove to opt in)";
->>>>>>> upstream/main
 
 export interface CodexAppServerClientOptions {
   /** Transport factory. Defaults to the shared wreq-js websocket() when omitted. */

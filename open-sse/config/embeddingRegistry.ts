@@ -557,11 +557,8 @@ const EMBEDDING_PROVIDER_ALIASES: Record<string, string> = {
   // (#11233). Alias the dashboard id so "lm-studio/<model>" resolves instead
   // of failing with an unknown-provider 400.
   "lm-studio": "lmstudio",
-<<<<<<< HEAD
-=======
   llamacpp: "llama-cpp",
   "llama.cpp": "llama-cpp",
->>>>>>> upstream/main
 };
 
 /** Family name used by clients; Jina's public SKU is omni-small. */

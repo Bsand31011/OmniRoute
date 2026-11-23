@@ -32,11 +32,6 @@ test("degrade gate is wired into both exchange and poll-callback branches", () =
 test("connects are SAVED with degraded status, not rejected", () => {
   // No 422 rejection in the antigravity project path: the upsert proceeds and
   // the degraded fields flow into both the update and create payloads.
-<<<<<<< HEAD
-  assert.match(routeSource, /testStatus: degradedProject\?\.testStatus \?\? "active"/);
-  assert.match(persistenceSource, /degradedProject\?\.testStatus \?\? \("active" as const\)/);
-  assert.match(routeSource, /warning: degradedProject\.warning/);
-=======
   assert.match(routeSource, /\.\.\.antigravityPersistStatus\(degradedProject\)/);
   assert.match(persistenceSource, /\.\.\.antigravityPersistStatus\(degradedProject\)/);
   assert.match(routeSource, /warning: degradedProject\.warning/);
@@ -49,7 +44,6 @@ test("connects are SAVED with degraded status, not rejected", () => {
     persistenceSource,
     /buildOAuthConnectionCreatePayload\(provider, tokenData, expiresAt, degradedProject\)/
   );
->>>>>>> upstream/main
 });
 
 test("gate only applies to antigravity and agy, marks typed error fields", () => {

@@ -31,10 +31,6 @@ function readSrc(relPath) {
 describe("Chat Pipeline — handleSingleModelChat decomposition", () => {
   const src = readSrc("sse/handlers/chat.ts");
   const helpersSrc = readSrc("sse/handlers/chatHelpers.ts");
-<<<<<<< HEAD
-  const coreSrc = readOpenSse("handlers/chatCore.ts");
-=======
->>>>>>> upstream/main
   const dispatchSrc = readSrc("sse/handlers/chatDispatch.ts");
 
   it("should define resolveModelOrError helper", () => {
@@ -68,8 +64,6 @@ describe("Chat Pipeline — handleSingleModelChat decomposition", () => {
     assert.match(src, /dispatchChatWithAffinityEviction\(/);
     assert.ok(dispatchSrc, "src/sse/handlers/chatDispatch.ts should exist");
     assert.match(dispatchSrc, /executeChatWithBreaker\(/);
-<<<<<<< HEAD
-=======
   });
 });
 
@@ -85,7 +79,6 @@ describe("Chat Pipeline — cost accounting", () => {
     harness = await createChatPipelineHarness("proxy-cost-accounting");
     costRules = await import("../../src/domain/costRules.ts");
     await harness.seedConnection("openai");
->>>>>>> upstream/main
   });
 
   after(async () => {

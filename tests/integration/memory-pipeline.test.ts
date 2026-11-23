@@ -252,22 +252,12 @@ test("MCP memory tools fall back to caller principal id when apiKeyId is omitted
   }
 });
 
-<<<<<<< HEAD
-// GHSA-cpv3-xr7r-xf8q / #11040: the resolved caller principal ALWAYS wins over a
-// caller-supplied `apiKeyId`, so a spoofed id in the tool arguments cannot write
-// into (or read from) another principal's store. Before #11040 the explicit
-// argument won and this test asserted the old behavior.
-test("MCP memory tools reject explicit apiKeyId that does not match caller principal", async () => {
-  await enableMemory(400, "hybrid");
-
-=======
 test("MCP memory tools resolve ownership to the caller principal, ignoring a foreign explicit apiKeyId", async () => {
   // GHSA-cpv3-xr7r-xf8q: resolveMemoryOwnerId() gives the authenticated caller's
   // principal ABSOLUTE precedence over a caller-supplied apiKeyId (IDOR). With
   // OMNIROUTE_API_KEY set, the env key resolves to the synthetic "env-key"
   // principal — so a write that passes apiKeyId:"principal-b" must land in the
   // CALLER's bucket ("env-key"), and nothing may exist under "principal-b".
->>>>>>> upstream/main
   const prevEnvKey = process.env.OMNIROUTE_API_KEY;
   process.env.OMNIROUTE_API_KEY = "sk-other-principal";
   try {
@@ -280,31 +270,6 @@ test("MCP memory tools resolve ownership to the caller principal, ignoring a for
       metadata: {},
     });
     assert.equal(added.success, true);
-<<<<<<< HEAD
-    // The spoofed `principal-b` is discarded; the write lands on the caller
-    // principal resolved from OMNIROUTE_API_KEY (the synthesized "env-key" record).
-    assert.equal(added.data.memory.apiKeyId, "env-key");
-
-    // Nothing reached the spoofed principal's store.
-    const spoofedRows = await listMemories({
-      apiKeyId: "principal-b",
-      sessionId: "mcp-mismatch",
-    });
-    const spoofedList = Array.isArray(spoofedRows) ? spoofedRows : (spoofedRows.data ?? []);
-    assert.equal(spoofedList.length, 0);
-
-    // It is readable by the caller itself, so the entry was redirected, not dropped —
-    // this also proves the search path is live (a disabled store would make the
-    // assertion above vacuous).
-    const searched = await memoryTools.omniroute_memory_search.handler({
-      query: "cross-tenant",
-      limit: 5,
-    });
-    assert.equal(searched.success, true);
-    assert.equal(searched.data.count, 1);
-    assert.equal(searched.data.memories[0].apiKeyId, "env-key");
-    assert.equal(searched.data.memories[0].key, "pref:cross-tenant");
-=======
     assert.equal(
       added.data.memory.apiKeyId,
       "env-key",
@@ -327,7 +292,6 @@ test("MCP memory tools resolve ownership to the caller principal, ignoring a for
       ? principalBBucket
       : ((principalBBucket as { data?: unknown[] }).data ?? []);
     assert.equal(leaked.length, 0, "no memory may be written into the foreign principal bucket");
->>>>>>> upstream/main
   } finally {
     if (prevEnvKey === undefined) {
       delete process.env.OMNIROUTE_API_KEY;

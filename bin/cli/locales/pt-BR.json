@@ -259,10 +259,7 @@
     "headless": "Executa só o motor de proxy: dashboard desativado (404), subsistemas opcionais ignorados (define OMNIROUTE_HEADLESS=1)",
     "tray": "Mostrar ícone na bandeja do sistema (apenas desktop, opt-in)",
     "no_tray": "Desabilitar ícone na bandeja do sistema",
-<<<<<<< HEAD
-=======
     "ready_timeout": "Tempo limite da verificação de prontidão em ms (também OMNIROUTE_READY_TIMEOUT_MS, padrão 60000)",
->>>>>>> upstream/main
     "tls_cert": "Caminho para um certificado TLS (PEM) para servir HTTPS (também OMNIROUTE_TLS_CERT)",
     "tls_key": "Caminho para a chave privada TLS (PEM) para servir HTTPS (também OMNIROUTE_TLS_KEY)"
   },

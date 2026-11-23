@@ -56,14 +56,7 @@ test("buildRunPlan for codex injects the top-level model override", async () => 
   assert.equal(plan.baseUrl, "http://localhost:20128");
   assert.equal(plan.model, "glm/glm-4.5");
   assert.equal(logicalArgs(plan.args).includes("--help"), true);
-<<<<<<< HEAD
-  assert.equal(
-    logicalArgs(plan.args).some((a) => a.includes("model_providers.omniroute.model")),
-    true
-  );
-=======
   assert.equal(logicalArgs(plan.args).includes('model="glm/glm-4.5"'), true);
->>>>>>> upstream/main
   assert.equal(plan.authSource, "option");
 });
 

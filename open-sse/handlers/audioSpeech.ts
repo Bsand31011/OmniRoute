@@ -20,11 +20,7 @@ import { stripTrailingSlashes } from "../utils/urlSanitize.ts";
 import { getSpeechProvider, parseSpeechModel } from "../config/audioRegistry.ts";
 import { buildAuthHeaders } from "../config/registryUtils.ts";
 import { kieExecutor } from "../executors/kie.ts";
-<<<<<<< HEAD
-import { vertexGenerateSpeech } from "../executors/vertexMedia.ts";
-=======
 import { extractSpeechInstruction, vertexGenerateSpeech } from "../executors/vertexMedia.ts";
->>>>>>> upstream/main
 import { handleGeminiTtsSpeech } from "../executors/geminiTts.ts";
 import { handleAwsPollySpeech } from "../executors/awsPollyTts.ts";
 import { GttsUpstreamError, normalizeGttsLang, synthesizeGtts } from "../executors/gtts.ts";
@@ -977,10 +973,7 @@ export async function handleAudioSpeech({
         model: modelId,
         text: body.input,
         voice: body.voice,
-<<<<<<< HEAD
-=======
         ...googleSpeechStyleOptions(body),
->>>>>>> upstream/main
       });
     }
 

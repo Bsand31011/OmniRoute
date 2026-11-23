@@ -440,11 +440,7 @@ runBuildTool(
     "--platform=node",
     "--packages=external",
     "--format=esm",
-<<<<<<< HEAD
-    "--outfile=dist/open-sse/services/compression/compressionWorker.js",
-=======
     `--outfile=${compressionWorkerDest}`,
->>>>>>> upstream/main
   ],
   { cwd: ROOT, stdio: "inherit" }
 );
@@ -687,19 +683,13 @@ for (const relativePath of APP_STAGING_REMOVAL_PATHS) {
 // tarball gate, the staged dist/ legitimately contains node_modules (the
 // standalone server's runtime deps, including Turbopack-hashed packages whose
 // wasm files DB init requires). The allowlist prefixes above are the contract.
-<<<<<<< HEAD
-=======
 // The path matchers keep the translated docs mirrors the /docs route reads (they arrive
 // with the standalone's docs/ copy) and drop every other docs/i18n file.
->>>>>>> upstream/main
 const stagedFiles = walkFiles(DIST_DIR);
 const unexpectedStagedFiles = findUnexpectedArtifactPaths(stagedFiles, {
   exactPaths: APP_STAGING_ALLOWED_EXACT_PATHS,
   prefixPaths: APP_STAGING_ALLOWED_PATH_PREFIXES,
-<<<<<<< HEAD
-=======
   pathMatchers: APP_STAGING_ALLOWED_PATH_MATCHERS,
->>>>>>> upstream/main
   neverAllowedSegments: [],
 });
 
@@ -715,10 +705,7 @@ if (unexpectedStagedFiles.length > 0) {
 const remainingUnexpectedFiles = findUnexpectedArtifactPaths(walkFiles(DIST_DIR), {
   exactPaths: APP_STAGING_ALLOWED_EXACT_PATHS,
   prefixPaths: APP_STAGING_ALLOWED_PATH_PREFIXES,
-<<<<<<< HEAD
-=======
   pathMatchers: APP_STAGING_ALLOWED_PATH_MATCHERS,
->>>>>>> upstream/main
   neverAllowedSegments: [],
 });
 

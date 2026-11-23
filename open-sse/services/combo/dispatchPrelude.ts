@@ -467,44 +467,6 @@ export async function tryPinnedModelDispatch(args: {
       "COMBO",
       `Bypassing strategy — routing directly to pinned context model: ${pinnedModel}`
     );
-<<<<<<< HEAD
-    let pinnedResult: Response | null = null;
-    try {
-      // #5501: the combo system_message also expands on the pinned context path —
-      // a session pin bypasses the main loop, so without this the template would
-      // go literal from the second in-session request on. Target context comes
-      // from the pinned model's resolved combo target when available.
-      const pinnedTarget = comboTargets.find((t) => t.modelStr === pinnedModel);
-      const pinnedBody = expandComboSystemPromptIfPresent(body, combo, {
-        modelId: pinnedModel,
-        providerId:
-          pinnedTarget && pinnedTarget.provider !== "unknown" ? pinnedTarget.provider : "",
-        account:
-          typeof pinnedTarget?.label === "string" && pinnedTarget.label.trim().length > 0
-            ? pinnedTarget.label.trim()
-            : "",
-        fingerprint: pinnedTarget ? (resolveTargetFingerprint(pinnedTarget) ?? "") : "",
-      });
-      pinnedResult = await handleSingleModelWithTimeout(pinnedBody, pinnedModel, {
-        modelPinned: true,
-      } as SingleModelTarget);
-    } catch (pinErr) {
-      log.warn(
-        "COMBO",
-        `Pinned model ${pinnedModel} threw error: ${pinErr instanceof Error ? pinErr.message : String(pinErr)}, falling through to combo retry/fallback`
-      );
-    }
-    if (pinnedResult) {
-      const accepted = await evaluatePinnedResponse({
-        pinnedResult,
-        pinnedModel,
-        clientRequestedStream,
-        config,
-        log,
-      });
-      if (accepted) return accepted;
-    }
-=======
     const honored = await dispatchHonoredPin({
       body,
       combo,
@@ -518,7 +480,6 @@ export async function tryPinnedModelDispatch(args: {
       signal,
     });
     if (honored) return honored;
->>>>>>> upstream/main
     // Fall through to the target iteration loop below — retries and sibling
     // models will be tried via the normal combo machinery.
   }

@@ -1,25 +1,18 @@
 export const MODEL_SUPPORTED_ENDPOINT_VALUES = [
   "chat",
-<<<<<<< HEAD
-=======
   "responses",
->>>>>>> upstream/main
   "embeddings",
   "rerank",
   "images",
   "videos",
   "audio-speech",
   "audio-transcriptions",
-<<<<<<< HEAD
-  "images-generations",
-=======
   "music",
   "images-generations",
   "ocr",
   // System One typed-decision models (TypeSafe Jev, …) — POST /v1/systemone.
   // Not chat-capable; see classifyModelSupportedEndpoints.
   "decisions",
->>>>>>> upstream/main
   // Persisted legacy values remain valid input and normalize on write/edit.
   "video",
   "audio",
@@ -47,15 +40,6 @@ export function normalizeModelSupportedEndpoints(endpoints: readonly string[]): 
 }
 
 export function classifyModelSupportedEndpoints(endpoints: readonly string[]): {
-<<<<<<< HEAD
-  type?: "embedding" | "rerank" | "image" | "video" | "audio";
-  subtype?: "speech" | "transcription";
-} {
-  if (endpoints.includes("embeddings")) return { type: "embedding" };
-  if (endpoints.includes("rerank")) return { type: "rerank" };
-  if (endpoints.includes("images")) return { type: "image" };
-  if (endpoints.includes("videos") || endpoints.includes("video")) return { type: "video" };
-=======
   type?: "embedding" | "rerank" | "image" | "video" | "audio" | "music" | "ocr" | "decisions";
   subtype?: "speech" | "transcription";
 } {
@@ -79,7 +63,6 @@ export function classifyModelSupportedEndpoints(endpoints: readonly string[]): {
     ] as const
   ).find(([endpoint]) => endpoints.includes(endpoint));
   if (primary) return { type: primary[1] };
->>>>>>> upstream/main
 
   const supportsSpeech = endpoints.includes("audio-speech");
   const supportsTranscription =
@@ -91,8 +74,6 @@ export function classifyModelSupportedEndpoints(endpoints: readonly string[]): {
   }
   return { type: "audio" };
 }
-<<<<<<< HEAD
-=======
 
 /**
  * Default `supportedEndpoints` for a model row discovered from (or added to) an
@@ -141,4 +122,3 @@ const TRUSTED_ENDPOINT_CAPABILITY_SOURCES: ReadonlySet<string> = new Set([
 export function isTrustedEndpointCapabilitySource(source: unknown): boolean {
   return typeof source === "string" && TRUSTED_ENDPOINT_CAPABILITY_SOURCES.has(source);
 }
->>>>>>> upstream/main

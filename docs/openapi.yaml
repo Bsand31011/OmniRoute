@@ -9897,8 +9897,6 @@ paths:
           description: Every configured `elevenlabs` credential is rate limited.
         "500":
           $ref: "#/components/responses/InternalError"
-<<<<<<< HEAD
-=======
   /api/v1/sound-generation:
     post:
       tags: [Audio]
@@ -10261,7 +10259,6 @@ paths:
           description: OmniRoute policy, provider cooldown or upstream quota exceeded.
         "502":
           description: Could not reach ElevenLabs.
->>>>>>> upstream/main
   /api/v1/explain/routing:
     get:
       tags: [Telemetry]

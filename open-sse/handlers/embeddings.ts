@@ -260,20 +260,6 @@ function collectRequestedModalities(body: Record<string, unknown>): {
   const nativeModalities = [
     ...(isJinaNativeEmbeddingInput(body.input) ? collectJinaNativeModalities(body.input) : []),
     ...(isGeminiNativeEmbeddingInput(body.input) ? collectGeminiNativeModalities(body.input) : []),
-<<<<<<< HEAD
-  ].filter((modality) => modality !== "text");
-  if (structuredItems.length > 0 || nativeModalities.length > 0) {
-    const supportedModalities = getEmbeddingModelModalities(providerConfig, model);
-    if (!supportedModalities) {
-      return {
-        success: false,
-        status: 400,
-        error: `Embedding model ${body.model} does not advertise structured embedding input support`,
-      };
-    }
-    const unsupportedCanonical = structuredItems.find(
-      (item) => !supportedModalities.includes(item.type)
-=======
   ].filter((modality): modality is EmbeddingModality => modality !== "text");
   return { structuredItems, nativeModalities };
 }
@@ -287,7 +273,6 @@ function validateRequestedModalities(runtime: EmbeddingRuntime): EmbeddingFailur
     return failure(
       400,
       `Embedding model ${runtime.body.model} does not advertise structured embedding input support`
->>>>>>> upstream/main
     );
   }
   const unsupportedCanonical = structuredItems.find((item) => !supported.includes(item.type));
@@ -362,28 +347,6 @@ function resolveLocalEmbeddingUrl(runtime: EmbeddingRuntime): string {
   return `${localServerHost}/v1/embeddings`;
 }
 
-<<<<<<< HEAD
-  let upstreamUrl = providerConfig.baseUrl;
-  if (provider === "ollama-local" || provider === "lmstudio") {
-    // Keyless local servers (#2824 ollama-local, #11233 lmstudio): honor the
-    // configured connection's baseUrl when one was hydrated, and fall back to
-    // the static localhost registry default otherwise.
-    const configuredBaseUrl = credentials?.providerSpecificData?.baseUrl;
-    const rawBaseUrl =
-      typeof configuredBaseUrl === "string" && configuredBaseUrl.trim().length > 0
-        ? configuredBaseUrl
-        : providerConfig.baseUrl;
-    // Use the shared O(n) helper instead of `/\/+$/` — that regex is
-    // vulnerable to polynomial backtracking on adversarial input
-    // (CodeQL js/polynomial-redos) since baseUrl is operator-configured
-    // per-connection data. See open-sse/utils/urlSanitize.ts.
-    const normalizedBaseUrl = stripTrailingSlashes(rawBaseUrl.trim());
-    const localServerHost = normalizedBaseUrl
-      .replace(/\/v1\/(?:chat\/completions|embeddings)$/i, "")
-      .replace(/\/api\/chat$/i, "")
-      .replace(/\/v1$/i, "");
-    upstreamUrl = `${localServerHost}/v1/embeddings`;
-=======
 function isLocalEmbeddingProvider(provider: string): boolean {
   return (
     provider === "ollama-local" ||
@@ -401,108 +364,12 @@ function resolveUpstreamUrl(runtime: EmbeddingRuntime): string {
   if (runtime.providerConfig.nativeInvokeProtocol === "bedrock-invoke") {
     const region = resolveBedrockRegion(runtime.credentials?.providerSpecificData);
     return resolveBedrockEmbeddingUrl(runtime.providerConfig.baseUrl, region, runtime.model || "");
->>>>>>> upstream/main
   }
   return isLocalEmbeddingProvider(runtime.provider)
     ? resolveLocalEmbeddingUrl(runtime)
     : runtime.providerConfig.baseUrl;
 }
 
-<<<<<<< HEAD
-  // Build headers
-  const headers: Record<string, string> = {
-    "Content-Type": "application/json",
-  };
-
-  // Skip credential injection for local providers (authType: "none")
-  const token =
-    providerConfig.authType === "none" ? null : credentials?.apiKey || credentials?.accessToken;
-  if (token) {
-    if (providerConfig.authHeader === "bearer") {
-      headers["Authorization"] = `Bearer ${token}`;
-    } else if (providerConfig.authHeader === "x-api-key") {
-      headers["x-api-key"] = token;
-    }
-  } else if (providerConfig.authType !== "none") {
-    return {
-      success: false,
-      status: 401,
-      error: `No valid authentication token for provider ${provider}. Check provider credentials.`,
-    };
-  }
-
-  // Jina v5 Omni native docs ({ text }, { image: url|base64 }, { content: [...] })
-  // must reach api.jina.ai unchanged. Do not fetch those image URLs or collapse
-  // to string[]. Canonical { type, source } items still go through the translator.
-  const jinaNative = isJinaNativeEmbeddingInput(body.input);
-  const geminiNative = isGeminiNativeEmbeddingInput(body.input);
-  const canonicalStructured = hasStructuredEmbeddingInput(body.input);
-  const passThroughJinaNative =
-    providerConfig.structuredInputProtocol === "jina-v1" && jinaNative && !canonicalStructured;
-  // gemini-embedding-2 aggregates a string[] on Google's OpenAI shim into one
-  // vector. Always use embedContent / batchEmbedContents so N input items
-  // become N embeddings. Native multimodal parts take the same path.
-  const useGeminiNativeTransport =
-    providerConfig.structuredInputProtocol === "gemini-embed-content" &&
-    (isGeminiEmbedding2Family(model) || canonicalStructured || geminiNative || jinaNative);
-
-  if (providerConfig.structuredInputProtocol === "jina-v1" && jinaNative && canonicalStructured) {
-    try {
-      const mixed = Array.isArray(body.input) ? body.input : [body.input];
-      upstreamBody.input = await prepareJinaMixedEmbeddingInput(mixed, async (url) => {
-        const result = await fetchRemoteImage(url, {
-          guard: "public-only",
-          maxBytes: MAX_EMBEDDING_INLINE_ITEM_BYTES,
-          pinDns: true,
-        });
-        return { buffer: result.buffer, contentType: result.contentType || null };
-      });
-    } catch (error) {
-      return { success: false, status: 400, error: sanitizeErrorMessage(error) };
-    }
-  } else if (useGeminiNativeTransport || (!passThroughJinaNative && canonicalStructured)) {
-    if (!model) {
-      return {
-        success: false,
-        status: 400,
-        error: `Invalid embedding model: ${body.model}. Use format: provider/model`,
-      };
-    }
-    try {
-      const prepared = await prepareStructuredEmbeddingRequest(
-        providerConfig,
-        model,
-        body,
-        token ?? "",
-        {
-          fetchMedia: async (url) => {
-            const result = await fetchRemoteImage(url, {
-              guard: "public-only",
-              maxBytes: MAX_EMBEDDING_INLINE_ITEM_BYTES,
-              pinDns: true,
-            });
-            return { buffer: result.buffer, contentType: result.contentType || null };
-          },
-        }
-      );
-      upstreamBody = prepared.body;
-      upstreamUrl = prepared.url;
-      normalizeProviderResponse = prepared.normalizeResponse ?? null;
-      if (prepared.authHeader) {
-        delete headers.Authorization;
-        delete headers["x-api-key"];
-        headers[prepared.authHeader.name] = prepared.authHeader.value;
-      }
-    } catch (error) {
-      return { success: false, status: 400, error: sanitizeErrorMessage(error) };
-    }
-  }
-
-  if (log) {
-    log.info(
-      "EMBED",
-      `${provider}/${model} | input: ${Array.isArray(body.input) ? body.input.length + " items" : "1 item"}`
-=======
 function buildAuth(
   runtime: EmbeddingRuntime
 ): { headers: Record<string, string>; token: string | null } | EmbeddingFailure {
@@ -512,7 +379,6 @@ function buildAuth(
     return failure(
       401,
       `No valid authentication token for provider ${runtime.provider}. Check provider credentials.`
->>>>>>> upstream/main
     );
   }
   if (token && runtime.providerConfig.authHeader === "bearer") {
@@ -550,182 +416,6 @@ async function prepareLlamaCppInput(
   prepared.upstreamBody.input = await prepareLlamaCppEmbeddingInput(items, fetchEmbeddingMedia);
 }
 
-<<<<<<< HEAD
-    if (!response.ok) {
-      const errorText = await response.text();
-      if (log) {
-        log.error("EMBED", `${provider} error ${response.status}: ${errorText.slice(0, 200)}`);
-      }
-
-      // Log provider response
-      reqLogger.logProviderResponse(response.status, "", response.headers, errorText.slice(0, 500));
-
-      // Build client error response
-      const clientErrorBody = toJsonErrorPayload(
-        errorText.slice(0, 500),
-        "Embedding provider error"
-      );
-      reqLogger.logConvertedResponse(clientErrorBody);
-
-      const pipelinePayloads = detailedLoggingEnabled ? reqLogger.getPipelinePayloads() : null;
-
-      // Save error call log for Logger panel
-      saveCallLog({
-        method: "POST",
-        path: "/v1/embeddings",
-        status: response.status,
-        model: `${provider}/${model}`,
-        provider,
-        duration: Date.now() - startTime,
-        error: errorText.slice(0, 500),
-        requestBody: logRequestBody,
-        pipelinePayloads,
-        apiKeyId,
-        apiKeyName,
-        connectionId,
-      }).catch(() => {});
-
-      // #10347 — persist a connection-level failure marker on a hard upstream failure so
-      // the dead account is not re-selected and re-hit on the next embed request (chat
-      // parity). markAccountUnavailable classifies the status via checkFallbackError: a
-      // payment-required 402 becomes the TERMINAL state credits_exhausted (the terminal
-      // marker excludes the account from selection until an operator resets it), benign
-      // 4xx are a no-op, and terminal statuses are never overwritten. honors per-connection
-      // disableCooling. The write must never break the error response path, so it is
-      // best-effort.
-      if (connectionId) {
-        try {
-          await markAccountUnavailable(connectionId, response.status, errorText, provider, model);
-        } catch {
-          // swallow — the upstream error response takes priority
-        }
-      }
-
-      return {
-        success: false,
-        status: response.status,
-        error: errorText,
-        headers: stripStaleEncodingHeaders(response.headers),
-      };
-    }
-
-    const rawData = (await response.json()) as Record<string, unknown>;
-    const data = (normalizeProviderResponse ? normalizeProviderResponse(rawData) : rawData) as {
-      data?: unknown[] | unknown;
-      usage?: { prompt_tokens?: number; total_tokens?: number };
-    };
-
-    // Log provider response
-    reqLogger.logProviderResponse(response.status, "", response.headers, data);
-
-    // OpenAI-spec compliance (#9089): each item's `embedding` must be a flat number[].
-    // Some OpenAI-compatible backends (e.g. a llama.cpp `llama-server --embedding`
-    // instance) return the vector wrapped in one extra array level — `[[...floats]]`
-    // instead of `[...floats]` — for a single input, which silently breaks any standard
-    // OpenAI-SDK consumer doing `response.data[i].embedding`. Flatten that one redundant
-    // level without touching providers that already return flat vectors.
-    const responseItems = data.data || data;
-    if (Array.isArray(responseItems)) {
-      for (const item of responseItems) {
-        flattenSingleRowEmbedding(item);
-      }
-    }
-
-    // Normalize response to OpenAI format
-    const normalizedResponse = {
-      object: "list",
-      data: data.data || data,
-      model: `${provider}/${model}`,
-      usage: data.usage || { prompt_tokens: 0, total_tokens: 0 },
-    };
-
-    // Log client response
-    reqLogger.logConvertedResponse(normalizedResponse);
-
-    const pipelinePayloads = detailedLoggingEnabled ? reqLogger.getPipelinePayloads() : null;
-
-    // Save success call log for Logger panel
-    // Embeddings only have input tokens (prompt_tokens + total_tokens), no output/completion tokens
-    saveCallLog({
-      method: "POST",
-      path: "/v1/embeddings",
-      status: 200,
-      model: `${provider}/${model}`,
-      provider,
-      duration: Date.now() - startTime,
-      tokens: {
-        prompt_tokens: data.usage?.prompt_tokens || data.usage?.total_tokens || 0,
-        completion_tokens: 0,
-      },
-      requestBody: logRequestBody,
-      responseBody: {
-        usage: data.usage || null,
-        object: "list",
-        data_count: Array.isArray(data.data) ? data.data.length : 0,
-      },
-      pipelinePayloads,
-      apiKeyId,
-      apiKeyName,
-      connectionId,
-    }).catch(() => {});
-
-    // Record quota consumption (fire-and-forget, never blocks)
-    if (apiKeyId && connectionId && provider) {
-      try {
-        const { scheduleRecordConsumption } = await import("@/lib/quota/spendRecorder");
-        scheduleRecordConsumption({
-          apiKeyId,
-          connectionId,
-          provider,
-          // Per-(key,model) cap accounting — same resolved model id used at enforce time.
-          model: model || undefined,
-          cost: {
-            tokens: data.usage?.prompt_tokens || data.usage?.total_tokens || 0,
-            requests: 1,
-          },
-        });
-      } catch {
-        // fail-open per B29
-      }
-    }
-
-    return {
-      success: true,
-      data: normalizedResponse,
-      headers: stripStaleEncodingHeaders(response.headers),
-    };
-  } catch (err) {
-    if (log) {
-      log.error("EMBED", `${provider} fetch error: ${err.message}`);
-    }
-
-    // Log error
-    reqLogger.logError(err, upstreamBody);
-
-    const pipelinePayloads = detailedLoggingEnabled ? reqLogger.getPipelinePayloads() : null;
-
-    // Save exception call log for Logger panel
-    saveCallLog({
-      method: "POST",
-      path: "/v1/embeddings",
-      status: 502,
-      model: `${provider}/${model}`,
-      provider,
-      duration: Date.now() - startTime,
-      error: err.message,
-      requestBody: logRequestBody,
-      pipelinePayloads,
-      apiKeyId,
-      apiKeyName,
-      connectionId,
-    }).catch(() => {});
-
-    return {
-      success: false,
-      status: 502,
-      error: `Embedding provider error: ${sanitizeErrorMessage(err.message)}`,
-    };
-=======
 async function prepareNativeTransport(
   runtime: EmbeddingRuntime,
   prepared: PreparedEmbeddingRequest,
@@ -748,7 +438,6 @@ async function prepareNativeTransport(
     delete prepared.headers.Authorization;
     delete prepared.headers["x-api-key"];
     prepared.headers[native.authHeader.name] = native.authHeader.value;
->>>>>>> upstream/main
   }
 }
 

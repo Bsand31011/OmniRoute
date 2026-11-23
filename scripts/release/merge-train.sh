@@ -70,8 +70,6 @@ STATIC_GATES=(
   "node scripts/check/check-complexity.mjs"
   "node scripts/check/check-cognitive-complexity.mjs"
   "env CHANGELOG_BASE_REF=${CHANGELOG_BASE_REF_Q} node scripts/check/check-changelog-integrity.mjs"
-<<<<<<< HEAD
-=======
   # i18n contract (2026-09-22): the train is where en.json keys without catalogs and docs
   # without mirrors slipped into the release tip three times in 48 h despite the PR CI —
   # each combined tree must carry every en key in all 65 catalogs (UI + CLI), keep the
@@ -111,7 +109,6 @@ FULL_ONLY_GATES=(
   "npm run check:route-guard-membership"  # ~46s  — new local-only route left unclassified
   "npm run check:docs-counts"             # ~164s — README/AGENTS/llm.txt counts vs code
   "npm run check:dashboard-typecheck"     # minutes — TS errors under the dashboard tsconfig
->>>>>>> upstream/main
 )
 # Full mode: the box-speed runner (same coverage as the two CI shards combined —
 # main + dashboard + serial groups — at local concurrency instead of runner-sized).

@@ -1017,19 +1017,9 @@
     "batchFilePreview": "I-preview",
     "batchFilePreviewTruncated": "Ipinapakita ang unang {shown} linya ({total} kabuuang linya)",
     "batchFileDownloadFull": "I-download ang Buong File",
-<<<<<<< HEAD
-    "batchHeaderSubtitle": "Run many requests as one job",
-    "batchStep1": "1 · Upload JSONL",
-    "batchStep1Desc": "Add requests",
-    "batchStep2": "2 · Create batch",
-    "batchStep2Desc": "Run job",
-    "batchStep3": "3 · Get results",
-    "batchStep3Desc": "Download output"
-=======
     "tokensPageTitle": "Mga token",
     "tokensPageDescription": "Magpadala ng mga token sa pagitan ng mga API key, magbahagi ng mga code ng imbitasyon, at kumonekta sa mga server ng komunidad.",
     "tokensServerUrlLabel": "URL ng server"
->>>>>>> upstream/main
   },
   "disabled": "Naka-disable",
   "featureFlagOmnirouteEmergencyFallbackDescription": "I-route ang mga request na naubusan ng budget sa emergency free fallback provider/model.",
@@ -1327,12 +1317,8 @@
     "agentBridge": "Tulay ng Agent",
     "agentBridgeSubtitle": "I-intercept ang traffic ng IDE agent",
     "trafficInspector": "Traffic Inspector",
-<<<<<<< HEAD
-    "trafficInspectorSubtitle": "__MISSING__:Inspect request and response traffic from your apps",
-=======
     "trafficInspectorSubtitle": "Suriin ang trapiko ng request at response mula sa iyong mga app",
     "trafficInspectorPurpose": "Tingnan mismo kung ano ang ipinapadala ng iyong application sa mga AI provider at kung ano ang natatanggap nito mula sa mga ito. Gumagana sa anumang client na compatible sa OpenAI.",
->>>>>>> upstream/main
     "cliCode": "CLI Code",
     "cliCodeSubtitle": "Mga code tool na nakaturo sa OmniRoute",
     "cliAgents": "Mga CLI Agent",
@@ -1374,12 +1360,8 @@
       "close": "isara"
     },
     "noResults": "Walang resulta",
-<<<<<<< HEAD
-    "trafficInspectorPurpose": "See exactly what your application sends to and receives from AI providers. Works with any OpenAI-compatible client."
-=======
     "costsTeams": "Mga koponan",
     "costsTeamsSubtitle": "Mga sentro ng gastos ng koponan"
->>>>>>> upstream/main
   },
   "webhooks": {
     "title": "Mga Webhook",
@@ -1949,22 +1931,6 @@
     "releaseNotes": "Mga Tala ng Paglabas",
     "readMore": "Magbasa Pa Nang Higit",
     "noAuthLabel": "Walang Awtorisasyon",
-<<<<<<< HEAD
-    "recentRequests": "Recent Requests",
-    "recentRequestsEmpty": "No requests yet.",
-    "recentRequestsModel": "Model",
-    "recentRequestsTokens": "In / Out",
-    "recentRequestsWhen": "When",
-    "readinessEyebrow": "Get ready to route",
-    "readinessTitle": "Send your first request",
-    "readinessSubtitle": "Four small steps. OmniRoute checks readiness as you go.",
-    "readinessStep1": "Connect a provider",
-    "readinessStep2": "Configure endpoint authentication",
-    "readinessStep3": "Copy your endpoint",
-    "readinessStep4": "Send a test request",
-    "readinessContinue": "Continue setup",
-    "readinessDismiss": "Dismiss for now"
-=======
     "readinessEyebrow": "Maghandang mag-route",
     "readinessTitle": "Ipadala ang iyong unang kahilingan",
     "readinessSubtitle": "Apat na simpleng hakbang. Sinusuri ng OmniRoute ang kahandaan habang nagpapatuloy ka.",
@@ -1990,7 +1956,6 @@
     "systemMetricsCpuCount": "{count} vCPUs • {platform}",
     "systemMetricsProcessCpu": "OmniRoute (process)",
     "systemMetricsProcessMemory": "OmniRoute (RSS / Heap)"
->>>>>>> upstream/main
   },
   "analytics": {
     "title": "Analitika",
@@ -3094,15 +3059,10 @@
       "letta": "Letta CLI agent na may persistent memory at paggamit ng tool",
       "prime-agent": "Prime Agent — kusang humuhusay na RLM coding harness na may suporta para sa OpenAI-compatible na provider",
       "warp": "Warp AI terminal na may suporta sa custom provider",
-<<<<<<< HEAD
-      "agent-deck": "Agent Deck multi-agent orchestrator",
-      "prime-agent": "Prime Agent — self-improving RLM coding harness with OpenAI-compatible provider support"
-=======
       "agent-deck": "Agent Deck na tagapag-orkestra ng maraming ahente",
       "5dive": "5dive — self-hosted fleet ng coding agents; isang auth profile ang nagtuturo sa kanilang lahat sa OmniRoute",
       "whycodes": "Awtonomong CLI agent na WhyCodes na may base URL na tugma sa OpenAI",
       "zed": "Zed code editor — built-in na agent sa pamamagitan ng provider na compatible sa OpenAI"
->>>>>>> upstream/main
     },
     "guides": {
       "cursor": {
@@ -6461,15 +6421,9 @@
     "qoderPatPlaceholder": "Qoder Pat Placeholder",
     "rateLimitOverridesSection": "Mga Override sa Rate Limit",
     "rateLimitOverridesMaxConcurrentHint": "Override sa max concurrent requests para sa koneksyong ito. Ino-override ang cap sa antas ng account.",
-<<<<<<< HEAD
-    "rateLimitOverridesMaxConcurrentLabel": "Max Concurrent (Rate Limit)",
-    "rateLimitOverridesMaxWaitMsHint": "__MISSING__:Maximum time (ms) a request may wait for a rate-limit slot before failing. Overrides the global Resilience setting for this connection only.",
-    "rateLimitOverridesMaxWaitMsLabel": "__MISSING__:Max Queue Wait (ms)",
-=======
     "rateLimitOverridesMaxConcurrentLabel": "Maximum na Magkakasabay (Limitasyon sa Rate)",
     "rateLimitOverridesMaxWaitMsHint": "Maximum na oras (ms) na maaaring maghintay ang isang request para sa slot ng limitasyon sa rate bago ito mabigo. Ino-override nito ang pangkalahatang setting ng Resilience para lamang sa koneksiyong ito.",
     "rateLimitOverridesMaxWaitMsLabel": "Maximum na Paghihintay sa Queue (ms)",
->>>>>>> upstream/main
     "rateLimitOverridesMinTimeHint": "Minimum na oras (ms) sa pagitan ng mga request. Ino-override ang default na delay ng rate limiter.",
     "rateLimitOverridesMinTimeLabel": "Minimum na Agwat (ms)",
     "rateLimitOverridesRpdHint": "Pinakamataas na kahilingan bawat araw para sa koneksyong ito. Ino-override ang default ng provider.",
@@ -6762,11 +6716,7 @@
       "bigmodel": "Gumawa ng API key sa https://bigmodel.cn/usercenter/proj-mgmt/apikeys. Ginagamit ng OmniRoute ang opisyal na OpenAI-compatible na chat endpoint ng BigModel.cn.",
       "glmt": "Preset na GLM profile na may mas mataas na token budget, naka-enable ang thinking, at mas mahabang timeout.",
       "getgoapi": "Ikonekta ang GoAPI gamit ang isang API key.",
-<<<<<<< HEAD
-      "groq": "Libreng tier: 30 RPM / 14.4K RPD — walang credit card",
-=======
       "groq": "Libreng plano: mga limitasyon kada modelo (200K token/araw bawat chat model; tingnan ang console.groq.com/docs/rate-limits para sa RPM/RPD) — walang nakatalang paraan ng pagbabayad.",
->>>>>>> upstream/main
       "haiper": "Kumuha ng API key sa haiper.ai/haiper-api",
       "heroku": "Ikonekta ang Heroku AI gamit ang isang API key.",
       "hcnsec": "Kumuha ng API key sa api.hcnsec.cn",
@@ -7073,22 +7023,6 @@
     "searchByModelAria": "Maghanap ayon sa modelo",
     "selectSupportedEndpoint": "Pumili ng hindi bababa sa isang sinusuportahang endpoint",
     "antigravityClientProfileHarness": "Harness / CLI",
-<<<<<<< HEAD
-    "harImportButtonLabel": "Import .har file",
-    "harImportButtonBusy": "Importing…",
-    "harImportButtonHint": "Export from DevTools Network tab after sending at least one chat message.",
-    "harImportStatusValid": "Imported — valid for ~{minutes}m.",
-    "harImportStatusExpiringSoon": "Imported — valid for only ~{minutes}m more.",
-    "harImportStatusExpired": "Imported, but this token already expired ({minutes}m ago) — export a fresh HAR.",
-    "harImportStatusUnknownExpiry": "Imported. Couldn't read its expiry.",
-    "harImportErrorNotJson": "That file isn't valid JSON — is it really a .har export?",
-    "harImportErrorNoEntries": "This HAR has no network entries recorded.",
-    "harImportErrorNoChathubUrl": "No Copilot chat connection found in this HAR. Send at least one chat message in m365.cloud.microsoft before exporting.",
-    "harImportErrorUnparsableUrl": "Found the chat connection, but couldn't read its URL.",
-    "harImportErrorMissingFields": "Found the chat connection, but the token was missing from it.",
-    "harImportErrorReadFailed": "Couldn't read that file.",
-    "harImportErrorUnknown": "Couldn't extract a credential from that HAR file."
-=======
     "rateLimitOverridesModelConcurrencyLabel": "Per-model concurrency caps",
     "rateLimitOverridesModelConcurrencyPlaceholder": "glm-5=1\nglm-4.7=3",
     "rateLimitOverridesModelConcurrencyHint": "Optional: one model=cap per line, matched against the exact upstream model id. Queues excess requests locally; blank means no per-model cap.",
@@ -7113,7 +7047,6 @@
     "doctorChecking": "Sinoo ang status…",
     "doctorCheck": "Suriin ang status ng doctor",
     "fallbackRetryBackendTitle": "Fallback na backend ng pag-uulit"
->>>>>>> upstream/main
   },
   "settings": {
     "title": "Mga setting",
@@ -9105,20 +9038,6 @@
     "cliproxyapiPort": "Port",
     "qdrantHost": "Host",
     "qdrantCollection": "Koleksyon",
-<<<<<<< HEAD
-    "presetAll": "All",
-    "presetAllDesc": "Show everything",
-    "presetEssentials": "Essentials",
-    "presetEssentialsDesc": "Beginner path - Advanced tools stay searchable",
-    "presetMinimal": "Minimal",
-    "presetMinimalDesc": "Core pages only",
-    "presetDeveloper": "Developer",
-    "presetDeveloperDesc": "Dev & proxy tools",
-    "presetAdmin": "Admin",
-    "presetAdminDesc": "Monitoring & audit",
-    "settingsSidebarTitle": "Sidebar Customization",
-    "settingsSidebarDesc": "Choose which sidebar items to show. Essentials keeps Advanced tools searchable."
-=======
     "catalogVisibilityHint": "Maaari pa ring tawagin ang mga nakatagong model ID gamit ang parehong mga pahintulot sa pag-access.",
     "exposeCombosOnly": "Ilista lamang ang mga combo sa /v1/models",
     "exposeCombosOnlyDesc": "Makikita ng mga client na awtomatikong tumutuklas ng mga model ang iyong mga combo (at auto/* maliban kung nakatago) sa halip na ang mga raw na model ng provider. Patuloy na iruruta ang mga tahasang provider/model ID.",
@@ -9299,7 +9218,6 @@
       "statsEmpty": "Wala pang natukoy.",
       "statsRequest": "Mga request"
     }
->>>>>>> upstream/main
   },
   "contextRtk": {
     "title": "Engine ng RTK",
@@ -13373,15 +13291,9 @@
       "acp": {
         "title": "Mga ACP Agent",
         "phrase": "Mga CLI na ini-spawn ng OmniRoute bilang execution backend (reverse flow)",
-<<<<<<< HEAD
-        "flow": "Client → OmniRoute → spawn CLI (stdio/ACP) → response",
-        "seeOther": "Tingnan →",
-        "warning": "Most users can ignore this — use only when an integration requires it."
-=======
         "warning": "Maaaring hindi ito pansinin ng karamihan ng mga user — gamitin lamang kapag kinakailangan ito ng isang integration.",
         "flow": "Client → OmniRoute → mag-spawn ng CLI (stdio/ACP) → tugon",
         "seeOther": "Tingnan →"
->>>>>>> upstream/main
       }
     },
     "comparison": {
@@ -14248,11 +14160,6 @@
       "SKILLS_SANDBOX_NETWORK_ENABLED": {
         "description": "I-enable ang access sa network sa skills sandbox."
       },
-<<<<<<< HEAD
-      "DISABLE_CONTEXT_WINDOW_CHECKS": {
-        "label": "Disable Context Window Checks",
-        "description": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active."
-=======
       "SERVER_OWNED_TOOL_LOOP_ENABLED": {
         "label": "Tool Loop na Pinamamahalaan ng Server",
         "description": "Ipagpatuloy ang mga non-streaming na tool call na pinamamahalaan ng server hanggang sa magbalik ang modelo ng tugon na magagamit ng client."
@@ -14548,7 +14455,6 @@
       "UNPRICED_USAGE_BUDGET_POLICY": {
         "label": "Patakaran sa Badyet para sa Hindi Naka-presyong Paggamit",
         "description": "Kung paano tinatrato ng pang-araw-araw/panglinggong USD na mga limitasyon kada key ang matagumpay na paggamit kung ang provider/model ay walang hilera ng presyo. Ang fail_closed (karaniwan) ay minamarkahan ang panahon bilang nalampasan, kaya ang hindi kilalang gastos ay hindi kailanman makakalusot sa isang mahigpit na limitasyon. Ang count_as_zero ay binibilang ang paggamit na iyon bilang $0 at pinapanatili ang pagpapatupad ng binayarang gastos. Nakalista ang mga modelong walang presyo sa home page ng dashboard sa anumang kaso."
->>>>>>> upstream/main
       }
     }
   },
@@ -15833,15 +15739,6 @@
     "structuredOutputMismatch": "Hindi sinusuportahan ng provider ang nakabalangkas na output",
     "contextWindowMismatch": "Lumampas ang kahilingan sa konteksto ng tagapagbigay"
   },
-<<<<<<< HEAD
-  "featureFlagDisableContextWindowChecksDescription": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active.",
-  "cheaperInferenceSponsorBanner": {
-    "title": "Cheaper Inference is an OmniRoute Open Source Friend",
-    "description": "A cost-ranked gateway reselling dozens of frontier models behind one OpenAI-compatible endpoint — routing each request to the cheapest eligible provider, never above list price.",
-    "cta": "Get an API Key",
-    "partnerLinkNote": "Partner link",
-    "dismissAriaLabel": "Dismiss"
-=======
   "cheaperInferenceSponsorBanner": {
     "title": "Ang Cheaper Inference ay isang Open Source Friend ng OmniRoute",
     "description": "Isang gateway na niraranggo ayon sa gastos na muling nagbebenta ng dose-dosenang frontier model sa likod ng iisang endpoint na compatible sa OpenAI — na niruruta ang bawat kahilingan sa pinakamurang kwalipikadong provider, nang hindi kailanman lumalampas sa nakalistang presyo.",
@@ -16099,6 +15996,5 @@
     "greetingFallbackName": "doon",
     "errNoReply": "⚠️ Walang sagot mula sa gateway.",
     "btnSend": "Ipadala"
->>>>>>> upstream/main
   }
 }

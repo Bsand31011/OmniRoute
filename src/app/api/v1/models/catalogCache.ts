@@ -15,13 +15,7 @@
 import { createHmac } from "node:crypto";
 
 import { after } from "next/server";
-<<<<<<< HEAD
-
-import { getModelCatalogCacheVersion } from "@/lib/db/readCache";
-import { extractApiKey } from "@/sse/services/auth";
-=======
 import { getCopilotRejectionCatalogVersion } from "@omniroute/open-sse/services/copilotModelRejections.ts";
->>>>>>> upstream/main
 
 import { getModelCatalogCacheVersion as getDatabaseCatalogVersion } from "@/lib/db/readCache";
 import { extractApiKey } from "@/sse/services/auth";
@@ -148,58 +142,8 @@ export type CatalogCacheOptions = {
  */
 export const CATALOG_CACHE_TTL_MS_DEFAULT = 60_000;
 
-<<<<<<< HEAD
-/**
- * Per-call knobs for {@link resolveCachedCatalogResponse}.
- *
- * `hideAutoCombos` / `hideNoThinkVariants` are catalog-shape dimensions folded into
- * the cache key. `getStaleWhileRevalidateMs` and `scheduleBackgroundRefresh` are the
- * injection points restored in #11551: the route wires Next's `after()` so the
- * background refresh runs only once the response has been flushed to the client.
- */
-export type CatalogResolveOptions = {
-  hideAutoCombos?: boolean;
-  hideNoThinkVariants?: boolean;
-  /** Overrides {@link CATALOG_STALE_WHILE_REVALIDATE_MS} for this call. */
-  getStaleWhileRevalidateMs?: () => number;
-  /** Defers a background refresh; defaults to {@link defaultBackgroundRefreshScheduler}. */
-  scheduleBackgroundRefresh?: BackgroundRefreshScheduler;
-};
-
-/** Defers `task` until it is safe to run without delaying the current response. */
-export type BackgroundRefreshScheduler = (task: () => Promise<void>) => void;
-
-/**
- * Default scheduler (#8728 / #11551).
- *
- * Next's `after()` runs the task once the response has been flushed, which is the
- * whole point of the stale-while-revalidate path: the builder is overwhelmingly
- * synchronous under the single-threaded App Router, so running it before the flush
- * pins the event loop and the "served immediately" stale body only reaches the
- * client after the rebuild finishes.
- *
- * `after()` requires a Next request scope. Callers outside one (instrumentation
- * warm-up, direct unit-test imports) fall back to a macrotask, which preserves the
- * "hand the response back first" ordering within the same process.
- */
-export function defaultBackgroundRefreshScheduler(task: () => Promise<void>): void {
-  try {
-    after(task);
-  } catch {
-    setTimeout(() => {
-      void task();
-    }, 0);
-  }
-}
-
-type CatalogInFlight = {
-  version: number;
-  promise: Promise<CachedCatalog>;
-};
-=======
 /** Cold-path wait bound for a coalesced catalog rebuild (#12627). Override with CATALOG_BUILD_TIMEOUT_MS. */
 export const CATALOG_BUILD_TIMEOUT_MS_DEFAULT = 8_000;
->>>>>>> upstream/main
 
 function catalogBuildTimeoutMs(): number {
   const raw = process.env.CATALOG_BUILD_TIMEOUT_MS;
@@ -333,11 +277,7 @@ const catalogInFlight = new Map<string, InFlightBuild>();
 
 let _catalogBuilderRuns = 0;
 
-<<<<<<< HEAD
-function buildCatalogCacheKey(request: Request, catalogSettings?: CatalogResolveOptions): string {
-=======
 function buildCatalogCacheKey(request: Request, catalogSettings?: CatalogCacheOptions): string {
->>>>>>> upstream/main
   const url = new URL(request.url);
   const prefix = url.searchParams.get("prefix") || "";
   const apiKey = extractApiKey(request) || "";
@@ -445,11 +385,7 @@ function startBackgroundRefresh(
   cacheKey: string,
   request: Request,
   buildPayload: (request: Request) => Promise<CatalogPayload>,
-<<<<<<< HEAD
-  schedule: BackgroundRefreshScheduler = defaultBackgroundRefreshScheduler
-=======
   schedule: BackgroundRefreshScheduler
->>>>>>> upstream/main
 ): void {
   if (catalogInFlight.has(cacheKey)) return; // a refresh for this key is already running
 
@@ -570,11 +506,7 @@ export async function resolveCachedCatalogResponse(
   request: Request,
   headerSources: { corsHeaders: Record<string, string>; diagnosticHeaders: Record<string, string> },
   buildPayload: (request: Request) => Promise<CatalogPayload>,
-<<<<<<< HEAD
-  catalogSettings?: CatalogResolveOptions
-=======
   catalogSettings?: CatalogCacheOptions
->>>>>>> upstream/main
 ): Promise<Response> {
   const { corsHeaders, diagnosticHeaders } = headerSources;
   dropCatalogCacheIfStateChanged();
@@ -600,21 +532,6 @@ export async function resolveCachedCatalogResponse(
   // intermittent failure behind a fake success forever — and (b) it is within the
   // staleness window, so a refresh that keeps failing eventually falls through to the
   // cold-path wait instead of pinning ancient data.
-<<<<<<< HEAD
-  const staleWindowMs =
-    catalogSettings?.getStaleWhileRevalidateMs?.() ?? CATALOG_STALE_WHILE_REVALIDATE_MS;
-  if (cached && cached.status === 200 && now - cached.expiresAt <= staleWindowMs) {
-    scheduleBackgroundRefresh(
-      cacheKey,
-      request,
-      buildPayload,
-      catalogSettings?.scheduleBackgroundRefresh
-    );
-    return new Response(cached.body, {
-      status: cached.status,
-      headers: mergeCatalogHeaders(corsHeaders, cached.headers, diagnosticHeaders),
-    });
-=======
   if (cached && cached.status === 200 && now - cached.expiresAt <= staleWindowMs) {
     catalogLastGood.get(cacheKey);
     startBackgroundRefresh(
@@ -628,7 +545,6 @@ export async function resolveCachedCatalogResponse(
       mergeCatalogHeaders(corsHeaders, cached.headers, diagnosticHeaders),
       cached.status
     );
->>>>>>> upstream/main
   }
 
   const currentGeneration = getModelCatalogCacheVersion();

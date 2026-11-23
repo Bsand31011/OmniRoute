@@ -78,19 +78,11 @@ function isDroppableEmptyEntry(
   return allowlisted || (propSchema != null && !required.has(key));
 }
 
-<<<<<<< HEAD
-function schemaTypeIncludes(type, wanted) {
-  return type === wanted || (Array.isArray(type) && type.includes(wanted));
-}
-
-function hasOmissionSentinel(propSchema) {
-=======
 function schemaTypeIncludes(type: unknown, wanted: string): boolean {
   return type === wanted || (Array.isArray(type) && type.includes(wanted));
 }
 
 function hasOmissionSentinel(propSchema: ToolArgSchema | null | undefined): boolean {
->>>>>>> upstream/main
   if (!propSchema || typeof propSchema !== "object") return false;
   if (
     typeof propSchema.description !== "string" ||
@@ -110,9 +102,6 @@ function hasOmissionSentinel(propSchema: ToolArgSchema | null | undefined): bool
 // injectOptionalStringOmissionSentinel. Drop the key when the model follows that idiom
 // for a non-required, schema-declared property, or when OmniRoute's marker is present
 // even after an upstream strictifies the field into `required`.
-<<<<<<< HEAD
-function isDroppableNullEntry(entry, propSchema, required, key, toolName) {
-=======
 function isDroppableNullEntry(
   entry: unknown,
   propSchema: ToolArgSchema | null | undefined,
@@ -120,7 +109,6 @@ function isDroppableNullEntry(
   key: string,
   toolName: string
 ): boolean {
->>>>>>> upstream/main
   if (entry !== null) return false;
   if (toolName === "Agent") return true;
   if (propSchema == null) return false;

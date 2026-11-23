@@ -54,8 +54,6 @@ test("upstream error passthrough", async (t) => {
         }),
         false
       );
-<<<<<<< HEAD
-=======
       for (const message of [
         String.raw`rejected api_key\t=opaque-tab-secret-9382746`,
         String.raw`rejected api_key\u0009=opaque-unicode-tab-9382746`,
@@ -67,19 +65,13 @@ test("upstream error passthrough", async (t) => {
       ]) {
         assert.equal(shouldPassthroughUpstreamError(422, { error: { message } }), false, message);
       }
->>>>>>> upstream/main
     }
   );
   await t.test(
     "corpo de capacidade/quota sem segredo continua elegível (contrato Claude Code preservado)",
     () => {
-<<<<<<< HEAD
-      // The common case must still relay verbatim so Claude Code can match the
-      // wording to auto-disable capabilities.
-=======
       // The common safe case must preserve wording so Claude Code can match it
       // after recursive sanitization and auto-disable capabilities.
->>>>>>> upstream/main
       assert.equal(
         shouldPassthroughUpstreamError(400, {
           error: { message: "thinking.type: adaptive is not supported" },
@@ -94,11 +86,7 @@ test("upstream error passthrough", async (t) => {
       );
     }
   );
-<<<<<<< HEAD
-  await t.test("buildPassthroughErrorResponse preserva corpo byte-a-byte", async () => {
-=======
   await t.test("buildPassthroughErrorResponse preserves an already-safe JSON body", async () => {
->>>>>>> upstream/main
     const body = {
       type: "error",
       error: { type: "invalid_request_error", message: "thinking.type: nope" },

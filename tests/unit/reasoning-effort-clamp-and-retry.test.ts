@@ -75,16 +75,12 @@ test("422 'unknown variant xhigh, expected one of ...' clamps reasoning_effort a
     assert.equal(capturedBodies[0].reasoning_effort, "xhigh");
     assert.equal(capturedBodies[1].reasoning_effort, "high");
     assert.ok(
-<<<<<<< HEAD
-      (getLearnedReasoningEffort("openai-compatible-chat-eaff6869", "qwen3-coder-30b-a3b-instruct") as unknown as Set<string>).has("high")
-=======
       (
         getLearnedReasoningEffort(
           "openai-compatible-chat-eaff6869",
           "qwen3-coder-30b-a3b-instruct"
         ) as unknown as Set<string>
       ).has("high")
->>>>>>> upstream/main
     );
     assert.equal(result.response.status, 200);
   } finally {
@@ -130,14 +126,10 @@ test("400 please use low, high, or max clamps and retries once (nearest-tier: me
   const originalFetch = globalThis.fetch;
   const capturedBodies: Record<string, unknown>[] = [];
   const BODY_400_PLEASE_USE = JSON.stringify({
-<<<<<<< HEAD
-    error: { message: "This model always engages in thinking and cannot be disabled; please use low, high, or max" },
-=======
     error: {
       message:
         "This model always engages in thinking and cannot be disabled; please use low, high, or max",
     },
->>>>>>> upstream/main
   });
 
   globalThis.fetch = async (_url: string | URL | Request, init: RequestInit = {}) => {
@@ -160,11 +152,7 @@ test("400 please use low, high, or max clamps and retries once (nearest-tier: me
       model: "x-preview-f-free",
       body: { reasoning_effort: "medium" },
       stream: false,
-<<<<<<< HEAD
-      credentials: {},
-=======
       credentials: OVH_CREDENTIALS,
->>>>>>> upstream/main
     });
     assert.equal(capturedBodies.length, 2);
     assert.equal(capturedBodies[0].reasoning_effort, "medium");
@@ -172,14 +160,10 @@ test("400 please use low, high, or max clamps and retries once (nearest-tier: me
     // high(4), the smallest accepted rank at or above it (was "low" under the
     // old downgrade-only direction).
     assert.equal(capturedBodies[1].reasoning_effort, "high");
-<<<<<<< HEAD
-    const learned = getLearnedReasoningEffort("openai-compatible-chat-eaff6869", "x-preview-f-free") as unknown as Set<string>;
-=======
     const learned = getLearnedReasoningEffort(
       "openai-compatible-chat-eaff6869",
       "x-preview-f-free"
     ) as unknown as Set<string>;
->>>>>>> upstream/main
     assert.ok(learned instanceof Set);
     assert.ok(learned.has("low"));
     assert.ok(learned.has("high"));
@@ -217,11 +201,7 @@ test("400 please use low, medium with ultra retries to medium", async () => {
       model: "x-preview-f-free-2",
       body: { reasoning_effort: "ultra" },
       stream: false,
-<<<<<<< HEAD
-      credentials: {},
-=======
       credentials: OVH_CREDENTIALS,
->>>>>>> upstream/main
     });
     assert.equal(capturedBodies.length, 2);
     assert.equal(capturedBodies[0].reasoning_effort, "ultra");
@@ -264,11 +244,7 @@ test("sub-floor clamp now retries: learned {high,max} with low request clamps up
       model: "x-preview-f-free-3",
       body: { reasoning_effort: "low" },
       stream: false,
-<<<<<<< HEAD
-      credentials: {},
-=======
       credentials: OVH_CREDENTIALS,
->>>>>>> upstream/main
     });
     assert.equal(capturedBodies.length, 2);
     assert.equal(capturedBodies[0].reasoning_effort, "low");

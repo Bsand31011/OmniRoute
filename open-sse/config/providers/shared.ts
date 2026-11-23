@@ -177,8 +177,6 @@ export interface RegistryEntry {
   requestDefaults?: ProviderRequestDefaults;
   oauth?: RegistryOAuth;
   models: RegistryModel[];
-<<<<<<< HEAD
-=======
   /**
    * Opt-in for unionRegistryDispatchModels: targetFormat-tagged models join
    * authoritative live catalogs (dispatch AND listing) when this provider's
@@ -188,7 +186,6 @@ export interface RegistryEntry {
    * entitlement must NOT opt in: their #12137-style gating would be bypassed.
    */
   registryDispatchUnion?: boolean;
->>>>>>> upstream/main
   /** Provider-native reasoning vocabulary for reasoning-capable passthrough models
    * that do not have an explicit per-model declaration. */
   defaultSupportedThinkingEfforts?: readonly string[];

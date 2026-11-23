@@ -1017,19 +1017,9 @@
     "batchFilePreview": "پیش‌نمایش",
     "batchFilePreviewTruncated": "نمایش {shown} خط اول ({total} خط کل)",
     "batchFileDownloadFull": "دانلود فایل کامل",
-<<<<<<< HEAD
-    "batchHeaderSubtitle": "Run many requests as one job",
-    "batchStep1": "1 · Upload JSONL",
-    "batchStep1Desc": "Add requests",
-    "batchStep2": "2 · Create batch",
-    "batchStep2Desc": "Run job",
-    "batchStep3": "3 · Get results",
-    "batchStep3Desc": "Download output"
-=======
     "tokensPageTitle": "توکنها",
     "tokensPageDescription": "توکنها را بین کلیدهای API ارسال کنید، کدهای دعوت را به اشتراک بگذارید و سرورهای جامعه را متصل کنید.",
     "tokensServerUrlLabel": "نشانی URL سرور"
->>>>>>> upstream/main
   },
   "disabled": "غیرفعال",
   "featureFlagOmnirouteEmergencyFallbackDescription": "درخواستهایی را که بودجهشان تمام شده است به ارائهدهنده/مدل جایگزین رایگان اضطراری هدایت کنید.",
@@ -1327,12 +1317,8 @@
     "agentBridge": "پل ایجنت",
     "agentBridgeSubtitle": "رهگیری ترافیک ایجنت IDE",
     "trafficInspector": "بازرس ترافیک",
-<<<<<<< HEAD
-    "trafficInspectorSubtitle": "__MISSING__:Inspect request and response traffic from your apps",
-=======
     "trafficInspectorSubtitle": "ترافیک درخواستها و پاسخهای برنامههایتان را بررسی کنید",
     "trafficInspectorPurpose": "دقیقاً ببینید برنامه شما چه چیزی برای ارائهدهندگان هوش مصنوعی ارسال و چه چیزی از آنها دریافت میکند. با هر کلاینت سازگار با OpenAI کار میکند.",
->>>>>>> upstream/main
     "cliCode": "کد CLI",
     "cliCodeSubtitle": "ابزارهای کد متصل به OmniRoute",
     "cliAgents": "ایجنت‌های CLI",
@@ -1374,12 +1360,8 @@
       "close": "بستن"
     },
     "noResults": "هیچ نتیجه‌ای یافت نشد",
-<<<<<<< HEAD
-    "trafficInspectorPurpose": "See exactly what your application sends to and receives from AI providers. Works with any OpenAI-compatible client."
-=======
     "costsTeams": "تیم‌ها",
     "costsTeamsSubtitle": "مراکز هزینه تیم"
->>>>>>> upstream/main
   },
   "webhooks": {
     "title": "وب هوک ها",
@@ -1949,22 +1931,6 @@
     "releaseNotes": "یادداشت‌های انتشار",
     "readMore": "بیشتر بخوانید",
     "noAuthLabel": "بدون احراز هویت",
-<<<<<<< HEAD
-    "recentRequests": "Recent Requests",
-    "recentRequestsEmpty": "No requests yet.",
-    "recentRequestsModel": "Model",
-    "recentRequestsTokens": "In / Out",
-    "recentRequestsWhen": "When",
-    "readinessEyebrow": "Get ready to route",
-    "readinessTitle": "Send your first request",
-    "readinessSubtitle": "Four small steps. OmniRoute checks readiness as you go.",
-    "readinessStep1": "Connect a provider",
-    "readinessStep2": "Configure endpoint authentication",
-    "readinessStep3": "Copy your endpoint",
-    "readinessStep4": "Send a test request",
-    "readinessContinue": "Continue setup",
-    "readinessDismiss": "Dismiss for now"
-=======
     "readinessEyebrow": "برای مسیریابی آماده شوید",
     "readinessTitle": "اولین درخواست خود را ارسال کنید",
     "readinessSubtitle": "چهار مرحله کوتاه. OmniRoute در هر مرحله آمادگی را بررسی میکند.",
@@ -1990,7 +1956,6 @@
     "systemMetricsCpuCount": "{count} vCPUs • {platform}",
     "systemMetricsProcessCpu": "OmniRoute (process)",
     "systemMetricsProcessMemory": "OmniRoute (RSS / Heap)"
->>>>>>> upstream/main
   },
   "analytics": {
     "title": "تحلیلها",
@@ -3095,13 +3060,9 @@
       "prime-agent": "Prime Agent — بستر کدنویسی خودبهبودگر RLM با پشتیبانی از ارائهدهندهٔ سازگار با OpenAI",
       "warp": "ترمینال هوش مصنوعی Warp با پشتیبانی از ارائه‌دهنده سفارشی",
       "agent-deck": "ارکستراتور چندعاملی Agent Deck",
-<<<<<<< HEAD
-      "prime-agent": "Prime Agent — self-improving RLM coding harness with OpenAI-compatible provider support"
-=======
       "5dive": "5dive — ناوگان خودمیزبان از عامل‌های کدنویسی؛ یک پروفایل احراز هویت همه را به OmniRoute هدایت می‌کند",
       "whycodes": "عامل خودکار CLI ‏WhyCodes با URL پایه سازگار با OpenAI",
       "zed": "ویرایشگر کد Zed — عامل داخلی از طریق ارائه‌دهنده سازگار با OpenAI"
->>>>>>> upstream/main
     },
     "guides": {
       "cursor": {
@@ -6461,13 +6422,8 @@
     "rateLimitOverridesSection": "جایگزینی‌های محدودیت نرخ",
     "rateLimitOverridesMaxConcurrentHint": "جایگزینی حداکثر درخواست‌های همزمان برای این اتصال. سقف سطح حساب را لغو می‌کند.",
     "rateLimitOverridesMaxConcurrentLabel": "حداکثر همزمان (محدودیت نرخ)",
-<<<<<<< HEAD
-    "rateLimitOverridesMaxWaitMsHint": "__MISSING__:Maximum time (ms) a request may wait for a rate-limit slot before failing. Overrides the global Resilience setting for this connection only.",
-    "rateLimitOverridesMaxWaitMsLabel": "__MISSING__:Max Queue Wait (ms)",
-=======
     "rateLimitOverridesMaxWaitMsHint": "حداکثر زمانی (ms) که یک درخواست میتواند پیش از ناموفق شدن، برای ظرفیت محدودیت نرخ منتظر بماند. این مقدار فقط برای این اتصال، تنظیم کلی Resilience را بازنویسی میکند.",
     "rateLimitOverridesMaxWaitMsLabel": "حداکثر انتظار در صف (ms)",
->>>>>>> upstream/main
     "rateLimitOverridesMinTimeHint": "حداقل زمان (میلی‌ثانیه) بین درخواست‌ها. تاخیر پیش‌فرض محدودکننده نرخ را لغو می‌کند.",
     "rateLimitOverridesMinTimeLabel": "حداقل فاصله (میلی‌ثانیه)",
     "rateLimitOverridesRpdHint": "حداکثر درخواست در روز برای این اتصال. پیش‌فرض ارائه‌دهنده را لغو می‌کند.",
@@ -6760,11 +6716,7 @@
       "bigmodel": "یک کلید API در https://bigmodel.cn/usercenter/proj-mgmt/apikeys ایجاد کنید. OmniRoute از نقطه پایانی گفتگوی رسمی سازگار با OpenAI در BigModel.cn استفاده می‌کند.",
       "glmt": "پروفایل پیش‌فرض GLM با بودجه توکن بالاتر، فعال بودن تفکر (thinking) و زمان انتظار (timeout) طولانی‌تر.",
       "getgoapi": "اتصال GoAPI با یک کلید API.",
-<<<<<<< HEAD
-      "groq": "سطح رایگان: ۳۰ RPM / ۱۴.۴K RPD — بدون نیاز به کارت اعتباری",
-=======
       "groq": "طرح رایگان: محدودیتهای هر مدل (۲۰۰ هزار توکن در روز برای هر مدل چت؛ برای RPM/RPD به console.groq.com/docs/rate-limits مراجعه کنید) — هیچ روش پرداختی در حساب ثبت نشده است.",
->>>>>>> upstream/main
       "haiper": "کلید API را در haiper.ai/haiper-api دریافت کنید",
       "heroku": "اتصال Heroku AI با یک کلید API.",
       "hcnsec": "دریافت کلید API در api.hcnsec.cn",
@@ -7070,23 +7022,6 @@
     "savedModelEndpointSettings": "تنظیمات نقطه پایانی مدل ذخیره شده",
     "searchByModelAria": "جستجو بر اساس مدل",
     "selectSupportedEndpoint": "حداقل یک نقطه پایانی پشتیبانی شده را انتخاب کنید",
-<<<<<<< HEAD
-    "antigravityClientProfileHarness": "Harness / CLI",
-    "harImportButtonLabel": "Import .har file",
-    "harImportButtonBusy": "Importing…",
-    "harImportButtonHint": "Export from DevTools Network tab after sending at least one chat message.",
-    "harImportStatusValid": "Imported — valid for ~{minutes}m.",
-    "harImportStatusExpiringSoon": "Imported — valid for only ~{minutes}m more.",
-    "harImportStatusExpired": "Imported, but this token already expired ({minutes}m ago) — export a fresh HAR.",
-    "harImportStatusUnknownExpiry": "Imported. Couldn't read its expiry.",
-    "harImportErrorNotJson": "That file isn't valid JSON — is it really a .har export?",
-    "harImportErrorNoEntries": "This HAR has no network entries recorded.",
-    "harImportErrorNoChathubUrl": "No Copilot chat connection found in this HAR. Send at least one chat message in m365.cloud.microsoft before exporting.",
-    "harImportErrorUnparsableUrl": "Found the chat connection, but couldn't read its URL.",
-    "harImportErrorMissingFields": "Found the chat connection, but the token was missing from it.",
-    "harImportErrorReadFailed": "Couldn't read that file.",
-    "harImportErrorUnknown": "Couldn't extract a credential from that HAR file."
-=======
     "antigravityClientProfileHarness": "هارنس / CLI",
     "rateLimitOverridesModelConcurrencyLabel": "Per-model concurrency caps",
     "rateLimitOverridesModelConcurrencyPlaceholder": "glm-5=1\nglm-4.7=3",
@@ -7112,7 +7047,6 @@
     "doctorChecking": "در حال بررسی وضعیت…",
     "doctorCheck": "بررسی وضعیت داکتور",
     "fallbackRetryBackendTitle": "بک‌اند تلاش مجدد جایگزین"
->>>>>>> upstream/main
   },
   "settings": {
     "title": "تنظیمات",
@@ -9104,20 +9038,6 @@
     "cliproxyapiPort": "پورت",
     "qdrantHost": "میزبان",
     "qdrantCollection": "مجموعه",
-<<<<<<< HEAD
-    "presetAll": "All",
-    "presetAllDesc": "Show everything",
-    "presetEssentials": "Essentials",
-    "presetEssentialsDesc": "Beginner path - Advanced tools stay searchable",
-    "presetMinimal": "Minimal",
-    "presetMinimalDesc": "Core pages only",
-    "presetDeveloper": "Developer",
-    "presetDeveloperDesc": "Dev & proxy tools",
-    "presetAdmin": "Admin",
-    "presetAdminDesc": "Monitoring & audit",
-    "settingsSidebarTitle": "Sidebar Customization",
-    "settingsSidebarDesc": "Choose which sidebar items to show. Essentials keeps Advanced tools searchable."
-=======
     "catalogVisibilityHint": "شناسه‌های مدل پنهان همچنان با همان مجوزهای دسترسی قابل فراخوانی هستند.",
     "exposeCombosOnly": "فقط ترکیب‌ها در /v1/models فهرست شوند",
     "exposeCombosOnlyDesc": "کلاینت‌هایی که مدل‌ها را خودکار کشف می‌کنند به‌جای مدل‌های خام ارائه‌دهندگان، ترکیب‌های شما (و auto/* اگر پنهان نباشند) را می‌بینند. شناسه‌های صریح provider/model همچنان مسیریابی می‌شوند.",
@@ -9298,7 +9218,6 @@
       "statsEmpty": "هنوز موردی شناسایی نشده است.",
       "statsRequest": "درخواست‌ها"
     }
->>>>>>> upstream/main
   },
   "contextRtk": {
     "title": "موتور RTK",
@@ -14242,11 +14161,6 @@
       "SKILLS_SANDBOX_NETWORK_ENABLED": {
         "description": "فعال‌سازی دسترسی به شبکه در محیط ایزوله مهارت‌ها."
       },
-<<<<<<< HEAD
-      "DISABLE_CONTEXT_WINDOW_CHECKS": {
-        "label": "Disable Context Window Checks",
-        "description": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active."
-=======
       "SERVER_OWNED_TOOL_LOOP_ENABLED": {
         "label": "حلقهٔ ابزار تحت کنترل سرور",
         "description": "فراخوانیهای غیراستریمی ابزار تحت کنترل سرور را تا زمانی ادامه دهید که مدل پاسخی قابلاستفاده برای کلاینت برگرداند."
@@ -14542,7 +14456,6 @@
       "UNPRICED_USAGE_BUDGET_POLICY": {
         "label": "سیاست بودجهٔ استفادهٔ بدون قیمت",
         "description": "نحوهٔ رفتار محدودیت‌های USD روزانه/هفتگی به‌ازای هر کلید با استفادهٔ موفقی که ارائه‌دهنده/مدل آن ردیف قیمت ندارد. fail_closed (پیش‌فرض) پنجرهٔ بازه را به‌عنوان صرف‌شدهٔ فراتر از سقف علامت‌گذاری می‌کند، بنابراین یک هزینهٔ ناشناخته هرگز از یک سقف سخت عبور نمی‌کند. count_as_zero آن استفاده را به‌عنوان $0 حساب می‌کند و اجرای هزینه‌های دارای قیمت را ادامه می‌دهد. مدل‌های بدون قیمت در هر صورت در صفحهٔ اصلی داشبورد فهرست می‌شوند."
->>>>>>> upstream/main
       }
     }
   },
@@ -15827,15 +15740,6 @@
     "structuredOutputMismatch": "ارائه‌دهنده خروجی ساختاریافته را پشتیبانی نمی‌کند",
     "contextWindowMismatch": "درخواست از حد مجاز پنجره زمینه ارائه‌دهنده فراتر می‌رود"
   },
-<<<<<<< HEAD
-  "featureFlagDisableContextWindowChecksDescription": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active.",
-  "cheaperInferenceSponsorBanner": {
-    "title": "Cheaper Inference is an OmniRoute Open Source Friend",
-    "description": "A cost-ranked gateway reselling dozens of frontier models behind one OpenAI-compatible endpoint — routing each request to the cheapest eligible provider, never above list price.",
-    "cta": "Get an API Key",
-    "partnerLinkNote": "Partner link",
-    "dismissAriaLabel": "Dismiss"
-=======
   "cheaperInferenceSponsorBanner": {
     "title": "Cheaper Inference یکی از دوستان متنباز OmniRoute است",
     "description": "دروازهای با رتبهبندی هزینه که دهها مدل پیشرفته را پشت یک نقطهٔ پایانی سازگار با OpenAI بازفروشی میکند—هر درخواست را به ارزانترین ارائهدهندهٔ واجد شرایط هدایت میکند، بدون آنکه هرگز از قیمت فهرستشده فراتر رود.",
@@ -16093,6 +15997,5 @@
     "greetingFallbackName": "آنجا",
     "errNoReply": "⚠️ پاسخی از دروازه دریافت نشد.",
     "btnSend": "ارسال"
->>>>>>> upstream/main
   }
 }

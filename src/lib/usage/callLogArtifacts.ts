@@ -13,10 +13,6 @@ import {
 const isCloud = typeof globalThis.caches === "object" && globalThis.caches !== null;
 const isBuildPhase =
   process.env.NEXT_PHASE === "phase-production-build" || process.env.OMNIROUTE_BUILDING === "1";
-<<<<<<< HEAD
-const DATA_DIR = resolveDataDir({ isCloud });
-=======
->>>>>>> upstream/main
 
 /**
  * Directory holding per-request artifact files. Resolved lazily on every call

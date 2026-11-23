@@ -349,24 +349,17 @@ test("buildHealthPayload projects allowlisted structural chatAdmission fields on
     waiting: 2,
     queuedBytes: 524_288,
     shedTotal: 3,
-<<<<<<< HEAD
-    shedsByReason: { queue_timeout: 2, queued_bytes_budget: 1 },
-=======
     shedsByReason: { queue_timeout: 2, body_exceeds_budget: 1 },
->>>>>>> upstream/main
     lanes: [
       { key: "key_c49d1c242feda590", waiting: 1 },
       { key: "anonymous", waiting: 1 },
     ],
-<<<<<<< HEAD
-=======
     // #503-fanout additions.
     inflightBytes: 131_072,
     maxInflightBytes: 134_217_728,
     budgetSource: "v8_heap",
     pressureSeverity: "normal",
     countCapEnabled: false,
->>>>>>> upstream/main
     // Extra keys that must never leak into the public payload.
     internalController: { secret: "controller-state" },
     rawAuthorization: "Bearer raw-SHOULD-NOT-LEAK",
@@ -401,23 +394,16 @@ test("buildHealthPayload projects allowlisted structural chatAdmission fields on
     waiting: 2,
     queuedBytes: 524_288,
     shedTotal: 3,
-<<<<<<< HEAD
-    shedsByReason: { queue_timeout: 2, queued_bytes_budget: 1 },
-=======
     shedsByReason: { queue_timeout: 2, body_exceeds_budget: 1 },
->>>>>>> upstream/main
     lanes: [
       { key: "key_c49d1c242feda590", waiting: 1 },
       { key: "anonymous", waiting: 1 },
     ],
-<<<<<<< HEAD
-=======
     inflightBytes: 131_072,
     maxInflightBytes: 134_217_728,
     budgetSource: "v8_heap",
     pressureSeverity: "normal",
     countCapEnabled: false,
->>>>>>> upstream/main
   });
   // The adaptive projection is untouched by the new key.
   assert.equal(payload.adaptiveAdmission, null);
@@ -431,8 +417,6 @@ test("buildHealthPayload projects allowlisted structural chatAdmission fields on
   assert.equal(projectChatAdmissionSummary(null), null);
   assert.equal(projectChatAdmissionSummary(undefined), null);
 });
-<<<<<<< HEAD
-=======
 
 test("buildHealthPayload marks credentialHealth as probe-cache and counts sticky sqlite status", () => {
   assert.equal(
@@ -488,4 +472,3 @@ test("buildHealthPayload marks credentialHealth as probe-cache and counts sticky
     staleDbNonOkCount: 1,
   });
 });
->>>>>>> upstream/main

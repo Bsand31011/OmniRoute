@@ -149,8 +149,6 @@ export class A2ATaskManager {
     }
   }
 
-<<<<<<< HEAD
-=======
   /**
    * Persist a task's current state to the history tables (Task C2). Best-effort: any failure
    * (SQLite unavailable, schema drift, …) is logged and swallowed — the in-memory `Map` stays
@@ -193,7 +191,6 @@ export class A2ATaskManager {
     }
   }
 
->>>>>>> upstream/main
   createTask(input: TaskInput, owner?: string): A2ATask {
     const now = new Date();
     const task: A2ATask = {

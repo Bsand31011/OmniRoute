@@ -1017,19 +1017,9 @@
     "batchFilePreview": "Previzualizare",
     "batchFilePreviewTruncated": "Afișare primele {shown} linii ({total} linii totale)",
     "batchFileDownloadFull": "Descarcă Fișierul Complet",
-<<<<<<< HEAD
-    "batchHeaderSubtitle": "Run many requests as one job",
-    "batchStep1": "1 · Upload JSONL",
-    "batchStep1Desc": "Add requests",
-    "batchStep2": "2 · Create batch",
-    "batchStep2Desc": "Run job",
-    "batchStep3": "3 · Get results",
-    "batchStep3Desc": "Download output"
-=======
     "tokensPageTitle": "Tokenuri",
     "tokensPageDescription": "Trimite tokenuri între cheile API, distribuie coduri de invitație și conectează serverele comunității.",
     "tokensServerUrlLabel": "URL-ul serverului"
->>>>>>> upstream/main
   },
   "disabled": "Dezactivat",
   "featureFlagOmnirouteEmergencyFallbackDescription": "Redirecționează cererile cu buget epuizat către furnizorul/modelul de rezervă gratuit de urgență.",
@@ -1327,12 +1317,8 @@
     "agentBridge": "Punte pentru agenți",
     "agentBridgeSubtitle": "Interceptează traficul agentului IDE",
     "trafficInspector": "Inspector de trafic",
-<<<<<<< HEAD
-    "trafficInspectorSubtitle": "__MISSING__:Inspect request and response traffic from your apps",
-=======
     "trafficInspectorSubtitle": "Inspectează traficul de solicitări și răspunsuri din aplicațiile tale",
     "trafficInspectorPurpose": "Vezi exact ce trimite aplicația ta către furnizorii de servicii AI și ce primește de la aceștia. Funcționează cu orice client compatibil cu OpenAI.",
->>>>>>> upstream/main
     "cliCode": "Cod CLI",
     "cliCodeSubtitle": "Instrumente de cod care indică spre OmniRoute",
     "cliAgents": "Agenți CLI",
@@ -1374,12 +1360,8 @@
       "close": "închide"
     },
     "noResults": "Niciun rezultat",
-<<<<<<< HEAD
-    "trafficInspectorPurpose": "See exactly what your application sends to and receives from AI providers. Works with any OpenAI-compatible client."
-=======
     "costsTeams": "Echipe",
     "costsTeamsSubtitle": "Centre de cost ale echipelor"
->>>>>>> upstream/main
   },
   "webhooks": {
     "title": "Webhook-uri",
@@ -1949,22 +1931,6 @@
     "releaseNotes": "Note de Lansare",
     "readMore": "Citește mai mult",
     "noAuthLabel": "Fără Autentificare",
-<<<<<<< HEAD
-    "recentRequests": "Recent Requests",
-    "recentRequestsEmpty": "No requests yet.",
-    "recentRequestsModel": "Model",
-    "recentRequestsTokens": "In / Out",
-    "recentRequestsWhen": "When",
-    "readinessEyebrow": "Get ready to route",
-    "readinessTitle": "Send your first request",
-    "readinessSubtitle": "Four small steps. OmniRoute checks readiness as you go.",
-    "readinessStep1": "Connect a provider",
-    "readinessStep2": "Configure endpoint authentication",
-    "readinessStep3": "Copy your endpoint",
-    "readinessStep4": "Send a test request",
-    "readinessContinue": "Continue setup",
-    "readinessDismiss": "Dismiss for now"
-=======
     "readinessEyebrow": "Pregătește-te să direcționezi",
     "readinessTitle": "Trimite prima solicitare",
     "readinessSubtitle": "Patru pași simpli. OmniRoute verifică dacă totul este pregătit pe parcurs.",
@@ -1990,7 +1956,6 @@
     "systemMetricsCpuCount": "{count} vCPUs • {platform}",
     "systemMetricsProcessCpu": "OmniRoute (process)",
     "systemMetricsProcessMemory": "OmniRoute (RSS / Heap)"
->>>>>>> upstream/main
   },
   "analytics": {
     "title": "Analiză",
@@ -3095,13 +3060,9 @@
       "prime-agent": "Prime Agent — sistem RLM de programare cu auto-îmbunătățire și compatibilitate cu furnizori compatibili cu OpenAI",
       "warp": "Terminal Warp AI cu suport pentru furnizori personalizați",
       "agent-deck": "Orchestrator multi-agent Agent Deck",
-<<<<<<< HEAD
-      "prime-agent": "Prime Agent — self-improving RLM coding harness with OpenAI-compatible provider support"
-=======
       "5dive": "5dive — flotă auto-găzduită de agenți de codare; un profil de autentificare îi îndreaptă pe toți către OmniRoute",
       "whycodes": "Agent CLI autonom WhyCodes cu URL de bază compatibil OpenAI",
       "zed": "Editorul de cod Zed — agent integrat printr-un furnizor compatibil cu OpenAI"
->>>>>>> upstream/main
     },
     "guides": {
       "cursor": {
@@ -6461,13 +6422,8 @@
     "rateLimitOverridesSection": "Suprascrieri ale limitelor de rată",
     "rateLimitOverridesMaxConcurrentHint": "Suprascrierea numărului maxim de solicitări concurente pentru această conexiune. Suprascrie limita la nivel de cont.",
     "rateLimitOverridesMaxConcurrentLabel": "Maxim concurente (Limită de rată)",
-<<<<<<< HEAD
-    "rateLimitOverridesMaxWaitMsHint": "__MISSING__:Maximum time (ms) a request may wait for a rate-limit slot before failing. Overrides the global Resilience setting for this connection only.",
-    "rateLimitOverridesMaxWaitMsLabel": "__MISSING__:Max Queue Wait (ms)",
-=======
     "rateLimitOverridesMaxWaitMsHint": "Timpul maxim (ms) în care o solicitare poate aștepta un interval disponibil înainte de a eșua din cauza limitei de rată. Suprascrie setarea globală de reziliență numai pentru această conexiune.",
     "rateLimitOverridesMaxWaitMsLabel": "Timp maxim de așteptare în coadă (ms)",
->>>>>>> upstream/main
     "rateLimitOverridesMinTimeHint": "Timpul minim (ms) între solicitări. Suprascrie întârzierea implicită a limitatorului de rată.",
     "rateLimitOverridesMinTimeLabel": "Interval minim (ms)",
     "rateLimitOverridesRpdHint": "Numărul maxim de cereri pe zi pentru această conexiune. Suprascrie valoarea implicită a furnizorului.",
@@ -6760,11 +6716,7 @@
       "bigmodel": "Creați o cheie API la https://bigmodel.cn/usercenter/proj-mgmt/apikeys. OmniRoute folosește endpoint-ul oficial de chat compatibil OpenAI al BigModel.cn.",
       "glmt": "Profil GLM prestabilit cu un buget de tokenuri mai mare, gândire activată și timeout mai lung.",
       "getgoapi": "Conectați GoAPI cu o cheie API.",
-<<<<<<< HEAD
-      "groq": "Nivel gratuit: 30 RPM / 14.4K RPD — fără card de credit",
-=======
       "groq": "Plan gratuit: limite per model (200K tokenuri/zi pentru fiecare model de chat; consultă console.groq.com/docs/rate-limits pentru RPM/RPD) — nicio metodă de plată înregistrată.",
->>>>>>> upstream/main
       "haiper": "Obțineți cheia API la haiper.ai/haiper-api",
       "heroku": "Conectați Heroku AI cu o cheie API.",
       "hcnsec": "Obțineți cheia API la api.hcnsec.cn",
@@ -7070,23 +7022,6 @@
     "savedModelEndpointSettings": "Setările punctului final al modelului salvat",
     "searchByModelAria": "Caută după model",
     "selectSupportedEndpoint": "Selectați cel puțin un punct final acceptat",
-<<<<<<< HEAD
-    "antigravityClientProfileHarness": "Harness / CLI",
-    "harImportButtonLabel": "Import .har file",
-    "harImportButtonBusy": "Importing…",
-    "harImportButtonHint": "Export from DevTools Network tab after sending at least one chat message.",
-    "harImportStatusValid": "Imported — valid for ~{minutes}m.",
-    "harImportStatusExpiringSoon": "Imported — valid for only ~{minutes}m more.",
-    "harImportStatusExpired": "Imported, but this token already expired ({minutes}m ago) — export a fresh HAR.",
-    "harImportStatusUnknownExpiry": "Imported. Couldn't read its expiry.",
-    "harImportErrorNotJson": "That file isn't valid JSON — is it really a .har export?",
-    "harImportErrorNoEntries": "This HAR has no network entries recorded.",
-    "harImportErrorNoChathubUrl": "No Copilot chat connection found in this HAR. Send at least one chat message in m365.cloud.microsoft before exporting.",
-    "harImportErrorUnparsableUrl": "Found the chat connection, but couldn't read its URL.",
-    "harImportErrorMissingFields": "Found the chat connection, but the token was missing from it.",
-    "harImportErrorReadFailed": "Couldn't read that file.",
-    "harImportErrorUnknown": "Couldn't extract a credential from that HAR file."
-=======
     "antigravityClientProfileHarness": "Cadru / CLI",
     "rateLimitOverridesModelConcurrencyLabel": "Per-model concurrency caps",
     "rateLimitOverridesModelConcurrencyPlaceholder": "glm-5=1\nglm-4.7=3",
@@ -7112,7 +7047,6 @@
     "doctorChecking": "Verificarea stării…",
     "doctorCheck": "Verifică starea doctorului",
     "fallbackRetryBackendTitle": "Backend de reîncercare pentru fallback"
->>>>>>> upstream/main
   },
   "settings": {
     "title": "Setări",
@@ -9104,20 +9038,6 @@
     "cliproxyapiPort": "Port",
     "qdrantHost": "Gazdă",
     "qdrantCollection": "Colecție",
-<<<<<<< HEAD
-    "presetAll": "All",
-    "presetAllDesc": "Show everything",
-    "presetEssentials": "Essentials",
-    "presetEssentialsDesc": "Beginner path - Advanced tools stay searchable",
-    "presetMinimal": "Minimal",
-    "presetMinimalDesc": "Core pages only",
-    "presetDeveloper": "Developer",
-    "presetDeveloperDesc": "Dev & proxy tools",
-    "presetAdmin": "Admin",
-    "presetAdminDesc": "Monitoring & audit",
-    "settingsSidebarTitle": "Sidebar Customization",
-    "settingsSidebarDesc": "Choose which sidebar items to show. Essentials keeps Advanced tools searchable."
-=======
     "catalogVisibilityHint": "ID-urile modelelor ascunse pot fi în continuare apelate cu aceleași permisiuni de acces.",
     "exposeCombosOnly": "Listează doar combinațiile în /v1/models",
     "exposeCombosOnlyDesc": "Clienții care descoperă automat modelele văd combinațiile tale (și auto/*, dacă nu sunt ascunse) în locul modelelor brute ale furnizorilor. ID-urile explicite provider/model sunt în continuare rutate.",
@@ -9298,7 +9218,6 @@
       "statsEmpty": "Nicio detecție încă.",
       "statsRequest": "Cereri"
     }
->>>>>>> upstream/main
   },
   "contextRtk": {
     "title": "Motor RTK",
@@ -14242,11 +14161,6 @@
       "SKILLS_SANDBOX_NETWORK_ENABLED": {
         "description": "Activează accesul la rețea în sandbox-ul de abilități."
       },
-<<<<<<< HEAD
-      "DISABLE_CONTEXT_WINDOW_CHECKS": {
-        "label": "Disable Context Window Checks",
-        "description": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active."
-=======
       "SERVER_OWNED_TOOL_LOOP_ENABLED": {
         "label": "Buclă de instrumente gestionată de server",
         "description": "Continuă apelurile de instrumente fără streaming gestionate de server până când modelul returnează un răspuns utilizabil de client."
@@ -14542,7 +14456,6 @@
       "UNPRICED_USAGE_BUDGET_POLICY": {
         "label": "Politica bugetului pentru utilizare fără preț",
         "description": "Cum tratează limitele zilnice/săptămânale în USD pe cheie utilizarea reușită pentru care furnizorul/modelul nu are o linie de preț. fail_closed (implicit) marchează fereastra ca depășită, astfel încât un cost necunoscut să nu poată trece peste un plafon strict. count_as_zero contabilizează acea utilizare ca $0 și continuă să aplice cheltuielile cu preț. Modelele fără preț sunt listate oricum pe pagina principală a tabloului de bord."
->>>>>>> upstream/main
       }
     }
   },
@@ -15827,15 +15740,6 @@
     "structuredOutputMismatch": "Furnizorul nu suportă ieșirea structurată",
     "contextWindowMismatch": "Cererea depășește fereastra de context a furnizorului"
   },
-<<<<<<< HEAD
-  "featureFlagDisableContextWindowChecksDescription": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active.",
-  "cheaperInferenceSponsorBanner": {
-    "title": "Cheaper Inference is an OmniRoute Open Source Friend",
-    "description": "A cost-ranked gateway reselling dozens of frontier models behind one OpenAI-compatible endpoint — routing each request to the cheapest eligible provider, never above list price.",
-    "cta": "Get an API Key",
-    "partnerLinkNote": "Partner link",
-    "dismissAriaLabel": "Dismiss"
-=======
   "cheaperInferenceSponsorBanner": {
     "title": "Cheaper Inference este un proiect open-source prieten al OmniRoute",
     "description": "Un gateway ordonat după cost, care revinde zeci de modele de frontieră printr-un singur endpoint compatibil cu OpenAI — direcționând fiecare solicitare către cel mai ieftin furnizor eligibil, fără a depăși vreodată prețul de listă.",
@@ -16093,6 +15997,5 @@
     "greetingFallbackName": "acolo",
     "errNoReply": "⚠️ Niciun răspuns din partea poartei.",
     "btnSend": "Trimite"
->>>>>>> upstream/main
   }
 }

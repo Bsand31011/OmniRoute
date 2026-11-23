@@ -4,16 +4,11 @@ import {
   applyStackedCompression,
   type StackedCompressionStep,
 } from "./strategySelector.ts";
-<<<<<<< HEAD
-=======
 import { adaptBodyForCompression } from "./bodyAdapter.ts";
->>>>>>> upstream/main
 import type {
   CompressionWorkerJob,
   CompressionWorkerMessage,
 } from "./compressionWorkerProtocol.ts";
-<<<<<<< HEAD
-=======
 import type { CompressionResult } from "./types.ts";
 
 // #13154 follow-up: `applyCompression`'s sync/in-process "stacked" branch runs every body
@@ -39,7 +34,6 @@ function runStackedJob(
   });
   return adapter.adapted ? { ...result, body: adapter.restore(result.body) } : result;
 }
->>>>>>> upstream/main
 
 if (!parentPort) throw new Error("compressionWorker must run in a worker thread");
 parentPort.on("message", (job: CompressionWorkerJob) => {
@@ -52,14 +46,7 @@ parentPort.on("message", (job: CompressionWorkerJob) => {
       } satisfies CompressionWorkerMessage);
     const result =
       job.mode === "stacked"
-<<<<<<< HEAD
-        ? applyStackedCompression(job.body, job.options?.config?.stackedPipeline, {
-            ...job.options,
-            onEngineStep,
-          })
-=======
         ? runStackedJob(job, onEngineStep)
->>>>>>> upstream/main
         : applyCompression(job.body, job.mode, job.options);
     parentPort.postMessage({
       id: job.id,

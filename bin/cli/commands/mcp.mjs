@@ -90,12 +90,6 @@ export function registerMcp(program) {
             ? JSON.parse(argsPositional)
             : {};
 
-<<<<<<< HEAD
-      const exitCode = await runMcpCallCommand(tool, args, {
-        ...opts,
-        stream: opts.stream,
-      }, globalOpts);
-=======
       const exitCode = await runMcpCallCommand(
         tool,
         args,
@@ -105,7 +99,6 @@ export function registerMcp(program) {
         },
         callGlobals
       );
->>>>>>> upstream/main
 
       if (exitCode !== 0) process.exit(exitCode);
     });
@@ -127,132 +120,6 @@ export function registerMcp(program) {
     });
 }
 
-<<<<<<< HEAD
-/**
- * Shared JSON-RPC 2.0 MCP client used by both stream and non-stream `mcp call`.
- *
- * Protocol:
- *   1. POST /api/mcp/stream with initialize → get Mcp-Session-Id header
- *   2. POST /api/mcp/stream with tools/call + Mcp-Session-Id header
- *
- * When `stream` is true, writes SSE data chunks to stdout as they arrive.
- * When `stream` is false, returns the parsed JSON-RPC result.
- *
- * Returns the exit code (0 = success, non-zero = failure).
- */
-async function mcpJsonRpcCall(tool, args, { stream = false, globalOpts = {} } = {}) {
-  const baseUrl = globalOpts.baseUrl ?? "http://localhost:20128";
-  const apiKey = globalOpts.apiKey ?? "";
-  const streamUrl = `${baseUrl}/api/mcp/stream`;
-
-  const hdrs = {
-    "Content-Type": "application/json",
-    Accept: stream ? "text/event-stream" : "application/json",
-    ...(apiKey ? { Authorization: `Bearer ${apiKey}` } : {}),
-  };
-
-  // Step 1 — initialize
-  const initRes = await fetch(streamUrl, {
-    method: "POST",
-    headers: hdrs,
-    body: JSON.stringify({
-      jsonrpc: "2.0",
-      id: 1,
-      method: "initialize",
-      params: {
-        protocolVersion: "2024-11-05",
-        capabilities: {},
-        clientInfo: { name: "omniroute-cli", version: "1.0" },
-      },
-    }),
-  });
-
-  if (!initRes.ok) {
-    const text = await initRes.text().catch(() => "");
-    process.stderr.write(`MCP initialize failed: HTTP ${initRes.status}${text ? ` — ${text}` : ""}\n`);
-    return 1;
-  }
-
-  const sessionId = initRes.headers.get("mcp-session-id");
-  if (!sessionId) {
-    process.stderr.write("MCP initialize failed: no Mcp-Session-Id in response\n");
-    return 1;
-  }
-
-  // Step 2 — tools/call
-  const callHeaders = {
-    ...hdrs,
-    "mcp-session-id": sessionId,
-  };
-
-  const callRes = await fetch(streamUrl, {
-    method: "POST",
-    headers: callHeaders,
-    body: JSON.stringify({
-      jsonrpc: "2.0",
-      id: 2,
-      method: "tools/call",
-      params: { name: tool, arguments: args },
-    }),
-  });
-
-  if (!callRes.ok) {
-    const text = await callRes.text().catch(() => "");
-    process.stderr.write(`MCP call failed: HTTP ${callRes.status}${text ? ` — ${text}` : ""}\n`);
-    return 1;
-  }
-
-  if (stream) {
-    return readMcpSseStream(callRes.body);
-  }
-
-  // Non-stream: parse JSON-RPC response
-  const data = await callRes.json();
-  if (data.error) {
-    process.stderr.write(`MCP error: ${data.error.message || JSON.stringify(data.error)}\n`);
-    return 1;
-  }
-  // Print the result content
-  const content = data.result?.content;
-  if (content) {
-    for (const item of content) {
-      if (item.type === "text") {
-        process.stdout.write(item.text + "\n");
-      } else if (item.type === "resource") {
-        process.stdout.write(JSON.stringify(item.resource) + "\n");
-      } else {
-        process.stdout.write(JSON.stringify(item) + "\n");
-      }
-    }
-  } else {
-    process.stdout.write(JSON.stringify(data.result, null, 2) + "\n");
-  }
-  return 0;
-}
-
-async function readMcpSseStream(body) {
-  if (!body) return 1;
-  const reader = body.getReader();
-  const dec = new TextDecoder();
-  let buf = "";
-  while (true) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    buf += dec.decode(value, { stream: true });
-  }
-  const lines = buf.split("\n");
-  for (const line of lines) {
-    if (line.startsWith("data: ")) {
-      const raw = line.slice(6).trim();
-      if (raw && raw !== "[DONE]") process.stdout.write(raw + "\n");
-    }
-  }
-  return 0;
-}
-
-export async function runMcpCallCommand(tool, args, opts = {}, globalOpts = {}) {
-  return mcpJsonRpcCall(tool, args, { stream: opts.stream, globalOpts });
-=======
 // Node's setTimeout cannot represent longer delays: it truncates them to 1ms.
 export const MAX_TIMEOUT_MS = 2_147_483_647;
 
@@ -373,7 +240,6 @@ export async function runMcpCallCommand(tool, args, opts = {}, globalOpts = {}) 
     process.stderr.write(`${message}\n`);
     return 1;
   }
->>>>>>> upstream/main
 }
 
 export async function runMcpStatusCommand(opts = {}) {
@@ -405,12 +271,9 @@ export async function runMcpStatusCommand(opts = {}) {
     const transport = status.transport || "stdio";
     const online = status.online ?? status.running;
     console.log(online ? t("mcp.running", { transport }) : t("mcp.stopped"));
-<<<<<<< HEAD
-=======
     if (!online && status.enabled === false) {
       console.log(t("mcp.stoppedHint"));
     }
->>>>>>> upstream/main
     if (status.toolsCount !== undefined) console.log(`  Tools: ${status.toolsCount}`);
     if (status.scopes?.length) {
       console.log("  Scopes:");

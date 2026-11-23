@@ -404,20 +404,14 @@ export function findUnexpectedArtifactPaths(
     // DB-backed route in packaged boots while /api/monitoring/health stayed green.
     // The PUBLISH gate (validate-pack-artifact) keeps the strict default.
     neverAllowedSegments = PACK_ARTIFACT_NEVER_ALLOWED_SEGMENTS,
-<<<<<<< HEAD
-=======
     // Path predicates for allowed sets that are neither exact files nor whole prefixes
     // (APP_STAGING_ALLOWED_PATH_MATCHERS / PACK_ARTIFACT_ALLOWED_PATH_MATCHERS).
     pathMatchers = [],
->>>>>>> upstream/main
   }: {
     exactPaths?: string[];
     prefixPaths?: string[];
     neverAllowedSegments?: string[];
-<<<<<<< HEAD
-=======
     pathMatchers?: Array<(filePath: string) => boolean>;
->>>>>>> upstream/main
   } = {}
 ): string[] {
   const normalizedExact = new Set(exactPaths.map(normalizeArtifactPath));

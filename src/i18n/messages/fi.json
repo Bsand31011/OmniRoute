@@ -1017,19 +1017,9 @@
     "batchFilePreview": "Esikatselu",
     "batchFilePreviewTruncated": "Näytetään ensimmäiset {shown} riviä ({total} yhteensä riviä)",
     "batchFileDownloadFull": "Lataa Koko Tiedosto",
-<<<<<<< HEAD
-    "batchHeaderSubtitle": "Run many requests as one job",
-    "batchStep1": "1 · Upload JSONL",
-    "batchStep1Desc": "Add requests",
-    "batchStep2": "2 · Create batch",
-    "batchStep2Desc": "Run job",
-    "batchStep3": "3 · Get results",
-    "batchStep3Desc": "Download output"
-=======
     "tokensPageTitle": "Tokenit",
     "tokensPageDescription": "Lähetä tokeneita API-avainten välillä, jaa kutsukoodeja ja yhdistä yhteisöpalvelimia.",
     "tokensServerUrlLabel": "Palvelimen URL-osoite"
->>>>>>> upstream/main
   },
   "disabled": "Poistettu käytöstä",
   "featureFlagOmnirouteEmergencyFallbackDescription": "Reititä budjettinsa ylittäneet pyynnöt varalla olevalle ilmaiselle varatarjoajalle/-mallille.",
@@ -1327,12 +1317,8 @@
     "agentBridge": "Agent Bridge",
     "agentBridgeSubtitle": "Kaappaa IDE-agentin liikenne",
     "trafficInspector": "Liikennetarkastin",
-<<<<<<< HEAD
-    "trafficInspectorSubtitle": "__MISSING__:Inspect request and response traffic from your apps",
-=======
     "trafficInspectorSubtitle": "Tarkastele sovellustesi pyyntö- ja vastausliikennettä",
     "trafficInspectorPurpose": "Näe tarkalleen, mitä sovelluksesi lähettää tekoälypalveluntarjoajille ja vastaanottaa niiltä. Toimii kaikkien OpenAI-yhteensopivien asiakasohjelmien kanssa.",
->>>>>>> upstream/main
     "cliCode": "CLI-koodi",
     "cliCodeSubtitle": "OmniRouteen osoittavat koodityökalut",
     "cliAgents": "CLI-agentit",
@@ -1374,12 +1360,8 @@
       "close": "sulje"
     },
     "noResults": "Ei tuloksia",
-<<<<<<< HEAD
-    "trafficInspectorPurpose": "See exactly what your application sends to and receives from AI providers. Works with any OpenAI-compatible client."
-=======
     "costsTeams": "Tiimit",
     "costsTeamsSubtitle": "Tiimien kustannuspaikat"
->>>>>>> upstream/main
   },
   "webhooks": {
     "title": "Webhookit",
@@ -1949,22 +1931,6 @@
     "releaseNotes": "Julkaisutiedot",
     "readMore": "Lue lisää",
     "noAuthLabel": "Ei todennusta",
-<<<<<<< HEAD
-    "recentRequests": "Recent Requests",
-    "recentRequestsEmpty": "No requests yet.",
-    "recentRequestsModel": "Model",
-    "recentRequestsTokens": "In / Out",
-    "recentRequestsWhen": "When",
-    "readinessEyebrow": "Get ready to route",
-    "readinessTitle": "Send your first request",
-    "readinessSubtitle": "Four small steps. OmniRoute checks readiness as you go.",
-    "readinessStep1": "Connect a provider",
-    "readinessStep2": "Configure endpoint authentication",
-    "readinessStep3": "Copy your endpoint",
-    "readinessStep4": "Send a test request",
-    "readinessContinue": "Continue setup",
-    "readinessDismiss": "Dismiss for now"
-=======
     "readinessEyebrow": "Valmistaudu reititykseen",
     "readinessTitle": "Lähetä ensimmäinen pyyntösi",
     "readinessSubtitle": "Neljä pientä vaihetta. OmniRoute tarkistaa valmiuden edetessäsi.",
@@ -1990,7 +1956,6 @@
     "systemMetricsCpuCount": "{count} vCPUs • {platform}",
     "systemMetricsProcessCpu": "OmniRoute (process)",
     "systemMetricsProcessMemory": "OmniRoute (RSS / Heap)"
->>>>>>> upstream/main
   },
   "analytics": {
     "title": "Analytiikka",
@@ -3095,13 +3060,9 @@
       "prime-agent": "Prime Agent — itseään kehittävä RLM-koodauskehys, joka tukee OpenAI-yhteensopivia palveluntarjoajia",
       "warp": "Warp AI -terminaali mukautetun palveluntarjoajan tuella",
       "agent-deck": "Agent Deck -moniagenttiorkestraattori",
-<<<<<<< HEAD
-      "prime-agent": "Prime Agent — self-improving RLM coding harness with OpenAI-compatible provider support"
-=======
       "5dive": "5dive — itse isännöity koodausagenttien laivue; yksi auth-profiili ohjaa ne kaikki OmniRouteen",
       "whycodes": "Autonominen WhyCodes-CLI-agentti OpenAI-yhteensopivalla perus-URL:lla",
       "zed": "Zed-koodieditori — sisäänrakennettu agentti OpenAI-yhteensopivan palveluntarjoajan kautta"
->>>>>>> upstream/main
     },
     "guides": {
       "cursor": {
@@ -6461,13 +6422,8 @@
     "rateLimitOverridesSection": "Pyyntörajojen ohitukset",
     "rateLimitOverridesMaxConcurrentHint": "Samanaikaisten pyyntöjen enimmäismäärän ohitus tälle yhteydelle. Ohittaa tilitason rajoituksen.",
     "rateLimitOverridesMaxConcurrentLabel": "Samanaikaisia enintään (pyyntöraja)",
-<<<<<<< HEAD
-    "rateLimitOverridesMaxWaitMsHint": "__MISSING__:Maximum time (ms) a request may wait for a rate-limit slot before failing. Overrides the global Resilience setting for this connection only.",
-    "rateLimitOverridesMaxWaitMsLabel": "__MISSING__:Max Queue Wait (ms)",
-=======
     "rateLimitOverridesMaxWaitMsHint": "Enimmäisaika (ms), jonka pyyntö voi odottaa nopeusrajoituksen vapautumista ennen epäonnistumista. Ohittaa yleisen häiriönsietoasetuksen vain tämän yhteyden osalta.",
     "rateLimitOverridesMaxWaitMsLabel": "Jonon enimmäisodotusaika (ms)",
->>>>>>> upstream/main
     "rateLimitOverridesMinTimeHint": "Vähimmäisaika (ms) pyyntöjen välillä. Ohittaa oletusarvoisen pyyntörajoittimen viiveen.",
     "rateLimitOverridesMinTimeLabel": "Vähimmäisväli (ms)",
     "rateLimitOverridesRpdHint": "Pyyntöjen enimmäismäärä päivässä tälle yhteydelle. Korvaa palveluntarjoajan oletusarvon.",
@@ -6760,11 +6716,7 @@
       "bigmodel": "Luo API-avain osoitteessa https://bigmodel.cn/usercenter/proj-mgmt/apikeys. OmniRoute käyttää BigModel.cn:n virallista OpenAI-yhteensopivaa chat-päätepistettä.",
       "glmt": "Esiasetettu GLM-profiili suuremmalla token-budjetilla, ajattelu käytössä ja pidemmällä aikakatkaisulla.",
       "getgoapi": "Yhdistä GoAPI API-avaimella.",
-<<<<<<< HEAD
-      "groq": "Ilmainen taso: 30 RPM / 14,4K RPD — ei luottokorttia",
-=======
       "groq": "Maksuton paketti: mallikohtaiset rajat (200K tokenia päivässä kutakin chat-mallia kohden; katso RPM/RPD-rajat osoitteesta console.groq.com/docs/rate-limits) — maksutapaa ei ole tallennettu.",
->>>>>>> upstream/main
       "haiper": "Hanki API-avain osoitteesta haiper.ai/haiper-api",
       "heroku": "Yhdistä Heroku AI API-avaimella.",
       "hcnsec": "Hanki API-avain osoitteesta api.hcnsec.cn",
@@ -7070,23 +7022,6 @@
     "savedModelEndpointSettings": "Tallennetun mallin päätepisteen asetukset",
     "searchByModelAria": "Hae mallin mukaan",
     "selectSupportedEndpoint": "Valitse vähintään yksi tuettu päätepiste",
-<<<<<<< HEAD
-    "antigravityClientProfileHarness": "Harness / CLI",
-    "harImportButtonLabel": "Import .har file",
-    "harImportButtonBusy": "Importing…",
-    "harImportButtonHint": "Export from DevTools Network tab after sending at least one chat message.",
-    "harImportStatusValid": "Imported — valid for ~{minutes}m.",
-    "harImportStatusExpiringSoon": "Imported — valid for only ~{minutes}m more.",
-    "harImportStatusExpired": "Imported, but this token already expired ({minutes}m ago) — export a fresh HAR.",
-    "harImportStatusUnknownExpiry": "Imported. Couldn't read its expiry.",
-    "harImportErrorNotJson": "That file isn't valid JSON — is it really a .har export?",
-    "harImportErrorNoEntries": "This HAR has no network entries recorded.",
-    "harImportErrorNoChathubUrl": "No Copilot chat connection found in this HAR. Send at least one chat message in m365.cloud.microsoft before exporting.",
-    "harImportErrorUnparsableUrl": "Found the chat connection, but couldn't read its URL.",
-    "harImportErrorMissingFields": "Found the chat connection, but the token was missing from it.",
-    "harImportErrorReadFailed": "Couldn't read that file.",
-    "harImportErrorUnknown": "Couldn't extract a credential from that HAR file."
-=======
     "antigravityClientProfileHarness": "Testauskehys / CLI",
     "rateLimitOverridesModelConcurrencyLabel": "Per-model concurrency caps",
     "rateLimitOverridesModelConcurrencyPlaceholder": "glm-5=1\nglm-4.7=3",
@@ -7112,7 +7047,6 @@
     "doctorChecking": "Tarkistetaan tilaa…",
     "doctorCheck": "Tarkista doctor-tila",
     "fallbackRetryBackendTitle": "Vaihtoehtoinen uudelleenyritysbackendi"
->>>>>>> upstream/main
   },
   "settings": {
     "title": "Asetukset",
@@ -9104,20 +9038,6 @@
     "cliproxyapiPort": "Portti",
     "qdrantHost": "Isäntä",
     "qdrantCollection": "Kokoelma",
-<<<<<<< HEAD
-    "presetAll": "All",
-    "presetAllDesc": "Show everything",
-    "presetEssentials": "Essentials",
-    "presetEssentialsDesc": "Beginner path - Advanced tools stay searchable",
-    "presetMinimal": "Minimal",
-    "presetMinimalDesc": "Core pages only",
-    "presetDeveloper": "Developer",
-    "presetDeveloperDesc": "Dev & proxy tools",
-    "presetAdmin": "Admin",
-    "presetAdminDesc": "Monitoring & audit",
-    "settingsSidebarTitle": "Sidebar Customization",
-    "settingsSidebarDesc": "Choose which sidebar items to show. Essentials keeps Advanced tools searchable."
-=======
     "catalogVisibilityHint": "Piilotettuja mallitunnuksia voi edelleen kutsua samoilla käyttöoikeuksilla.",
     "exposeCombosOnly": "Listaa /v1/models-luettelossa vain yhdistelmät",
     "exposeCombosOnlyDesc": "Mallit automaattisesti löytävät asiakkaat näkevät yhdistelmäsi (ja auto/*, ellei niitä ole piilotettu) palveluntarjoajien raakamallien sijaan. Eksplisiittiset provider/model-tunnisteet reititetään edelleen.",
@@ -9298,7 +9218,6 @@
       "statsEmpty": "Ei vielä havaintoja.",
       "statsRequest": "Pyynnöt"
     }
->>>>>>> upstream/main
   },
   "contextRtk": {
     "title": "RTK Engine",
@@ -14242,11 +14161,6 @@
       "SKILLS_SANDBOX_NETWORK_ENABLED": {
         "description": "Ota käyttöön verkkoyhteys taitojen hiekkalaatikossa."
       },
-<<<<<<< HEAD
-      "DISABLE_CONTEXT_WINDOW_CHECKS": {
-        "label": "Disable Context Window Checks",
-        "description": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active."
-=======
       "SERVER_OWNED_TOOL_LOOP_ENABLED": {
         "label": "Palvelimen hallinnoima työkalusilmukka",
         "description": "Jatka palvelimen hallinnoimia suoratoistamattomia työkalukutsuja, kunnes malli palauttaa asiakkaan käytettävissä olevan vastauksen."
@@ -14542,7 +14456,6 @@
       "UNPRICED_USAGE_BUDGET_POLICY": {
         "label": "Hinnoittelemattoman käytön budjettikäytäntö",
         "description": "Miten avainkohtaiset päivä- ja viikkokohtaiset USD-rajoitukset käsittelevät onnistunutta käyttöä, jolla tarjoajalla tai mallilla ei ole hintariviä. fail_closed (oletus) merkitsee ikkunan ylittäneeksi, joten tuntematon kustannus ei voi koskaan päästä kiinteän ylärajan ohi. count_as_zero laskee käytön arvoksi $0 ja jatkaa hinnoitellun käytön valvontaa. Hinnoittelemattomat mallit listataan joka tapauksessa kojelaudan etusivulle."
->>>>>>> upstream/main
       }
     }
   },
@@ -15827,15 +15740,6 @@
     "structuredOutputMismatch": "Palveluntarjoaja ei tue jäsenneltyä tulostusta",
     "contextWindowMismatch": "Pyyntö ylittää tarjoajan kontekstin ikkunan"
   },
-<<<<<<< HEAD
-  "featureFlagDisableContextWindowChecksDescription": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active.",
-  "cheaperInferenceSponsorBanner": {
-    "title": "Cheaper Inference is an OmniRoute Open Source Friend",
-    "description": "A cost-ranked gateway reselling dozens of frontier models behind one OpenAI-compatible endpoint — routing each request to the cheapest eligible provider, never above list price.",
-    "cta": "Get an API Key",
-    "partnerLinkNote": "Partner link",
-    "dismissAriaLabel": "Dismiss"
-=======
   "cheaperInferenceSponsorBanner": {
     "title": "Cheaper Inference on OmniRoute Open Source Friend",
     "description": "Kustannusten mukaan järjestetty yhdyskäytävä, joka jälleenmyy kymmeniä edistyneimpiä malleja yhden OpenAI-yhteensopivan päätepisteen kautta — se reitittää jokaisen pyynnön halvimmalle ehdot täyttävälle palveluntarjoajalle eikä koskaan ylitä listahintaa.",
@@ -16093,6 +15997,5 @@
     "greetingFallbackName": "siellä",
     "errNoReply": "⚠️ Ei vastausta lähetysverkkoon.",
     "btnSend": "Lähetä"
->>>>>>> upstream/main
   }
 }

@@ -11,11 +11,7 @@ export async function POST(request: Request): Promise<NextResponse> {
 
   const raw = await request.json().catch(() => ({}));
   const validation = validateBody(volcenginePlanConnectSchema, raw);
-<<<<<<< HEAD
-  if (!validation.success) {
-=======
   if (validation.success === false) {
->>>>>>> upstream/main
     return NextResponse.json(
       { success: false, error: formatValidationMessage(validation.error) },
       { status: 400 }
@@ -26,15 +22,10 @@ export async function POST(request: Request): Promise<NextResponse> {
   // Auto flow: phone present → start a session-based headless phone/SMS login.
   if (phone) {
     try {
-      const { volcengineConsoleAutoLoginService } = await import(
-        "@omniroute/open-sse/services/volcengineConsoleAutoLogin.ts"
-      );
+      const { volcengineConsoleAutoLoginService } =
+        await import("@omniroute/open-sse/services/volcengineConsoleAutoLogin.ts");
       const started = await volcengineConsoleAutoLoginService.startLogin(phone, { timeout });
-<<<<<<< HEAD
-      if (!started.ok) {
-=======
       if (started.ok === false) {
->>>>>>> upstream/main
         return NextResponse.json({ success: false, error: started.error }, { status: 400 });
       }
       return NextResponse.json({ success: true, session: started.session });

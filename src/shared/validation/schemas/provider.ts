@@ -1,42 +1,18 @@
 import { z } from "zod";
 import {
-<<<<<<< HEAD
-  ACCOUNT_FALLBACK_STRATEGY_VALUES,
-  ROUTING_STRATEGY_VALUES,
-} from "@/shared/constants/routingStrategies";
-import { SUPPORTED_BATCH_ENDPOINTS } from "@/shared/constants/batchEndpoints";
-import { MAX_REQUEST_BODY_LIMIT_MB, MIN_REQUEST_BODY_LIMIT_MB } from "@/shared/constants/bodySize";
-import { COMBO_CONFIG_MODES } from "@/shared/constants/comboConfigMode";
-import {
-  MODEL_SUPPORTED_ENDPOINT_VALUES,
-  normalizeModelSupportedEndpoints,
-} from "@/shared/constants/modelSupportedEndpoints";
-import { providerAllowsOptionalApiKey } from "@/shared/constants/providers";
-import { HIDEABLE_SIDEBAR_ITEM_IDS } from "@/shared/constants/sidebarVisibility";
-import {
-  isForbiddenUpstreamHeaderName,
-  isForbiddenCustomHeaderName,
-} from "@/shared/constants/upstreamHeaders";
-import { MAX_TIMER_TIMEOUT_MS } from "@/shared/utils/runtimeTimeouts";
-=======
   MODEL_SUPPORTED_ENDPOINT_VALUES,
   normalizeModelSupportedEndpoints,
 } from "@/shared/constants/modelSupportedEndpoints";
 import { providerAllowsOptionalApiKey, resolveProviderId } from "@/shared/constants/providers";
->>>>>>> upstream/main
 import { validateProviderSpecificData } from "@/shared/validation/providerSpecificData";
 import {
   isReservedProviderPrefix,
   reservedProviderPrefixMessage,
 } from "@/shared/constants/reservedProviderPrefixes";
-<<<<<<< HEAD
-
-=======
 import {
   isValidIanaTimeZone,
   isValidResetHour,
 } from "@omniroute/open-sse/services/dailyQuotaReset.ts";
->>>>>>> upstream/main
 import {
   upstreamHeadersRecordSchema,
   modelCompatPerProtocolSchema,
@@ -529,11 +505,8 @@ export const updateProviderNodeSchema = z
     // clears a previously stored custom icon.
     iconUrl: providerNodeIconUrlSchema,
     customHeaders: customHeadersSchema,
-<<<<<<< HEAD
-=======
     dailyQuotaResetTimezone: dailyQuotaResetTimezoneSchema,
     dailyQuotaResetHour: dailyQuotaResetHourSchema,
->>>>>>> upstream/main
   })
   .superRefine((value, ctx) => {
     // Reserved-prefix guard (tokenrouter bug) — same rationale as the guard in
@@ -583,8 +556,6 @@ function rateLimitOverrideNumber(max: number) {
     }
     return raw;
   }, z.coerce.number().int().min(0).max(max));
-<<<<<<< HEAD
-=======
 }
 
 // Per-model concurrency ceilings inside `rateLimitOverrides.modelConcurrency`.
@@ -603,7 +574,6 @@ function modelConcurrencyMap() {
       )
       .optional()
   );
->>>>>>> upstream/main
 }
 
 function rateLimitOverridePositiveInt(max: number) {
@@ -681,11 +651,8 @@ export const updateProviderConnectionSchema = z
         minTime: rateLimitOverrideNumber(60_000).optional(),
         maxConcurrent: rateLimitOverrideNumber(10_000).optional(),
         maxWaitMs: rateLimitOverrideNumber(120_000).optional(),
-<<<<<<< HEAD
-=======
         executionMaxWaitMs: rateLimitOverrideNumber(600_000).optional(),
         modelConcurrency: modelConcurrencyMap(),
->>>>>>> upstream/main
       })
       .partial()
       .strict()

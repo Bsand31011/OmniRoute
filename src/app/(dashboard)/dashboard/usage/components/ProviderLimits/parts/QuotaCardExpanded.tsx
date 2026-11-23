@@ -22,9 +22,6 @@ import {
 } from "../utils";
 import QuotaMiniBar from "../QuotaMiniBar";
 import { translateUsageOrFallback, type UsageTranslationValues } from "../i18nFallback";
-<<<<<<< HEAD
-import { hasFixedQuotaOrder, hasCanonicalWindowOrder, sortQuotasByWindow } from "../quotaParsing";
-=======
 import {
   findKiloPassQuotaRow,
   isKiloPassDisplayRow,
@@ -36,7 +33,6 @@ import KiloPassMeter from "./KiloPassMeter";
 import QuotaCardSpeed from "./QuotaCardSpeed";
 import { hasCodexPaidCredits, type CodexPaidCredits } from "@/lib/providers/codexPaidCredits";
 import AntigravityQuotaGroups, { resolveAntigravityQuotaGroups } from "../AntigravityQuotaGroups";
->>>>>>> upstream/main
 
 const CURRENCY_SYMBOLS: Record<string, string> = {
   USD: "$",

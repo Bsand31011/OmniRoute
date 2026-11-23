@@ -1017,19 +1017,9 @@
     "batchFilePreview": "미리보기",
     "batchFilePreviewTruncated": "첫 번째 {shown} 줄 표시 ({total} 총 줄)",
     "batchFileDownloadFull": "전체 파일 다운로드",
-<<<<<<< HEAD
-    "batchHeaderSubtitle": "Run many requests as one job",
-    "batchStep1": "1 · Upload JSONL",
-    "batchStep1Desc": "Add requests",
-    "batchStep2": "2 · Create batch",
-    "batchStep2Desc": "Run job",
-    "batchStep3": "3 · Get results",
-    "batchStep3Desc": "Download output"
-=======
     "tokensPageTitle": "토큰",
     "tokensPageDescription": "API 키 간에 토큰을 전송하고, 초대 코드를 공유하고, 커뮤니티 서버를 연결하세요.",
     "tokensServerUrlLabel": "서버 URL"
->>>>>>> upstream/main
   },
   "disabled": "비활성화됨",
   "featureFlagOmnirouteEmergencyFallbackDescription": "예산이 소진된 요청을 긴급 무료 폴백 제공자/모델로 라우팅합니다.",
@@ -1327,12 +1317,8 @@
     "agentBridge": "에이전트 브리지",
     "agentBridgeSubtitle": "IDE 에이전트 트래픽 가로채기",
     "trafficInspector": "트래픽 인스펙터",
-<<<<<<< HEAD
-    "trafficInspectorSubtitle": "__MISSING__:Inspect request and response traffic from your apps",
-=======
     "trafficInspectorSubtitle": "앱의 요청 및 응답 트래픽 검사",
     "trafficInspectorPurpose": "애플리케이션이 AI 제공업체에 보내고 받는 내용을 정확히 확인하세요. 모든 OpenAI 호환 클라이언트에서 작동합니다.",
->>>>>>> upstream/main
     "cliCode": "CLI 코드",
     "cliCodeSubtitle": "OmniRoute를 가리키는 코드 도구",
     "cliAgents": "CLI 에이전트",
@@ -1374,12 +1360,8 @@
       "close": "닫기"
     },
     "noResults": "결과가 없습니다",
-<<<<<<< HEAD
-    "trafficInspectorPurpose": "See exactly what your application sends to and receives from AI providers. Works with any OpenAI-compatible client."
-=======
     "costsTeams": "팀",
     "costsTeamsSubtitle": "팀 비용 센터"
->>>>>>> upstream/main
   },
   "webhooks": {
     "title": "웹훅",
@@ -1949,22 +1931,6 @@
     "releaseNotes": "릴리스 노트",
     "readMore": "더 읽기",
     "noAuthLabel": "인증 없음",
-<<<<<<< HEAD
-    "recentRequests": "Recent Requests",
-    "recentRequestsEmpty": "No requests yet.",
-    "recentRequestsModel": "Model",
-    "recentRequestsTokens": "In / Out",
-    "recentRequestsWhen": "When",
-    "readinessEyebrow": "Get ready to route",
-    "readinessTitle": "Send your first request",
-    "readinessSubtitle": "Four small steps. OmniRoute checks readiness as you go.",
-    "readinessStep1": "Connect a provider",
-    "readinessStep2": "Configure endpoint authentication",
-    "readinessStep3": "Copy your endpoint",
-    "readinessStep4": "Send a test request",
-    "readinessContinue": "Continue setup",
-    "readinessDismiss": "Dismiss for now"
-=======
     "readinessEyebrow": "라우팅을 준비하세요",
     "readinessTitle": "첫 번째 요청을 보내세요",
     "readinessSubtitle": "간단한 4단계입니다. 진행하는 동안 OmniRoute가 준비 상태를 확인합니다.",
@@ -1990,7 +1956,6 @@
     "systemMetricsCpuCount": "{count} vCPUs • {platform}",
     "systemMetricsProcessCpu": "OmniRoute (process)",
     "systemMetricsProcessMemory": "OmniRoute (RSS / Heap)"
->>>>>>> upstream/main
   },
   "analytics": {
     "title": "분석",
@@ -3095,13 +3060,9 @@
       "prime-agent": "Prime Agent — OpenAI 호환 제공업체를 지원하는 자기 개선형 RLM 코딩 하네스",
       "warp": "사용자 정의 제공자 지원 기능이 포함된 Warp AI 터미널",
       "agent-deck": "Agent Deck 다중 에이전트 오케스트레이터",
-<<<<<<< HEAD
-      "prime-agent": "Prime Agent — self-improving RLM coding harness with OpenAI-compatible provider support"
-=======
       "5dive": "5dive — 자체 호스팅 코딩 에이전트 플릿; 인증 프로필 하나로 전체를 OmniRoute로 연결",
       "whycodes": "OpenAI 호환 기본 URL을 사용하는 WhyCodes 자율 CLI 에이전트",
       "zed": "Zed 코드 편집기 — OpenAI 호환 공급자를 통한 내장 에이전트"
->>>>>>> upstream/main
     },
     "guides": {
       "cursor": {
@@ -6461,13 +6422,8 @@
     "rateLimitOverridesSection": "속도 제한 재정의",
     "rateLimitOverridesMaxConcurrentHint": "이 연결에 대한 최대 동시 요청 수 재정의입니다. 계정 수준의 제한을 재정의합니다.",
     "rateLimitOverridesMaxConcurrentLabel": "최대 동시 요청 수 (속도 제한)",
-<<<<<<< HEAD
-    "rateLimitOverridesMaxWaitMsHint": "__MISSING__:Maximum time (ms) a request may wait for a rate-limit slot before failing. Overrides the global Resilience setting for this connection only.",
-    "rateLimitOverridesMaxWaitMsLabel": "__MISSING__:Max Queue Wait (ms)",
-=======
     "rateLimitOverridesMaxWaitMsHint": "요청이 실패하기 전에 속도 제한 슬롯을 기다릴 수 있는 최대 시간(ms)입니다. 이 연결에 대해서만 전역 복원력 설정을 재정의합니다.",
     "rateLimitOverridesMaxWaitMsLabel": "최대 큐 대기 시간(ms)",
->>>>>>> upstream/main
     "rateLimitOverridesMinTimeHint": "요청 간 최소 시간(ms)입니다. 기본 속도 제한기 지연 시간을 재정의합니다.",
     "rateLimitOverridesMinTimeLabel": "최소 간격 (ms)",
     "rateLimitOverridesRpdHint": "이 연결에 대한 하루 최대 요청 수입니다. 공급자 기본값을 재정의합니다.",
@@ -6760,11 +6716,7 @@
       "bigmodel": "https://bigmodel.cn/usercenter/proj-mgmt/apikeys 에서 API 키를 만드세요. OmniRoute는 BigModel.cn의 공식 OpenAI 호환 채팅 엔드포인트를 사용합니다.",
       "glmt": "더 높은 토큰 예산, 생각하기(thinking) 활성화 및 더 긴 타임아웃이 설정된 프리셋 GLM 프로필.",
       "getgoapi": "API 키로 GoAPI 연결.",
-<<<<<<< HEAD
-      "groq": "무료 티어: 30 RPM / 14.4K RPD — 신용카드 불필요",
-=======
       "groq": "무료 요금제: 모델별 한도(채팅 모델당 하루 200K 토큰, RPM/RPD는 console.groq.com/docs/rate-limits 참조) — 등록된 결제 수단이 없어도 됩니다.",
->>>>>>> upstream/main
       "haiper": "haiper.ai/haiper-api 에서 API 키를 가져오세요.",
       "heroku": "API 키로 Heroku AI 연결.",
       "hcnsec": "api.hcnsec.cn 에서 API 키를 가져오세요.",
@@ -7070,23 +7022,6 @@
     "savedModelEndpointSettings": "저장된 모델 엔드포인트 설정",
     "searchByModelAria": "모델로 검색",
     "selectSupportedEndpoint": "지원되는 엔드포인트를 최소한 하나 선택하세요.",
-<<<<<<< HEAD
-    "antigravityClientProfileHarness": "Harness / CLI",
-    "harImportButtonLabel": "Import .har file",
-    "harImportButtonBusy": "Importing…",
-    "harImportButtonHint": "Export from DevTools Network tab after sending at least one chat message.",
-    "harImportStatusValid": "Imported — valid for ~{minutes}m.",
-    "harImportStatusExpiringSoon": "Imported — valid for only ~{minutes}m more.",
-    "harImportStatusExpired": "Imported, but this token already expired ({minutes}m ago) — export a fresh HAR.",
-    "harImportStatusUnknownExpiry": "Imported. Couldn't read its expiry.",
-    "harImportErrorNotJson": "That file isn't valid JSON — is it really a .har export?",
-    "harImportErrorNoEntries": "This HAR has no network entries recorded.",
-    "harImportErrorNoChathubUrl": "No Copilot chat connection found in this HAR. Send at least one chat message in m365.cloud.microsoft before exporting.",
-    "harImportErrorUnparsableUrl": "Found the chat connection, but couldn't read its URL.",
-    "harImportErrorMissingFields": "Found the chat connection, but the token was missing from it.",
-    "harImportErrorReadFailed": "Couldn't read that file.",
-    "harImportErrorUnknown": "Couldn't extract a credential from that HAR file."
-=======
     "antigravityClientProfileHarness": "하네스 / CLI",
     "rateLimitOverridesModelConcurrencyLabel": "모델별 동시 실행 상한",
     "rateLimitOverridesModelConcurrencyPlaceholder": "glm-5=1\nglm-4.7=3",
@@ -7112,7 +7047,6 @@
     "doctorChecking": "상태를 확인하는 중…",
     "doctorCheck": "doctor 상태 확인",
     "fallbackRetryBackendTitle": "폴백 재시도 백엔드"
->>>>>>> upstream/main
   },
   "settings": {
     "title": "설정",
@@ -9104,20 +9038,6 @@
     "cliproxyapiPort": "포트",
     "qdrantHost": "호스트",
     "qdrantCollection": "컬렉션",
-<<<<<<< HEAD
-    "presetAll": "All",
-    "presetAllDesc": "Show everything",
-    "presetEssentials": "Essentials",
-    "presetEssentialsDesc": "Beginner path - Advanced tools stay searchable",
-    "presetMinimal": "Minimal",
-    "presetMinimalDesc": "Core pages only",
-    "presetDeveloper": "Developer",
-    "presetDeveloperDesc": "Dev & proxy tools",
-    "presetAdmin": "Admin",
-    "presetAdminDesc": "Monitoring & audit",
-    "settingsSidebarTitle": "Sidebar Customization",
-    "settingsSidebarDesc": "Choose which sidebar items to show. Essentials keeps Advanced tools searchable."
-=======
     "catalogVisibilityHint": "숨겨진 모델 ID도 동일한 접근 권한으로 계속 호출할 수 있습니다.",
     "exposeCombosOnly": "/v1/models에 콤보만 표시",
     "exposeCombosOnlyDesc": "모델을 자동으로 검색하는 클라이언트는 원시 공급자 모델 대신 콤보(숨기지 않았다면 auto/* 포함)를 보게 됩니다. 명시적인 provider/model ID는 계속 라우팅됩니다.",
@@ -9298,7 +9218,6 @@
       "statsEmpty": "아직 감지된 항목이 없습니다.",
       "statsRequest": "요청"
     }
->>>>>>> upstream/main
   },
   "contextRtk": {
     "title": "RTK 엔진",
@@ -14242,11 +14161,6 @@
       "SKILLS_SANDBOX_NETWORK_ENABLED": {
         "description": "스킬 샌드박스에서 네트워크 액세스를 활성화합니다."
       },
-<<<<<<< HEAD
-      "DISABLE_CONTEXT_WINDOW_CHECKS": {
-        "label": "Disable Context Window Checks",
-        "description": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active."
-=======
       "SERVER_OWNED_TOOL_LOOP_ENABLED": {
         "label": "서버 소유 도구 루프",
         "description": "모델이 클라이언트에서 사용할 수 있는 응답을 반환할 때까지 스트리밍이 아닌 서버 소유 도구 호출을 계속합니다."
@@ -14542,7 +14456,6 @@
       "UNPRICED_USAGE_BUDGET_POLICY": {
         "label": "가격 미설정 사용량 예산 정책",
         "description": "공급자/모델에 가격 항목이 없는 성공적인 사용량을 키별 일간/주간 USD 한도가 어떻게 처리하는지 설명합니다. fail_closed (기본값)은 해당 기간을 초과한 것으로 표시하여 알 수 없는 비용이 하드 한도를 통과하지 못하게 합니다. count_as_zero는 해당 사용량을 $0으로 계산하고 가격이 설정된 지출을 계속 적용합니다. 가격 미설정 모델은 어떤 경우든 대시보드 홈 페이지에 나열됩니다."
->>>>>>> upstream/main
       }
     }
   },
@@ -15827,15 +15740,6 @@
     "structuredOutputMismatch": "제공자가 구조화된 출력을 지원하지 않습니다",
     "contextWindowMismatch": "요청이 공급자 컨텍스트 창을 초과했습니다"
   },
-<<<<<<< HEAD
-  "featureFlagDisableContextWindowChecksDescription": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active.",
-  "cheaperInferenceSponsorBanner": {
-    "title": "Cheaper Inference is an OmniRoute Open Source Friend",
-    "description": "A cost-ranked gateway reselling dozens of frontier models behind one OpenAI-compatible endpoint — routing each request to the cheapest eligible provider, never above list price.",
-    "cta": "Get an API Key",
-    "partnerLinkNote": "Partner link",
-    "dismissAriaLabel": "Dismiss"
-=======
   "cheaperInferenceSponsorBanner": {
     "title": "Cheaper Inference는 OmniRoute의 오픈 소스 친구입니다",
     "description": "하나의 OpenAI 호환 엔드포인트를 통해 수십 개의 최첨단 모델을 재판매하는 비용 순위 기반 게이트웨이로, 각 요청을 요건을 충족하는 제공업체 중 가장 저렴한 곳으로 라우팅하며 정가를 초과하지 않습니다.",
@@ -16093,6 +15997,5 @@
     "greetingFallbackName": "사용자",
     "errNoReply": "⚠️ 게이트웨이에서 응답이 없습니다.",
     "btnSend": "전송"
->>>>>>> upstream/main
   }
 }

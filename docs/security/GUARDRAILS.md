@@ -1,24 +1,15 @@
 ---
 title: "Guardrails"
-<<<<<<< HEAD
-version: 3.8.50
-lastUpdated: 2026-08-24
-=======
 version: 3.8.52
 lastUpdated: 2026-10-17
->>>>>>> upstream/main
 ---
 
 # Guardrails
 
 > **Source of truth:** `src/lib/guardrails/`
-<<<<<<< HEAD
-> **Last updated:** 2026-08-24 — v3.8.50 (Video Bridge visual dedup hardening + focused captions)
-=======
 > **Last updated:** 2026-10-17 — v3.8.52 (added [Coverage and limits](#coverage-and-limits):
 > which routes and response paths the hooks reach, the merged disable headers (#16412), injection
 > block mode as a mandatory boundary (#16413), and what sees a response before post-call)
->>>>>>> upstream/main
 
 Guardrails enforce safety, policy, and content transformations at the boundary
 between OmniRoute and upstream providers. Each guardrail can inspect (and

@@ -267,8 +267,6 @@ test("scoring inspector reports valid explicit auto weights", async () => {
   assert.equal(response.combos[0].modePack, null);
   assert.deepEqual(response.combos[0].weights, explicitWeights);
 });
-<<<<<<< HEAD
-=======
 test("configured auto preview uses live evaluation scores and zero quota contribution", async () => {
   const weights = normalizeScoringWeights({
     ...DEFAULT_WEIGHTS,
@@ -384,7 +382,6 @@ test("configured auto preview with no model steps preserves health-derived targe
   assert.equal(response.combos[0].targets[0].executionKey, target.executionKey);
 });
 
->>>>>>> upstream/main
 test("scoring inspector normalizes partial explicit auto weights like runtime", async () => {
   const explicitWeights = {
     quota: 0.3,

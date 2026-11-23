@@ -1017,19 +1017,9 @@
     "batchFilePreview": "Náhľad",
     "batchFilePreviewTruncated": "Zobrazenie prvých {shown} riadkov ({total} celkom riadkov)",
     "batchFileDownloadFull": "Stiahnuť celý súbor",
-<<<<<<< HEAD
-    "batchHeaderSubtitle": "Run many requests as one job",
-    "batchStep1": "1 · Upload JSONL",
-    "batchStep1Desc": "Add requests",
-    "batchStep2": "2 · Create batch",
-    "batchStep2Desc": "Run job",
-    "batchStep3": "3 · Get results",
-    "batchStep3Desc": "Download output"
-=======
     "tokensPageTitle": "Tokeny",
     "tokensPageDescription": "Posielajte tokeny medzi kľúčmi API, zdieľajte pozývacie kódy a pripájajte komunitné servery.",
     "tokensServerUrlLabel": "URL servera"
->>>>>>> upstream/main
   },
   "disabled": "Zakázané",
   "featureFlagOmnirouteEmergencyFallbackDescription": "Smerovať požiadavky s vyčerpaným rozpočtom na núdzového bezplatného záložného poskytovateľa/model.",
@@ -1327,12 +1317,8 @@
     "agentBridge": "Most agentov",
     "agentBridgeSubtitle": "Zachytávať prevádzku agentov IDE",
     "trafficInspector": "Inšpektor prevádzky",
-<<<<<<< HEAD
-    "trafficInspectorSubtitle": "__MISSING__:Inspect request and response traffic from your apps",
-=======
     "trafficInspectorSubtitle": "Kontrolujte prenos požiadaviek a odpovedí vašich aplikácií",
     "trafficInspectorPurpose": "Pozrite si presne, čo vaša aplikácia odosiela poskytovateľom AI a čo od nich prijíma. Funguje s ľubovoľným klientom kompatibilným s OpenAI.",
->>>>>>> upstream/main
     "cliCode": "CLI Code",
     "cliCodeSubtitle": "Nástroje na kódovanie smerujúce na OmniRoute",
     "cliAgents": "CLI agenti",
@@ -1374,12 +1360,8 @@
       "close": "zatvoriť"
     },
     "noResults": "Žiadne výsledky",
-<<<<<<< HEAD
-    "trafficInspectorPurpose": "See exactly what your application sends to and receives from AI providers. Works with any OpenAI-compatible client."
-=======
     "costsTeams": "Tímy",
     "costsTeamsSubtitle": "Nákladové strediská tímov"
->>>>>>> upstream/main
   },
   "webhooks": {
     "title": "Webhooky",
@@ -1949,22 +1931,6 @@
     "releaseNotes": "Poznámky k vydaniu",
     "readMore": "Čítať viac",
     "noAuthLabel": "Žiadna autentifikácia",
-<<<<<<< HEAD
-    "recentRequests": "Recent Requests",
-    "recentRequestsEmpty": "No requests yet.",
-    "recentRequestsModel": "Model",
-    "recentRequestsTokens": "In / Out",
-    "recentRequestsWhen": "When",
-    "readinessEyebrow": "Get ready to route",
-    "readinessTitle": "Send your first request",
-    "readinessSubtitle": "Four small steps. OmniRoute checks readiness as you go.",
-    "readinessStep1": "Connect a provider",
-    "readinessStep2": "Configure endpoint authentication",
-    "readinessStep3": "Copy your endpoint",
-    "readinessStep4": "Send a test request",
-    "readinessContinue": "Continue setup",
-    "readinessDismiss": "Dismiss for now"
-=======
     "readinessEyebrow": "Pripravte sa na smerovanie",
     "readinessTitle": "Odošlite svoju prvú požiadavku",
     "readinessSubtitle": "Štyri jednoduché kroky. OmniRoute bude priebežne kontrolovať pripravenosť.",
@@ -1990,7 +1956,6 @@
     "systemMetricsCpuCount": "{count} vCPUs • {platform}",
     "systemMetricsProcessCpu": "OmniRoute (process)",
     "systemMetricsProcessMemory": "OmniRoute (RSS / Heap)"
->>>>>>> upstream/main
   },
   "analytics": {
     "title": "Analytika",
@@ -3095,13 +3060,9 @@
       "prime-agent": "Prime Agent — samostatne sa zlepšujúci RLM nástroj na programovanie s podporou poskytovateľov kompatibilných s OpenAI",
       "warp": "AI terminál Warp s podporou vlastného poskytovateľa",
       "agent-deck": "Multi-agentový orchestrátor Agent Deck",
-<<<<<<< HEAD
-      "prime-agent": "Prime Agent — self-improving RLM coding harness with OpenAI-compatible provider support"
-=======
       "5dive": "5dive — vlastná flotila kódovacích agentov; jeden auth profil nasmeruje všetkých na OmniRoute",
       "whycodes": "Autonómny CLI agent WhyCodes so základnou URL kompatibilnou s OpenAI",
       "zed": "Editor kódu Zed — vstavaný agent cez poskytovateľa kompatibilného s OpenAI"
->>>>>>> upstream/main
     },
     "guides": {
       "cursor": {
@@ -6461,13 +6422,8 @@
     "rateLimitOverridesSection": "Prepísanie limitov frekvencie",
     "rateLimitOverridesMaxConcurrentHint": "Prepísanie maximálneho počtu súbežných požiadaviek pre toto pripojenie. Prepíše limit na úrovni účtu.",
     "rateLimitOverridesMaxConcurrentLabel": "Max. súbežné (obmedzenie rýchlosti)",
-<<<<<<< HEAD
-    "rateLimitOverridesMaxWaitMsHint": "__MISSING__:Maximum time (ms) a request may wait for a rate-limit slot before failing. Overrides the global Resilience setting for this connection only.",
-    "rateLimitOverridesMaxWaitMsLabel": "__MISSING__:Max Queue Wait (ms)",
-=======
     "rateLimitOverridesMaxWaitMsHint": "Maximálny čas (ms), počas ktorého môže požiadavka čakať na dostupnú kapacitu v rámci limitu požiadaviek, kým zlyhá. Nahrádza globálne nastavenie odolnosti iba pre toto pripojenie.",
     "rateLimitOverridesMaxWaitMsLabel": "Maximálne čakanie vo fronte (ms)",
->>>>>>> upstream/main
     "rateLimitOverridesMinTimeHint": "Minimálny čas (ms) medzi požiadavkami. Prepíše predvolené oneskorenie obmedzovača rýchlosti.",
     "rateLimitOverridesMinTimeLabel": "Min. interval (ms)",
     "rateLimitOverridesRpdHint": "Maximálny počet požiadaviek za deň pre toto pripojenie. Prepíše predvolené nastavenie poskytovateľa.",
@@ -6760,11 +6716,7 @@
       "bigmodel": "Vytvorte API kľúč na https://bigmodel.cn/usercenter/proj-mgmt/apikeys. OmniRoute používa oficiálny OpenAI-kompatibilný chat endpoint BigModel.cn.",
       "glmt": "Prednastavený profil GLM s vyšším rozpočtom tokenov, povoleným premýšľaním a dlhším časovým limitom.",
       "getgoapi": "Pripojte GoAPI pomocou API kľúča.",
-<<<<<<< HEAD
-      "groq": "Bezplatná úroveň: 30 RPM / 14,4K RPD — bez kreditnej karty",
-=======
       "groq": "Bezplatný plán: limity pre jednotlivé modely (200 000 tokenov denne na každý chatovací model; limity RPM/RPD nájdete na console.groq.com/docs/rate-limits) — bez evidovaného spôsobu platby.",
->>>>>>> upstream/main
       "haiper": "Získajte API kľúč na adrese haiper.ai/haiper-api",
       "heroku": "Pripojte Heroku AI pomocou API kľúča.",
       "hcnsec": "Získajte API kľúč na adrese api.hcnsec.cn",
@@ -7070,23 +7022,6 @@
     "savedModelEndpointSettings": "Nastavenia koncového bodu uloženého modelu",
     "searchByModelAria": "Hľadať podľa modelu",
     "selectSupportedEndpoint": "Vyberte aspoň jeden podporovaný koncový bod",
-<<<<<<< HEAD
-    "antigravityClientProfileHarness": "Harness / CLI",
-    "harImportButtonLabel": "Import .har file",
-    "harImportButtonBusy": "Importing…",
-    "harImportButtonHint": "Export from DevTools Network tab after sending at least one chat message.",
-    "harImportStatusValid": "Imported — valid for ~{minutes}m.",
-    "harImportStatusExpiringSoon": "Imported — valid for only ~{minutes}m more.",
-    "harImportStatusExpired": "Imported, but this token already expired ({minutes}m ago) — export a fresh HAR.",
-    "harImportStatusUnknownExpiry": "Imported. Couldn't read its expiry.",
-    "harImportErrorNotJson": "That file isn't valid JSON — is it really a .har export?",
-    "harImportErrorNoEntries": "This HAR has no network entries recorded.",
-    "harImportErrorNoChathubUrl": "No Copilot chat connection found in this HAR. Send at least one chat message in m365.cloud.microsoft before exporting.",
-    "harImportErrorUnparsableUrl": "Found the chat connection, but couldn't read its URL.",
-    "harImportErrorMissingFields": "Found the chat connection, but the token was missing from it.",
-    "harImportErrorReadFailed": "Couldn't read that file.",
-    "harImportErrorUnknown": "Couldn't extract a credential from that HAR file."
-=======
     "antigravityClientProfileHarness": "Testovacie prostredie / CLI",
     "rateLimitOverridesModelConcurrencyLabel": "Per-model concurrency caps",
     "rateLimitOverridesModelConcurrencyPlaceholder": "glm-5=1\nglm-4.7=3",
@@ -7112,7 +7047,6 @@
     "doctorChecking": "Kontrola stavu…",
     "doctorCheck": "Skontrolovať stav doctor",
     "fallbackRetryBackendTitle": "Zálohové rozhranie pre opätovné pokusy"
->>>>>>> upstream/main
   },
   "settings": {
     "title": "Nastavenia",
@@ -9102,22 +9036,6 @@
     "cliproxyapiVersion": "Verzia",
     "cliproxyapiHealth": "Zdravie",
     "cliproxyapiPort": "Port",
-<<<<<<< HEAD
-    "qdrantHost": "Host",
-    "qdrantCollection": "Zbierka",
-    "presetAll": "All",
-    "presetAllDesc": "Show everything",
-    "presetEssentials": "Essentials",
-    "presetEssentialsDesc": "Beginner path - Advanced tools stay searchable",
-    "presetMinimal": "Minimal",
-    "presetMinimalDesc": "Core pages only",
-    "presetDeveloper": "Developer",
-    "presetDeveloperDesc": "Dev & proxy tools",
-    "presetAdmin": "Admin",
-    "presetAdminDesc": "Monitoring & audit",
-    "settingsSidebarTitle": "Sidebar Customization",
-    "settingsSidebarDesc": "Choose which sidebar items to show. Essentials keeps Advanced tools searchable."
-=======
     "qdrantHost": "Hostiteľ",
     "qdrantCollection": "Zbierka",
     "catalogVisibilityHint": "Skryté identifikátory modelov je možné naďalej volať s rovnakými prístupovými oprávneniami.",
@@ -9300,7 +9218,6 @@
       "statsEmpty": "Zatiaľ žiadne detekcie.",
       "statsRequest": "Požiadavky"
     }
->>>>>>> upstream/main
   },
   "contextRtk": {
     "title": "RTK Engine",
@@ -14244,11 +14161,6 @@
       "SKILLS_SANDBOX_NETWORK_ENABLED": {
         "description": "Povoliť sieťový prístup v sandboxe zručností."
       },
-<<<<<<< HEAD
-      "DISABLE_CONTEXT_WINDOW_CHECKS": {
-        "label": "Disable Context Window Checks",
-        "description": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active."
-=======
       "SERVER_OWNED_TOOL_LOOP_ENABLED": {
         "label": "Nástrojová slučka riadená serverom",
         "description": "Pokračovať v nestreamovaných volaniach nástrojov riadených serverom, kým model nevráti odpoveď použiteľnú klientom."
@@ -14544,7 +14456,6 @@
       "UNPRICED_USAGE_BUDGET_POLICY": {
         "label": "Politika rozpočtu pre použitie bez ceny",
         "description": "Ako denné/týždenné USD limity na kľúč zaobchádzajú s úspešným použitím, ktorého poskytovateľ/model nemá položku ceny. fail_closed (predvolené) označí okno za prekročené, takže neznáma cena nikdy nemôže obísť tvrdý limit. count_as_zero započítava takéto použitie ako $0 a naďalej vynucuje výdavky na modely s nastavenou cenou. Modely bez ceny sú v každom prípade uvedené na domovskej stránke panela."
->>>>>>> upstream/main
       }
     }
   },
@@ -15829,15 +15740,6 @@
     "structuredOutputMismatch": "Poskytovateľ nepodporuje štruktúrovaný výstup",
     "contextWindowMismatch": "Žiadosť presahuje kontextové okno poskytovateľa"
   },
-<<<<<<< HEAD
-  "featureFlagDisableContextWindowChecksDescription": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active.",
-  "cheaperInferenceSponsorBanner": {
-    "title": "Cheaper Inference is an OmniRoute Open Source Friend",
-    "description": "A cost-ranked gateway reselling dozens of frontier models behind one OpenAI-compatible endpoint — routing each request to the cheapest eligible provider, never above list price.",
-    "cta": "Get an API Key",
-    "partnerLinkNote": "Partner link",
-    "dismissAriaLabel": "Dismiss"
-=======
   "cheaperInferenceSponsorBanner": {
     "title": "Cheaper Inference je priateľom open-source projektu OmniRoute",
     "description": "Brána s výberom podľa ceny, ktorá prepredáva desiatky špičkových modelov prostredníctvom jedného koncového bodu kompatibilného s OpenAI — každú požiadavku smeruje k najlacnejšiemu vyhovujúcemu poskytovateľovi, pričom nikdy neprekročí katalógovú cenu.",
@@ -16095,6 +15997,5 @@
     "greetingFallbackName": "tu",
     "errNoReply": "⚠️ Od brány nebol žiaden odozva.",
     "btnSend": "Odoslať"
->>>>>>> upstream/main
   }
 }

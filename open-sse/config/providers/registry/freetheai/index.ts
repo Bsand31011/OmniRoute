@@ -1,11 +1,5 @@
 import type { RegistryEntry } from "../../shared.ts";
 
-<<<<<<< HEAD
-// FreeTheAi — OpenAI-compatible gateway with a Discord-signup free tier
-// (issue #6670). Same shape as the chutes aggregator entries:
-// standard OpenAI chat/completions + /v1/models discovery, so no custom
-// executor/translator is needed.
-=======
 // FreeTheAi — OpenAI-compatible gateway with a free tier (issue #6670).
 // Same shape as the chutes aggregator entries: standard OpenAI
 // chat/completions + /v1/models discovery, so no custom executor/translator
@@ -14,7 +8,6 @@ import type { RegistryEntry } from "../../shared.ts";
 // #15385: the gateway moved freetheai.xyz → freetheai.org (the .xyz host is
 // dead) and signup moved off Discord. Model ids are namespaced per upstream
 // group and MUST be sent in full — `fta/zai/glm-5.3`, not a bare `glm-5.3`.
->>>>>>> upstream/main
 export const freetheaiProvider: RegistryEntry = {
   id: "freetheai",
   alias: "fta",

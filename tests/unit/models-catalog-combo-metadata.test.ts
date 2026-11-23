@@ -708,8 +708,6 @@ test("Ollama Cloud projects native efforts for base, tagged, and combo models", 
     assert.deepEqual(capabilitiesFor(modelId).effort_tiers, narrowEfforts, modelId);
   }
 });
-<<<<<<< HEAD
-=======
 
 // #12798: an operator-flagged vision head (the dashboard "Vision capable"
 // toggle, #9195) with a synced capability row that carries limits but NO
@@ -780,4 +778,3 @@ test("vision-flagged combo derives input modalities from the merged vision verdi
   assert.deepEqual(combo.input_modalities, ["text", "image"]);
   assert.deepEqual(combo.output_modalities, ["text"]);
 });
->>>>>>> upstream/main

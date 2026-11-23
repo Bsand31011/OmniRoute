@@ -1017,19 +1017,9 @@
     "batchFilePreview": "תצוגה מקדימה",
     "batchFilePreviewTruncated": "מציג {shown} שורות ראשונות ({total} שורות סך הכל)",
     "batchFileDownloadFull": "הורד קובץ מלא",
-<<<<<<< HEAD
-    "batchHeaderSubtitle": "Run many requests as one job",
-    "batchStep1": "1 · Upload JSONL",
-    "batchStep1Desc": "Add requests",
-    "batchStep2": "2 · Create batch",
-    "batchStep2Desc": "Run job",
-    "batchStep3": "3 · Get results",
-    "batchStep3Desc": "Download output"
-=======
     "tokensPageTitle": "אסימונים",
     "tokensPageDescription": "שליחת אסימונים בין מפתחות API, שיתוף קודי הזמנה וחיבור שרתי קהילה.",
     "tokensServerUrlLabel": "כתובת URL של השרת"
->>>>>>> upstream/main
   },
   "disabled": "מושבת",
   "featureFlagOmnirouteEmergencyFallbackDescription": "ניתוב בקשות שחרגו מהתקציב לספק/מודל גיבוי חינמי לשעת חירום.",
@@ -1327,12 +1317,8 @@
     "agentBridge": "גשר סוכנים",
     "agentBridgeSubtitle": "יירוט תעבורת סוכן IDE",
     "trafficInspector": "מפקח תעבורה",
-<<<<<<< HEAD
-    "trafficInspectorSubtitle": "__MISSING__:Inspect request and response traffic from your apps",
-=======
     "trafficInspectorSubtitle": "בדיקת תעבורת הבקשות והתגובות של האפליקציות שלך",
     "trafficInspectorPurpose": "ניתן לראות בדיוק מה האפליקציה שלך שולחת לספקי AI ומה היא מקבלת מהם. פועל עם כל לקוח תואם OpenAI.",
->>>>>>> upstream/main
     "cliCode": "קוד CLI",
     "cliCodeSubtitle": "כלי קוד המצביעים על OmniRoute",
     "cliAgents": "סוכני CLI",
@@ -1374,12 +1360,8 @@
       "close": "סגור"
     },
     "noResults": "אין תוצאות",
-<<<<<<< HEAD
-    "trafficInspectorPurpose": "See exactly what your application sends to and receives from AI providers. Works with any OpenAI-compatible client."
-=======
     "costsTeams": "צוותים",
     "costsTeamsSubtitle": "מרכזי עלות של צוותים"
->>>>>>> upstream/main
   },
   "webhooks": {
     "title": "וובהוקים",
@@ -1949,22 +1931,6 @@
     "releaseNotes": "הערות שחרור",
     "readMore": "קרא עוד",
     "noAuthLabel": "אין אימות",
-<<<<<<< HEAD
-    "recentRequests": "Recent Requests",
-    "recentRequestsEmpty": "No requests yet.",
-    "recentRequestsModel": "Model",
-    "recentRequestsTokens": "In / Out",
-    "recentRequestsWhen": "When",
-    "readinessEyebrow": "Get ready to route",
-    "readinessTitle": "Send your first request",
-    "readinessSubtitle": "Four small steps. OmniRoute checks readiness as you go.",
-    "readinessStep1": "Connect a provider",
-    "readinessStep2": "Configure endpoint authentication",
-    "readinessStep3": "Copy your endpoint",
-    "readinessStep4": "Send a test request",
-    "readinessContinue": "Continue setup",
-    "readinessDismiss": "Dismiss for now"
-=======
     "readinessEyebrow": "התכוננו לניתוב",
     "readinessTitle": "שלחו את הבקשה הראשונה שלכם",
     "readinessSubtitle": "ארבעה שלבים קטנים. OmniRoute בודק את המוכנות תוך כדי ההתקדמות.",
@@ -1990,7 +1956,6 @@
     "systemMetricsCpuCount": "{count} vCPUs • {platform}",
     "systemMetricsProcessCpu": "OmniRoute (process)",
     "systemMetricsProcessMemory": "OmniRoute (RSS / Heap)"
->>>>>>> upstream/main
   },
   "analytics": {
     "title": "אנליטיקס",
@@ -3095,13 +3060,9 @@
       "prime-agent": "Prime Agent — מסגרת קידוד מבוססת RLM המשתפרת בעצמה, עם תמיכה בספקים תואמי OpenAI",
       "warp": "מסוף Warp AI עם תמיכה בספק מותאם אישית",
       "agent-deck": "מתזמר מרובה סוכנים Agent Deck",
-<<<<<<< HEAD
-      "prime-agent": "Prime Agent — self-improving RLM coding harness with OpenAI-compatible provider support"
-=======
       "5dive": "5dive — צי מתארח עצמאית של סוכני קוד; פרופיל אימות אחד מכוון את כולם ל-OmniRoute",
       "whycodes": "סוכן CLI אוטונומי WhyCodes עם כתובת URL בסיסית תואמת OpenAI",
       "zed": "עורך הקוד Zed — סוכן מובנה דרך ספק תואם OpenAI"
->>>>>>> upstream/main
     },
     "guides": {
       "cursor": {
@@ -6461,13 +6422,8 @@
     "rateLimitOverridesSection": "עקיפת מגבלות קצב",
     "rateLimitOverridesMaxConcurrentHint": "עקיפת מספר הבקשות המקביליות המרבי עבור חיבור זה. עוקף את המגבלה ברמת החשבון.",
     "rateLimitOverridesMaxConcurrentLabel": "מקסימום בקשות מקביליות (מגבלת קצב)",
-<<<<<<< HEAD
-    "rateLimitOverridesMaxWaitMsHint": "__MISSING__:Maximum time (ms) a request may wait for a rate-limit slot before failing. Overrides the global Resilience setting for this connection only.",
-    "rateLimitOverridesMaxWaitMsLabel": "__MISSING__:Max Queue Wait (ms)",
-=======
     "rateLimitOverridesMaxWaitMsHint": "משך הזמן המרבי (באלפיות שנייה) שבקשה יכולה להמתין למקום פנוי במסגרת מגבלת הקצב לפני שתיכשל. הגדרה זו עוקפת את הגדרת Resilience הכללית עבור חיבור זה בלבד.",
     "rateLimitOverridesMaxWaitMsLabel": "זמן המתנה מרבי בתור (אלפיות שנייה)",
->>>>>>> upstream/main
     "rateLimitOverridesMinTimeHint": "זמן מינימלי (במילישניות) בין בקשות. עוקף את השהיית מגביל הקצב כברירת מחדל.",
     "rateLimitOverridesMinTimeLabel": "מרווח מינימלי (מילישניות)",
     "rateLimitOverridesRpdHint": "מקסימום בקשות ליום עבור חיבור זה. עוקף את ברירת המחדל של הספק.",
@@ -6760,11 +6716,7 @@
       "bigmodel": "צרו מפתח API ב-https://bigmodel.cn/usercenter/proj-mgmt/apikeys. OmniRoute משתמש בנקודת הקצה הרשמית של BigModel.cn התואמת ל-OpenAI.",
       "glmt": "פרופיל GLM מוגדר מראש עם תקציב טוקנים גבוה יותר, חשיבה מופעלת ופסק זמן ארוך יותר.",
       "getgoapi": "חבר את GoAPI באמצעות מפתח API.",
-<<<<<<< HEAD
-      "groq": "מסלול חינמי: 30 RPM / 14.4K RPD — ללא כרטיס אשראי",
-=======
       "groq": "תוכנית חינמית: מגבלות לכל מודל (200K אסימונים ביום לכל מודל צ׳אט; ראו console.groq.com/docs/rate-limits למגבלות RPM/RPD) — ללא אמצעי תשלום שמור.",
->>>>>>> upstream/main
       "haiper": "קבל מפתח API ב-haiper.ai/haiper-api",
       "heroku": "חבר את Heroku AI באמצעות מפתח API.",
       "hcnsec": "קבל מפתח API ב-api.hcnsec.cn",
@@ -7071,22 +7023,6 @@
     "searchByModelAria": "חפש לפי דגם",
     "selectSupportedEndpoint": "בחר לפחות נקודת קצה אחת נתמכת",
     "antigravityClientProfileHarness": "Harness / CLI",
-<<<<<<< HEAD
-    "harImportButtonLabel": "Import .har file",
-    "harImportButtonBusy": "Importing…",
-    "harImportButtonHint": "Export from DevTools Network tab after sending at least one chat message.",
-    "harImportStatusValid": "Imported — valid for ~{minutes}m.",
-    "harImportStatusExpiringSoon": "Imported — valid for only ~{minutes}m more.",
-    "harImportStatusExpired": "Imported, but this token already expired ({minutes}m ago) — export a fresh HAR.",
-    "harImportStatusUnknownExpiry": "Imported. Couldn't read its expiry.",
-    "harImportErrorNotJson": "That file isn't valid JSON — is it really a .har export?",
-    "harImportErrorNoEntries": "This HAR has no network entries recorded.",
-    "harImportErrorNoChathubUrl": "No Copilot chat connection found in this HAR. Send at least one chat message in m365.cloud.microsoft before exporting.",
-    "harImportErrorUnparsableUrl": "Found the chat connection, but couldn't read its URL.",
-    "harImportErrorMissingFields": "Found the chat connection, but the token was missing from it.",
-    "harImportErrorReadFailed": "Couldn't read that file.",
-    "harImportErrorUnknown": "Couldn't extract a credential from that HAR file."
-=======
     "rateLimitOverridesModelConcurrencyLabel": "Per-model concurrency caps",
     "rateLimitOverridesModelConcurrencyPlaceholder": "glm-5=1\nglm-4.7=3",
     "rateLimitOverridesModelConcurrencyHint": "Optional: one model=cap per line, matched against the exact upstream model id. Queues excess requests locally; blank means no per-model cap.",
@@ -7111,7 +7047,6 @@
     "doctorChecking": "בדוק סטטוס…",
     "doctorCheck": "בדוק סטטוס רופא",
     "fallbackRetryBackendTitle": "מנגנון נסיון חוזר לזיהום"
->>>>>>> upstream/main
   },
   "settings": {
     "title": "הגדרות",
@@ -9103,20 +9038,6 @@
     "cliproxyapiPort": "פורט",
     "qdrantHost": "מארח",
     "qdrantCollection": "אוסף",
-<<<<<<< HEAD
-    "presetAll": "All",
-    "presetAllDesc": "Show everything",
-    "presetEssentials": "Essentials",
-    "presetEssentialsDesc": "Beginner path - Advanced tools stay searchable",
-    "presetMinimal": "Minimal",
-    "presetMinimalDesc": "Core pages only",
-    "presetDeveloper": "Developer",
-    "presetDeveloperDesc": "Dev & proxy tools",
-    "presetAdmin": "Admin",
-    "presetAdminDesc": "Monitoring & audit",
-    "settingsSidebarTitle": "Sidebar Customization",
-    "settingsSidebarDesc": "Choose which sidebar items to show. Essentials keeps Advanced tools searchable."
-=======
     "catalogVisibilityHint": "אפשר עדיין לקרוא למזהי מודלים מוסתרים עם אותן הרשאות גישה.",
     "exposeCombosOnly": "הצג רק שילובים ב-/v1/models",
     "exposeCombosOnlyDesc": "לקוחות שמגלים מודלים אוטומטית יראו את השילובים שלך (ו-auto/* אלא אם הם מוסתרים) במקום מודלים גולמיים של ספקים. מזהי provider/model מפורשים ממשיכים להיות מנותבים.",
@@ -9297,7 +9218,6 @@
       "statsEmpty": "אין זיהויים עדיין.",
       "statsRequest": "בקשות"
     }
->>>>>>> upstream/main
   },
   "contextRtk": {
     "title": "מנוע RTK",
@@ -14241,11 +14161,6 @@
       "SKILLS_SANDBOX_NETWORK_ENABLED": {
         "description": "הפעלת גישה לרשת בארגז החול של המיומנויות."
       },
-<<<<<<< HEAD
-      "DISABLE_CONTEXT_WINDOW_CHECKS": {
-        "label": "Disable Context Window Checks",
-        "description": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active."
-=======
       "SERVER_OWNED_TOOL_LOOP_ENABLED": {
         "label": "לולאת כלים בניהול השרת",
         "description": "המשיכו לבצע קריאות לא-מוזרמות לכלים בניהול השרת עד שהמודל יחזיר תגובה שהלקוח יכול להשתמש בה."
@@ -14541,7 +14456,6 @@
       "UNPRICED_USAGE_BUDGET_POLICY": {
         "label": "מדיניות תקציב לשימוש לא מתומחר",
         "description": "כיצד מגבלות USD יומיות/שבועיות לכל מפתח מתייחסות לשימוש מוצלח של ספק או מודל שאין לו שורת תמחור. fail_closed (ברירת מחדל) מסמן שהחלון עבר את המגבלה, כך שעלות לא ידועה לא תעבור מעולם את המכסה הקשיחה. count_as_zero מחשב שימוש זה כ-$0 וממשיך לאכוף את ההוצאה המתומחרת. מודלים ללא תמחור מופיעים בדף הבית של לוח המחוונים בכל מקרה."
->>>>>>> upstream/main
       }
     }
   },
@@ -15826,15 +15740,6 @@
     "structuredOutputMismatch": "הספק אינו תומך בפלט מובנה",
     "contextWindowMismatch": "הבקשה חורגת מגבול ההקשר של הספק"
   },
-<<<<<<< HEAD
-  "featureFlagDisableContextWindowChecksDescription": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active.",
-  "cheaperInferenceSponsorBanner": {
-    "title": "Cheaper Inference is an OmniRoute Open Source Friend",
-    "description": "A cost-ranked gateway reselling dozens of frontier models behind one OpenAI-compatible endpoint — routing each request to the cheapest eligible provider, never above list price.",
-    "cta": "Get an API Key",
-    "partnerLinkNote": "Partner link",
-    "dismissAriaLabel": "Dismiss"
-=======
   "cheaperInferenceSponsorBanner": {
     "title": "Cheaper Inference הוא ידיד הקוד הפתוח של OmniRoute",
     "description": "שער המדורג לפי עלות, המשווק מחדש עשרות מודלים מתקדמים דרך נקודת קצה אחת התואמת ל-OpenAI — ומנתב כל בקשה לספק הזול ביותר שעומד בתנאים, ולעולם לא מעל למחיר המחירון.",
@@ -16092,6 +15997,5 @@
     "greetingFallbackName": "שם",
     "errNoReply": "⚠️ אין תגובה מהשער.",
     "btnSend": "שלח"
->>>>>>> upstream/main
   }
 }

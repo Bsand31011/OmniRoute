@@ -49,13 +49,9 @@ test("combo suggest --max-cost/--max-latency-ms passa constraints", async () => 
     top: 3,
   });
   globalThis.fetch = origFetch;
-<<<<<<< HEAD
-  const args = JSON.parse(captured.find((c) => /tools\/call/.test(String(c.init?.body || "")))?.init?.body || "{}")?.params?.arguments;
-=======
   const args = JSON.parse(
     captured.find((c) => /tools\/call/.test(String(c.init?.body || "")))?.init?.body || "{}"
   )?.params?.arguments;
->>>>>>> upstream/main
   assert.equal(args.constraints.maxCostUsd, 0.001);
   assert.equal(args.constraints.maxLatencyMs, 500);
   assert.equal(args.top, 3);
@@ -76,13 +72,9 @@ test("combo suggest --weights passa pesos no body", async () => {
     weights: { latency: 0.7, cost: 0.3 },
   });
   globalThis.fetch = origFetch;
-<<<<<<< HEAD
-  const args = JSON.parse(captured.find((c) => /tools\/call/.test(String(c.init?.body || "")))?.init?.body || "{}")?.params?.arguments;
-=======
   const args = JSON.parse(
     captured.find((c) => /tools\/call/.test(String(c.init?.body || "")))?.init?.body || "{}"
   )?.params?.arguments;
->>>>>>> upstream/main
   assert.equal(args.weights.latency, 0.7);
   assert.equal(args.weights.cost, 0.3);
 });
@@ -95,11 +87,6 @@ test("combo suggest --switch chama /api/combos/switch com melhor combo", async (
     if (String(url).includes("/api/mcp/stream")) {
       const body = opts?.body ? JSON.parse(opts.body) : {};
       if (body.method === "initialize") {
-<<<<<<< HEAD
-        return Promise.resolve(makeMcpResp({ jsonrpc: "2.0", id: body.id, result: {} }, 200, { "mcp-session-id": "s" }));
-      }
-      return Promise.resolve(makeMcpResp({ jsonrpc: "2.0", id: body.id, result: { candidates: [{ name: "best-combo", score: 0.95 }] } }));
-=======
         return Promise.resolve(
           makeMcpResp({ jsonrpc: "2.0", id: body.id, result: {} }, 200, { "mcp-session-id": "s" })
         );
@@ -111,21 +98,16 @@ test("combo suggest --switch chama /api/combos/switch com melhor combo", async (
           result: { candidates: [{ name: "best-combo", score: 0.95 }] },
         })
       );
->>>>>>> upstream/main
     }
     return Promise.resolve(makeMcpResp({ switched: true }));
   }) as any;
 
   const { mcpCallTool } = await import("../../bin/cli/mcpClient.mjs");
   const data = await mcpCallTool("omniroute_best_combo_for_task", { task: "x" });
-<<<<<<< HEAD
-  const combosSwitchRes = await fetch("/api/combos/switch", { method: "POST", body: JSON.stringify({ name: (data as any).candidates[0].name }) });
-=======
   const combosSwitchRes = await fetch("/api/combos/switch", {
     method: "POST",
     body: JSON.stringify({ name: (data as any).candidates[0].name }),
   });
->>>>>>> upstream/main
   assert.equal(combosSwitchRes.ok, true);
   assert.ok(urls.some((u) => u.includes("/api/combos/switch")));
   globalThis.fetch = origFetch;

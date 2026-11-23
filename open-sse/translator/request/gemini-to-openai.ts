@@ -136,11 +136,7 @@ function convertGeminiContent(content, toolCallIds) {
 
     if (part.functionCall) {
       toolCalls.push({
-<<<<<<< HEAD
-        id: part.functionCall.id || `call_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
-=======
         id: toolCallIds.callId(part.functionCall),
->>>>>>> upstream/main
         type: "function",
         function: {
           name: part.functionCall.name,

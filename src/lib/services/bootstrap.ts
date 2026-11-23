@@ -174,8 +174,6 @@ function buildSpawnArgsFactory(
   if (cfg.tool === "dario") {
     return () => darioSpawnArgs(apiKey, cfg.port);
   }
-<<<<<<< HEAD
-=======
   if (cfg.tool === "openwa") {
     return () => openwaSpawnArgs(apiKey, cfg.port);
   }
@@ -185,7 +183,6 @@ function buildSpawnArgsFactory(
   if (cfg.tool === "singbox") {
     return () => singboxSpawnArgs(cfg.port);
   }
->>>>>>> upstream/main
   return () => cliproxySpawnArgs(cfg.port, apiKey);
 }
 

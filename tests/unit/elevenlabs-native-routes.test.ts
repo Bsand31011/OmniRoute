@@ -6,28 +6,14 @@ import path from "node:path";
 
 const TEST_DATA_DIR = fs.mkdtempSync(path.join(os.tmpdir(), "omniroute-elevenlabs-native-"));
 process.env.DATA_DIR = TEST_DATA_DIR;
-<<<<<<< HEAD
-process.env.API_KEY_SECRET =
-  process.env.API_KEY_SECRET || "elevenlabs-native-route-test-secret";
-=======
 process.env.API_KEY_SECRET = process.env.API_KEY_SECRET || "elevenlabs-native-route-test-secret";
->>>>>>> upstream/main
 
 const core = await import("../../src/lib/db/core.ts");
 const readCache = await import("../../src/lib/db/readCache.ts");
 const voicesRoute = await import("../../src/app/api/v1/voices/route.ts");
-<<<<<<< HEAD
-const speechRoute = await import(
-  "../../src/app/api/v1/text-to-speech/[voiceId]/route.ts"
-);
-const transcriptionRoute = await import(
-  "../../src/app/api/v1/speech-to-text/route.ts"
-);
-=======
 const speechRoute = await import("../../src/app/api/v1/text-to-speech/[voiceId]/route.ts");
 const transcriptionRoute = await import("../../src/app/api/v1/speech-to-text/route.ts");
 const { nativeGenerationRoutes } = await import("./helpers/elevenLabsGenerationRoutes.ts");
->>>>>>> upstream/main
 const originalFetch = globalThis.fetch;
 const API_KEY = "test-elevenlabs-key";
 
@@ -45,16 +31,10 @@ function seedCredential() {
 }
 
 function clearCredentials() {
-<<<<<<< HEAD
-  core.getDbInstance().prepare("DELETE FROM provider_connections WHERE provider = ?").run(
-    "elevenlabs"
-  );
-=======
   core
     .getDbInstance()
     .prepare("DELETE FROM provider_connections WHERE provider = ?")
     .run("elevenlabs");
->>>>>>> upstream/main
   readCache.invalidateDbCache("connections");
 }
 
@@ -70,11 +50,7 @@ test.afterEach(() => {
 test.after(() => {
   globalThis.fetch = originalFetch;
   core.resetDbInstance();
-<<<<<<< HEAD
-  fs.rmSync(TEST_DATA_DIR, { recursive: true, force: true });
-=======
   fs.rmSync(TEST_DATA_DIR, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
->>>>>>> upstream/main
 });
 
 test("GET /v1/voices forwards query and stored xi-api-key", async () => {
@@ -110,22 +86,11 @@ test("POST /v1/text-to-speech/[voiceId] forwards JSON and binary response", asyn
   }) as typeof fetch;
 
   const response = await speechRoute.POST(
-<<<<<<< HEAD
-    new Request(
-      "http://localhost/v1/text-to-speech/voice_123?output_format=mp3_44100_128",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: payload,
-      }
-    ),
-=======
     new Request("http://localhost/v1/text-to-speech/voice_123?output_format=mp3_44100_128", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: payload,
     }),
->>>>>>> upstream/main
     { params: Promise.resolve({ voiceId: "voice_123" }) }
   );
   assert.equal(response.status, 200);
@@ -199,8 +164,6 @@ test("native ElevenLabs routes reject missing credentials and traversal", async 
     assert.match((await response.json()).error.message, /Invalid ElevenLabs voice ID/);
   });
 });
-<<<<<<< HEAD
-=======
 
 for (const { path: routePath, route, body } of nativeGenerationRoutes) {
   test(`POST ${routePath} forwards native JSON, query and stored credentials`, async () => {
@@ -375,4 +338,3 @@ test("native generation maps a transport failure to a sanitized 502", async () =
   assert.equal(response.status, 502);
   assert.equal((await response.json()).error.message, "ElevenLabs connection failed");
 });
->>>>>>> upstream/main

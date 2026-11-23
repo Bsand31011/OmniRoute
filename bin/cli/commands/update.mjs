@@ -5,12 +5,8 @@ import { fileURLToPath } from "node:url";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import { t } from "../i18n.mjs";
-<<<<<<< HEAD
-import { npmBin, npmExecOptions } from "../npm-exec.mjs";
-=======
 import { npmBin, npmExecInvocation } from "../npm-exec.mjs";
 import { readPidFile, isPidRunning } from "../utils/pid.mjs";
->>>>>>> upstream/main
 
 const execFileAsync = promisify(execFile);
 
@@ -38,14 +34,6 @@ export async function getCurrentVersion() {
 // injectable for tests.
 export async function getLatestVersion(execFn = execFileAsync, platform = process.platform) {
   try {
-<<<<<<< HEAD
-    // argv is all literals, so enabling the shell on win32 cannot splice a
-    // runtime value into the command line (Hard Rule #13).
-    const { stdout } = await execFn(
-      npmBin(),
-      ["view", "omniroute", "version", "--prefer-online"],
-      npmExecOptions(process.platform, { timeoutMs: 15000 })
-=======
     // Every token is a literal, so joining them into a command line on win32 cannot
     // splice a runtime value into it (Hard Rule #13) — npmExecInvocation enforces
     // that. It also hands execFile an EMPTY args array there, so the shell is
@@ -57,7 +45,6 @@ export async function getLatestVersion(execFn = execFileAsync, platform = proces
         ["view", "omniroute", "version", "--prefer-online"],
         { timeoutMs: 15000 }
       )
->>>>>>> upstream/main
     );
     return stdout.trim();
   } catch {
@@ -177,15 +164,9 @@ export async function runUpdateCommand(opts = {}) {
   if (showChangelog) {
     try {
       const { stdout } = await execFileAsync(
-<<<<<<< HEAD
-        npmBin(),
-        ["view", "omniroute", "changelog"],
-        npmExecOptions(process.platform, { timeoutMs: 15000 })
-=======
         ...npmExecInvocation(process.platform, npmBin(), ["view", "omniroute", "changelog"], {
           timeoutMs: 15000,
         })
->>>>>>> upstream/main
       );
       if (stdout.trim()) {
         console.log(stdout.trim());

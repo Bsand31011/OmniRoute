@@ -1,10 +1,6 @@
 import { NextResponse } from "next/server";
 import { getTaskManager } from "@/lib/a2a/taskManager";
 import { authorizeA2ATaskRoute } from "@/app/api/a2a/_auth";
-<<<<<<< HEAD
-import { sanitizeErrorMessage } from "@omniroute/open-sse/utils/error";
-
-=======
 import {
   getA2ATaskHistoryById,
   listA2ATaskEvents,
@@ -108,7 +104,6 @@ function reconstituteHistoricalTask(row: A2ATaskHistoryRow) {
   };
 }
 
->>>>>>> upstream/main
 export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
   // GHSA-jcm5-6wpp-wjj8: this route had no auth call at all — open regardless
   // of configuration. Another principal's task answers 404, same as a missing
@@ -119,13 +114,8 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
     const { id } = await params;
     const tm = getTaskManager();
     const task = tm.getTask(id, auth.owner);
-<<<<<<< HEAD
-    if (!task) {
-      return NextResponse.json({ error: `Task not found: ${id}` }, { status: 404 });
-=======
     if (task) {
       return NextResponse.json({ task });
->>>>>>> upstream/main
     }
 
     // Fallen out of the in-memory TTL window — fall back to the persisted history row (Task C3).

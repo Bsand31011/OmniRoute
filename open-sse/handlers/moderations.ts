@@ -6,12 +6,8 @@ import { CORS_HEADERS } from "../utils/cors.ts";
  */
 
 import { getModerationProvider, parseModerationModel } from "../config/moderationRegistry.ts";
-<<<<<<< HEAD
-import { errorResponse, redactSensitiveErrorText } from "../utils/error.ts";
-=======
 import { errorResponse, sanitizeErrorMessage } from "../utils/error.ts";
 import { buildSanitizedUpstreamErrorResponse } from "../utils/upstreamErrorResponse.ts";
->>>>>>> upstream/main
 import { attachOmniRouteMetaHeaders } from "@/domain/omnirouteResponseMeta";
 import { generateRequestId } from "@/shared/utils/requestId";
 
@@ -62,13 +58,7 @@ export async function handleModeration({ body, credentials }) {
 
     if (!res.ok) {
       const errText = await res.text();
-<<<<<<< HEAD
-      // secret-leak hardening: redact any credential the upstream echoed back
-      // before relaying the error body to the client (structure-preserving).
-      return new Response(redactSensitiveErrorText(errText), {
-=======
       return buildSanitizedUpstreamErrorResponse({
->>>>>>> upstream/main
         status: res.status,
         rawBody: errText,
         fallbackMessage: `Moderation provider returned HTTP ${res.status}`,

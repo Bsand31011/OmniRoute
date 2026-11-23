@@ -5,14 +5,10 @@ import { randomUUID } from "crypto";
 import { getProviderSearchPool } from "@omniroute/open-sse/services/providerConnectionPool.ts";
 import { hydrateConnectionProviderSpecificData } from "./compatibleNodeBaseUrl.ts"; // #13452
 import { extractGoogApiKeyHeader } from "./googApiKeyAuth.ts";
-<<<<<<< HEAD
-import { describeUpstreamFailure } from "@/shared/utils/upstreamError";
-=======
 import { isCooldownRetrySkipRefusalsEnabled } from "./cooldownAwareRetry.ts";
 import { isPerAccountCatalogProvider } from "./perAccountCatalogFilter.ts";
 import { describeUpstreamFailure } from "@/shared/utils/upstreamError";
 import { isRequestScopedMisalignmentRefusal } from "@omniroute/open-sse/utils/providerSafety.ts";
->>>>>>> upstream/main
 import { buildAllExpiredCredentials } from "./authExpiredCredentials.ts";
 import { pickExpiryFirstConnection } from "./expiryFirstAccountSelection.ts";
 import { isModelScopedFailure, isQuotaExhaustedSignal } from "./modelScopedQuotaFailure.ts"; // #13548
@@ -2185,89 +2181,13 @@ export async function getProviderCredentialsWithQuotaPreflight(
       return { ...credentials, exclusiveLease: claim.lease };
     };
 
-<<<<<<< HEAD
-    // Cascading resolver: per-connection override → per-(provider, window)
-    // default → global default. Used per-window when the fetcher exposes
-    // multiple windows, and once (with window=null) for single-signal
-    // fetchers. The warn fallback is uniform — windows don't need their own
-    // warn levels in v1.
-    const perConnectionWindowOverrides =
-      (credentials as { quotaWindowThresholds?: Record<string, number> | null })
-        .quotaWindowThresholds || {};
-
-    // Latency gate: skip the upstream usage fetch entirely when there's
-    // nothing to enforce. Preflight is only worth its cost when at least
-    // one of the following is true:
-    //   • a per-connection override on this row
-    //   • a per-(provider, window) default in resilience settings
-    //   • the legacy `quotaPreflightEnabled` flag in providerSpecificData
-    //   • the operator-enabled quota cutoff (resilience.quotaPreflight.enabled /
-    //     QUOTA_PREFLIGHT_CUTOFF_ENABLED) — #11234: it previously only armed the
-    //     auto-strategy candidate builder and the per-target cutoff for pinned
-    //     connections, so priority combos over sibling connections (no pinned
-    //     connectionId) never filtered an exhausted sister
-    //   • the global default is stricter than the factory no-op level
-    //     (factory = 2% remaining, basically "right before 429" — anything
-    //     stricter means the operator wants enforcement everywhere)
-    // Otherwise the resolver would return the factory default for every
-    // window, and a near-exhausted account would still be caught by the
-    // normal 429 → cooldown path.
-    // Explicit per-connection opt-out always wins over global/provider defaults.
-    // isQuotaPreflightEnabled is strict-=== true (back-compat), so it returns
-    // false for both "not set" and "explicit false" — we need an explicit check
-    // here to distinguish them.
-    const legacyForceDisable =
-      (credentials as { providerSpecificData?: Record<string, unknown> }).providerSpecificData
-        ?.quotaPreflightEnabled === false;
-    if (legacyForceDisable) {
-=======
     if (!shouldApplyQuotaCutoff(provider, credentials, resilience.quotaPreflight, requestedModel)) {
->>>>>>> upstream/main
       const committed = await commitLease();
       if (committed === null) continue;
       return committed;
     }
-<<<<<<< HEAD
-
-    const hasConnectionOverrides = Object.keys(perConnectionWindowOverrides).length > 0;
-    const legacyForceEnable = isQuotaPreflightEnabled(credentials as Record<string, unknown>);
-    const globalCutoffEnabled = resilience.quotaPreflight.enabled === true;
-    if (
-      !hasConnectionOverrides &&
-      !providerHasDefaults &&
-      !legacyForceEnable &&
-      !globalCutoffEnabled &&
-      !globalDefaultIsRestrictive
-    ) {
-      const committed = await commitLease();
-      if (committed === null) continue;
-      return committed;
-    }
-
-    // Returns the minimum-remaining cutoff for a window — matches the
-    // dashboard's quota bars so the number the user types in the modal
-    // means the same thing as the percentage rendered on the bar.
-    const resolveMinRemainingPercent = (windowName: string | null): number => {
-      if (windowName !== null) {
-        const lookupWindowNames =
-          provider === "codex"
-            ? uniqueWindows(
-                [windowName, toCodexBaseQuotaWindowName(windowName)].filter(Boolean) as string[]
-              )
-            : [windowName];
-        for (const lookupWindowName of lookupWindowNames) {
-          const override = perConnectionWindowOverrides[lookupWindowName];
-          if (typeof override === "number") return override;
-          const providerDefault = providerWindowMap[lookupWindowName];
-          if (typeof providerDefault === "number") return providerDefault;
-        }
-      }
-      return defaultThresholdPercent;
-    };
-=======
     const resolveCutoff = (windowName: string | null) =>
       resolveMinRemainingPercent(provider, credentials, resilience.quotaPreflight, windowName);
->>>>>>> upstream/main
     // #6842: openrouter also needs requestedModel, for the :free-window check.
     // agy/antigravity need it so Claude weekly cannot cool a Gemini request.
     const modelAwarePreflight =
@@ -3310,9 +3230,6 @@ export async function markAccountUnavailable(
     const errorMsg =
       sanitizeErrorMessage(describeUpstreamFailure(errorText)) || "Provider request failed";
 
-<<<<<<< HEAD
-    const errorMsg = describeUpstreamFailure(errorText);
-=======
     // #18221: an explicit upstream Codex capacity 429 is not an exhausted
     // account-wide quota window. Do not persist a virtual-child scope cooldown
     // or lock sibling models; honor the operator's transient cooling opt-out.
@@ -3335,7 +3252,6 @@ export async function markAccountUnavailable(
       });
       return { shouldFallback: true, cooldownMs: modelCooldownMs };
     }
->>>>>>> upstream/main
 
     // T09: Codex per-scope lockout (do not block the whole account globally).
     if (

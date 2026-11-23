@@ -238,8 +238,6 @@ test("Gemini -> OpenAI maintains matching IDs across multi-turn tool call and re
   assert.equal(toolResponseCallId, "call_calc_456");
   assert.equal(assistantCallId, toolResponseCallId);
 });
-<<<<<<< HEAD
-=======
 
 test("Gemini -> OpenAI preserves falsy primitive results in function responses (false, 0, empty string, null)", () => {
   const cases: Array<[unknown, string]> = [
@@ -307,4 +305,3 @@ test("Gemini -> OpenAI preserves custom response objects without result key", ()
   assert.equal(result.messages[0].role, "tool");
   assert.equal(result.messages[0].content, '{"output":"value","success":false}');
 });
->>>>>>> upstream/main

@@ -20,8 +20,6 @@ export interface CliproxyRecentRequest {
   failed: number;
 }
 
-<<<<<<< HEAD
-=======
 /**
  * Passive quota observation snapshot (mirrors CLIProxyAPI's
  * quotaObservationPayload): a single upstream response's watermark, never a
@@ -32,7 +30,6 @@ export interface CliproxyQuotaObservation {
   signals: Record<string, string>;
 }
 
->>>>>>> upstream/main
 export interface CliproxyAccountHealth {
   authIndex: string;
   provider: string;
@@ -43,11 +40,6 @@ export interface CliproxyAccountHealth {
   unavailable: boolean;
   createdAt: string | null;
   updatedAt: string | null;
-<<<<<<< HEAD
-  success: number;
-  failed: number;
-  recentRequests: CliproxyRecentRequest[];
-=======
   /** Account-level retry timestamp (auth.NextRetryAfter). Null when not cooling. */
   nextRetryAfter: string | null;
   success: number;
@@ -55,7 +47,6 @@ export interface CliproxyAccountHealth {
   recentRequests: CliproxyRecentRequest[];
   /** Per-model passive quota observations, keyed by model id. */
   modelQuotas: Record<string, CliproxyQuotaObservation>;
->>>>>>> upstream/main
 }
 
 export interface CliproxyAccountHealthResult {
@@ -108,8 +99,6 @@ function sanitizeRecentRequests(value: unknown): CliproxyRecentRequest[] {
     .filter((bucket) => bucket.time !== "");
 }
 
-<<<<<<< HEAD
-=======
 const MAX_MODEL_QUOTAS = 100;
 const MAX_QUOTA_SIGNALS = 64;
 const MAX_QUOTA_SIGNAL_LENGTH = 512;
@@ -173,7 +162,6 @@ function sanitizeModelQuotas(value: unknown): Record<string, CliproxyQuotaObserv
   return quotas;
 }
 
->>>>>>> upstream/main
 export function sanitizeCliproxyAuthFiles(payload: unknown): CliproxyAccountHealth[] | null {
   const files = record(payload)?.files;
   if (!Array.isArray(files)) return null;
@@ -190,23 +178,15 @@ export function sanitizeCliproxyAuthFiles(payload: unknown): CliproxyAccountHeal
       unavailable: file.unavailable === true,
       createdAt: nullableTimestamp(file.created_at),
       updatedAt: nullableTimestamp(file.updated_at ?? file.modtime),
-<<<<<<< HEAD
-      success: count(file.success),
-      failed: count(file.failed),
-      recentRequests: sanitizeRecentRequests(file.recent_requests),
-=======
       nextRetryAfter: nullableTimestamp(file.next_retry_after),
       success: count(file.success),
       failed: count(file.failed),
       recentRequests: sanitizeRecentRequests(file.recent_requests),
       modelQuotas: sanitizeModelQuotas(file.model_quotas),
->>>>>>> upstream/main
     }))
     .filter((file) => file.authIndex !== "");
 }
 
-<<<<<<< HEAD
-=======
 /** Read-time label for a stored auth index. Drops emails, paths, and blank labels. */
 export function labelForCliproxyAuthIndex(
   authIndex: string | null | undefined,
@@ -218,7 +198,6 @@ export function labelForCliproxyAuthIndex(
   return label;
 }
 
->>>>>>> upstream/main
 async function resolveConnection(
   options: GetCliproxyAccountHealthOptions
 ): Promise<
@@ -254,13 +233,9 @@ async function resolveConnection(
   const configuredPort = Number.parseInt(process.env.CLIPROXYAPI_PORT ?? "", 10);
   return {
     state: "ready",
-<<<<<<< HEAD
-    host: options.host ?? externalHost,
-=======
     // A management key alone (no CLIPROXYAPI_HOST) means a local CLIProxyAPI — the documented
     // default, same as the executor's; otherwise the probe went to `http://undefined:<port>`.
     host: options.host ?? (externalHost || "127.0.0.1"),
->>>>>>> upstream/main
     port:
       options.port ??
       (Number.isInteger(configuredPort) && configuredPort > 0

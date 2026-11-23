@@ -177,13 +177,9 @@ export function getConnectionScopedEffortTiers(
   eligibleConnectionIds: readonly string[] | undefined,
   modelsByConnection: ConnectionScopedReasoningCatalog,
   explicitThinkingEfforts?: readonly string[],
-<<<<<<< HEAD
-  fallbackThinkingEfforts?: readonly string[]
-=======
   fallbackThinkingEfforts?: readonly string[],
   /** MODELS_DEV_EFFORT_TIERS_ENABLED: a declared empty list means "no tiers", not "unknown". */
   emptyListMeansNoTiers = false
->>>>>>> upstream/main
 ): string[] | undefined {
   const eligible = eligibleConnectionIds ? new Set(eligibleConnectionIds) : undefined;
   if (target.connectionId && eligible && !eligible.has(target.connectionId)) return [];
@@ -217,15 +213,10 @@ export function getConnectionScopedEffortTiers(
   if (matching.some((model) => model === undefined)) return [];
 
   const efforts = matching.map((model) => {
-<<<<<<< HEAD
-    const resolved = model?.supportedThinkingEfforts?.length
-      ? model.supportedThinkingEfforts
-=======
     const declared = model?.supportedThinkingEfforts;
     const hasDeclaredList = emptyListMeansNoTiers ? Array.isArray(declared) : !!declared?.length;
     const resolved = hasDeclaredList
       ? [...declared!]
->>>>>>> upstream/main
       : model?.supportsThinking === true && fallbackThinkingEfforts
         ? [...fallbackThinkingEfforts]
         : [];

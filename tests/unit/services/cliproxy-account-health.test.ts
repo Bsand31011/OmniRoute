@@ -20,17 +20,12 @@ describe("CLIProxyAPI account health", () => {
           unavailable: true,
           created_at: "2026-08-23T10:00:00Z",
           updated_at: "2026-08-23T11:00:00Z",
-<<<<<<< HEAD
-=======
           next_retry_after: "2026-08-23T12:00:00Z",
->>>>>>> upstream/main
           success: 9,
           failed: 2,
           recent_requests: [
             { time: "2026-08-23T11:00:00Z", success: 3, failed: 1, token: "secret" },
           ],
-<<<<<<< HEAD
-=======
           model_quotas: {
             "claude-opus-4-6": {
               observed_at: "2026-08-23T11:00:00Z",
@@ -46,7 +41,6 @@ describe("CLIProxyAPI account health", () => {
               signals: { "Retry-After": "120" },
             },
           },
->>>>>>> upstream/main
           path: "/home/user/.cli-proxy-api/acct.json",
           access_token: "secret",
           metadata: { refresh_token: "secret" },
@@ -66,15 +60,6 @@ describe("CLIProxyAPI account health", () => {
         unavailable: true,
         createdAt: "2026-08-23T10:00:00Z",
         updatedAt: "2026-08-23T11:00:00Z",
-<<<<<<< HEAD
-        success: 9,
-        failed: 2,
-        recentRequests: [{ time: "2026-08-23T11:00:00Z", success: 3, failed: 1 }],
-      },
-    ]);
-    const serialized = JSON.stringify(accounts);
-    for (const secret of ["path", "access_token", "refresh_token", "private@example.com"]) {
-=======
         nextRetryAfter: "2026-08-23T12:00:00Z",
         success: 9,
         failed: 2,
@@ -98,7 +83,6 @@ describe("CLIProxyAPI account health", () => {
       "private@example.com",
       "private-token",
     ]) {
->>>>>>> upstream/main
       assert.equal(serialized.includes(secret), false);
     }
   });
@@ -193,8 +177,6 @@ describe("CLIProxyAPI account health", () => {
     assert.equal(result.state, "unreachable");
     assert.ok(Date.now() - started < 1_000);
   });
-<<<<<<< HEAD
-=======
 
   it("an external key without CLIPROXYAPI_HOST targets the documented 127.0.0.1 default", async () => {
     // Before this, `host` was `options.host ?? externalHost` with externalHost undefined, so the
@@ -229,5 +211,4 @@ describe("CLIProxyAPI account health", () => {
       }
     }
   });
->>>>>>> upstream/main
 });

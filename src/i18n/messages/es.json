@@ -1017,19 +1017,9 @@
     "batchFilePreview": "Vista Previa",
     "batchFilePreviewTruncated": "Mostrando las primeras {shown} líneas ({total} líneas en total)",
     "batchFileDownloadFull": "Descargar Archivo Completo",
-<<<<<<< HEAD
-    "batchHeaderSubtitle": "Run many requests as one job",
-    "batchStep1": "1 · Upload JSONL",
-    "batchStep1Desc": "Add requests",
-    "batchStep2": "2 · Create batch",
-    "batchStep2Desc": "Run job",
-    "batchStep3": "3 · Get results",
-    "batchStep3Desc": "Download output"
-=======
     "tokensPageTitle": "Tokens",
     "tokensPageDescription": "Envía tokens entre claves de API, comparte códigos de invitación y conecta servidores de la comunidad.",
     "tokensServerUrlLabel": "URL del servidor"
->>>>>>> upstream/main
   },
   "disabled": "Deshabilitado",
   "featureFlagOmnirouteEmergencyFallbackDescription": "Enrutar las solicitudes con el presupuesto agotado al proveedor/modelo alternativo gratuito de emergencia.",
@@ -1313,23 +1303,6 @@
     "settingsSidebar": "Barra lateral",
     "settingsSidebarSubtitle": "Personalizar el diseño de la barra lateral",
     "settingsAuthzSubtitle": "Inventario de rutas y política de omisión",
-<<<<<<< HEAD
-    "docsSubtitle": "Documentation",
-    "issuesSubtitle": "Report a bug",
-    "changelogSubtitle": "Release notes",
-    "costsQuotaPlans": "Plans & Quotas",
-    "costsQuotaPlansSubtitle": "Configure plans by provider",
-    "activity": "Activity",
-    "activitySubtitle": "Friendly feed of recent events",
-    "logsGroup": "Logs",
-    "systemGroup": "System",
-    "costsOverview": "Overview",
-    "costsOverviewSubtitle": "Consolidated cost analysis",
-    "agentBridge": "Agent Bridge",
-    "agentBridgeSubtitle": "Intercept IDE agent traffic",
-    "trafficInspector": "Traffic Inspector",
-    "trafficInspectorSubtitle": "__MISSING__:Inspect request and response traffic from your apps",
-=======
     "docsSubtitle": "Documentación",
     "issuesSubtitle": "Informar de un error",
     "changelogSubtitle": "Notas de la versión",
@@ -1346,7 +1319,6 @@
     "trafficInspector": "Inspector de tráfico",
     "trafficInspectorSubtitle": "Inspeccionar el tráfico de solicitudes y respuestas de tus aplicaciones",
     "trafficInspectorPurpose": "Consulta exactamente qué envía tu aplicación a los proveedores de IA y qué recibe de ellos. Funciona con cualquier cliente compatible con OpenAI.",
->>>>>>> upstream/main
     "cliCode": "CLI Code",
     "cliCodeSubtitle": "Herramientas de código que apuntan a OmniRoute",
     "cliAgents": "Agentes CLI",
@@ -1388,12 +1360,8 @@
       "close": "cerrar"
     },
     "noResults": "Sin resultados",
-<<<<<<< HEAD
-    "trafficInspectorPurpose": "See exactly what your application sends to and receives from AI providers. Works with any OpenAI-compatible client."
-=======
     "costsTeams": "Equipos",
     "costsTeamsSubtitle": "Centros de costos de equipo"
->>>>>>> upstream/main
   },
   "webhooks": {
     "title": "Ganchos web",
@@ -1963,22 +1931,6 @@
     "releaseNotes": "Notas de la versión",
     "readMore": "Leer Más",
     "noAuthLabel": "Sin Autenticación",
-<<<<<<< HEAD
-    "recentRequests": "Recent Requests",
-    "recentRequestsEmpty": "No requests yet.",
-    "recentRequestsModel": "Model",
-    "recentRequestsTokens": "In / Out",
-    "recentRequestsWhen": "When",
-    "readinessEyebrow": "Get ready to route",
-    "readinessTitle": "Send your first request",
-    "readinessSubtitle": "Four small steps. OmniRoute checks readiness as you go.",
-    "readinessStep1": "Connect a provider",
-    "readinessStep2": "Configure endpoint authentication",
-    "readinessStep3": "Copy your endpoint",
-    "readinessStep4": "Send a test request",
-    "readinessContinue": "Continue setup",
-    "readinessDismiss": "Dismiss for now"
-=======
     "readinessEyebrow": "Prepárate para enrutar",
     "readinessTitle": "Envía tu primera solicitud",
     "readinessSubtitle": "Cuatro pequeños pasos. OmniRoute comprueba que todo esté listo a medida que avanzas.",
@@ -2004,7 +1956,6 @@
     "systemMetricsCpuCount": "{count} vCPUs • {platform}",
     "systemMetricsProcessCpu": "OmniRoute (process)",
     "systemMetricsProcessMemory": "OmniRoute (RSS / Heap)"
->>>>>>> upstream/main
   },
   "analytics": {
     "title": "Analítica",
@@ -3092,25 +3043,6 @@
       "hermes": "Asistente de terminal de IA de Hermes",
       "hermes-agent": "Hermes Agent (de Nousresearch) - IA de terminal avanzada con soporte multimodelo (delegación, visión, compresión, etc.)",
       "custom": "Generador de configuración CLI o SDK genérico compatible con OpenAI",
-<<<<<<< HEAD
-      "aider": "Aider AI pair-programming CLI with an OpenAI-compatible base URL",
-      "forge": "ForgeCode coding agent CLI with a custom provider",
-      "cursor-cli": "Cursor Agent CLI in headless agent mode",
-      "roo": "Roo Code AI assistant for VS Code",
-      "jcode": "jcode terminal coding agent",
-      "deepseek-tui": "DeepSeek TUI coding agent written in Rust",
-      "codewhale": "CodeWhale coding agent, the successor to DeepSeek TUI",
-      "smelt": "Smelt coding agent CLI",
-      "pi": "Lightweight Pi terminal coding agent",
-      "crush": "Crush terminal coding agent by Charm",
-      "goose": "Goose autonomous agent CLI",
-      "interpreter": "Open Interpreter autonomous coding agent CLI",
-      "omp": "Oh My Pi terminal coding agent",
-      "letta": "Letta CLI agent with persistent memory and tool use",
-      "warp": "Warp AI terminal with custom provider support",
-      "agent-deck": "Agent Deck multi-agent orchestrator",
-      "prime-agent": "Prime Agent — self-improving RLM coding harness with OpenAI-compatible provider support"
-=======
       "aider": "CLI de programación en pareja con IA Aider con una URL base compatible con OpenAI",
       "forge": "CLI del agente de programación ForgeCode con un proveedor personalizado",
       "cursor-cli": "CLI de Cursor Agent en modo agente sin interfaz gráfica",
@@ -3131,7 +3063,6 @@
       "5dive": "5dive — flota autoalojada de agentes de codificación; un perfil de autenticación los apunta todos a OmniRoute",
       "whycodes": "Agente CLI autónomo WhyCodes con URL base compatible con OpenAI",
       "zed": "Editor de código Zed — agente integrado mediante un proveedor compatible con OpenAI"
->>>>>>> upstream/main
     },
     "guides": {
       "cursor": {
@@ -5226,24 +5157,6 @@
     "noConnectionId": "sin ID de conexión",
     "accountModelSummary": "{connectionId} · {count} modelos",
     "cooldown": "Enfriamiento",
-<<<<<<< HEAD
-    "durationRemaining": "{duration} remaining",
-    "noSyncedModelsOrTraffic": "No synced models or recent traffic yet.",
-    "providerRowSummary": "{active}/{total} active accounts · {requests} req · {successRate} success · {latency} avg",
-    "cooldownCount": "{count} cooldown",
-    "lockoutCount": "{count} lockouts",
-    "issueCount": "{count} issues",
-    "score": "Score",
-    "lastRequest": "Last request",
-    "lastError": "Último error",
-    "healthVerdictReady": "OmniRoute is ready",
-    "healthVerdictActionRequired": "Action required to restore full operation",
-    "healthVerdictCoolingDown": "Cooling down after recent changes",
-    "healthSubtitle": "System health check",
-    "advancedDiagnosticsTitle": "Advanced diagnostics",
-    "hide": "Hide",
-    "show": "Show"
-=======
     "durationRemaining": "quedan {duration}",
     "noSyncedModelsOrTraffic": "Aún no hay modelos sincronizados ni tráfico reciente.",
     "providerRowSummary": "{active}/{total} cuentas activas · {requests} solicitudes · {successRate} de éxito · {latency} de media",
@@ -5253,7 +5166,6 @@
     "score": "Puntuación",
     "lastRequest": "Última solicitud",
     "lastError": "Último error"
->>>>>>> upstream/main
   },
   "telemetry": {
     "title": "Telemetría del sistema",
@@ -6500,34 +6412,6 @@
     "personalAccessTokenLabel": "Personal Access Token Label",
     "qoderPatHint": "Qoder Pat Hint",
     "qoderPatPlaceholder": "Qoder Pat Placeholder",
-<<<<<<< HEAD
-    "rateLimitOverridesSection": "Rate Limit Overrides",
-    "rateLimitOverridesMaxConcurrentHint": "Max concurrent requests override for this connection. Overrides the account-level cap.",
-    "rateLimitOverridesMaxConcurrentLabel": "Max Concurrent (Rate Limit)",
-    "rateLimitOverridesMaxWaitMsHint": "__MISSING__:Maximum time (ms) a request may wait for a rate-limit slot before failing. Overrides the global Resilience setting for this connection only.",
-    "rateLimitOverridesMaxWaitMsLabel": "__MISSING__:Max Queue Wait (ms)",
-    "rateLimitOverridesMinTimeHint": "Minimum time (ms) between requests. Overrides the default rate limiter delay.",
-    "rateLimitOverridesMinTimeLabel": "Min Interval (ms)",
-    "rateLimitOverridesRpmHint": "Max requests per minute for this connection. Overrides the provider default.",
-    "rateLimitOverridesRpmLabel": "RPM (Requests/min)",
-    "rateLimitOverridesTpdHint": "Max tokens per day for this connection. Overrides the provider default.",
-    "rateLimitOverridesTpdLabel": "TPD (Tokens/day)",
-    "rateLimitOverridesTpmHint": "Max tokens per minute for this connection. Overrides the provider default.",
-    "rateLimitOverridesTpmLabel": "TPM (Tokens/min)",
-    "refreshOauthTokenTitle": "Refresh Oauth Token Title",
-    "regionHint": "Region Hint",
-    "regionLabel": "Region Label",
-    "removeThisKey": "Remove This Key",
-    "routingTagsHint": "Routing Tags Hint",
-    "routingTagsLabel": "Routing Tags Label",
-    "routingTagsPlaceholder": "Routing Tags Placeholder",
-    "search": "Search",
-    "searchEngineIdHint": "Search Engine Id Hint",
-    "searchEngineIdLabel": "Search Engine Id Label",
-    "searchEngineIdRequired": "Search Engine Id Required",
-    "searchProvider": "Search Provider",
-    "searchProviderDesc": "Search Provider Desc",
-=======
     "rateLimitOverridesSection": "Configuración personalizada de límites de uso",
     "rateLimitOverridesMaxConcurrentHint": "Máximo personalizado de solicitudes simultáneas para esta conexión. Sustituye el límite de la cuenta.",
     "rateLimitOverridesMaxConcurrentLabel": "Máximo de solicitudes simultáneas (límite de uso)",
@@ -6556,7 +6440,6 @@
     "searchEngineIdRequired": "El ID del motor de búsqueda es obligatorio",
     "searchProvider": "Proveedor de búsqueda",
     "searchProviderDesc": "Descripción del proveedor de búsqueda",
->>>>>>> upstream/main
     "searchProviders": "Buscar proveedores...",
     "searchByModel": "Buscar por modelo…",
     "searchProvidersHeading": "Encabezado de proveedores de búsqueda",
@@ -6761,83 +6644,6 @@
       "360ai": "Obtén una clave de API en ai.360.cn",
       "agentrouter": "Obtén $200 en créditos gratuitos en https://agentrouter.org/register; no se requiere tarjeta de crédito.",
       "unorouter": "Crea una clave API en https://unorouter.ai, luego pégala aquí como un token Bearer.",
-<<<<<<< HEAD
-      "agnes": "Get API key at agnes-ai.com",
-      "aimlapi": "Free tier paused (2026) — AI/ML API is now pay-as-you-go only (min $20 top-up); no recurring free credits.",
-      "ai21": "$10 trial credits on signup (valid 3 months), no credit card required",
-      "alibaba": "Connect Alibaba with an API key.",
-      "alibaba-cn": "Connect Alibaba (China) with an API key.",
-      "bailian-coding-plan": "Connect Alibaba Coding Plan with an API key.",
-      "bedrock": "Native Bedrock integration: model discovery uses Bedrock foundation models and inference profiles, while chat uses the regional Bedrock Runtime Converse/ConverseStream APIs.",
-      "anthropic": "Connect Anthropic with an API key.",
-      "ant-ling": "Register and create an API key at the Ant Ling API console (https://chat.ant-ling.com/open), then paste it here. OmniRoute routes chat traffic to https://api.ant-ling.com/v1/chat/completions; the provider is OpenAI-compatible and also exposes an Anthropic-compatible surface.",
-      "api-airforce": "Get your API key from https://panel.api.airforce — OpenAI-compatible endpoint at https://api.airforce/v1",
-      "arcee-ai": "Get API key at arcee.ai",
-      "azure-ai": "Foundry uses the OpenAI v1 surface with deployment names as models. OmniRoute normalizes root resource URLs to the v1 chat and /models endpoints.",
-      "azure-openai": "Use your Azure OpenAI API key. Base URL should be your resource endpoint, for example https://my-resource.openai.azure.com.",
-      "bai": "Bearer API key for the b.ai OpenAI-compatible LLM gateway (distinct from TheB.AI). Create a key at https://docs.b.ai, then use https://api.b.ai/v1 as the OpenAI-compatible base URL.",
-      "baichuan": "Get API key at platform.baichuan-ai.com",
-      "baidu": "Get API key at console.bce.baidu.com",
-      "qianfan": "Use a Qianfan API key from Baidu AI Cloud. The default endpoint is OpenAI-compatible v2.",
-      "baseten": "$30 free trial credits for GPU inference",
-      "bazaarlink": "Create a free API key at https://bazaarlink.ai — model 'auto:free' routes to zero-cost inference. All models use the provider/model-name format, e.g. xiaomi/mimo-v2.5-pro.",
-      "black-forest-labs": "Connect Black Forest Labs with an API key.",
-      "blackbox": "Free tier: unlimited basic chat plus Minimax-M2.5, no credit card required",
-      "bluesminds": "Get your API key at https://www.bluesminds.com — OpenAI-compatible endpoint at https://api.bluesminds.com/v1 with free daily credits. VIP models (Claude Opus 4.5, Gemini 2.5 Pro) consume pi credits.",
-      "byteplus": "Connect BytePlus ModelArk with an API key.",
-      "bytez": "$1 free credits, refreshes every 4 weeks",
-      "cerebras": "Free Trial: 1M tokens/day, 30K TPM, 5 RPM — no credit card.",
-      "charm-hyper": "Create an API key at https://hyper.charm.land, then paste it here as a Bearer token.",
-      "chutes": "Bearer API key for the Chutes OpenAI-compatible gateway.",
-      "clarifai": "Clarifai exposes OpenAI-compatible chat, responses and /models on /v2/ext/openai/v1. Public/community models typically require a PAT; app-scoped keys only work for resources inside that app.",
-      "cloudflare-ai": "Requires API Token AND Account ID (found at dash.cloudflare.com)",
-      "clova-studio": "CLOVA Studio (HyperCLOVA X) is OpenAI-compatible on /v1/openai. OmniRoute probes /v1/openai/models and routes chat traffic to /v1/openai/chat/completions. Uses the current clovastudio.stream.ntruss.com host — the legacy clovastudio.apigw.ntruss.com endpoint is being deprecated.",
-      "codestral": "Connect Codestral with an API key.",
-      "cohere": "Free Trial: 1,000 API calls/month for testing, no credit card required",
-      "command-code": "Create or copy an API key from Command Code, then paste it here as a Bearer token.",
-      "coze": "Get API key at coze.com/open/api",
-      "crof": "Connect CrofAI with an API key.",
-      "databricks": "Connect Databricks with an API key.",
-      "datarobot": "The default gateway catalogs active models from /genai/llmgw/catalog/. Deployment URLs are also supported for direct OpenAI-compatible chat requests.",
-      "deepinfra": "Free signup credits for API testing and model exploration",
-      "deepseek": "5M free tokens on signup - no credit card required",
-      "dgrid": "Create a DGrid API key at https://dgrid.ai, then use https://api.dgrid.ai/v1 as the OpenAI-compatible base URL.",
-      "dify": "Get API key from your Dify instance.",
-      "digitalocean": "Connect DigitalOcean with an API key.",
-      "dit": "dit.ai (Distributed Intelligence Trade) is an OpenAI-compatible router/gateway with dynamic per-request pricing, exposing /v1/chat/completions at https://api.dit.ai/v1. OmniRoute uses the OpenAI protocol; spend/savings analytics live in the dit.ai dashboard.",
-      "doubao": "Get API key at console.volcengine.com",
-      "empower": "Empower exposes OpenAI-compatible chat on https://app.empower.dev/api/v1 with tool-calling support on empower-functions.",
-      "factory": "Get your Factory API key at https://app.factory.ai/settings/api-keys, then paste it as a Bearer token. OpenAI-compatible endpoint at https://api.factory.ai/v1.",
-      "fal-ai": "Connect Fal.ai with an API key.",
-      "featherless-ai": "Free tier available — no credit card required",
-      "fenayai": "Bearer API key for the FenayAI OpenAI-compatible gateway.",
-      "firecrawl": "Connect Firecrawl with an API key.",
-      "fireworks": "$1 free starter credits on signup for API testing",
-      "freeaiapikey": "Discounted API proxy for 40+ models including GPT-5, Claude Opus 4.6, Claude Sonnet 4.6, Qwen 3.5. Get your API key at https://freeaiapikey.com/dashboard. Base URL: https://freeaiapikey.com/v1.",
-      "freemodel-dev": "Get $300 free API credits at https://freemodel.dev — no payment info required. OpenAI-compatible endpoint. GPT-5.4 and GPT-5.5 models available.",
-      "friendliai": "Free tier for serverless inference — no credit card required",
-      "gemini": "Free forever: 1,500 req/day for Gemini 2.5 Flash — no credit card, get key at aistudio.google.com",
-      "gigachat": "Connect GigaChat (Sber) with an API key.",
-      "gitlab": "GitLab personal access token for the public Code Suggestions API. Configure a self-hosted base URL when not using gitlab.com.",
-      "gitlawb-gmi": "Get your API key from Gitlawb Opengateway dashboard.",
-      "gitlawb": "Get your API key from Gitlawb Opengateway dashboard.",
-      "glm": "Connect GLM Coding with an API key.",
-      "glm-cn": "Connect GLM Coding (China) with an API key.",
-      "glmt": "Preset GLM profile with higher token budget, thinking enabled, and longer timeout.",
-      "getgoapi": "Connect GoAPI with an API key.",
-      "groq": "Free tier: 30 RPM / 14.4K RPD — no credit card",
-      "haiper": "Get API key at haiper.ai/haiper-api",
-      "heroku": "Connect Heroku AI with an API key.",
-      "hcnsec": "Get API key at api.hcnsec.cn",
-      "huggingface": "Free Inference API for thousands of models (Whisper, VITS, SDXL…)",
-      "hyperbolic": "$1-5 trial credits on signup for serverless inference",
-      "watsonx": "The watsonx model gateway exposes OpenAI-compatible /chat/completions and /models under /ml/gateway/v1.",
-      "ideogram": "Get API key at ideogram.ai/docs/api",
-      "iflytek": "Get API key at console.xfyun.cn",
-      "inception": "Inception Labs is OpenAI-compatible at https://api.inceptionlabs.ai/v1. mercury-2 is the first diffusion LLM (dLLM) in the catalog — 5-10x faster generation than comparable autoregressive models, with tool calling, json_mode, and structured outputs.",
-      "inference-net": "$25 free credits on signup plus research grants available",
-      "internlm": "Free monthly quota ~1M input / 3M output tokens (~10 RPM)",
-=======
       "agnes": "Obtén una clave de API en agnes-ai.com",
       "agnes-cn": "Conecta Agnes AI (China) con una clave de API emitida para api.agnes-ai.cn. Las claves de apihub.agnes-ai.com no funcionarán.",
       "aimlapi": "Nivel gratuito suspendido (2026): la API de AI/ML ahora solo es de pago por uso (recarga mínima de $20); no hay créditos gratuitos recurrentes.",
@@ -6915,7 +6721,6 @@
       "inception": "Inception Labs es compatible con OpenAI en https://api.inceptionlabs.ai/v1. mercury-2 es el primer LLM de difusión (dLLM) del catálogo, con una generación entre 5 y 10 veces más rápida que la de modelos autorregresivos comparables, además de llamadas a herramientas, json_mode y salidas estructuradas.",
       "inference-net": "$25 en créditos gratuitos al registrarte, además de subvenciones de investigación disponibles",
       "internlm": "Cuota mensual gratuita de aproximadamente 1M de tokens de entrada / 3M de tokens de salida (aproximadamente 10 RPM)",
->>>>>>> upstream/main
       "jina-ai": "Bearer API key for the Jina AI rerank API.",
       "jina-reader": "Connect Jina Reader with an API key.",
       "kenari": "Kenari ofrece un endpoint de finalización de chat compatible con OpenAI en https://kenari.id/v1/chat/completions, además de un catálogo activo en /v1/models que incluye Claude, GPT, DeepSeek, GLM, Kimi y más. OmniRoute utiliza el protocolo de OpenAI y muestra los modelos mediante passthrough.",
@@ -7210,23 +7015,6 @@
     "savedModelEndpointSettings": "Configuración del punto final del modelo guardado",
     "searchByModelAria": "Buscar por modelo",
     "selectSupportedEndpoint": "Seleccione al menos un endpoint compatible",
-<<<<<<< HEAD
-    "antigravityClientProfileHarness": "Harness / CLI",
-    "harImportButtonLabel": "Import .har file",
-    "harImportButtonBusy": "Importing…",
-    "harImportButtonHint": "Export from DevTools Network tab after sending at least one chat message.",
-    "harImportStatusValid": "Imported — valid for ~{minutes}m.",
-    "harImportStatusExpiringSoon": "Imported — valid for only ~{minutes}m more.",
-    "harImportStatusExpired": "Imported, but this token already expired ({minutes}m ago) — export a fresh HAR.",
-    "harImportStatusUnknownExpiry": "Imported. Couldn't read its expiry.",
-    "harImportErrorNotJson": "That file isn't valid JSON — is it really a .har export?",
-    "harImportErrorNoEntries": "This HAR has no network entries recorded.",
-    "harImportErrorNoChathubUrl": "No Copilot chat connection found in this HAR. Send at least one chat message in m365.cloud.microsoft before exporting.",
-    "harImportErrorUnparsableUrl": "Found the chat connection, but couldn't read its URL.",
-    "harImportErrorMissingFields": "Found the chat connection, but the token was missing from it.",
-    "harImportErrorReadFailed": "Couldn't read that file.",
-    "harImportErrorUnknown": "Couldn't extract a credential from that HAR file."
-=======
     "antigravityClientProfileHarness": "Entorno / CLI",
     "rateLimitOverridesModelConcurrencyLabel": "Límites de concurrencia por modelo",
     "rateLimitOverridesModelConcurrencyPlaceholder": "glm-5=1\nglm-4.7=3",
@@ -7252,7 +7040,6 @@
     "doctorChecking": "Comprobando estado…",
     "doctorCheck": "Comprobar estado de doctor",
     "fallbackRetryBackendTitle": "Backend de reintento alternativo"
->>>>>>> upstream/main
   },
   "settings": {
     "title": "Configuración",
@@ -9244,20 +9031,6 @@
     "cliproxyapiPort": "Puerto",
     "qdrantHost": "Anfitrión",
     "qdrantCollection": "Colección",
-<<<<<<< HEAD
-    "presetAll": "All",
-    "presetAllDesc": "Show everything",
-    "presetEssentials": "Essentials",
-    "presetEssentialsDesc": "Beginner path - Advanced tools stay searchable",
-    "presetMinimal": "Minimal",
-    "presetMinimalDesc": "Core pages only",
-    "presetDeveloper": "Developer",
-    "presetDeveloperDesc": "Dev & proxy tools",
-    "presetAdmin": "Admin",
-    "presetAdminDesc": "Monitoring & audit",
-    "settingsSidebarTitle": "Sidebar Customization",
-    "settingsSidebarDesc": "Choose which sidebar items to show. Essentials keeps Advanced tools searchable."
-=======
     "catalogVisibilityHint": "Los identificadores de modelos ocultos se pueden seguir invocando con los mismos permisos de acceso.",
     "exposeCombosOnly": "Listar solo combinaciones en /v1/models",
     "exposeCombosOnlyDesc": "Los clientes que descubren modelos automáticamente ven tus combinaciones (y auto/*, salvo que estén ocultos) en lugar de los modelos sin procesar de los proveedores. Los ID explícitos provider/model siguen enrutándose.",
@@ -9438,7 +9211,6 @@
       "statsEmpty": "Aún no hay detecciones.",
       "statsRequest": "Solicitudes"
     }
->>>>>>> upstream/main
   },
   "contextRtk": {
     "title": "Motor RTK",
@@ -13512,15 +13284,9 @@
       "acp": {
         "title": "Agentes ACP",
         "phrase": "CLIs that OmniRoute spawns as execution backend (reverse flow)",
-<<<<<<< HEAD
-        "flow": "Client → OmniRoute → spawn CLI (stdio/ACP) → response",
-        "seeOther": "See →",
-        "warning": "Most users can ignore this — use only when an integration requires it."
-=======
         "warning": "La mayoría de los usuarios puede ignorar esto; úsalo solo cuando una integración lo requiera.",
         "flow": "Cliente → OmniRoute → iniciar la CLI (stdio/ACP) → respuesta",
         "seeOther": "Ver →"
->>>>>>> upstream/main
       }
     },
     "comparison": {
@@ -14385,13 +14151,6 @@
         "description": "Deshabilita la comprobación de estado de validación de tokens."
       },
       "SKILLS_SANDBOX_NETWORK_ENABLED": {
-<<<<<<< HEAD
-        "description": "Enable network access in the skills sandbox."
-      },
-      "DISABLE_CONTEXT_WINDOW_CHECKS": {
-        "label": "Disable Context Window Checks",
-        "description": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active."
-=======
         "description": "Habilita el acceso a la red en el entorno aislado de habilidades."
       },
       "SERVER_OWNED_TOOL_LOOP_ENABLED": {
@@ -14689,7 +14448,6 @@
       "UNPRICED_USAGE_BUDGET_POLICY": {
         "label": "Política de presupuesto de uso sin precio",
         "description": "Cómo los límites diarios/semanales por clave en USD tratan el uso exitoso cuyo proveedor/modelo no tiene una fila de precios. fail_closed (predeterminado) marca la ventana como excedida, de modo que un coste desconocido nunca puede eludir un tope estricto. count_as_zero cuenta ese uso como $0 y mantiene la aplicación del gasto tarifado. Los modelos sin precio se muestran en la página principal del panel de control de todas formas."
->>>>>>> upstream/main
       }
     }
   },
@@ -15974,15 +15732,6 @@
     "structuredOutputMismatch": "El proveedor no admite salida estructurada",
     "contextWindowMismatch": "La solicitud excede la ventana de contexto del proveedor"
   },
-<<<<<<< HEAD
-  "featureFlagDisableContextWindowChecksDescription": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active.",
-  "cheaperInferenceSponsorBanner": {
-    "title": "Cheaper Inference is an OmniRoute Open Source Friend",
-    "description": "A cost-ranked gateway reselling dozens of frontier models behind one OpenAI-compatible endpoint — routing each request to the cheapest eligible provider, never above list price.",
-    "cta": "Get an API Key",
-    "partnerLinkNote": "Partner link",
-    "dismissAriaLabel": "Dismiss"
-=======
   "cheaperInferenceSponsorBanner": {
     "title": "Cheaper Inference es amigo del código abierto de OmniRoute",
     "description": "Un gateway clasificado por coste que revende decenas de modelos de vanguardia tras un único endpoint compatible con OpenAI, y dirige cada solicitud al proveedor apto más barato, sin superar nunca el precio de lista.",
@@ -16240,6 +15989,5 @@
     "greetingFallbackName": "Ahí",
     "errNoReply": "⚠️ Sin respuesta de la pasarela.",
     "btnSend": "Enviar"
->>>>>>> upstream/main
   }
 }

@@ -357,8 +357,6 @@ export const AUDIO_TRANSLATION_PROVIDERS: Record<string, AudioProvider> = {
 };
 
 export const AUDIO_SPEECH_PROVIDERS: Record<string, AudioProvider> = {
-<<<<<<< HEAD
-=======
   "grok-cli": {
     id: "grok-cli",
     baseUrl: "https://api.x.ai/v1/tts",
@@ -367,7 +365,6 @@ export const AUDIO_SPEECH_PROVIDERS: Record<string, AudioProvider> = {
     format: "grok-tts",
     models: [{ id: "grok-tts", name: "Grok Text to Speech (OAuth)" }],
   },
->>>>>>> upstream/main
   google: {
     id: "google",
     credentialProviderId: "gemini",
@@ -379,11 +376,8 @@ export const AUDIO_SPEECH_PROVIDERS: Record<string, AudioProvider> = {
       { id: "gemini-3.1-flash-tts-preview", name: "Gemini 3.1 Flash TTS" },
       { id: "gemini-2.5-flash-preview-tts", name: "Gemini 2.5 Flash TTS" },
       { id: "gemini-2.5-pro-preview-tts", name: "Gemini 2.5 Pro TTS" },
-<<<<<<< HEAD
-=======
       { id: "gemini-3.8-flash-tts", name: "Gemini 3.8 Flash TTS" },
       { id: "gemini-3.8-flash-lite-tts", name: "Gemini 3.8 Flash-Lite TTS" },
->>>>>>> upstream/main
     ],
   },
   vertex: {

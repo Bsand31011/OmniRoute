@@ -6,10 +6,7 @@ import {
   MODEL_SUPPORTED_ENDPOINT_VALUES,
   normalizeModelSupportedEndpoints,
 } from "../../src/shared/constants/modelSupportedEndpoints.ts";
-<<<<<<< HEAD
-=======
 import { providerModelMutationSchema } from "../../src/shared/validation/schemas/provider.ts";
->>>>>>> upstream/main
 
 test("normalizes legacy video and audio metadata to operation-specific endpoint ids", () => {
   assert.deepEqual(normalizeModelSupportedEndpoints(["chat", "video", "audio"]), [
@@ -60,8 +57,6 @@ test("classifies operation-specific media endpoints for the model catalog", () =
     type: "audio",
   });
 });
-<<<<<<< HEAD
-=======
 
 test("accepts the responses endpoint emitted by Codex discovery", () => {
   assert.ok(MODEL_SUPPORTED_ENDPOINT_VALUES.includes("responses"));
@@ -110,4 +105,3 @@ test("defaultEndpointsForProviderNodeApiType maps a decisions node to decisions 
   assert.deepEqual(defaultEndpointsForProviderNodeApiType("decisions"), ["decisions"]);
   assert.deepEqual(defaultEndpointsForProviderNodeApiType("Decisions "), ["decisions"]);
 });
->>>>>>> upstream/main

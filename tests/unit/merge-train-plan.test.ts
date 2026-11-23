@@ -5,11 +5,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { execFile } from "node:child_process";
-<<<<<<< HEAD
-import { access, mkdtemp, readFile, rm } from "node:fs/promises";
-=======
 import { access, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
->>>>>>> upstream/main
 import { tmpdir } from "node:os";
 import { promisify } from "node:util";
 import { join, dirname } from "node:path";
@@ -125,11 +121,7 @@ test("--plan shell-quotes a hostile base before the gate command is evaluated", 
       await assert.rejects(access(marker), { code: "ENOENT" });
     }
   } finally {
-<<<<<<< HEAD
-    await rm(tempDir, { recursive: true, force: true });
-=======
     await rm(tempDir, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
->>>>>>> upstream/main
   }
 });
 

@@ -60,8 +60,6 @@ test("parseVertexAnthropicModels: malformed input yields an empty list", () => {
   assert.deepEqual(parseVertexAnthropicModels({ models: [{ name: "" }, {}] }), []);
 });
 
-<<<<<<< HEAD
-=======
 test("parseVertexAnthropicModels: v1beta1 publisherModels envelope (Model Garden list)", () => {
   // The Model Garden publisher-model list is served by the v1beta1 API and
   // returns `{ publisherModels: [...] }` (v1 does not support list). Regression
@@ -114,7 +112,6 @@ test("parseVertexAnthropicModels: real Model Garden response reference (2026-08)
   }
 });
 
->>>>>>> upstream/main
 test("getModelTargetFormat: claude-* on vertex resolves to the claude translator (heuristic)", () => {
   // A future Claude model with no static registry entry must still route
   // through the Anthropic Messages translator on both vertex ids.

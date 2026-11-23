@@ -29,11 +29,7 @@ Running tests: see [Testing](#testing) below (run the most focused test for chan
 
 ## Project at a Glance
 
-<<<<<<< HEAD
-**OmniRoute** — unified AI proxy/router. One endpoint, 352 LLM providers, auto-fallback.
-=======
 **OmniRoute** — unified AI proxy/router. One endpoint, 380 LLM providers, auto-fallback.
->>>>>>> upstream/main
 
 - API Routes — `src/app/api/v1/` (Next.js App Router entry points)
 - Handlers — `open-sse/handlers/` (request processing: chat, embeddings, etc)
@@ -443,13 +439,6 @@ Dashboard at the operator's chosen URL/port (default `http://localhost:20128`). 
 
 <!-- BEGIN:nextjs-agent-rules -->
 
-<<<<<<< HEAD
-> Any credential observed in a previous version of this file was a non-production demo value; treat it as compromised and do not reuse it.
-
-<!-- BEGIN:nextjs-agent-rules -->
-
-=======
->>>>>>> upstream/main
 # This is NOT the Next.js you know
 
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.

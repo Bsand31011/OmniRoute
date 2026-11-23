@@ -240,12 +240,8 @@ function formatMessagesForPrompt(messages: MessageLike[]): string {
 
 export function selectMessagesForSummary(
   messages: MessageLike[],
-<<<<<<< HEAD
-  maxMessages: number
-=======
   maxMessages: number,
   relayMode?: "schema-locked" | "standard"
->>>>>>> upstream/main
 ): MessageLike[] {
   const validMessages = messages.filter((m) => m && typeof m === "object");
   const system = validMessages.filter(
@@ -741,8 +737,6 @@ export function resetUniversalHandoffCooldowns(): void {
   universalHandoffCooldowns.clear();
 }
 
-<<<<<<< HEAD
-=======
 // Every non-"generated" outcome across both handoff generators (this one and
 // the older generateHandoffAsync above) used to be silent -- context_handoffs
 // staying empty gave no signal on WHY (upstream call failing vs. malformed
@@ -772,7 +766,6 @@ async function readUniversalHandoffResponse(response: Response): Promise<string>
   }
 }
 
->>>>>>> upstream/main
 /**
  * Generate a universal handoff summary for any model/provider switch.
  */
@@ -795,14 +788,10 @@ async function generateUniversalHandoffAsync(options: {
     options.relayMode
   );
   const historyText = formatMessagesForPrompt(selectedMessages);
-<<<<<<< HEAD
-  if (!historyText) return "unavailable";
-=======
   if (!historyText) {
     logUniversalHandoffOutcome("unavailable", options.comboName, "empty selected-message history");
     return "unavailable";
   }
->>>>>>> upstream/main
 
   const summaryPrompt = HANDOFF_PROMPT_TEMPLATE.replace("{HISTORY}", historyText);
   const summaryModel = options.handoffModel || options.currModel;
@@ -828,40 +817,21 @@ async function generateUniversalHandoffAsync(options: {
   };
 
   const response = await options.handleSingleModel(summaryBody, summaryModel);
-<<<<<<< HEAD
-  if (!response.ok) return "unavailable";
-
-  let content = "";
-  try {
-    const json = (await response.clone().json()) as Record<string, unknown>;
-    content = getResponseText(json);
-  } catch {
-    try {
-      content = await response.clone().text();
-    } catch {
-      content = "";
-    }
-=======
   if (!response.ok) {
     const detail = `summary model call failed: status=${response.status} model=${summaryModel}`;
     logUniversalHandoffOutcome("unavailable", options.comboName, detail);
     return "unavailable";
->>>>>>> upstream/main
   }
 
   const content = await readUniversalHandoffResponse(response);
 
   const parsed = parseHandoffJSON(content);
-<<<<<<< HEAD
-  if (!parsed) return "unparseable";
-=======
   if (!parsed) {
     const preview = JSON.stringify(content.slice(0, 200));
     const detail = `model=${summaryModel} contentPreview=${preview}`;
     logUniversalHandoffOutcome("unparseable", options.comboName, detail);
     return "unparseable";
   }
->>>>>>> upstream/main
 
   upsertHandoff({
     sessionId: options.sessionId,

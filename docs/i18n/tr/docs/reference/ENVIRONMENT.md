@@ -4,19 +4,6 @@ version: 3.8.50
 lastUpdated: 2026-08-23
 ---
 
-<<<<<<< HEAD
-# Ortam Değişkenleri Referansı (Türkçe)
-
-🌐 **Languages:** 🇺🇸 [English](../../../../docs/reference/ENVIRONMENT.md) · 🇸🇦 [ar](../../ar/docs/reference/ENVIRONMENT.md) · 🇧🇬 [bg](../../bg/docs/reference/ENVIRONMENT.md) · 🇧🇩 [bn](../../bn/docs/reference/ENVIRONMENT.md) · 🇨🇿 [cs](../../cs/docs/reference/ENVIRONMENT.md) · 🇩🇰 [da](../../da/docs/reference/ENVIRONMENT.md) · 🇩🇪 [de](../../de/docs/reference/ENVIRONMENT.md) · 🇪🇸 [es](../../es/docs/reference/ENVIRONMENT.md) · 🇮🇷 [fa](../../fa/docs/reference/ENVIRONMENT.md) · 🇫🇮 [fi](../../fi/docs/reference/ENVIRONMENT.md) · 🇫🇷 [fr](../../fr/docs/reference/ENVIRONMENT.md) · 🇮🇳 [gu](../../gu/docs/reference/ENVIRONMENT.md) · 🇮🇱 [he](../../he/docs/reference/ENVIRONMENT.md) · 🇮🇳 [hi](../../hi/docs/reference/ENVIRONMENT.md) · 🇭🇺 [hu](../../hu/docs/reference/ENVIRONMENT.md) · 🇮🇩 [id](../../id/docs/reference/ENVIRONMENT.md) · 🇮🇹 [it](../../it/docs/reference/ENVIRONMENT.md) · 🇯🇵 [ja](../../ja/docs/reference/ENVIRONMENT.md) · 🇰🇷 [ko](../../ko/docs/reference/ENVIRONMENT.md) · 🇮🇳 [mr](../../mr/docs/reference/ENVIRONMENT.md) · 🇲🇾 [ms](../../ms/docs/reference/ENVIRONMENT.md) · 🇳🇱 [nl](../../nl/docs/reference/ENVIRONMENT.md) · 🇳🇴 [no](../../no/docs/reference/ENVIRONMENT.md) · 🇵🇭 [phi](../../phi/docs/reference/ENVIRONMENT.md) · 🇵🇱 [pl](../../pl/docs/reference/ENVIRONMENT.md) · 🇵🇹 [pt](../../pt/docs/reference/ENVIRONMENT.md) · 🇧🇷 [pt-BR](../../pt-BR/docs/reference/ENVIRONMENT.md) · 🇷🇴 [ro](../../ro/docs/reference/ENVIRONMENT.md) · 🇷🇺 [ru](../../ru/docs/reference/ENVIRONMENT.md) · 🇸🇰 [sk](../../sk/docs/reference/ENVIRONMENT.md) · 🇸🇪 [sv](../../sv/docs/reference/ENVIRONMENT.md) · 🇰🇪 [sw](../../sw/docs/reference/ENVIRONMENT.md) · 🇮🇳 [ta](../../ta/docs/reference/ENVIRONMENT.md) · 🇮🇳 [te](../../te/docs/reference/ENVIRONMENT.md) · 🇹🇭 [th](../../th/docs/reference/ENVIRONMENT.md) · 🇹🇷 [tr](../../tr/docs/reference/ENVIRONMENT.md) · 🇺🇦 [uk-UA](../../uk-UA/docs/reference/ENVIRONMENT.md) · 🇵🇰 [ur](../../ur/docs/reference/ENVIRONMENT.md) · 🇻🇳 [vi](../../vi/docs/reference/ENVIRONMENT.md) · 🇨🇳 [zh-CN](../../zh-CN/docs/reference/ENVIRONMENT.md)
-
----
-
-> OmniRoute tarafından tanınan her ortam değişkeni için eksiksiz başvuru kılavuzu.
-> Hızlı başlangıç şablonu için [`.env.example`](../../../../.env.example) dosyasına bakın.
-
-> [!IMPORTANT]
-> Burada belgelenen her değişken aynı zamanda `.env.example` içinde yer almalı ve `.env.example` içindeki her değişken burada görünmelidir. `npm run check:env-doc-sync` bunu commit sırasında ve CI üzerinde zorunlu kılar.
-=======
 🌐 **Languages:** 🇺🇸 [English](../../../../reference/ENVIRONMENT.md) · 🇪🇹 [am](../../../am/docs/reference/ENVIRONMENT.md) · 🇸🇦 [ar](../../../ar/docs/reference/ENVIRONMENT.md) · 🇦🇿 [az](../../../az/docs/reference/ENVIRONMENT.md) · 🇧🇬 [bg](../../../bg/docs/reference/ENVIRONMENT.md) · 🇧🇩 [bn](../../../bn/docs/reference/ENVIRONMENT.md) · 🇧🇦 [bs](../../../bs/docs/reference/ENVIRONMENT.md) · 🇨🇿 [cs](../../../cs/docs/reference/ENVIRONMENT.md) · 🇩🇰 [da](../../../da/docs/reference/ENVIRONMENT.md) · 🇩🇪 [de](../../../de/docs/reference/ENVIRONMENT.md) · 🇬🇷 [el](../../../el/docs/reference/ENVIRONMENT.md) · 🇪🇸 [es](../../../es/docs/reference/ENVIRONMENT.md) · 🇪🇪 [et](../../../et/docs/reference/ENVIRONMENT.md) · 🇮🇷 [fa](../../../fa/docs/reference/ENVIRONMENT.md) · 🇫🇮 [fi](../../../fi/docs/reference/ENVIRONMENT.md) · 🇫🇷 [fr](../../../fr/docs/reference/ENVIRONMENT.md) · 🇮🇪 [ga](../../../ga/docs/reference/ENVIRONMENT.md) · 🇮🇳 [gu](../../../gu/docs/reference/ENVIRONMENT.md) · 🇳🇬 [ha](../../../ha/docs/reference/ENVIRONMENT.md) · 🇮🇱 [he](../../../he/docs/reference/ENVIRONMENT.md) · 🇮🇳 [hi](../../../hi/docs/reference/ENVIRONMENT.md) · 🇭🇷 [hr](../../../hr/docs/reference/ENVIRONMENT.md) · 🇭🇺 [hu](../../../hu/docs/reference/ENVIRONMENT.md) · 🇦🇲 [hy](../../../hy/docs/reference/ENVIRONMENT.md) · 🇮🇩 [id](../../../id/docs/reference/ENVIRONMENT.md) · 🇳🇬 [ig](../../../ig/docs/reference/ENVIRONMENT.md) · 🇮🇹 [it](../../../it/docs/reference/ENVIRONMENT.md) · 🇯🇵 [ja](../../../ja/docs/reference/ENVIRONMENT.md) · 🇬🇪 [ka](../../../ka/docs/reference/ENVIRONMENT.md) · 🇰🇭 [km](../../../km/docs/reference/ENVIRONMENT.md) · 🇮🇳 [kn](../../../kn/docs/reference/ENVIRONMENT.md) · 🇰🇷 [ko](../../../ko/docs/reference/ENVIRONMENT.md) · 🇱🇹 [lt](../../../lt/docs/reference/ENVIRONMENT.md) · 🇱🇻 [lv](../../../lv/docs/reference/ENVIRONMENT.md) · 🇮🇳 [ml](../../../ml/docs/reference/ENVIRONMENT.md) · 🇮🇳 [mr](../../../mr/docs/reference/ENVIRONMENT.md) · 🇲🇾 [ms](../../../ms/docs/reference/ENVIRONMENT.md) · 🇲🇹 [mt](../../../mt/docs/reference/ENVIRONMENT.md) · 🇲🇲 [my](../../../my/docs/reference/ENVIRONMENT.md) · 🇳🇵 [ne](../../../ne/docs/reference/ENVIRONMENT.md) · 🇳🇱 [nl](../../../nl/docs/reference/ENVIRONMENT.md) · 🇳🇴 [no](../../../no/docs/reference/ENVIRONMENT.md) · 🇮🇳 [or](../../../or/docs/reference/ENVIRONMENT.md) · 🇮🇳 [pa](../../../pa/docs/reference/ENVIRONMENT.md) · 🇵🇭 [phi](../../../phi/docs/reference/ENVIRONMENT.md) · 🇵🇱 [pl](../../../pl/docs/reference/ENVIRONMENT.md) · 🇵🇹 [pt](../../../pt/docs/reference/ENVIRONMENT.md) · 🇧🇷 [pt-BR](../../../pt-BR/docs/reference/ENVIRONMENT.md) · 🇷🇴 [ro](../../../ro/docs/reference/ENVIRONMENT.md) · 🇷🇺 [ru](../../../ru/docs/reference/ENVIRONMENT.md) · 🇱🇰 [si](../../../si/docs/reference/ENVIRONMENT.md) · 🇸🇰 [sk](../../../sk/docs/reference/ENVIRONMENT.md) · 🇸🇮 [sl](../../../sl/docs/reference/ENVIRONMENT.md) · 🇷🇸 [sr](../../../sr/docs/reference/ENVIRONMENT.md) · 🇸🇪 [sv](../../../sv/docs/reference/ENVIRONMENT.md) · 🇰🇪 [sw](../../../sw/docs/reference/ENVIRONMENT.md) · 🇮🇳 [ta](../../../ta/docs/reference/ENVIRONMENT.md) · 🇮🇳 [te](../../../te/docs/reference/ENVIRONMENT.md) · 🇹🇭 [th](../../../th/docs/reference/ENVIRONMENT.md) · 🇺🇦 [uk-UA](../../../uk-UA/docs/reference/ENVIRONMENT.md) · 🇵🇰 [ur](../../../ur/docs/reference/ENVIRONMENT.md) · 🇺🇿 [uz](../../../uz/docs/reference/ENVIRONMENT.md) · 🇻🇳 [vi](../../../vi/docs/reference/ENVIRONMENT.md) · 🇳🇬 [yo](../../../yo/docs/reference/ENVIRONMENT.md) · 🇨🇳 [zh-CN](../../../zh-CN/docs/reference/ENVIRONMENT.md) · 🇹🇼 [zh-TW](../../../zh-TW/docs/reference/ENVIRONMENT.md)
 
 ---
@@ -25,49 +12,11 @@ lastUpdated: 2026-08-23
 
 > [!IMPORTANT]
 > Burada belgelenen her değişken `.env.example` da görünmelidir ve `.env.example` her değişken de burada görünmelidir. `npm run check:env-doc-sync` bunu taahhütte ve CI zorlar. Bir değişkeni bilerek atlamak için onu `scripts/check/check-env-doc-sync.mjs` içindeki izin verilenler listesine ekleyin.
->>>>>>> upstream/main
 
 ---
 
 ## İçindekiler
 
-<<<<<<< HEAD
-- [1. Zorunlu Sırlar](#1-zorunlu-sırlar)
-- [2. Depolama ve Veritabanı](#2-depolama-ve-veritabanı)
-- [3. Ağ ve Portlar](#3-ağ-ve-portlar)
-- [4. Güvenlik ve Kimlik Doğrulama](#4-güvenlik-ve-kimlik-doğrulama)
-- [5. Girdi Temizleme ve PII Koruması](#5-girdi-temizleme-ve-pii-koruması)
-- [6. Araç ve Yönlendirme Politikaları](#6-araç-ve-yönlendirme-politikaları)
-- [7. URL'ler ve Bulut Senkronizasyonu](#7-urller-ve-bulut-senkronizasyonu)
-- [8. Giden Proxy (Outbound Proxy)](#8-giden-proxy)
-- [9. CLI Araç Entegrasyonu](#9-cli-araç-entegrasyonu)
-- [10. Dahili Ajan ve MCP Entegrasyonları](#10-dahili-ajan-ve-mcp-entegrasyonları)
-- [11. OAuth Sağlayıcı Kimlik Bilgileri](#11-oauth-sağlayıcı-kimlik-bilgileri)
-- [12. Sağlayıcı User-Agent Geçersiz Kılmaları](#12-sağlayıcı-user-agent-geçersiz-kılmaları)
-- [13. CLI Parmak İzi Uyumluluğu](#13-cli-parmak-izi-uyumluluğu)
-- [14. API Anahtarı Sağlayıcıları](#14-api-anahtarı-sağlayıcıları)
-- [15. Zaman Aşımı Ayarları](#15-zaman-aşımı-ayarları)
-- [16. Günlük Kaydı (Logging)](#16-günlük-kaydı)
-- [17. Bellek Optimizasyonu](#17-bellek-optimizasyonu)
-- [18. Fiyatlandırma Senkronizasyonu](#18-fiyatlandırma-senkronizasyonu)
-- [19. Model Senkronizasyonu](#19-model-senkronizasyonu)
-- [20. Sağlayıcıya Özel Ayarlar](#20-sağlayıcıya-özel-ayarlar)
-- [21. Proxy Sağlığı](#21-proxy-sağlığı)
-- [22. Hata Ayıklama (Debug)](#22-hata-ayıklama)
-
----
-
-## 1. Zorunlu Sırlar
-
-Bunlar ilk çalıştırmadan önce **mutlaka** ayarlanmalıdır. Bunlar olmadan uygulama ya başlamayı reddeder ya da güvensiz varsayılanlarla çalışır.
-
-| Değişken                     | Zorunlu              | Varsayılan        | Kaynak Dosya                                       | Açıklama                                                                                                                                                                                            |
-| ---------------------------- | -------------------- | ----------------- | -------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `JWT_SECRET`                 | **Evet**             | _(yok)_           | `src/lib/auth`                                     | Tüm pano oturum çerezlerini (JWT) imzalar ve doğrular. `openssl rand -base64 48` ile üretin.                                                                                                        |
-| `API_KEY_SECRET`             | **Evet**             | _(yok)_           | `src/lib/db/apiKeys.ts`                            | SQLite'ta saklanan API anahtarı değerleri için AES şifreleme anahtarı. `openssl rand -hex 32` ile üretin.                                                                                         |
-| `INITIAL_PASSWORD`           | **Evet**             | `CHANGEME`        | Bootstrap betiği                                   | İlk yönetici pano şifresini belirler. **İlk kullanımdan önce değiştirin.**                                                                                                                         |
-| `OMNIROUTE_WS_BRIDGE_SECRET` | **Evet** (üretimde)  | _(ayarlanmamış)_  | `src/app/api/internal/codex-responses-ws/route.ts` | Dahili Codex Responses WebSocket köprüsü için paylaşılan sır. `openssl rand -base64 32` ile üretin.                                                                                                 |
-=======
 - [1. Gerekli Sırlar](#1-required-secrets)
 - [2. Depolama ve Veritabanı](#2-storage--database)
 - [3. Ağ ve Bağlantı Noktaları](#3-network--ports)
@@ -113,22 +62,15 @@ Unset secrets marked **Yes** are auto-generated on the first run (`JWT_SECRET`, 
 | `NEXT_PUBLIC_SW_BUILD_ID`    | HAYIR             | _(türetilmiş)_                | `src/shared/components/PwaRegister.tsx`                   | İstemcinin `/sw.js?v=…` kaydetmek için kullandığı derleme zamanı genel değeri; yukarıdaki ikisinden türetilir, ardından git SHA.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | `OMNIROUTE_PEER_STAMP_TOKEN` | Hayır (otomatik)  | _(önyükleme başına otomatik)_ | `src/server/authz/policies/management.ts`                 | Güvenilir eş-IP damgasının OmniRoute kendi HTTP sunucusundan (`scripts/dev/peer-stamp.mjs`) geldiğini kanıtlayan işlem başına sır. Authz ara yazılımı, yalnızca damga bu belirteci taşıdığında istek konumuna ( LOCAL_ONLY yollarının loopback/LAN geçidi) güvenir. Otomatik olarak oluşturulan her önyükleme — ayarlanmadan bırakılır; yalnızca damgayı paylaşması gereken çok işlemli kurulumlar için sabitleyin.                                                                                                                                                                                                                                                         |
 | `OMNIROUTE_TRUSTED_PROXIES`  | HAYIR             | _(ayarlanmadı)_               | `scripts/dev/peer-stamp.mjs`                              | IP allow/deny listesinin `X-Forwarded-For` / `X-Real-IP` inanabileceği virgülle ayrılmış IPs veya CIDR ters proxy aralıkları, geri döngünün yanı sıra, her zaman güvenilir olan özel ağ adresleri ve Cloudflare kenarları. Yalnızca herhangi bir genel adresteki vekil için gereklidir; aksi halde filtrenin yargıladığı şey proxy'nin kendi adresidir. Rölenin istemci başına kısma (`/api/v1/relay/chat/completions`) tuşları aynı çözümlenmiş istemci adresinde bulunur; asla yalnızca yönlendirme başlıklarında bulunmaz.                                                                                                                                               |
->>>>>>> upstream/main
 
 ### Üretim Komutları
 
 ```bash
-<<<<<<< HEAD
-# Dört sırrı tek seferde üretin:
-=======
 # Generate all four secrets at once:
->>>>>>> upstream/main
 echo "JWT_SECRET=$(openssl rand -base64 48)"
 echo "API_KEY_SECRET=$(openssl rand -hex 32)"
 echo "INITIAL_PASSWORD=$(openssl rand -base64 16)"
 echo "OMNIROUTE_WS_BRIDGE_SECRET=$(openssl rand -base64 32)"
-<<<<<<< HEAD
-=======
 ```
 
 > [!CAUTION]
@@ -267,33 +209,10 @@ OmniRoute kullanım alanları**SQLite** ( `better-sqlite3` aracılığıyla) tü
 │  PROD_DASHBOARD_PORT=443   PROD_API_PORT=8443                              │
 │  → Maps container ports to host ports in docker-compose.prod.yml.          │
 └─────────────────────────────────────────────────────────────────────────────┘
->>>>>>> upstream/main
 ```
 
 ---
 
-<<<<<<< HEAD
-## 2. Depolama ve Veritabanı
-
-| Değişken                         | Varsayılan           | Açıklama                                                                                               |
-| -------------------------------- | -------------------- | ------------------------------------------------------------------------------------------------------ |
-| `DATA_DIR`                       | `~/.omniroute/`      | SQLite veritabanı, yedeklemeler ve veri dosyaları için kök dizin. Docker hacimleri için geçersiz kılın. |
-| `STORAGE_ENCRYPTION_KEY`         | _(boş = devre dışı)_ | SQLite veritabanının diskte AES ile şifrelenmesi için anahtar. `openssl rand -hex 32` ile üretin.     |
-| `DISABLE_SQLITE_AUTO_BACKUP`     | `false`              | `true` olduğunda otomatik başlatma ve yazma öncesi yedeklemeleri atlar.                                |
-| `OMNIROUTE_WAL_TRUNCATE_INTERVAL_MS` | `21600000` (6h)  | Periyodik `wal_checkpoint(TRUNCATE)` aralığı (ms).                                                     |
-
----
-
-## 3. Ağ ve Portlar
-
-| Değişken                   | Varsayılan                  | Açıklama                                                      |
-| -------------------------- | --------------------------- | ------------------------------------------------------------- |
-| `PORT`                     | `20128`                     | HTTP dinleme portu (Pano ve API aynı süreci paylaşır).        |
-| `HOST` / `HOSTNAME`        | `0.0.0.0`                   | Ağ bağlama adresi (tüm arayüzleri dinler).                    |
-| `NEXT_PUBLIC_BASE_URL`     | `http://localhost:20128`    | OAuth geri çağırma URL'leri ve istemci yönlendirmeleri için.  |
-| `RATE_LIMIT_AUTO_ENABLE`   | `true`                      | Sağlayıcı başına hız sınırlamasını otomatik etkinleştirir.   |
-| `RATE_LIMIT_MAX_WAIT_MS`   | `30000`                     | Hız sınırı kuyruğunda maksimum bekleme süresi (ms).           |
-=======
 ## 4. Güvenlik ve Kimlik Doğrulama
 
 | Değişken                                    | Varsayılan                                                                                                       | Kaynak Dosyası                                           | Açıklama                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
@@ -1968,4 +1887,3 @@ OmniConductor hub görevlerini yerel A2A TaskManager (`src/lib/conductor/`) yans
 | `OMNIROUTE_MEDIA_PROVIDER` | `omniroute`                                                                         | Medya aracı tarafından OpenCode yapılandırmasından okunan sağlayıcı girdisi.                                        |
 | `OMNIROUTE_MEDIA_MODEL`    | `auto`                                                                              | Medya aracı tarafından gönderilen model. Sağlayıcısı, istenen medya türlerini desteklemelidir.                      |
 | `OMNIROUTE_MEDIA_API_KEY`  | Yapılandırılmış sağlayıcı API anahtarı veya ortam referansı                         | İsteğe bağlı kimlik bilgisi geçersiz kılma seçeneği. Bunu yerel işlem ortamında tutun; hiçbir zaman işleme almayın. |
->>>>>>> upstream/main

@@ -1,9 +1,6 @@
 import assert from "node:assert/strict";
 import { after, describe, it } from "node:test";
-<<<<<<< HEAD
-=======
 import { Worker } from "node:worker_threads";
->>>>>>> upstream/main
 import {
   isCompressionWorkerEligible,
   isStrictlySerializable,
@@ -65,13 +62,6 @@ function comparable<T extends { stats: { durationMs?: number; timestamp: number 
 after(() => closeCompressionWorkerPoolForTests());
 
 describe("compression worker eligibility", () => {
-<<<<<<< HEAD
-  it("accepts only standard, rtk, and approved rtk+caveman stacks", () => {
-    assert.equal(isCompressionWorkerEligible(body, "standard", { config }), true);
-    assert.equal(isCompressionWorkerEligible(body, "rtk", { config }), true);
-    assert.equal(isCompressionWorkerEligible(body, "stacked", { config }), true);
-    for (const mode of ["off", "lite", "aggressive", "ultra", "omniglyph"] as const) {
-=======
   it("accepts standard, rtk, heuristic ultra, and approved rtk+caveman stacks", () => {
     assert.equal(isCompressionWorkerEligible(body, "standard", { config }), true);
     assert.equal(isCompressionWorkerEligible(body, "rtk", { config }), true);
@@ -93,7 +83,6 @@ describe("compression worker eligibility", () => {
       false
     );
     for (const mode of ["off", "lite", "aggressive", "omniglyph"] as const) {
->>>>>>> upstream/main
       assert.equal(isCompressionWorkerEligible(body, mode, { config }), false);
     }
     for (const engine of ["llmlingua", "omniglyph", "ccr", "session-dedup", "ultra"]) {
@@ -106,30 +95,14 @@ describe("compression worker eligibility", () => {
     }
   });
 
-<<<<<<< HEAD
-  it("rejects functions, symbols, classes, special objects, cycles, and non-finite numbers", () => {
-    for (const value of [
-      () => undefined,
-      Symbol("x"),
-      new Date(),
-      new Map(),
-      new Set(),
-      /x/,
-      NaN,
-      Infinity,
-    ]) {
-=======
   it("rejects functions, symbols, cycles, and non-finite numbers", () => {
     for (const value of [() => undefined, Symbol("x"), NaN, Infinity]) {
->>>>>>> upstream/main
       assert.equal(isStrictlySerializable(value), false);
     }
     const cyclic: Record<string, unknown> = {};
     cyclic.self = cyclic;
     assert.equal(isStrictlySerializable(cyclic), false);
   });
-<<<<<<< HEAD
-=======
 
   it("#13154: accepts structured-clone-native Date/Map/Set/RegExp values", () => {
     for (const value of [new Date(), new Map(), new Set(), /x/]) {
@@ -178,7 +151,6 @@ describe("compression worker eligibility", () => {
     assert.equal(isStrictlySerializable(cyclicBody), false);
     assert.equal(isCompressionWorkerEligible(cyclicBody, "standard", { config }), false);
   });
->>>>>>> upstream/main
 });
 
 describe("compression worker execution", () => {
@@ -188,8 +160,6 @@ describe("compression worker execution", () => {
     assert.deepEqual(comparable(async), comparable(sync));
   });
 
-<<<<<<< HEAD
-=======
   it("runs heuristic ultra in the worker instead of the gateway isolate", async () => {
     const ultraConfig = {
       ...config,
@@ -240,7 +210,6 @@ describe("compression worker execution", () => {
     }
   });
 
->>>>>>> upstream/main
   it("preserves Responses bodies and hard-budget results", async () => {
     const responsesBody = {
       model: "gpt-test",
@@ -263,13 +232,6 @@ describe("compression worker execution", () => {
     assert.deepEqual(steps, ["rtk", "caveman"]);
   });
 
-<<<<<<< HEAD
-  it("fails open without inline compression when a job times out", async () => {
-    const pool = new CompressionWorkerPool({ size: 1, timeoutMs: 1, idleMs: 100 });
-    try {
-      const result = await pool.run(body, "stacked", { config });
-      assert.deepEqual(result, { body, compressed: false, stats: null });
-=======
   it("reports a timeout as a non-retryable fault instead of silently failing open (#13145)", async () => {
     // The pool no longer swallows a dispatch timeout: it rejects with a typed fault
     // whose retryInProcess=false tells the caller (strategySelector) that the worker
@@ -285,14 +247,11 @@ describe("compression worker execution", () => {
           (err as { retryInProcess?: boolean }).retryInProcess === false &&
           /timeout/.test(err.message)
       );
->>>>>>> upstream/main
     } finally {
       await pool.close();
     }
   });
 
-<<<<<<< HEAD
-=======
   it("terminates an idle worker instead of only dropping it from the pool", async () => {
     const spawned = new Set<Worker>();
     const terminated: Promise<number>[] = [];
@@ -327,7 +286,6 @@ describe("compression worker execution", () => {
     }
   });
 
->>>>>>> upstream/main
   it("keeps the parent event loop responsive while two workers overlap", async () => {
     const largeBody = {
       messages: Array.from({ length: 400 }, (_, index) => ({

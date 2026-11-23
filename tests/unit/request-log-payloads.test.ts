@@ -66,8 +66,6 @@ test("redacts web-impersonation body credentials but preserves non-secret 'capab
   });
 });
 
-<<<<<<< HEAD
-=======
 test("redacts challenge and handoff credentials from persistent request logs", () => {
   const protectedPayload = protectPipelinePayloads({
     providerRequest: {
@@ -488,7 +486,6 @@ test("sanitizes upstream error bodies by status while preserving successful resp
   assert.deepEqual(protectedSuccess?.providerResponse?.body, successBody);
 });
 
->>>>>>> upstream/main
 test("omits encrypted reasoning values from structured log payloads", () => {
   const encryptedContent = "encrypted".repeat(128);
   const payload = {

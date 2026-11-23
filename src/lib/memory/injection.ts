@@ -290,8 +290,6 @@ export function injectMemory(
     return injectSystemFirst(request, messages, memoryText, memories.length);
   }
 
-<<<<<<< HEAD
-=======
   // #13425: Anthropic-shaped bodies carry the system prompt in the top-level
   // `system` field, not in messages[0]. If supportsSystem is true and the
   // request already has a top-level `system` field, merge memory there instead
@@ -303,7 +301,6 @@ export function injectMemory(
     return { ...request, system: [{ type: "text", text: memoryText }, ...request.system] };
   }
 
->>>>>>> upstream/main
   // Strategy 1 (system): prepend before existing system messages, preserving the
   // caller's own instructions. Strategy 2 (user, e.g. o1-mini): inject as a user
   // message. Both honor the #3890 cache-safe anchor via placeMessage.

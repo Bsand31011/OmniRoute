@@ -31,17 +31,6 @@ test("cursor registry keeps every selected model family", () => {
   }
 });
 
-<<<<<<< HEAD
-test("cursor registry excludes retired Gemini 3.5 Flash", () => {
-  assert.equal(modelIds().has("gemini-3.5-flash"), false);
-});
-
-test("cursor registry includes Claude Opus 4.8 effort + thinking + fast variants", () => {
-  const ids = modelIds();
-  for (const effort of EFFORTS) {
-    assert.ok(ids.has(`claude-opus-4-8-${effort}`), `missing claude-opus-4-8-${effort}`);
-    assert.ok(ids.has(`claude-opus-4-8-${effort}-fast`), `missing claude-opus-4-8-${effort}-fast`);
-=======
 test("cursor registry omits redundant bare ids for parameterized models", () => {
   const ids = new Set(cursorProvider.models.map((model) => model.id));
   for (const id of [
@@ -105,7 +94,6 @@ test("cursor registry exposes every supported 1M context variant", () => {
     "gpt-5.6-terra-max-1m",
     "gpt-5.6-luna-max-1m",
   ]) {
->>>>>>> upstream/main
     assert.ok(
       oneMillionVariants.some((model) => model.id === id),
       `missing 1M variant: ${id}`

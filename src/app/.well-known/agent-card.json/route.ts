@@ -16,37 +16,18 @@ import type { NextRequest } from "next/server";
 import { buildAgentCardMetadata } from "@/lib/a2a/agentCardMetadata";
 import { getFleetSkills } from "@/lib/conductor/fleetSkills";
 import { getBaseUrl } from "@/lib/wellKnown";
-<<<<<<< HEAD
-
-const PACKAGE_VERSION = process.env.npm_package_version || "1.8.1";
-=======
->>>>>>> upstream/main
 
 /**
  * GET /.well-known/agent-card.json
  *
  * Returns the OmniRoute Agent Card (A2A v1.0).
  */
-<<<<<<< HEAD
-export async function GET(request: NextRequest) {
-=======
 export async function GET(request?: NextRequest) {
->>>>>>> upstream/main
   const fleetSkills = await getFleetSkills();
   const baseUrl = getBaseUrl(request);
 
   const agentCard = {
-<<<<<<< HEAD
-    name: "OmniRoute AI Gateway",
-    description:
-      "Intelligent AI routing gateway with 36+ providers, smart fallback, quota tracking, " +
-      "format translation, and auto-managed combos. Routes AI requests to the optimal " +
-      "provider based on cost, latency, quota availability, and task requirements.",
-    url: `${baseUrl}/a2a`,
-    version: PACKAGE_VERSION,
-=======
     ...buildAgentCardMetadata(baseUrl, fleetSkills),
->>>>>>> upstream/main
     supportedInterfaces: [
       {
         url: `${baseUrl}/a2a`,

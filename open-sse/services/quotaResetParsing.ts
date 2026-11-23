@@ -72,12 +72,8 @@ export function shouldPreserveQuotaSignals(
 export function parseDayGranularityResetMs(
   msg: string,
   maxMs: number,
-<<<<<<< HEAD
-  nowMs: number = Date.now()
-=======
   nowMs: number = Date.now(),
   providerOrZone?: string | null
->>>>>>> upstream/main
 ): number | null {
   const dayMatch = /reset(?:s)?\s+in\s+(\d+)\s*day(?:s)?/i.exec(msg);
   if (dayMatch) {
@@ -86,11 +82,7 @@ export function parseDayGranularityResetMs(
       return Math.min(days * 24 * 3600 * 1000, maxMs);
     }
   }
-<<<<<<< HEAD
-  const isoMs = parseIsoDateTimeResetMs(msg, maxMs, nowMs);
-=======
   const isoMs = parseIsoDateTimeResetMs(msg, maxMs, nowMs, providerOrZone);
->>>>>>> upstream/main
   if (isoMs !== null) return isoMs;
   return parseMonthDayResetMs(msg, maxMs, nowMs);
 }
@@ -110,25 +102,15 @@ export function parseDayGranularityResetMs(
  * again — into a real upstream 429 — every day until the true reset ~6 days out.
  *
  * The datetime may use a `T` or a space separator, and may carry `Z` or a
-<<<<<<< HEAD
- * `±HH:MM` offset. A NAIVE datetime (no zone) is interpreted as UTC: Z.AI
- * reports in UTC, and treating it as local time would shift the cooldown by the
- * host offset. Returns null when the instant is not in the future.
-=======
  * `±HH:MM` offset. A NAIVE datetime (no zone) defaults to UTC, or Asia/Shanghai (+08:00)
  * for Z.AI/GLM providers which output local China Standard Time (Issue #14479).
  * Returns null when the instant is not in the future.
->>>>>>> upstream/main
  */
 export function parseIsoDateTimeResetMs(
   msg: string,
   maxMs: number,
-<<<<<<< HEAD
-  nowMs: number = Date.now()
-=======
   nowMs: number = Date.now(),
   providerOrZone?: string | null
->>>>>>> upstream/main
 ): number | null {
   const match =
     /\b(?:try again at|wait until|reset(?:s)?\s+at|available at|retry after)\s+(\d{4}-\d{2}-\d{2}[Tt ]\d{2}:\d{2}(?::\d{2})?(?:\.\d+)?)\s*(Z|[+-]\d{2}:?\d{2})?/i.exec(
@@ -136,18 +118,9 @@ export function parseIsoDateTimeResetMs(
     );
   if (!match) return null;
   const stamp = match[1].replace(/[Tt ]/, "T");
-<<<<<<< HEAD
-  // No zone in the body → UTC (see doc comment). Normalize \"+0200\" to \"+02:00\":
-  // the bare-offset form is not part of the ES Date.parse grammar.
-  const rawZone = match[2] ? match[2].toUpperCase() : "Z";
-  const zone = /^[+-]\d{4}$/.test(rawZone)
-    ? `${rawZone.slice(0, 3)}:${rawZone.slice(3)}`
-    : rawZone;
-=======
   // Normalize "+0200" to "+02:00": the bare-offset form is not part of the ES Date.parse grammar.
   const rawZone = match[2] ? match[2].toUpperCase() : resolveNaiveResetZone(msg, providerOrZone);
   const zone = /^[+-]\d{4}$/.test(rawZone) ? `${rawZone.slice(0, 3)}:${rawZone.slice(3)}` : rawZone;
->>>>>>> upstream/main
   const resetMs = Date.parse(`${stamp}${zone}`);
   if (!Number.isFinite(resetMs)) return null;
   const waitMs = resetMs - nowMs;
@@ -168,32 +141,14 @@ export function parseMonthDayResetMs(
   nowMs: number = Date.now()
 ): number | null {
   const match =
-<<<<<<< HEAD
-    /reset(?:s)?\s+at\s+(\d{2})-(\d{2})\s+(\d{2}):(\d{2})(?::(\d{2}))?\s*(?:UTC|Z)?/i.exec(
-      msg
-    );
-=======
     /reset(?:s)?\s+at\s+(\d{2})-(\d{2})\s+(\d{2}):(\d{2})(?::(\d{2}))?\s*(?:UTC|Z)?/i.exec(msg);
->>>>>>> upstream/main
   if (!match) return null;
   const month = Number.parseInt(match[1], 10);
   const day = Number.parseInt(match[2], 10);
   const hour = Number.parseInt(match[3], 10);
   const minute = Number.parseInt(match[4], 10);
   const second = match[5] ? Number.parseInt(match[5], 10) : 0;
-<<<<<<< HEAD
-  if (
-    month < 1 ||
-    month > 12 ||
-    day < 1 ||
-    day > 31 ||
-    hour > 23 ||
-    minute > 59 ||
-    second > 59
-  ) {
-=======
   if (month < 1 || month > 12 || day < 1 || day > 31 || hour > 23 || minute > 59 || second > 59) {
->>>>>>> upstream/main
     return null;
   }
   const now = new Date(nowMs);

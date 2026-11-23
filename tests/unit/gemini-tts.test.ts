@@ -6,24 +6,14 @@ const { AUDIO_SPEECH_PROVIDERS, parseSpeechModel } =
   await import("../../open-sse/config/audioRegistry.ts");
 const { geminiGenerateSpeech } = await import("../../open-sse/executors/geminiTts.ts");
 const { handleAudioSpeech } = await import("../../open-sse/handlers/audioSpeech.ts");
-<<<<<<< HEAD
-=======
 const { normalizeAudioOutput, vertexGenerateSpeech } =
   await import("../../open-sse/executors/vertexMedia.ts");
->>>>>>> upstream/main
 
 test("Google Gemini TTS models parse publicly and remap to Gemini credentials", () => {
   assert.deepEqual(parseSpeechModel("google/gemini-2.5-flash-preview-tts"), {
     provider: "google",
     model: "gemini-2.5-flash-preview-tts",
   });
-<<<<<<< HEAD
-  assert.equal(AUDIO_SPEECH_PROVIDERS.google.credentialProviderId, "gemini");
-  assert.deepEqual(
-    AUDIO_SPEECH_PROVIDERS.google.models.map(({ id }) => id),
-    ["gemini-3.1-flash-tts-preview", "gemini-2.5-flash-preview-tts", "gemini-2.5-pro-preview-tts"]
-  );
-=======
   assert.deepEqual(parseSpeechModel("google/gemini-3.8-flash-tts"), {
     provider: "google",
     model: "gemini-3.8-flash-tts",
@@ -57,7 +47,6 @@ test("Gemini 3.8 TTS ships opt-in: the google/vertex default model is unchanged 
   // gemini-3.1-flash-tts-preview, exactly as on release/v3.8.53.
   assert.equal(AUDIO_SPEECH_PROVIDERS.google.models[0].id, "gemini-3.1-flash-tts-preview");
   assert.equal(AUDIO_SPEECH_PROVIDERS.vertex.models[0].id, "gemini-3.1-flash-tts-preview");
->>>>>>> upstream/main
 });
 
 test("geminiGenerateSpeech sends the exact AI Studio generateContent contract and wraps PCM", async () => {
@@ -84,12 +73,8 @@ test("geminiGenerateSpeech sends the exact AI Studio generateContent contract an
     });
   };
   try {
-<<<<<<< HEAD
-    const wav = await geminiGenerateSpeech(
-=======
     // geminiGenerateSpeech now returns { audio, contentType } (deliberate contract change in #17265).
     const { audio: wav, contentType } = await geminiGenerateSpeech(
->>>>>>> upstream/main
       { apiKey: "gemini-key" },
       { model: "gemini-2.5-flash-preview-tts", text: "Hello", voice: "Kore" }
     );
@@ -115,10 +100,7 @@ test("geminiGenerateSpeech sends the exact AI Studio generateContent contract an
         },
       },
     });
-<<<<<<< HEAD
-=======
     assert.equal(contentType, "audio/wav");
->>>>>>> upstream/main
     assert.equal(wav.subarray(0, 4).toString("ascii"), "RIFF");
     assert.equal(wav.readUInt32LE(24), 16000);
     assert.deepEqual(wav.subarray(44), pcm);
@@ -127,8 +109,6 @@ test("geminiGenerateSpeech sends the exact AI Studio generateContent contract an
   }
 });
 
-<<<<<<< HEAD
-=======
 test("geminiGenerateSpeech sends speech_metadata.style and wraps PCM if needed", async () => {
   const originalFetch = globalThis.fetch;
   const pcm = Buffer.from([1, 2, 3, 4]);
@@ -260,7 +240,6 @@ test("normalizeAudioOutput keeps raw PCM whose 'C2PA' bytes are not a trailing c
   assert.deepEqual(audio, pcm);
 });
 
->>>>>>> upstream/main
 test("handleAudioSpeech returns WAV and defaults the AI Studio voice to Kore", async () => {
   const originalFetch = globalThis.fetch;
   let payload: {
@@ -268,11 +247,7 @@ test("handleAudioSpeech returns WAV and defaults the AI Studio voice to Kore", a
       speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: string } } };
     };
   };
-<<<<<<< HEAD
-  globalThis.fetch = async (_input, init = {}) => {
-=======
   globalThis.fetch = async (_input, init: RequestInit = {}) => {
->>>>>>> upstream/main
     payload = JSON.parse(String(init.body));
     return Response.json({
       candidates: [
@@ -310,8 +285,6 @@ test("handleAudioSpeech returns WAV and defaults the AI Studio voice to Kore", a
   }
 });
 
-<<<<<<< HEAD
-=======
 test("normalizeAudioOutput with response_format pcm returns only the RIFF data chunk payload", () => {
   // A LIST/INFO chunk whose text contains the bytes "data" precedes the real data chunk:
   // a raw byte search would cut the audio at the wrong offset, a chunk walk must not.
@@ -386,7 +359,6 @@ test("handleAudioSpeech passes instructions and style aliases to Gemini TTS", as
   }
 });
 
->>>>>>> upstream/main
 test("handleAudioSpeech rejects an AI Studio response without audio", async () => {
   const originalFetch = globalThis.fetch;
   globalThis.fetch = async () => Response.json({ candidates: [{ content: { parts: [] } }] });
@@ -428,8 +400,6 @@ test("handleAudioSpeech preserves AI Studio upstream errors", async () => {
     globalThis.fetch = originalFetch;
   }
 });
-<<<<<<< HEAD
-=======
 
 function buildRiffWithC2pa(pcm: Buffer): Buffer {
   const fmtChunk = Buffer.concat([
@@ -558,4 +528,3 @@ test("vertexGenerateSpeech omits speech_metadata without style and keeps a singl
     globalThis.fetch = originalFetch;
   }
 });
->>>>>>> upstream/main

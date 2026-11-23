@@ -510,10 +510,7 @@
       "tests/unit/public-client-ids-3493.test.ts",
       "tests/unit/publicCreds.test.ts",
       "tests/unit/qoder-oauth-config.test.ts",
-<<<<<<< HEAD
-=======
       "tests/unit/qoder-pat-tools-13697.test.ts",
->>>>>>> upstream/main
       "tests/unit/quota-exhaustion-cutoff-opencode.test.ts",
       "tests/unit/quota-groups-route.test.ts",
       "tests/unit/quota-key-models-route.test.ts",
@@ -534,12 +531,7 @@
       "tests/unit/repro-9486.test.ts",
       "tests/unit/repro-9630-combo-false-503.test.ts",
       "tests/unit/repro-antigravity-404-family-cooldown-hijack.test.ts",
-<<<<<<< HEAD
-      "tests/unit/repro-combo-persisted-cooldown-preskip.test.ts",
-      "tests/unit/repro-glm-iso-reset-24h-cap.test.ts",
-=======
       "tests/unit/reset-aware-request-scope-12600.test.ts",
->>>>>>> upstream/main
       "tests/unit/resilience-connections.test.ts",
       "tests/unit/resilience-cooldown-manager.test.ts",
       "tests/unit/responses-handler.test.ts",

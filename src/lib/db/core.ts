@@ -1009,11 +1009,7 @@ export function getDbInstance(): SqliteDatabase {
         driver: "sql.js",
         open: true,
         name: ":memory:",
-<<<<<<< HEAD
-        prepare: () => noopStatement,
-=======
         prepare: <Row = unknown>() => noopStatement as PreparedStatement<Row>,
->>>>>>> upstream/main
         exec: () => {},
         pragma: () => undefined,
         transaction: <T>(fn: (...args: unknown[]) => T) => fn,

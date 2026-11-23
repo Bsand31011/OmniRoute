@@ -168,8 +168,6 @@ function resolveRpm(override: number | undefined | null): number {
 // Resolve a minTime override. 0 or missing means "no minimum gap".
 function resolveMinTime(override: number | undefined | null): number {
   return resolveOverride(override, 0);
-<<<<<<< HEAD
-=======
 }
 
 function hasRpmOverride(connectionId: string): boolean {
@@ -213,7 +211,6 @@ function capSettingsWithinBudget(
     return null;
   }
   return settings;
->>>>>>> upstream/main
 }
 
 // Resolve a maxConcurrent override. 0 or missing means "effectively infinite".
@@ -226,12 +223,6 @@ export function resolveRequestQueueMaxWaitMs(
   configuredMaxWaitMs: number = currentRequestQueueSettings.maxWaitMs,
   connectionId?: string
 ): number {
-<<<<<<< HEAD
-  const legacyDefault =
-    provider.trim().toLowerCase() === "zai-web"
-      ? Math.max(configuredMaxWaitMs, ZAI_WEB_REQUEST_QUEUE_MAX_WAIT_MS)
-      : configuredMaxWaitMs;
-=======
   const p = provider.trim().toLowerCase();
   let legacyDefault = configuredMaxWaitMs;
   if (p === "zai-web") {
@@ -241,13 +232,10 @@ export function resolveRequestQueueMaxWaitMs(
     // per-request execution budget so they aren't cut off early.
     legacyDefault = Math.max(configuredMaxWaitMs, MAXAI_REQUEST_QUEUE_MAX_WAIT_MS);
   }
->>>>>>> upstream/main
   const override = connectionId
     ? connectionRateLimitOverrides.get(connectionId)?.maxWaitMs
     : undefined;
   return resolveOverride(override, legacyDefault);
-<<<<<<< HEAD
-=======
 }
 
 /**
@@ -264,7 +252,6 @@ export function resolveExecutionMaxWaitMs(connectionId?: string): number {
         ?.executionMaxWaitMs
     : undefined;
   return resolveOverride(override, currentRequestQueueSettings.executionMaxWaitMs);
->>>>>>> upstream/main
 }
 
 function buildLimiterDefaults() {
@@ -686,12 +673,6 @@ export async function withRateLimit(
     throw err;
   }
 
-<<<<<<< HEAD
-  // Proactive sliding-window fallback for header-less providers with a declared cap
-  // (Fase 8.2). No-op unless PROVIDER_DEFAULT_RATE_LIMITS has an entry for `provider`.
-  const maxWaitMs = resolveRequestQueueMaxWaitMs(provider, undefined, connectionId);
-  await awaitProviderDefaultSlot(provider, connectionId, signal, maxWaitMs);
-=======
   const queueBudgetMs = resolveRequestQueueMaxWaitMs(
     provider,
     undefined,
@@ -721,7 +702,6 @@ export async function withRateLimit(
     logRateLimit(
       `[RATE-LIMIT] cid=${correlationId} provider=${provider} remainingForQueue=${remainingForQueue}ms`
     );
->>>>>>> upstream/main
 
   const limiter = getLimiter(provider, connectionId, model);
   // Bottleneck's `expiration` starts only after a job leaves QUEUED, so it

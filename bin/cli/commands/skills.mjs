@@ -143,11 +143,7 @@ export async function runSkillsExecute(id, opts, cmd) {
   const data = await mcpCallTool(
     "omniroute_skills_execute",
     { skillId: id, input },
-<<<<<<< HEAD
-    { timeout: opts.timeout ?? 30000 },
-=======
     { timeout: opts.timeout ?? 30000 }
->>>>>>> upstream/main
   );
   emit(data, globalOpts);
 }

@@ -4,10 +4,7 @@ import { isAutomatedTestProcess } from "@/shared/utils/testProcess";
 import { getJobRegistry } from "@/lib/jobRegistry";
 import { registerBudgetResetJob } from "@/lib/jobs/budgetResetJob";
 import { registerTokenHealthCheck } from "@/lib/jobs/tokenHealthCheckJob";
-<<<<<<< HEAD
-=======
 import { registerLogExportJob } from "@/lib/jobs/logExportJob";
->>>>>>> upstream/main
 import { backfillVolcPlanAutoSync } from "@/lib/providers/volcPlanAutoSyncBackfill";
 
 // Initialize runtime background sync services once per server process.

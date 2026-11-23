@@ -87,15 +87,6 @@ test("#3120 parseGitHubCopilotModels keeps every entitled CHAT model (capability
   const ids = models.map((m) => m.id);
   // grok-4.6 is kept even though it is in no hardcoded allowlist — it's an
   // entitled chat model in the live response.
-<<<<<<< HEAD
-  assert.deepEqual(ids, ["gpt-5.4", "claude-sonnet-4.5", "grok-4.6"]);
-  const gpt = models.find((m) => m.id === "gpt-5.4");
-  assert.ok(gpt, "gpt-5.4 entry present");
-  assert.equal(gpt.name, "GPT-5.4");
-  assert.equal(gpt.owned_by, "github");
-  assert.ok(!ids.includes("text-embedding-3-small"), "embeddings models are skipped");
-  assert.ok(!ids.includes("gpt-41-copilot"), "completion utility models are skipped");
-=======
   assert.deepEqual(ids, ["gpt-6-astra", "claude-sonnet-5", "grok-4.6"]);
   const gpt = models.find((m) => m.id === "gpt-6-astra");
   assert.ok(gpt, "gpt-6-astra entry present");
@@ -166,7 +157,6 @@ test("discovery normalizes nested endpoint metadata without guessing from GPT ve
   for (const model of models.slice(1)) {
     assert.equal(model.targetFormat, undefined, `${model.id} must not infer Responses-only`);
   }
->>>>>>> upstream/main
 });
 
 test("#3121 a model NOT in the live response is not advertised (entitlement filtering)", () => {
@@ -207,11 +197,7 @@ test("#3120 fetchGitHubCopilotModels does a live fetch and returns parsed models
   assert.equal(result.source, "api");
   assert.equal(result.failure, undefined);
   const ids = result.models.map((m) => m.id);
-<<<<<<< HEAD
-  assert.deepEqual(ids, ["gpt-5.4", "claude-sonnet-4.5", "grok-4.6"]);
-=======
   assert.deepEqual(ids, ["gpt-6-astra", "claude-sonnet-5", "grok-4.6"]);
->>>>>>> upstream/main
   assert.ok(!ids.includes("gemini-3.1-pro-preview"));
 });
 
@@ -250,19 +236,6 @@ test("static fallback catalog is the alias of the allowlist and covers the appro
   // The fallback must include the newly-entitled families so an offline import
   // (which can only draw from this static list) still surfaces them.
   for (const id of [
-<<<<<<< HEAD
-    "claude-fable-5",
-    "claude-opus-5",
-    "claude-opus-4.8-fast",
-    "claude-opus-4.6",
-    "gemini-3.6-flash",
-    "gemini-3.5-flash",
-    "gpt-5.4-nano",
-    "grok-4.6",
-    "grok-4.5",
-    "mai-code-1.1-flash",
-    "mai-code-1-flash-picker",
-=======
     "claude-fable-5.1",
     "claude-opus-5",
     "claude-opus-4.8-fast",
@@ -271,7 +244,6 @@ test("static fallback catalog is the alias of the allowlist and covers the appro
     "gpt-6-astra",
     "grok-4.6",
     "mai-code-1.1-flash",
->>>>>>> upstream/main
   ]) {
     assert.ok(set.has(id), `static fallback must include ${id}`);
   }

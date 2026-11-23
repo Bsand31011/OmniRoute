@@ -338,15 +338,9 @@ describe("AgentSkillsPageClient", () => {
     const apiBar = progressBars[0] as HTMLElement;
     expect(apiBar.querySelector('[data-tone="success"]')).not.toBeNull();
 
-<<<<<<< HEAD
-    // CLI bar — 20/20 = 100%, should have emerald color class
-    const cliBar = progressBars[2] as HTMLElement;
-    expect(cliBar.className).toContain("bg-emerald-500");
-=======
     // CLI bar — 20/20 = 100%, should have the success tone (token)
     const cliBar = progressBars[2] as HTMLElement;
     expect(cliBar.querySelector('[data-tone="success"]')).not.toBeNull();
->>>>>>> upstream/main
   });
 
   it("generate button is hidden when coverage is 100%", async () => {

@@ -869,10 +869,6 @@ test("probeCodexAppServerAuth: no transport → unknown (does not throw)", async
   assert.equal(status.state, "unknown");
 });
 
-<<<<<<< HEAD
-
-=======
->>>>>>> upstream/main
 // ── Security hardening (#11205 post-merge review) ───────────────────────────
 // Two findings from the automated push review on the original #11205 merge:
 //  (1) the readyz health probe sent the bearer token to any URL a connection
@@ -990,14 +986,8 @@ test("resolveAppServerConfig: env URL + env token pairs regardless of host", () 
 // ── Health probe: redirect pinning + binding inheritance ────────────────────
 
 test("testCodexAppServerConnection: readyz probe pins redirects (no token leak via 30x)", async () => {
-<<<<<<< HEAD
-  const { testCodexAppServerConnection } = await import(
-    "../../src/app/api/providers/[id]/test/codexAppServerHealth.ts"
-  );
-=======
   const { testCodexAppServerConnection } =
     await import("../../src/app/api/providers/[id]/test/codexAppServerHealth.ts");
->>>>>>> upstream/main
   const originalFetch = globalThis.fetch;
   const seen: Array<{ url: string; init?: RequestInit }> = [];
   globalThis.fetch = (async (url: unknown, init?: RequestInit) => {
@@ -1023,14 +1013,8 @@ test("testCodexAppServerConnection: readyz probe pins redirects (no token leak v
 });
 
 test("testCodexAppServerConnection: env token + remote psd URL reports unconfigured, no network", async () => {
-<<<<<<< HEAD
-  const { testCodexAppServerConnection } = await import(
-    "../../src/app/api/providers/[id]/test/codexAppServerHealth.ts"
-  );
-=======
   const { testCodexAppServerConnection } =
     await import("../../src/app/api/providers/[id]/test/codexAppServerHealth.ts");
->>>>>>> upstream/main
   const originalFetch = globalThis.fetch;
   let fetched = false;
   globalThis.fetch = (async () => {
@@ -1045,22 +1029,16 @@ test("testCodexAppServerConnection: env token + remote psd URL reports unconfigu
       });
       assert.ok(result);
       assert.equal(result!.valid, false);
-<<<<<<< HEAD
-      assert.match(String((result!.diagnosis as { code?: string })?.code), /app_server_unconfigured/);
-=======
       assert.match(
         String((result!.diagnosis as { code?: string })?.code),
         /app_server_unconfigured/
       );
->>>>>>> upstream/main
     });
     assert.equal(fetched, false, "binding refusal must happen before any network call");
   } finally {
     globalThis.fetch = originalFetch;
   }
 });
-<<<<<<< HEAD
-=======
 
 // ── Suffix normalization & effort precedence (#14277) ───────────────────────
 
@@ -1223,4 +1201,3 @@ test("CodexAppServerExecutor: registry loader injects codex websocket transport 
     __setCodexWebSocketTransportForTesting(undefined);
   }
 });
->>>>>>> upstream/main

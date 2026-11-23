@@ -132,17 +132,8 @@ export function buildOAuthConnectionCreatePayload(
   provider: string,
   tokenData: Record<string, any>,
   expiresAt: string | null,
-<<<<<<< HEAD
-  degradedProject?: {
-    testStatus: "degraded";
-    errorCode: string;
-    lastErrorType: string;
-    lastError: string;
-  } | null
-=======
   // warning is HTTP-response only (oauth route); persistence copies error fields.
   degradedProject?: AntigravityDegradedProjectState | null
->>>>>>> upstream/main
 ) {
   return {
     provider,
@@ -152,17 +143,6 @@ export function buildOAuthConnectionCreatePayload(
     tokenExpiresAt: expiresAt,
     // #11284: degraded when Cloud Code projectId discovery failed at connect
     // time — the row is saved (refresh token stored, request-time bootstrap
-<<<<<<< HEAD
-    // can self-heal) but visibly NOT active.
-    testStatus: degradedProject?.testStatus ?? ("active" as const),
-    ...(degradedProject
-      ? {
-          errorCode: degradedProject.errorCode,
-          lastErrorType: degradedProject.lastErrorType,
-          lastError: degradedProject.lastError,
-        }
-      : {}),
-=======
     // can self-heal) but visibly NOT active. Spread AFTER tokenData so stale
     // error fields in the payload cannot leak through.
     ...antigravityPersistStatus(degradedProject),
@@ -183,7 +163,6 @@ export function buildOAuthTokenUpdate(
     lastErrorType: null,
     lastErrorSource: null,
     errorCode: null,
->>>>>>> upstream/main
   };
 }
 

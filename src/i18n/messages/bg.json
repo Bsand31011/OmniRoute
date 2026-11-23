@@ -1094,19 +1094,9 @@
     "batchFilePreview": "Преглед",
     "batchFilePreviewTruncated": "Показване на първите {shown} реда ({total} общо реда)",
     "batchFileDownloadFull": "Изтеглете целия файл",
-<<<<<<< HEAD
-    "batchHeaderSubtitle": "Run many requests as one job",
-    "batchStep1": "1 · Upload JSONL",
-    "batchStep1Desc": "Add requests",
-    "batchStep2": "2 · Create batch",
-    "batchStep2Desc": "Run job",
-    "batchStep3": "3 · Get results",
-    "batchStep3Desc": "Download output"
-=======
     "tokensPageTitle": "Токени",
     "tokensPageDescription": "Изпращайте токени между API ключове, споделяйте кодове за покани и свързвайте сървъри на общността.",
     "tokensServerUrlLabel": "URL на сървъра"
->>>>>>> upstream/main
   },
   "disabled": "Деактивирано",
   "featureFlagOmnirouteEmergencyFallbackDescription": "Маршрутизиране на заявки с изчерпан бюджет към аварийния безплатен резервен доставчик/модел.",
@@ -1447,12 +1437,8 @@
       "close": "затвори"
     },
     "noResults": "Няма резултати",
-<<<<<<< HEAD
-    "trafficInspectorPurpose": "See exactly what your application sends to and receives from AI providers. Works with any OpenAI-compatible client."
-=======
     "costsTeams": "Екипи",
     "costsTeamsSubtitle": "Центрове на разходи на екипите"
->>>>>>> upstream/main
   },
   "webhooks": {
     "title": "Уеб кукички",
@@ -2022,22 +2008,6 @@
     "releaseNotes": "Бележки за изданието",
     "readMore": "Прочетете повече",
     "noAuthLabel": "Без удостоверяване",
-<<<<<<< HEAD
-    "recentRequests": "Recent Requests",
-    "recentRequestsEmpty": "No requests yet.",
-    "recentRequestsModel": "Model",
-    "recentRequestsTokens": "In / Out",
-    "recentRequestsWhen": "When",
-    "readinessEyebrow": "Get ready to route",
-    "readinessTitle": "Send your first request",
-    "readinessSubtitle": "Four small steps. OmniRoute checks readiness as you go.",
-    "readinessStep1": "Connect a provider",
-    "readinessStep2": "Configure endpoint authentication",
-    "readinessStep3": "Copy your endpoint",
-    "readinessStep4": "Send a test request",
-    "readinessContinue": "Continue setup",
-    "readinessDismiss": "Dismiss for now"
-=======
     "readinessEyebrow": "Пригответе се за маршрутизиране",
     "readinessTitle": "Изпратете първата си заявка",
     "readinessSubtitle": "Четири кратки стъпки. OmniRoute проверява готовността ви в движение.",
@@ -2063,7 +2033,6 @@
     "systemMetricsCpuCount": "{count} vCPUs • {platform}",
     "systemMetricsProcessCpu": "OmniRoute (process)",
     "systemMetricsProcessMemory": "OmniRoute (RSS / Heap)"
->>>>>>> upstream/main
   },
   "analytics": {
     "title": "Анализ",
@@ -3168,13 +3137,9 @@
       "prime-agent": "Prime Agent — самоусъвършенстваща се RLM среда за програмиране с поддръжка на доставчици, съвместими с OpenAI",
       "warp": "Warp AI терминал с поддръжка на персонализиран доставчик",
       "agent-deck": "Agent Deck мултиагентен оркестратор",
-<<<<<<< HEAD
-      "prime-agent": "Prime Agent — self-improving RLM coding harness with OpenAI-compatible provider support"
-=======
       "5dive": "5dive — самостоятелно хостван флот от кодиращи агенти; един auth профил насочва всички към OmniRoute",
       "whycodes": "WhyCodes автономен CLI агент с OpenAI-съвместим base URL",
       "zed": "Редактор на код Zed — вграден агент чрез OpenAI-съвместим доставчик"
->>>>>>> upstream/main
     },
     "guides": {
       "cursor": {
@@ -6534,13 +6499,8 @@
     "rateLimitOverridesSection": "Предефиниране на ограниченията на скоростта",
     "rateLimitOverridesMaxConcurrentHint": "Предефиниране на максималния брой едновременни заявки за тази връзка. Предефинира ограничението на ниво акаунт.",
     "rateLimitOverridesMaxConcurrentLabel": "Макс. едновременни (Ограничение на скоростта)",
-<<<<<<< HEAD
-    "rateLimitOverridesMaxWaitMsHint": "__MISSING__:Maximum time (ms) a request may wait for a rate-limit slot before failing. Overrides the global Resilience setting for this connection only.",
-    "rateLimitOverridesMaxWaitMsLabel": "__MISSING__:Max Queue Wait (ms)",
-=======
     "rateLimitOverridesMaxWaitMsHint": "Максималното време (ms), през което дадена заявка може да изчаква слот според ограничението на честотата, преди да завърши с грешка. Заменя глобалната настройка за устойчивост само за тази връзка.",
     "rateLimitOverridesMaxWaitMsLabel": "Максимално изчакване в опашката (ms)",
->>>>>>> upstream/main
     "rateLimitOverridesMinTimeHint": "Минимално време (ms) между заявките. Предефинира закъснението по подразбиране на ограничителя на скоростта.",
     "rateLimitOverridesMinTimeLabel": "Мин. интервал (ms)",
     "rateLimitOverridesRpdHint": "Максимален брой заявки на ден за тази връзка. Замества настройката по подразбиране на доставчика.",
@@ -6833,11 +6793,7 @@
       "bigmodel": "Създайте API ключ на https://bigmodel.cn/usercenter/proj-mgmt/apikeys. OmniRoute използва официалния OpenAI-съвместим chat endpoint на BigModel.cn.",
       "glmt": "Предварително зададен GLM профил с по-висок бюджет за токени, активирано мислене и по-дълъг таймаут.",
       "getgoapi": "Свържете GoAPI с API ключ.",
-<<<<<<< HEAD
-      "groq": "Безплатен план: 30 RPM / 14.4K RPD — без кредитна карта",
-=======
       "groq": "Безплатен план: ограничения за отделните модели (200K токена/ден за всеки чат модел; вижте console.groq.com/docs/rate-limits за RPM/RPD) — няма добавен метод на плащане.",
->>>>>>> upstream/main
       "haiper": "Вземете API ключ на haiper.ai/haiper-api",
       "heroku": "Свържете Heroku AI с API ключ.",
       "hcnsec": "Вземете API ключ на api.hcnsec.cn",
@@ -7143,23 +7099,6 @@
     "savedModelEndpointSettings": "Настройки на крайна точка на запазен модел",
     "searchByModelAria": "Търсене по модел",
     "selectSupportedEndpoint": "Изберете поне една поддържана крайна точка",
-<<<<<<< HEAD
-    "antigravityClientProfileHarness": "Harness / CLI",
-    "harImportButtonLabel": "Import .har file",
-    "harImportButtonBusy": "Importing…",
-    "harImportButtonHint": "Export from DevTools Network tab after sending at least one chat message.",
-    "harImportStatusValid": "Imported — valid for ~{minutes}m.",
-    "harImportStatusExpiringSoon": "Imported — valid for only ~{minutes}m more.",
-    "harImportStatusExpired": "Imported, but this token already expired ({minutes}m ago) — export a fresh HAR.",
-    "harImportStatusUnknownExpiry": "Imported. Couldn't read its expiry.",
-    "harImportErrorNotJson": "That file isn't valid JSON — is it really a .har export?",
-    "harImportErrorNoEntries": "This HAR has no network entries recorded.",
-    "harImportErrorNoChathubUrl": "No Copilot chat connection found in this HAR. Send at least one chat message in m365.cloud.microsoft before exporting.",
-    "harImportErrorUnparsableUrl": "Found the chat connection, but couldn't read its URL.",
-    "harImportErrorMissingFields": "Found the chat connection, but the token was missing from it.",
-    "harImportErrorReadFailed": "Couldn't read that file.",
-    "harImportErrorUnknown": "Couldn't extract a credential from that HAR file."
-=======
     "antigravityClientProfileHarness": "Тестова среда / CLI",
     "rateLimitOverridesModelConcurrencyLabel": "Per-model concurrency caps",
     "rateLimitOverridesModelConcurrencyPlaceholder": "glm-5=1\nglm-4.7=3",
@@ -7185,7 +7124,6 @@
     "doctorChecking": "Проверява се състоянието…",
     "doctorCheck": "Проверка на състоянието на doctor",
     "fallbackRetryBackendTitle": "Резервен backend за повторни опити"
->>>>>>> upstream/main
   },
   "settings": {
     "title": "Настройки",
@@ -9177,20 +9115,6 @@
     "cliproxyapiPort": "Порт",
     "qdrantHost": "Хост",
     "qdrantCollection": "Колекция",
-<<<<<<< HEAD
-    "presetAll": "All",
-    "presetAllDesc": "Show everything",
-    "presetEssentials": "Essentials",
-    "presetEssentialsDesc": "Beginner path - Advanced tools stay searchable",
-    "presetMinimal": "Minimal",
-    "presetMinimalDesc": "Core pages only",
-    "presetDeveloper": "Developer",
-    "presetDeveloperDesc": "Dev & proxy tools",
-    "presetAdmin": "Admin",
-    "presetAdminDesc": "Monitoring & audit",
-    "settingsSidebarTitle": "Sidebar Customization",
-    "settingsSidebarDesc": "Choose which sidebar items to show. Essentials keeps Advanced tools searchable."
-=======
     "catalogVisibilityHint": "Скритите идентификатори на модели остават достъпни за извикване със същите права за достъп.",
     "exposeCombosOnly": "Показване само на комбинации в /v1/models",
     "exposeCombosOnlyDesc": "Клиентите, които откриват моделите автоматично, виждат вашите комбинации (и auto/*, освен ако не са скрити) вместо суровите модели на доставчиците. Изричните идентификатори provider/model продължават да се маршрутизират.",
@@ -9371,7 +9295,6 @@
       "statsEmpty": "Все още няма засичания.",
       "statsRequest": "Заявки"
     }
->>>>>>> upstream/main
   },
   "contextRtk": {
     "title": "RTK Engine",
@@ -14315,11 +14238,6 @@
       "SKILLS_SANDBOX_NETWORK_ENABLED": {
         "description": "Активиране на мрежов достъп в пясъчника за умения."
       },
-<<<<<<< HEAD
-      "DISABLE_CONTEXT_WINDOW_CHECKS": {
-        "label": "Disable Context Window Checks",
-        "description": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active."
-=======
       "SERVER_OWNED_TOOL_LOOP_ENABLED": {
         "label": "Управляван от сървъра цикъл за инструменти",
         "description": "Продължавайте извикванията на инструменти без поточно предаване, управлявани от сървъра, докато моделът върне отговор, който може да се използва от клиента."
@@ -14615,7 +14533,6 @@
       "UNPRICED_USAGE_BUDGET_POLICY": {
         "label": "Политика за бюджет при употреба без цена",
         "description": "Как дневните/седмични USD лимити за ключ третират успешната употреба, чийто доставчик/модел няма запис с цена. fail_closed (по подразбиране) маркира прозореца като превишен, така че неизвестна цена никога не може да заобиколи твърдия лимит. count_as_zero отчита тази употреба като $0 и продължава да прилага ограниченията за разходи с конфигурирана цена. Моделите без цена се показват на началната страница на таблото във всеки случай."
->>>>>>> upstream/main
       }
     }
   },
@@ -15900,15 +15817,6 @@
     "structuredOutputMismatch": "Доставчикът не поддържа структурирано изходно съдържание",
     "contextWindowMismatch": "Заявката надвишава контекстния прозорец на доставчика"
   },
-<<<<<<< HEAD
-  "featureFlagDisableContextWindowChecksDescription": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active.",
-  "cheaperInferenceSponsorBanner": {
-    "title": "Cheaper Inference is an OmniRoute Open Source Friend",
-    "description": "A cost-ranked gateway reselling dozens of frontier models behind one OpenAI-compatible endpoint — routing each request to the cheapest eligible provider, never above list price.",
-    "cta": "Get an API Key",
-    "partnerLinkNote": "Partner link",
-    "dismissAriaLabel": "Dismiss"
-=======
   "cheaperInferenceSponsorBanner": {
     "title": "Cheaper Inference е приятел на проекта с отворен код OmniRoute",
     "description": "Шлюз с класиране по цена, който препродава десетки авангардни модели чрез една крайна точка, съвместима с OpenAI — като насочва всяка заявка към най-евтиния допустим доставчик, без никога да надвишава каталожната цена.",
@@ -16089,6 +15997,5 @@
     "greetingFallbackName": "тук",
     "errNoReply": "⚠️ Нямаше отговор от гейтвея.",
     "btnSend": "Изпрати"
->>>>>>> upstream/main
   }
 }

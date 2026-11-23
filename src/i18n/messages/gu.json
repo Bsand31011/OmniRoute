@@ -1017,19 +1017,9 @@
     "batchFilePreview": "પૂર્વદર્શન",
     "batchFilePreviewTruncated": "પ્રથમ {shown} લાઈનો દર્શાવી રહ્યા છીએ ({total} કુલ લાઈનો)",
     "batchFileDownloadFull": "પૂર્ણ ફાઇલ ડાઉનલોડ કરો",
-<<<<<<< HEAD
-    "batchHeaderSubtitle": "Run many requests as one job",
-    "batchStep1": "1 · Upload JSONL",
-    "batchStep1Desc": "Add requests",
-    "batchStep2": "2 · Create batch",
-    "batchStep2Desc": "Run job",
-    "batchStep3": "3 · Get results",
-    "batchStep3Desc": "Download output"
-=======
     "tokensPageTitle": "ટોકન્સ",
     "tokensPageDescription": "API કીઝ વચ્ચે ટોકન્સ મોકલો, આમંત્રણ કોડ શેર કરો અને સમુદાય સર્વર્સને જોડો.",
     "tokensServerUrlLabel": "સર્વર URL"
->>>>>>> upstream/main
   },
   "disabled": "નિષ્ક્રિય કરેલ",
   "featureFlagOmnirouteEmergencyFallbackDescription": "બજેટ-સમાપ્ત વિનંતીઓને કટોકટીના મફત ફોલબેક પ્રદાતા/મોડેલ પર રૂટ કરો.",
@@ -1370,12 +1360,8 @@
       "close": "બંધ કરો"
     },
     "noResults": "કોઈ પરિણામો નથી",
-<<<<<<< HEAD
-    "trafficInspectorPurpose": "See exactly what your application sends to and receives from AI providers. Works with any OpenAI-compatible client."
-=======
     "costsTeams": "ટીમો",
     "costsTeamsSubtitle": "ટીમ ખર્ચ કેન્દ્રો"
->>>>>>> upstream/main
   },
   "webhooks": {
     "title": "વેબહુક્સ",
@@ -1945,22 +1931,6 @@
     "releaseNotes": "રિલીઝ નોંધો",
     "readMore": "વધુ વાંચો",
     "noAuthLabel": "કોઈ ઓથેન્ટિકેશન નથી",
-<<<<<<< HEAD
-    "recentRequests": "Recent Requests",
-    "recentRequestsEmpty": "No requests yet.",
-    "recentRequestsModel": "Model",
-    "recentRequestsTokens": "In / Out",
-    "recentRequestsWhen": "When",
-    "readinessEyebrow": "Get ready to route",
-    "readinessTitle": "Send your first request",
-    "readinessSubtitle": "Four small steps. OmniRoute checks readiness as you go.",
-    "readinessStep1": "Connect a provider",
-    "readinessStep2": "Configure endpoint authentication",
-    "readinessStep3": "Copy your endpoint",
-    "readinessStep4": "Send a test request",
-    "readinessContinue": "Continue setup",
-    "readinessDismiss": "Dismiss for now"
-=======
     "readinessEyebrow": "રૂટ કરવા માટે તૈયાર થાઓ",
     "readinessTitle": "તમારી પ્રથમ વિનંતી મોકલો",
     "readinessSubtitle": "ચાર નાના પગલાં. તમે આગળ વધો તેમ OmniRoute તૈયારી તપાસે છે.",
@@ -1986,7 +1956,6 @@
     "systemMetricsCpuCount": "{count} vCPUs • {platform}",
     "systemMetricsProcessCpu": "OmniRoute (process)",
     "systemMetricsProcessMemory": "OmniRoute (RSS / Heap)"
->>>>>>> upstream/main
   },
   "analytics": {
     "title": "વિશ્લેષણ",
@@ -3091,13 +3060,9 @@
       "prime-agent": "Prime Agent — OpenAI-સુસંગત પ્રદાતા સપોર્ટ સાથે સ્વ-સુધારણા કરતું RLM કોડિંગ હાર્નેસ",
       "warp": "કસ્ટમ પ્રોવાઇડર સપોર્ટ સાથે Warp AI ટર્મિનલ",
       "agent-deck": "Agent Deck મલ્ટિ-એજન્ટ ઓર્કેસ્ટ્રેટર",
-<<<<<<< HEAD
-      "prime-agent": "Prime Agent — self-improving RLM coding harness with OpenAI-compatible provider support"
-=======
       "5dive": "5dive — સ્વ-હોસ્ટેડ કોડિંગ એજન્ટ્સનો કાફલો; એક auth પ્રોફાઇલ બધાને OmniRoute તરફ દોરે છે",
       "whycodes": "OpenAI-સુસંગત base URL સાથે WhyCodes ઓટોનોમસ CLI એજન્ટ",
       "zed": "Zed કોડ એડિટર — OpenAI-સુસંગત પ્રદાતા દ્વારા બિલ્ટ-ઇન એજન્ટ"
->>>>>>> upstream/main
     },
     "guides": {
       "cursor": {
@@ -6457,13 +6422,8 @@
     "rateLimitOverridesSection": "રેટ લિમિટ ઓવરરાઇડ્સ",
     "rateLimitOverridesMaxConcurrentHint": "આ કનેક્શન માટે મહત્તમ સમવર્તી વિનંતીઓ ઓવરરાઇડ. એકાઉન્ટ-સ્તરની મર્યાદાને ઓવરરાઇડ કરે છે.",
     "rateLimitOverridesMaxConcurrentLabel": "મહત્તમ સમવર્તી (રેટ લિમિટ)",
-<<<<<<< HEAD
-    "rateLimitOverridesMaxWaitMsHint": "__MISSING__:Maximum time (ms) a request may wait for a rate-limit slot before failing. Overrides the global Resilience setting for this connection only.",
-    "rateLimitOverridesMaxWaitMsLabel": "__MISSING__:Max Queue Wait (ms)",
-=======
     "rateLimitOverridesMaxWaitMsHint": "રેટ-લિમિટ સ્લોટ માટે વિનંતી નિષ્ફળ થાય તે પહેલાં તે રાહ જોઈ શકે તે મહત્તમ સમય (ms). આ ફક્ત આ કનેક્શન માટે વૈશ્વિક Resilience સેટિંગને ઓવરરાઇડ કરે છે.",
     "rateLimitOverridesMaxWaitMsLabel": "કતારમાં રાહ જોવાનો મહત્તમ સમય (ms)",
->>>>>>> upstream/main
     "rateLimitOverridesMinTimeHint": "વિનંતીઓ વચ્ચેનો ન્યૂનતમ સમય (ms). ડિફૉલ્ટ રેટ લિમિટર વિલંબને ઓવરરાઇડ કરે છે.",
     "rateLimitOverridesMinTimeLabel": "ન્યૂનતમ અંતરાલ (ms)",
     "rateLimitOverridesRpdHint": "આ કનેક્શન માટે પ્રતિ દિવસ મહત્તમ વિનંતીઓ. પ્રદાતા ડિફૉલ્ટને ઓવરરાઇડ કરે છે.",
@@ -6756,11 +6716,7 @@
       "bigmodel": "https://bigmodel.cn/usercenter/proj-mgmt/apikeys પર API કી બનાવો. OmniRoute BigModel.cnની અધિકૃત OpenAI-સુસંગત ચેટ એન્ડપોઇન્ટ વાપરે છે.",
       "glmt": "ઉચ્ચ ટોકન બજેટ, વિચારવાની ક્ષમતા સક્ષમ અને લાંબા સમયસમાપ્તિ સાથે પ્રીસેટ GLM પ્રોફાઇલ.",
       "getgoapi": "API કી વડે GoAPI ને કનેક્ટ કરો.",
-<<<<<<< HEAD
-      "groq": "મફત સ્તર: 30 RPM / 14.4K RPD — કોઈ ક્રેડિટ કાર્ડ નહીં",
-=======
       "groq": "મફત પ્લાન: પ્રતિ-મોડેલ મર્યાદાઓ (દરેક ચેટ મોડેલ માટે દરરોજ 200K ટોકન્સ; RPM/RPD માટે console.groq.com/docs/rate-limits જુઓ) — કોઈ ચુકવણી પદ્ધતિ નોંધાયેલી હોવી જરૂરી નથી.",
->>>>>>> upstream/main
       "haiper": "haiper.ai/haiper-api પર API કી મેળવો",
       "heroku": "API કી વડે Heroku AI ને કનેક્ટ કરો.",
       "hcnsec": "api.hcnsec.cn પર API કી મેળવો",
@@ -7066,23 +7022,6 @@
     "savedModelEndpointSettings": "સાચવેલ મોડેલ અંતિમ બિંદુની સેટિંગ્સ",
     "searchByModelAria": "મોડલ દ્વારા શોધો",
     "selectSupportedEndpoint": "કમથી કમ એક સમર્થિત અંતિમ બિંદુ પસંદ કરો",
-<<<<<<< HEAD
-    "antigravityClientProfileHarness": "Harness / CLI",
-    "harImportButtonLabel": "Import .har file",
-    "harImportButtonBusy": "Importing…",
-    "harImportButtonHint": "Export from DevTools Network tab after sending at least one chat message.",
-    "harImportStatusValid": "Imported — valid for ~{minutes}m.",
-    "harImportStatusExpiringSoon": "Imported — valid for only ~{minutes}m more.",
-    "harImportStatusExpired": "Imported, but this token already expired ({minutes}m ago) — export a fresh HAR.",
-    "harImportStatusUnknownExpiry": "Imported. Couldn't read its expiry.",
-    "harImportErrorNotJson": "That file isn't valid JSON — is it really a .har export?",
-    "harImportErrorNoEntries": "This HAR has no network entries recorded.",
-    "harImportErrorNoChathubUrl": "No Copilot chat connection found in this HAR. Send at least one chat message in m365.cloud.microsoft before exporting.",
-    "harImportErrorUnparsableUrl": "Found the chat connection, but couldn't read its URL.",
-    "harImportErrorMissingFields": "Found the chat connection, but the token was missing from it.",
-    "harImportErrorReadFailed": "Couldn't read that file.",
-    "harImportErrorUnknown": "Couldn't extract a credential from that HAR file."
-=======
     "antigravityClientProfileHarness": "હાર્નેસ / CLI",
     "rateLimitOverridesModelConcurrencyLabel": "Per-model concurrency caps",
     "rateLimitOverridesModelConcurrencyPlaceholder": "glm-5=1\nglm-4.7=3",
@@ -7108,7 +7047,6 @@
     "doctorChecking": "સ્થિતિ તપાસવામાં…",
     "doctorCheck": "ડૉક્ટર સ્થિતિ તપાસો",
     "fallbackRetryBackendTitle": "ફોલબેક રીટ્રી બેકએન્ડ"
->>>>>>> upstream/main
   },
   "settings": {
     "title": "સેટિંગ્સ",
@@ -9100,20 +9038,6 @@
     "cliproxyapiPort": "પોર્ટ",
     "qdrantHost": "હોસ્ટ",
     "qdrantCollection": "સંગ્રહ",
-<<<<<<< HEAD
-    "presetAll": "All",
-    "presetAllDesc": "Show everything",
-    "presetEssentials": "Essentials",
-    "presetEssentialsDesc": "Beginner path - Advanced tools stay searchable",
-    "presetMinimal": "Minimal",
-    "presetMinimalDesc": "Core pages only",
-    "presetDeveloper": "Developer",
-    "presetDeveloperDesc": "Dev & proxy tools",
-    "presetAdmin": "Admin",
-    "presetAdminDesc": "Monitoring & audit",
-    "settingsSidebarTitle": "Sidebar Customization",
-    "settingsSidebarDesc": "Choose which sidebar items to show. Essentials keeps Advanced tools searchable."
-=======
     "catalogVisibilityHint": "છુપાયેલા મોડેલ ID ને સમાન ઍક્સેસ પરવાનગીઓ સાથે હજી પણ કૉલ કરી શકાય છે.",
     "exposeCombosOnly": "/v1/models માં ફક્ત કોમ્બોઝ સૂચિબદ્ધ કરો",
     "exposeCombosOnlyDesc": "મોડેલ આપમેળે શોધતા ક્લાયન્ટ્સ કાચા પ્રોવાઇડર મોડેલને બદલે તમારા કોમ્બોઝ (અને છુપાવેલ ન હોય તો auto/*) જુએ છે. સ્પષ્ટ provider/model ID રૂટ થતા રહે છે.",
@@ -9294,7 +9218,6 @@
       "statsEmpty": "હજી કોઈ શોધ નથી.",
       "statsRequest": "વિનંતીઓ"
     }
->>>>>>> upstream/main
   },
   "contextRtk": {
     "title": "RTK એન્જિન",
@@ -14238,11 +14161,6 @@
       "SKILLS_SANDBOX_NETWORK_ENABLED": {
         "description": "સ્કિલ્સ સેન્ડબોક્સમાં નેટવર્ક એક્સેસ સક્ષમ કરો."
       },
-<<<<<<< HEAD
-      "DISABLE_CONTEXT_WINDOW_CHECKS": {
-        "label": "Disable Context Window Checks",
-        "description": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active."
-=======
       "SERVER_OWNED_TOOL_LOOP_ENABLED": {
         "label": "સર્વર-માલિકીનું ટૂલ લૂપ",
         "description": "મોડલ ક્લાયન્ટ ઉપયોગ કરી શકે એવો પ્રતિસાદ આપે ત્યાં સુધી નોન-સ્ટ્રીમિંગ સર્વર-માલિકીના ટૂલ કૉલ ચાલુ રાખો."
@@ -14538,7 +14456,6 @@
       "UNPRICED_USAGE_BUDGET_POLICY": {
         "label": "કિંમત વિનાનું ઉપયોગ બજેટ નીતિ",
         "description": "દર-કી દૈનિક/સાપ્તાહિક USD મર્યાદાઓ તે સફળ ઉપયોગને કેવી રીતે હેન્ડલ કરે છે જેમાં પ્રદાતા/મોડેલ માટે કોઈ કિંમત પંક્તિ ન હોય. fail_closed (ડિફૉલ્ટ) વિન્ડોને અતિસીમા ગણાવે છે, જેથી અજ્ઞાત ખર્ચ ક્યારેય કડક મર્યાદા પાસ કરી ન શકે. count_as_zero તે ઉપયોગને $0 તરીકે ગણાવે છે અને મૂલ્ય ધરાવતો ખર્ચ પર અમલ જારી રાખે છે. કિંમત ન ધરાવતાં મોડેલ બન્ને પરિસ્થિતિમાં ડેશબોર્ડના હોમ પેજ પર સૂચિબદ્ધ થાય છે."
->>>>>>> upstream/main
       }
     }
   },
@@ -15823,15 +15740,6 @@
     "structuredOutputMismatch": "પ્રદાતા સંરચિત આઉટપુટને સમર્થન આપતો નથી",
     "contextWindowMismatch": "વિનંતી પ્રદાતા સંદર્ભ વિન્ડોને પાર કરે છે"
   },
-<<<<<<< HEAD
-  "featureFlagDisableContextWindowChecksDescription": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active.",
-  "cheaperInferenceSponsorBanner": {
-    "title": "Cheaper Inference is an OmniRoute Open Source Friend",
-    "description": "A cost-ranked gateway reselling dozens of frontier models behind one OpenAI-compatible endpoint — routing each request to the cheapest eligible provider, never above list price.",
-    "cta": "Get an API Key",
-    "partnerLinkNote": "Partner link",
-    "dismissAriaLabel": "Dismiss"
-=======
   "cheaperInferenceSponsorBanner": {
     "title": "Cheaper Inference એ OmniRouteનો ઓપન સોર્સ મિત્ર છે",
     "description": "એક ખર્ચ-ક્રમબદ્ધ ગેટવે, જે એક OpenAI-સુસંગત એન્ડપોઇન્ટ પાછળ ડઝનબંધ અગ્રણી મૉડલ્સનું પુનર્વેચાણ કરે છે — દરેક વિનંતીને સૌથી સસ્તા પાત્ર પ્રદાતા તરફ રૂટ કરે છે અને ક્યારેય સૂચિ કિંમતથી વધુ વસૂલતું નથી.",
@@ -16089,6 +15997,5 @@
     "greetingFallbackName": "ત્યાં",
     "errNoReply": "⚠️ ગેટવેમાંથી કોઈ પ્રતિરૂદ્ધ નથી.",
     "btnSend": "મોકલો"
->>>>>>> upstream/main
   }
 }

@@ -92,12 +92,9 @@ test("#9147 — catalog build at catalog-scale must not pin the event loop for a
   t.diagnostic(
     `maximum event-loop gap: ${maxGapMs.toFixed(1)}ms across ${ticks} interleaved ticks`
   );
-<<<<<<< HEAD
-=======
   // 2026-08-30: 400 → 800. With the catalog at 352 providers the hosted shards measure
   // 410–633ms gaps (runs 33325191658, 33327592128, 33328119934); 800ms still fails a
   // true pin (seconds) — re-tighten with the v4.0 catalog modularization.
->>>>>>> upstream/main
   // 150ms is tight on GitHub-hosted unit shards (`--test-concurrency=4`):
   // sibling tests share the event loop, so a healthy yielding builder still
   // records 200–260ms gaps. 400ms still fails a true pin (seconds) while

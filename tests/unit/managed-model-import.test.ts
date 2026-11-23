@@ -338,16 +338,12 @@ test("antigravity sync dynamically builds and saves mitmAlias mappings", async (
     models.some((model) => model.id === "gemini-3.5-flash"),
     false
   );
-<<<<<<< HEAD
-  assert.equal(mitmMappings["gemini-3.7-flash-high"], "antigravity/gemini-3.7-flash-high");
-=======
   // #11824: gemini-3.7-flash-high is a known cross-account-unsafe display id (the
   // tier-suffixed upstream id is only callable on Google projects specifically
   // provisioned for it); it must always resolve through the static alias to the
   // safe shared "-tiered" endpoint id, never as an identity mapping to the literal
   // tier id — even when it appears directly in this connection's own discovery.
   assert.equal(mitmMappings["gemini-3.7-flash-high"], "antigravity/gemini-3.7-flash-tiered");
->>>>>>> upstream/main
   assert.equal(mitmMappings["custom-antigravity-model"], "antigravity/custom-antigravity-model");
 
   // Removed Antigravity 2.0 preview/agent aliases must not be reintroduced.

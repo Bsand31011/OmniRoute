@@ -131,8 +131,6 @@ function main() {
   );
   console.log("[colocate-standalone] ✅ call-log artifact worker bundled");
 
-<<<<<<< HEAD
-=======
   const exportChildDest = join(STANDALONE, "src/lib/logExport/exportChild.js");
   mkdirSync(dirname(exportChildDest), { recursive: true });
   runBuildTool(
@@ -150,7 +148,6 @@ function main() {
   );
   console.log("[colocate-standalone] ✅ log-export child bundled");
 
->>>>>>> upstream/main
   const compressionWorkerDest = join(STANDALONE, COMPRESSION_WORKER_REL);
   mkdirSync(dirname(compressionWorkerDest), { recursive: true });
   runBuildTool(
@@ -170,16 +167,12 @@ function main() {
 
   // The call-log worker is always present; scope it to ESM immediately. The
   // optional LLMLingua worker dir is added below only when its deps are installed.
-<<<<<<< HEAD
-  const workerDirs = [dirname(callLogWorkerDest), dirname(compressionWorkerDest)];
-=======
   const workerDirs = [
     dirname(healthWorkerDest),
     dirname(callLogWorkerDest),
     dirname(exportChildDest),
     dirname(compressionWorkerDest),
   ];
->>>>>>> upstream/main
 
   const workerDest = join(STANDALONE, WORKER_REL);
   if (!hasOptionals) {

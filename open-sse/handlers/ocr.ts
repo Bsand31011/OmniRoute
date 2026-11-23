@@ -11,12 +11,8 @@ import {
   parseOcrModel,
   OCR_PROVIDERS,
 } from "../config/ocrRegistry.ts";
-<<<<<<< HEAD
-import { errorResponse, redactSensitiveErrorText } from "../utils/error.ts";
-=======
 import { errorResponse, sanitizeErrorMessage } from "../utils/error.ts";
 import { buildSanitizedUpstreamErrorResponse } from "../utils/upstreamErrorResponse.ts";
->>>>>>> upstream/main
 import { attachOmniRouteMetaHeaders } from "@/domain/omnirouteResponseMeta";
 import { generateRequestId } from "@/shared/utils/requestId";
 import {
@@ -156,14 +152,7 @@ export async function handleOcr({
 
     if (!res.ok) {
       const errText = await res.text();
-<<<<<<< HEAD
-      // secret-leak hardening: an upstream OCR provider can echo the offending
-      // request (Authorization header / api key) inside its error text. Redact
-      // secret patterns (structure-preserving) before relaying to the client.
-      return new Response(redactSensitiveErrorText(errText), {
-=======
       return buildSanitizedUpstreamErrorResponse({
->>>>>>> upstream/main
         status: res.status,
         rawBody: errText,
         fallbackMessage: `OCR provider returned HTTP ${res.status}`,

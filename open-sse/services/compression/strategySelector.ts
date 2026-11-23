@@ -552,10 +552,6 @@ async function runCompressionAsync(
     try {
       const { runCompressionInWorker } = await import("./compressionWorkerPool.ts");
       return await runCompressionInWorker(body, mode, workerOptions, options?.onEngineStep);
-<<<<<<< HEAD
-    } catch {
-      return { body, compressed: false, stats: null };
-=======
     } catch (workerError) {
       // #13145: a worker failure must NOT silently disable compression. Returning the
       // uncompressed body here made every eligible request bypass the pipeline while the
@@ -574,7 +570,6 @@ async function runCompressionAsync(
       if (!shouldRetryCompressionInProcess(workerError)) {
         return { body, compressed: false, stats: null };
       }
->>>>>>> upstream/main
     }
   }
   if (

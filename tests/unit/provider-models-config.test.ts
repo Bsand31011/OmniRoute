@@ -87,60 +87,6 @@ test("Reka registry exposes preset models", () => {
 test("GitHub Copilot registry reflects the current supported model lineup", () => {
   const githubModels = getProviderModels("gh");
   const ids: string[] = githubModels.map((model) => model.id);
-<<<<<<< HEAD
-
-  // The static registry and the live-discovery fallback catalog are DIFFERENT
-  // lists by design (the registry drives routing/targetFormat; the fallback is a
-  // discovery safety net), so we assert the registry's real membership directly
-  // rather than pinning it to GITHUB_COPILOT_MODEL_ALLOWLIST.
-  for (const expected of [
-    "claude-opus-5",
-    "claude-opus-4.8",
-    "claude-opus-4.8-fast",
-    "claude-opus-4.7",
-    "claude-opus-4.6",
-    "claude-sonnet-4.6",
-    "gemini-3.7-flash",
-    "gemini-3.6-flash",
-    "gemini-3.5-flash",
-    "gpt-5.5",
-    "gpt-5.4",
-    "gpt-5.4-mini",
-    "gpt-5.4-nano",
-    "gpt-5.3-codex",
-    "grok-4.6",
-    "grok-4.5",
-    "mai-code-1-flash",
-    "mai-code-1.1-flash",
-    "mai-code-1-flash-picker",
-  ]) {
-    assert.ok(ids.includes(expected), `github registry must include ${expected}`);
-  }
-
-  assert.equal(getModelTargetFormat("gh", "claude-opus-5"), "claude");
-  assert.equal(getModelTargetFormat("gh", "gpt-5.3-codex"), "openai-responses");
-  // claude-opus-4.6 IS a real Copilot model id (live /models confirms it, ctx 1M);
-  // it now appears in the registry and routes through the claude target format.
-  assert.equal(getModelTargetFormat("gh", "claude-opus-4.6"), "claude");
-  // Claude models route through Copilot's Anthropic-native /v1/messages shim
-  // (executors/github.ts) — the only endpoint that surfaces prompt-cache token
-  // counts for Claude and avoids a lossy tool_use/tool_result round-trip through
-  // the OpenAI shape. Port of decolua/9router#2608.
-  assert.equal(getModelTargetFormat("gh", "claude-opus-4.8-fast"), "claude");
-  assert.equal(getModelTargetFormat("gh", "claude-sonnet-4.6"), "claude");
-  // grok/mai on Copilot are /responses-only (400 on /chat/completions).
-  assert.equal(getModelTargetFormat("gh", "grok-4.6"), "openai-responses");
-  assert.equal(getModelTargetFormat("gh", "mai-code-1.1-flash"), "openai-responses");
-  assert.equal(getModelTargetFormat("gh", "gpt-5.4-nano"), "openai-responses");
-  assert.equal(getModelTargetFormat("gh", "gemini-3.7-flash"), null);
-  assert.equal(getModelTargetFormat("gh", "kimi-k2.7-code"), null);
-  assert.equal(ids.includes("gpt-4"), false);
-  assert.equal(ids.includes("gpt-5.1"), false);
-  assert.equal(ids.includes("gpt-5.1-codex"), false);
-  assert.equal(ids.includes("claude-opus-4.1"), false);
-  assert.equal(ids.includes("claude-opus-4-5-20251101"), false);
-  assert.equal(ids.includes("gemini-3-flash-preview"), false);
-=======
 
   assert.deepEqual(ids, [
     "gpt-6-astra",
@@ -177,7 +123,6 @@ test("GitHub Copilot registry reflects the current supported model lineup", () =
   }
   assert.equal(getModelTargetFormat("gh", "gemini-3.8-flash"), "openai");
   assert.equal(getModelTargetFormat("gh", "kimi-k3"), "openai");
->>>>>>> upstream/main
 });
 
 test("verified Anthropic launch catalogs keep Fable 5.1 first", () => {

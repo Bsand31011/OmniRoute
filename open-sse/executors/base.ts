@@ -1682,43 +1682,6 @@ export class BaseExecutor {
           transformedBody &&
           typeof transformedBody === "object"
         ) {
-<<<<<<< HEAD
-          const errText = await response
-            .clone()
-            .text()
-            .catch(() => "");
-          const acceptedValues = parseReasoningEffortEnum(errText);
-          if (acceptedValues) {
-            reasoningEffortClamped = true;
-            const learned = recordLearnedReasoningEffort(this.provider, model, acceptedValues);
-            if (learned && learned.size > 0) {
-              const beforeRetry = JSON.stringify(transformedBody);
-              transformedBody = sanitizeReasoningEffortForProvider(
-                transformedBody,
-                this.provider,
-                model,
-                log
-              );
-              const afterRetry = JSON.stringify(transformedBody);
-              if (beforeRetry === afterRetry) {
-                log?.info?.(
-                  "REASONING_SANITIZE",
-                  `Upstream ${response.status} rejected reasoning_effort on ${url} — learned ${[...learned].join(",")} but clamp was no-op for ${this.provider}/${model}, not retrying`
-                );
-              } else {
-                let retryBody = JSON.stringify(transformedBody);
-                if (usesClaudeCodeProtocol || this.provider === "claude") {
-                  retryBody = await signRequestBody(retryBody);
-                }
-                log?.info?.(
-                  "REASONING_SANITIZE",
-                  `Upstream ${response.status} rejected reasoning_effort on ${url} — clamped to ${[...learned].join(",")} and retrying (learned for ${this.provider}/${model})`
-                );
-                response = await fetchWithStartTimeout(url, { ...fetchOptions, body: retryBody });
-              }
-            }
-          }
-=======
           const recovery = await applyReasoningEffortRecovery({
             response,
             url,
@@ -1733,7 +1696,6 @@ export class BaseExecutor {
           if (recovery.attempted) reasoningEffortClamped = true;
           response = recovery.response;
           transformedBody = recovery.body;
->>>>>>> upstream/main
         }
 
         // max_tokens ceiling 400 clamp-and-retry — the third learned-cap

@@ -1017,19 +1017,9 @@
     "batchFilePreview": "預覽",
     "batchFilePreviewTruncated": "顯示前 {shown} 行（共 {total} 行）",
     "batchFileDownloadFull": "下載完整檔案",
-<<<<<<< HEAD
-    "batchHeaderSubtitle": "Run many requests as one job",
-    "batchStep1": "1 · Upload JSONL",
-    "batchStep1Desc": "Add requests",
-    "batchStep2": "2 · Create batch",
-    "batchStep2Desc": "Run job",
-    "batchStep3": "3 · Get results",
-    "batchStep3Desc": "Download output"
-=======
     "tokensPageTitle": "權杖",
     "tokensPageDescription": "在 API 金鑰之間傳送權杖、分享邀請碼並連線至社群伺服器。",
     "tokensServerUrlLabel": "伺服器 URL"
->>>>>>> upstream/main
   },
   "disabled": "已停用",
   "featureFlagOmnirouteEmergencyFallbackDescription": "將預算耗盡的請求路由到緊急免費備用提供者/模型。",
@@ -1327,12 +1317,8 @@
     "agentBridge": "代理橋接",
     "agentBridgeSubtitle": "攔截 IDE 代理流量",
     "trafficInspector": "流量檢查器",
-<<<<<<< HEAD
-    "trafficInspectorSubtitle": "__MISSING__:Inspect request and response traffic from your apps",
-=======
     "trafficInspectorSubtitle": "檢查來自您應用程式的請求與回應流量",
     "trafficInspectorPurpose": "精確查看您的應用程式傳送給 AI 提供者及從中接收的內容。適用於任何與 OpenAI 相容的用戶端。",
->>>>>>> upstream/main
     "cliCode": "CLI 程式碼的",
     "cliCodeSubtitle": "指向 OmniRoute 的程式碼工具",
     "cliAgents": "CLI 代理",
@@ -1374,12 +1360,8 @@
       "close": "關閉"
     },
     "noResults": "沒有結果",
-<<<<<<< HEAD
-    "trafficInspectorPurpose": "See exactly what your application sends to and receives from AI providers. Works with any OpenAI-compatible client."
-=======
     "costsTeams": "團隊",
     "costsTeamsSubtitle": "團隊成本中心"
->>>>>>> upstream/main
   },
   "webhooks": {
     "title": "Webhook",
@@ -1949,22 +1931,6 @@
     "releaseNotes": "發佈說明",
     "readMore": "閱讀更多",
     "noAuthLabel": "無認證",
-<<<<<<< HEAD
-    "recentRequests": "Recent Requests",
-    "recentRequestsEmpty": "No requests yet.",
-    "recentRequestsModel": "Model",
-    "recentRequestsTokens": "In / Out",
-    "recentRequestsWhen": "When",
-    "readinessEyebrow": "Get ready to route",
-    "readinessTitle": "Send your first request",
-    "readinessSubtitle": "Four small steps. OmniRoute checks readiness as you go.",
-    "readinessStep1": "Connect a provider",
-    "readinessStep2": "Configure endpoint authentication",
-    "readinessStep3": "Copy your endpoint",
-    "readinessStep4": "Send a test request",
-    "readinessContinue": "Continue setup",
-    "readinessDismiss": "Dismiss for now"
-=======
     "readinessEyebrow": "準備開始路由",
     "readinessTitle": "傳送您的第一個請求",
     "readinessSubtitle": "四個簡單步驟。OmniRoute 會隨著您的進度檢查就緒狀態。",
@@ -1990,7 +1956,6 @@
     "systemMetricsCpuCount": "{count} vCPUs • {platform}",
     "systemMetricsProcessCpu": "OmniRoute (process)",
     "systemMetricsProcessMemory": "OmniRoute (RSS / Heap)"
->>>>>>> upstream/main
   },
   "analytics": {
     "title": "分析",
@@ -3095,13 +3060,9 @@
       "prime-agent": "Prime Agent — 支援 OpenAI 相容提供者、可自我改進的 RLM 程式設計框架",
       "warp": "Warp AI 終端機，支援自訂提供者",
       "agent-deck": "Agent Deck 多代理協調器",
-<<<<<<< HEAD
-      "prime-agent": "Prime Agent — self-improving RLM coding harness with OpenAI-compatible provider support"
-=======
       "5dive": "5dive — 自架的編碼代理機群；一個認證設定檔即可將全部指向 OmniRoute",
       "whycodes": "WhyCodes 自主 CLI 代理,使用相容 OpenAI 的 Base URL",
       "zed": "Zed 程式碼編輯器 — 透過 OpenAI 相容提供者使用內建代理"
->>>>>>> upstream/main
     },
     "guides": {
       "cursor": {
@@ -6461,13 +6422,8 @@
     "rateLimitOverridesSection": "速率限制覆蓋",
     "rateLimitOverridesMaxConcurrentHint": "此連線的最大併發請求覆蓋。覆蓋帳戶級別的上限。",
     "rateLimitOverridesMaxConcurrentLabel": "最大併發（速率限制）",
-<<<<<<< HEAD
-    "rateLimitOverridesMaxWaitMsHint": "__MISSING__:Maximum time (ms) a request may wait for a rate-limit slot before failing. Overrides the global Resilience setting for this connection only.",
-    "rateLimitOverridesMaxWaitMsLabel": "__MISSING__:Max Queue Wait (ms)",
-=======
     "rateLimitOverridesMaxWaitMsHint": "請求在失敗前等待速率限制可用名額的最長時間（毫秒）。僅針對此連線覆寫全域恢復能力設定。",
     "rateLimitOverridesMaxWaitMsLabel": "佇列最長等待時間（毫秒）",
->>>>>>> upstream/main
     "rateLimitOverridesMinTimeHint": "請求之間的最小時間（毫秒）。覆蓋預設速率限制器延遲。",
     "rateLimitOverridesMinTimeLabel": "最小間隔（毫秒）",
     "rateLimitOverridesRpdHint": "此連線的每天最大請求數。覆蓋提供者預設值。",
@@ -6760,11 +6716,7 @@
       "bigmodel": "智譜開放平台：請在 https://bigmodel.cn/usercenter/proj-mgmt/apikeys 建立 API 金鑰。OmniRoute 使用官方 OpenAI 相容對話補全端點。",
       "glmt": "預設 GLM 設定檔，具有較高的 token 預算、啟用思考功能，以及更長的超時時間。",
       "getgoapi": "使用 API 金鑰連線 GoAPI。",
-<<<<<<< HEAD
-      "groq": "免費方案：每分鐘 30 次 / 每天 14,400 次請求 — 無需信用卡",
-=======
       "groq": "免費方案：各模型有用量上限（每個聊天模型每日 200K 個權杖；RPM/RPD 請參閱 console.groq.com/docs/rate-limits）— 未綁定付款方式。",
->>>>>>> upstream/main
       "haiper": "在 haiper.ai/haiper-api 取得 API 金鑰",
       "heroku": "使用 API 金鑰連線 Heroku AI。",
       "hcnsec": "在 api.hcnsec.cn 取得 API 金鑰",
@@ -7071,22 +7023,6 @@
     "searchByModelAria": "按型號搜尋",
     "selectSupportedEndpoint": "請選擇至少一個受支持的端點",
     "antigravityClientProfileHarness": "Harness / CLI",
-<<<<<<< HEAD
-    "harImportButtonLabel": "Import .har file",
-    "harImportButtonBusy": "Importing…",
-    "harImportButtonHint": "Export from DevTools Network tab after sending at least one chat message.",
-    "harImportStatusValid": "Imported — valid for ~{minutes}m.",
-    "harImportStatusExpiringSoon": "Imported — valid for only ~{minutes}m more.",
-    "harImportStatusExpired": "Imported, but this token already expired ({minutes}m ago) — export a fresh HAR.",
-    "harImportStatusUnknownExpiry": "Imported. Couldn't read its expiry.",
-    "harImportErrorNotJson": "That file isn't valid JSON — is it really a .har export?",
-    "harImportErrorNoEntries": "This HAR has no network entries recorded.",
-    "harImportErrorNoChathubUrl": "No Copilot chat connection found in this HAR. Send at least one chat message in m365.cloud.microsoft before exporting.",
-    "harImportErrorUnparsableUrl": "Found the chat connection, but couldn't read its URL.",
-    "harImportErrorMissingFields": "Found the chat connection, but the token was missing from it.",
-    "harImportErrorReadFailed": "Couldn't read that file.",
-    "harImportErrorUnknown": "Couldn't extract a credential from that HAR file."
-=======
     "rateLimitOverridesModelConcurrencyLabel": "各模型並行上限",
     "rateLimitOverridesModelConcurrencyPlaceholder": "glm-5=1\nglm-4.7=3",
     "rateLimitOverridesModelConcurrencyHint": "選填：每行一個 model=cap，與上游模型 ID 完全比對。超出的請求會在本機排隊；留空表示不設各模型上限。",
@@ -7111,7 +7047,6 @@
     "doctorChecking": "正在檢查狀態…",
     "doctorCheck": "檢查診斷狀態",
     "fallbackRetryBackendTitle": "回退重試後端"
->>>>>>> upstream/main
   },
   "settings": {
     "title": "設定",
@@ -9103,20 +9038,6 @@
     "cliproxyapiPort": "埠",
     "qdrantHost": "主機",
     "qdrantCollection": "集合",
-<<<<<<< HEAD
-    "presetAll": "All",
-    "presetAllDesc": "Show everything",
-    "presetEssentials": "Essentials",
-    "presetEssentialsDesc": "Beginner path - Advanced tools stay searchable",
-    "presetMinimal": "Minimal",
-    "presetMinimalDesc": "Core pages only",
-    "presetDeveloper": "Developer",
-    "presetDeveloperDesc": "Dev & proxy tools",
-    "presetAdmin": "Admin",
-    "presetAdminDesc": "Monitoring & audit",
-    "settingsSidebarTitle": "Sidebar Customization",
-    "settingsSidebarDesc": "Choose which sidebar items to show. Essentials keeps Advanced tools searchable."
-=======
     "catalogVisibilityHint": "隱藏的模型 ID 仍可使用相同的存取權限呼叫。",
     "exposeCombosOnly": "在 /v1/models 中僅列出組合",
     "exposeCombosOnlyDesc": "自動探索模型的用戶端將看到你的組合（以及未隱藏的 auto/*），而非原始的提供者模型。明確的 provider/model ID 仍會正常路由。",
@@ -9297,7 +9218,6 @@
       "statsEmpty": "尚無偵測。",
       "statsRequest": "請求"
     }
->>>>>>> upstream/main
   },
   "contextRtk": {
     "title": "RTK 引擎",
@@ -14241,11 +14161,6 @@
       "SKILLS_SANDBOX_NETWORK_ENABLED": {
         "description": "在技能沙盒中啟用網路存取。"
       },
-<<<<<<< HEAD
-      "DISABLE_CONTEXT_WINDOW_CHECKS": {
-        "label": "Disable Context Window Checks",
-        "description": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active."
-=======
       "SERVER_OWNED_TOOL_LOOP_ENABLED": {
         "label": "伺服器端工具迴圈",
         "description": "持續執行由伺服器端管理的非串流工具呼叫，直到模型傳回用戶端可用的回應。"
@@ -14541,7 +14456,6 @@
       "UNPRICED_USAGE_BUDGET_POLICY": {
         "label": "未定價用量的預算政策",
         "description": "各金鑰的每日/每週 USD 限額，如何處理其提供者/模型沒有定價記錄的成功用量。fail_closed（預設）會將該視窗視為已超額，確保未知成本不會繞過硬性上限。count_as_zero 將這部分用量以 $0 計入，已定價的支出仍照常限制。無論採用哪種政策，未定價的模型都會顯示在儀表板首頁。"
->>>>>>> upstream/main
       }
     }
   },
@@ -15826,15 +15740,6 @@
     "structuredOutputMismatch": "提供者不支援結構化輸出",
     "contextWindowMismatch": "請求超出提供者上下文窗口"
   },
-<<<<<<< HEAD
-  "featureFlagDisableContextWindowChecksDescription": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active.",
-  "cheaperInferenceSponsorBanner": {
-    "title": "Cheaper Inference is an OmniRoute Open Source Friend",
-    "description": "A cost-ranked gateway reselling dozens of frontier models behind one OpenAI-compatible endpoint — routing each request to the cheapest eligible provider, never above list price.",
-    "cta": "Get an API Key",
-    "partnerLinkNote": "Partner link",
-    "dismissAriaLabel": "Dismiss"
-=======
   "cheaperInferenceSponsorBanner": {
     "title": "Cheaper Inference 是 OmniRoute 的開源之友",
     "description": "一個依成本排序的閘道，透過單一 OpenAI 相容端點轉售數十種前沿模型——將每個請求路由至符合資格且價格最低的提供者，價格絕不高於牌價。",
@@ -16092,6 +15997,5 @@
     "greetingFallbackName": "朋友",
     "errNoReply": "⚠️ 閘道沒有回應。",
     "btnSend": "傳送"
->>>>>>> upstream/main
   }
 }

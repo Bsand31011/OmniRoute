@@ -4,15 +4,6 @@ version: 3.8.50
 lastUpdated: 2026-08-23
 ---
 
-<<<<<<< HEAD
-# API Referansı (Türkçe)
-
-🌐 **Languages:** 🇺🇸 [English](../../../../docs/reference/API_REFERENCE.md) · 🇸🇦 [ar](../../ar/docs/reference/API_REFERENCE.md) · 🇧🇬 [bg](../../bg/docs/reference/API_REFERENCE.md) · 🇧🇩 [bn](../../bn/docs/reference/API_REFERENCE.md) · 🇨🇿 [cs](../../cs/docs/reference/API_REFERENCE.md) · 🇩🇰 [da](../../da/docs/reference/API_REFERENCE.md) · 🇩🇪 [de](../../de/docs/reference/API_REFERENCE.md) · 🇪🇸 [es](../../es/docs/reference/API_REFERENCE.md) · 🇮🇷 [fa](../../fa/docs/reference/API_REFERENCE.md) · 🇫🇮 [fi](../../fi/docs/reference/API_REFERENCE.md) · 🇫🇷 [fr](../../fr/docs/reference/API_REFERENCE.md) · 🇮🇳 [gu](../../gu/docs/reference/API_REFERENCE.md) · 🇮🇱 [he](../../he/docs/reference/API_REFERENCE.md) · 🇮🇳 [hi](../../hi/docs/reference/API_REFERENCE.md) · 🇭🇺 [hu](../../hu/docs/reference/API_REFERENCE.md) · 🇮🇩 [id](../../id/docs/reference/API_REFERENCE.md) · 🇮🇹 [it](../../it/docs/reference/API_REFERENCE.md) · 🇯🇵 [ja](../../ja/docs/reference/API_REFERENCE.md) · 🇰🇷 [ko](../../ko/docs/reference/API_REFERENCE.md) · 🇮🇳 [mr](../../mr/docs/reference/API_REFERENCE.md) · 🇲🇾 [ms](../../ms/docs/reference/API_REFERENCE.md) · 🇳🇱 [nl](../../nl/docs/reference/API_REFERENCE.md) · 🇳🇴 [no](../../no/docs/reference/API_REFERENCE.md) · 🇵🇭 [phi](../../phi/docs/reference/API_REFERENCE.md) · 🇵🇱 [pl](../../pl/docs/reference/API_REFERENCE.md) · 🇵🇹 [pt](../../pt/docs/reference/API_REFERENCE.md) · 🇧🇷 [pt-BR](../../pt-BR/docs/reference/API_REFERENCE.md) · 🇷🇴 [ro](../../ro/docs/reference/API_REFERENCE.md) · 🇷🇺 [ru](../../ru/docs/reference/API_REFERENCE.md) · 🇸🇰 [sk](../../sk/docs/reference/API_REFERENCE.md) · 🇸🇪 [sv](../../sv/docs/reference/API_REFERENCE.md) · 🇰🇪 [sw](../../sw/docs/reference/API_REFERENCE.md) · 🇮🇳 [ta](../../ta/docs/reference/API_REFERENCE.md) · 🇮🇳 [te](../../te/docs/reference/API_REFERENCE.md) · 🇹🇭 [th](../../th/docs/reference/API_REFERENCE.md) · 🇹🇷 [tr](../../tr/docs/reference/API_REFERENCE.md) · 🇺🇦 [uk-UA](../../uk-UA/docs/reference/API_REFERENCE.md) · 🇵🇰 [ur](../../ur/docs/reference/API_REFERENCE.md) · 🇻🇳 [vi](../../vi/docs/reference/API_REFERENCE.md) · 🇨🇳 [zh-CN](../../zh-CN/docs/reference/API_REFERENCE.md)
-
----
-
-Tüm OmniRoute API uç noktaları için eksiksiz referans dokümantasyonu.
-=======
 🌐 **Languages:** 🇺🇸 [English](../../../../reference/API_REFERENCE.md) · 🇪🇹 [am](../../../am/docs/reference/API_REFERENCE.md) · 🇸🇦 [ar](../../../ar/docs/reference/API_REFERENCE.md) · 🇦🇿 [az](../../../az/docs/reference/API_REFERENCE.md) · 🇧🇬 [bg](../../../bg/docs/reference/API_REFERENCE.md) · 🇧🇩 [bn](../../../bn/docs/reference/API_REFERENCE.md) · 🇧🇦 [bs](../../../bs/docs/reference/API_REFERENCE.md) · 🇨🇿 [cs](../../../cs/docs/reference/API_REFERENCE.md) · 🇩🇰 [da](../../../da/docs/reference/API_REFERENCE.md) · 🇩🇪 [de](../../../de/docs/reference/API_REFERENCE.md) · 🇬🇷 [el](../../../el/docs/reference/API_REFERENCE.md) · 🇪🇸 [es](../../../es/docs/reference/API_REFERENCE.md) · 🇪🇪 [et](../../../et/docs/reference/API_REFERENCE.md) · 🇮🇷 [fa](../../../fa/docs/reference/API_REFERENCE.md) · 🇫🇮 [fi](../../../fi/docs/reference/API_REFERENCE.md) · 🇫🇷 [fr](../../../fr/docs/reference/API_REFERENCE.md) · 🇮🇪 [ga](../../../ga/docs/reference/API_REFERENCE.md) · 🇮🇳 [gu](../../../gu/docs/reference/API_REFERENCE.md) · 🇳🇬 [ha](../../../ha/docs/reference/API_REFERENCE.md) · 🇮🇱 [he](../../../he/docs/reference/API_REFERENCE.md) · 🇮🇳 [hi](../../../hi/docs/reference/API_REFERENCE.md) · 🇭🇷 [hr](../../../hr/docs/reference/API_REFERENCE.md) · 🇭🇺 [hu](../../../hu/docs/reference/API_REFERENCE.md) · 🇦🇲 [hy](../../../hy/docs/reference/API_REFERENCE.md) · 🇮🇩 [id](../../../id/docs/reference/API_REFERENCE.md) · 🇳🇬 [ig](../../../ig/docs/reference/API_REFERENCE.md) · 🇮🇹 [it](../../../it/docs/reference/API_REFERENCE.md) · 🇯🇵 [ja](../../../ja/docs/reference/API_REFERENCE.md) · 🇬🇪 [ka](../../../ka/docs/reference/API_REFERENCE.md) · 🇰🇭 [km](../../../km/docs/reference/API_REFERENCE.md) · 🇮🇳 [kn](../../../kn/docs/reference/API_REFERENCE.md) · 🇰🇷 [ko](../../../ko/docs/reference/API_REFERENCE.md) · 🇱🇹 [lt](../../../lt/docs/reference/API_REFERENCE.md) · 🇱🇻 [lv](../../../lv/docs/reference/API_REFERENCE.md) · 🇮🇳 [ml](../../../ml/docs/reference/API_REFERENCE.md) · 🇮🇳 [mr](../../../mr/docs/reference/API_REFERENCE.md) · 🇲🇾 [ms](../../../ms/docs/reference/API_REFERENCE.md) · 🇲🇹 [mt](../../../mt/docs/reference/API_REFERENCE.md) · 🇲🇲 [my](../../../my/docs/reference/API_REFERENCE.md) · 🇳🇵 [ne](../../../ne/docs/reference/API_REFERENCE.md) · 🇳🇱 [nl](../../../nl/docs/reference/API_REFERENCE.md) · 🇳🇴 [no](../../../no/docs/reference/API_REFERENCE.md) · 🇮🇳 [or](../../../or/docs/reference/API_REFERENCE.md) · 🇮🇳 [pa](../../../pa/docs/reference/API_REFERENCE.md) · 🇵🇭 [phi](../../../phi/docs/reference/API_REFERENCE.md) · 🇵🇱 [pl](../../../pl/docs/reference/API_REFERENCE.md) · 🇵🇹 [pt](../../../pt/docs/reference/API_REFERENCE.md) · 🇧🇷 [pt-BR](../../../pt-BR/docs/reference/API_REFERENCE.md) · 🇷🇴 [ro](../../../ro/docs/reference/API_REFERENCE.md) · 🇷🇺 [ru](../../../ru/docs/reference/API_REFERENCE.md) · 🇱🇰 [si](../../../si/docs/reference/API_REFERENCE.md) · 🇸🇰 [sk](../../../sk/docs/reference/API_REFERENCE.md) · 🇸🇮 [sl](../../../sl/docs/reference/API_REFERENCE.md) · 🇷🇸 [sr](../../../sr/docs/reference/API_REFERENCE.md) · 🇸🇪 [sv](../../../sv/docs/reference/API_REFERENCE.md) · 🇰🇪 [sw](../../../sw/docs/reference/API_REFERENCE.md) · 🇮🇳 [ta](../../../ta/docs/reference/API_REFERENCE.md) · 🇮🇳 [te](../../../te/docs/reference/API_REFERENCE.md) · 🇹🇭 [th](../../../th/docs/reference/API_REFERENCE.md) · 🇺🇦 [uk-UA](../../../uk-UA/docs/reference/API_REFERENCE.md) · 🇵🇰 [ur](../../../ur/docs/reference/API_REFERENCE.md) · 🇺🇿 [uz](../../../uz/docs/reference/API_REFERENCE.md) · 🇻🇳 [vi](../../../vi/docs/reference/API_REFERENCE.md) · 🇳🇬 [yo](../../../yo/docs/reference/API_REFERENCE.md) · 🇨🇳 [zh-CN](../../../zh-CN/docs/reference/API_REFERENCE.md) · 🇹🇼 [zh-TW](../../../zh-TW/docs/reference/API_REFERENCE.md)
 
 ---
@@ -25,35 +16,11 @@ OpenAI uyumlu protokole ve sağlayıcı yetenek matrisine odaklanan bilgiler iç
 [`OPENAI_COMPATIBILITY.md`](./OPENAI_COMPATIBILITY.md) dosyasına bakın.
 
 Her dağıtım, derleme sırasında `docs/openapi.yaml` dosyasından oluşturulan spesifikasyonun kendi kopyasını `/openapi.yaml` adresinde sunar. Bu kopya, derlemenin sürümünü ve göreli bir sunucu URL'sini (`./`) içerir; böylece istekler belgeyi sunan ana bilgisayarda kalır. İndirilen dosyayı içe aktaran bir araçta böyle bir ana bilgisayar bilgisi bulunmaz ve temel URL'nin elle ayarlanması gerekir.
->>>>>>> upstream/main
 
 ---
 
 ## İçindekiler
 
-<<<<<<< HEAD
-- [Sohbet Tamamlama (Chat Completions)](#sohbet-tamamlama-chat-completions)
-- [Özel Başlıklar (Custom Headers)](#özel-başlıklar)
-- [Gömme (Embeddings)](#gömme-embeddings)
-- [Görsel Üretimi (Image Generation)](#görsel-üretimi)
-- [Ses ve Medya API'leri](#ses-ve-medya-apileri)
-- [Modelleri Listeleme (List Models)](#modelleri-listeleme)
-- [Uyumluluk Uç Noktaları](#uyumluluk-uç-noktaları)
-- [Arama API'si (Search API)](#arama-apisi)
-- [WebSocket Akışı](#websocket-akışı)
-- [Anlamsal Önbellek (Semantic Cache)](#anlamsal-önbellek)
-- [Pano ve Yönetim API'leri](#pano-ve-yönetim-apileri)
-- [Kombo Yönetimi](#kombo-yönetimi)
-- [Webhook'lar](#webhooklar)
-- [Kayıtlı Anahtarlar (Otomatik Yönetim)](#kayıtlı-anahtarlar)
-- [Ajanlar Protokolü (ACP)](#ajanlar-protokolü)
-- [Yetenekler ve Bellek API'leri](#yetenekler-ve-bellek-apileri)
-- [Kimlik Doğrulama](#kimlik-doğrulama)
-
----
-
-## Sohbet Tamamlama (Chat Completions)
-=======
 - [Sohbet Tamamlama](#chat-completions)
 - [Özel Yönetilen Oturum Kiralamaları](#exclusive-managed-session-leases)
 - [Gömüler](#embeddings)
@@ -87,7 +54,6 @@ Her dağıtım, derleme sırasında `docs/openapi.yaml` dosyasından oluşturula
 ---
 
 ## Sohbet Tamamlama
->>>>>>> upstream/main
 
 ```bash
 POST /v1/chat/completions
@@ -103,25 +69,6 @@ Content-Type: application/json
 }
 ```
 
-<<<<<<< HEAD
-### Özel Başlıklar
-
-| Başlık                   | Yön       | Açıklama                                                                                                                                                                                           |
-| ------------------------ | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `X-OmniRoute-No-Cache`   | İstek     | Önbelleği atlamak için `true` ayarlayın                                                                                                                                                            |
-| `x-omniroute-no-memory`  | İstek     | Bu istek için bellek ve yetenek enjeksiyonunu atlamak için `true` ayarlayın                                                                                                                        |
-| `X-OmniRoute-Progress`   | İstek     | İlerleme olayları için `true` ayarlayın                                                                                                                                                            |
-| `X-Session-Id`           | İstek     | Harici oturum yakınlığı için yapışkan oturum anahtarı                                                                                                                                              |
-| `Idempotency-Key`        | İstek     | Tekilleştirme anahtarı (5 saniyelik pencere)                                                                                                                                                       |
-| `X-OmniRoute-Cache`      | Yanıt     | `HIT` veya `MISS` (akışsız modda)                                                                                                                                                                  |
-| `X-OmniRoute-Idempotent` | Yanıt     | İstek tekilleştirilmişse `true`                                                                                                                                                                    |
-| `X-OmniRoute-Version`    | Yanıt     | OmniRoute derleme sürümü (her zaman bulunur)                                                                                                                                                       |
-| `X-OmniRoute-Decision`   | Yanıt     | Yönlendirme izi: `strategy=<ad>; provider=<alias>; latency_ms=<n>`                                                                                                                                 |
-
----
-
-## Gömme (Embeddings)
-=======
 ### Özel Üst Bilgiler
 
 | Header                   | Direction | Description                                                                                                                                                                                                                               |
@@ -327,7 +274,6 @@ Burada `<source>` şu değerlerden biridir: `request-header`, `routing-override`
 ---
 
 ## Embedding'ler
->>>>>>> upstream/main
 
 ```bash
 POST /v1/embeddings
@@ -340,11 +286,6 @@ Content-Type: application/json
 }
 ```
 
-<<<<<<< HEAD
----
-
-## Görsel Üretimi (Image Generation)
-=======
 Kullanılabilir sağlayıcılar: Nebius, OpenAI, Mistral, Together AI, Fireworks, NVIDIA, **OpenRouter**, Jina AI.
 
 Katalog kimlikleri `provider/model` biçimindedir (örnek: `jina-ai/jina-embeddings-v5-omni-small`). Kayıtta görünen yalın Jina model kimlikleri (örneğin `jina-embeddings-v5-text-small`, `jina-reranker-v3.5`) de çözümlenir. Jina embed/rerank/classify/segment işlemleri önce kontrol panelindeki `jina-ai` kimlik bilgilerini kullanır; `JINA_AI_API_KEY` yalnızca kontrol panelinde anahtar yoksa yedek olarak kullanılır. `jina-reader` kartı yalnızca Reader / `r.jina.ai` içindir (`POST /v1/web/fetch`) ve hiçbir zaman embedding veya rerank hizmeti sunmaz.
@@ -405,7 +346,6 @@ GET /v1/embeddings
 ---
 
 ## Görüntü Oluşturma
->>>>>>> upstream/main
 
 ```bash
 POST /v1/images/generations
@@ -419,11 +359,6 @@ Content-Type: application/json
 }
 ```
 
-<<<<<<< HEAD
----
-
-## Arama API'si (Search API)
-=======
 Kullanılabilir sağlayıcılar arasında OpenAI (GPT Image 2), xAI (Grok Image), Together AI (FLUX), Fireworks AI, Nebius (FLUX), Hyperbolic, NanoBanana, **OpenRouter**, **ZenMux**, SD WebUI (yerel) ve ComfyUI (yerel) bulunur.
 
 `n`, `data[]` içinde `n` görüntü döndürür. Üst seviye API'si çağrı başına tek bir görüntü döndüren sağlayıcılar
@@ -522,18 +457,10 @@ aksi durumda proje, Hizmet Hesabı JSON'undaki `project_id` değerinden türetil
 ---
 
 ## Modelleri Listeleme
->>>>>>> upstream/main
 
 ```bash
 POST /v1/search
 Authorization: Bearer your-api-key
-<<<<<<< HEAD
-Content-Type: application/json
-
-{
-  "query": "OmniRoute AI gateway nedir?",
-  "provider": "perplexity"
-=======
 
 → OpenAI biçiminde tüm sohbet, embedding ve görüntü modellerini + birleşimleri döndürür
 ```
@@ -1609,7 +1536,6 @@ Belirli bir sağlayıcı için eksik veya bozulmuş OAuth ortam değişkenlerini
   "success": true,
   "repaired": ["CLAUDE_CODE_OAUTH_CLIENT_ID", "CLAUDE_CODE_OAUTH_CLIENT_SECRET"],
   "backupPath": "/home/user/.omniroute/backups/env-repair-2026-04-11.bak"
->>>>>>> upstream/main
 }
 ```
 
@@ -1642,15 +1568,6 @@ Kanal modeli (`latest` = 4.0 GA sürümüne kadar v3, `next` = rc, `nightly` = `
 
 ---
 
-<<<<<<< HEAD
-## Uyumluluk Uç Noktaları
-
-- **OpenAI Responses:** `POST /v1/responses`
-- **Anthropic Messages:** `POST /v1/messages`
-- **Gemini Native:** `POST /v1beta/models/{model}:generateContent`
-- **Ollama Chat:** `POST /v1/api/chat`
-- **Token Sayımı:** `POST /v1/messages/count_tokens`
-=======
 ## Ses Transkripsiyonu
 
 ```bash
@@ -2417,4 +2334,3 @@ Dört kimlik bilgisi ailesi (dashboard oturumu, yerel CLI belirteci, `oma_live_�
 - Bu başvurudaki "management token" / "management-scoped API key", bu kılavuzda açıklanan ailelerden biri anlamına gelir; tanımlanmamış ek bir gizli bilgi türü anlamına gelmez
 
 > **Breaking change (v3.8.0)** — `/api/v1/agents/tasks/*` ve cooldown yönetimi uç noktaları artık **management auth** (dashboard `auth_token` çerezi veya manage kapsamlı bir API anahtarı) gerektiriyor. Bu rotaları daha önce kimlik doğrulaması olmadan çağıran istemciler `401 Unauthorized` yanıtı alacak. `588a0333` (`fix(auth): require management auth for agent and cooldown APIs`) commit'ine bakın.
->>>>>>> upstream/main

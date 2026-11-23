@@ -366,8 +366,6 @@ export async function runAuthzPipeline(
   if (trustedPeerIp) {
     requestHeaders.set(AUTHZ_HEADER_TRUSTED_PEER_IP, trustedPeerIp);
   }
-<<<<<<< HEAD
-=======
   // The server stamps the client address to judge (the peer, or what a trusted proxy
   // reported for it). Forward it too, so route handlers that key a per-client control on
   // "who is calling" (e.g. the relay throttle) read the same resolution as the IP filter
@@ -380,7 +378,6 @@ export async function runAuthzPipeline(
   if (stampedClientIp) {
     requestHeaders.set(AUTHZ_HEADER_TRUSTED_CLIENT_IP, stampedClientIp);
   }
->>>>>>> upstream/main
   // Local CLI-token auth is decided centrally above. Preserve that trusted
   // decision for route-level requireManagementAuth without forwarding the
   // machine token itself: custom client auth headers are stripped before the

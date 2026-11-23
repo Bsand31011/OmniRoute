@@ -1017,19 +1017,9 @@
     "batchFilePreview": "プレビュー",
     "batchFilePreviewTruncated": "最初の {shown} 行を表示中 ({total} 行中)",
     "batchFileDownloadFull": "フルファイルをダウンロード",
-<<<<<<< HEAD
-    "batchHeaderSubtitle": "Run many requests as one job",
-    "batchStep1": "1 · Upload JSONL",
-    "batchStep1Desc": "Add requests",
-    "batchStep2": "2 · Create batch",
-    "batchStep2Desc": "Run job",
-    "batchStep3": "3 · Get results",
-    "batchStep3Desc": "Download output"
-=======
     "tokensPageTitle": "トークン",
     "tokensPageDescription": "APIキー間でトークンを送信したり、招待コードを共有したり、コミュニティサーバーに接続したりできます。",
     "tokensServerUrlLabel": "サーバーURL"
->>>>>>> upstream/main
   },
   "disabled": "無効",
   "featureFlagOmnirouteEmergencyFallbackDescription": "予算を使い果たしたリクエストを、緊急用の無料フォールバックプロバイダー/モデルにルーティングします。",
@@ -1327,12 +1317,8 @@
     "agentBridge": "エージェントブリッジ",
     "agentBridgeSubtitle": "IDEエージェントのトラフィックをインターセプト",
     "trafficInspector": "Traffic Inspector",
-<<<<<<< HEAD
-    "trafficInspectorSubtitle": "__MISSING__:Inspect request and response traffic from your apps",
-=======
     "trafficInspectorSubtitle": "アプリからのリクエストとレスポンスのトラフィックを検査",
     "trafficInspectorPurpose": "アプリケーションがAIプロバイダーに送信する内容と、AIプロバイダーから受信する内容を正確に確認できます。OpenAI互換のあらゆるクライアントで動作します。",
->>>>>>> upstream/main
     "cliCode": "CLIコード",
     "cliCodeSubtitle": "OmniRouteを指すコードツール",
     "cliAgents": "CLIエージェント",
@@ -1374,12 +1360,8 @@
       "close": "閉じる"
     },
     "noResults": "結果がありません",
-<<<<<<< HEAD
-    "trafficInspectorPurpose": "See exactly what your application sends to and receives from AI providers. Works with any OpenAI-compatible client."
-=======
     "costsTeams": "チーム",
     "costsTeamsSubtitle": "チームのコストセンター"
->>>>>>> upstream/main
   },
   "webhooks": {
     "title": "Webhook",
@@ -1949,22 +1931,6 @@
     "releaseNotes": "リリースノート",
     "readMore": "続きを読む",
     "noAuthLabel": "認証なし",
-<<<<<<< HEAD
-    "recentRequests": "Recent Requests",
-    "recentRequestsEmpty": "No requests yet.",
-    "recentRequestsModel": "Model",
-    "recentRequestsTokens": "In / Out",
-    "recentRequestsWhen": "When",
-    "readinessEyebrow": "Get ready to route",
-    "readinessTitle": "Send your first request",
-    "readinessSubtitle": "Four small steps. OmniRoute checks readiness as you go.",
-    "readinessStep1": "Connect a provider",
-    "readinessStep2": "Configure endpoint authentication",
-    "readinessStep3": "Copy your endpoint",
-    "readinessStep4": "Send a test request",
-    "readinessContinue": "Continue setup",
-    "readinessDismiss": "Dismiss for now"
-=======
     "readinessEyebrow": "ルーティングの準備をしましょう",
     "readinessTitle": "最初のリクエストを送信",
     "readinessSubtitle": "わずか4ステップ。進行に合わせてOmniRouteが準備状況を確認します。",
@@ -1990,7 +1956,6 @@
     "systemMetricsCpuCount": "{count} vCPUs • {platform}",
     "systemMetricsProcessCpu": "OmniRoute (process)",
     "systemMetricsProcessMemory": "OmniRoute (RSS / Heap)"
->>>>>>> upstream/main
   },
   "analytics": {
     "title": "分析",
@@ -3095,13 +3060,9 @@
       "prime-agent": "Prime Agent — OpenAI互換プロバイダーをサポートする自己改善型RLMコーディングハーネス",
       "warp": "カスタムプロバイダーをサポートするWarp AIターミナル",
       "agent-deck": "Agent Deckマルチエージェントオーケストレーター",
-<<<<<<< HEAD
-      "prime-agent": "Prime Agent — self-improving RLM coding harness with OpenAI-compatible provider support"
-=======
       "5dive": "5dive — セルフホスト型のコーディングエージェント群。1つの認証プロファイルで全体をOmniRouteに向けます",
       "whycodes": "OpenAI互換ベースURLを備えたWhyCodes自律型CLIエージェント",
       "zed": "Zed コードエディター — OpenAI 互換プロバイダー経由の内蔵エージェント"
->>>>>>> upstream/main
     },
     "guides": {
       "cursor": {
@@ -6461,13 +6422,8 @@
     "rateLimitOverridesSection": "レート制限のオーバーライド",
     "rateLimitOverridesMaxConcurrentHint": "この接続の最大同時リクエスト数のオーバーライド。アカウントレベルの上限をオーバーライドします。",
     "rateLimitOverridesMaxConcurrentLabel": "最大同時実行数 (レート制限)",
-<<<<<<< HEAD
-    "rateLimitOverridesMaxWaitMsHint": "__MISSING__:Maximum time (ms) a request may wait for a rate-limit slot before failing. Overrides the global Resilience setting for this connection only.",
-    "rateLimitOverridesMaxWaitMsLabel": "__MISSING__:Max Queue Wait (ms)",
-=======
     "rateLimitOverridesMaxWaitMsHint": "リクエストが失敗するまでにレート制限スロットを待機できる最大時間（ミリ秒）です。この接続に限り、グローバルなレジリエンス設定を上書きします。",
     "rateLimitOverridesMaxWaitMsLabel": "最大キュー待機時間（ミリ秒）",
->>>>>>> upstream/main
     "rateLimitOverridesMinTimeHint": "リクエスト間の最小時間 (ミリ秒)。デフォルトのレートリミッター遅延をオーバーライドします。",
     "rateLimitOverridesMinTimeLabel": "最小間隔 (ミリ秒)",
     "rateLimitOverridesRpdHint": "この接続の1日あたりの最大リクエスト数。プロバイダーのデフォルトを上書きします。",
@@ -6760,11 +6716,7 @@
       "bigmodel": "https://bigmodel.cn/usercenter/proj-mgmt/apikeys で API キーを作成してください。OmniRoute は BigModel.cn の公式 OpenAI 互換チャットエンドポイントを使用します。",
       "glmt": "より大きなトークンバジェット、思考の有効化、およびより長いタイムアウトを備えたプリセットGLMプロファイル。",
       "getgoapi": "APIキーでGoAPIに接続します。",
-<<<<<<< HEAD
-      "groq": "無料枠: 30 RPM / 14.4K RPD — クレジットカード不要",
-=======
       "groq": "無料プラン：モデルごとに上限あり（チャットモデルごとに1日200Kトークン。RPM/RPDについてはconsole.groq.com/docs/rate-limitsを参照）。支払い方法の登録は不要です。",
->>>>>>> upstream/main
       "haiper": "haiper.ai/haiper-api でAPIキーを取得",
       "heroku": "APIキーでHeroku AIに接続します。",
       "hcnsec": "api.hcnsec.cn でAPIキーを取得",
@@ -7071,22 +7023,6 @@
     "searchByModelAria": "モデルで検索",
     "selectSupportedEndpoint": "サポートされているエンドポイントを少なくとも1つ選択してください",
     "antigravityClientProfileHarness": "Harness / CLI",
-<<<<<<< HEAD
-    "harImportButtonLabel": "Import .har file",
-    "harImportButtonBusy": "Importing…",
-    "harImportButtonHint": "Export from DevTools Network tab after sending at least one chat message.",
-    "harImportStatusValid": "Imported — valid for ~{minutes}m.",
-    "harImportStatusExpiringSoon": "Imported — valid for only ~{minutes}m more.",
-    "harImportStatusExpired": "Imported, but this token already expired ({minutes}m ago) — export a fresh HAR.",
-    "harImportStatusUnknownExpiry": "Imported. Couldn't read its expiry.",
-    "harImportErrorNotJson": "That file isn't valid JSON — is it really a .har export?",
-    "harImportErrorNoEntries": "This HAR has no network entries recorded.",
-    "harImportErrorNoChathubUrl": "No Copilot chat connection found in this HAR. Send at least one chat message in m365.cloud.microsoft before exporting.",
-    "harImportErrorUnparsableUrl": "Found the chat connection, but couldn't read its URL.",
-    "harImportErrorMissingFields": "Found the chat connection, but the token was missing from it.",
-    "harImportErrorReadFailed": "Couldn't read that file.",
-    "harImportErrorUnknown": "Couldn't extract a credential from that HAR file."
-=======
     "rateLimitOverridesModelConcurrencyLabel": "モデルごとの同時実行上限",
     "rateLimitOverridesModelConcurrencyPlaceholder": "glm-5=1\nglm-4.7=3",
     "rateLimitOverridesModelConcurrencyHint": "任意: 1 行に 1 つ model=cap を指定します。アップストリームのモデル ID と完全一致で照合されます。超過したリクエストはローカルで待機します。空欄の場合、モデルごとの上限はありません。",
@@ -7111,7 +7047,6 @@
     "doctorChecking": "状態を確認中…",
     "doctorCheck": "ドクター状態を確認する",
     "fallbackRetryBackendTitle": "フォールバック再試行バックエンド"
->>>>>>> upstream/main
   },
   "settings": {
     "title": "設定",
@@ -9103,20 +9038,6 @@
     "cliproxyapiPort": "ポート",
     "qdrantHost": "ホスト",
     "qdrantCollection": "コレクション",
-<<<<<<< HEAD
-    "presetAll": "All",
-    "presetAllDesc": "Show everything",
-    "presetEssentials": "Essentials",
-    "presetEssentialsDesc": "Beginner path - Advanced tools stay searchable",
-    "presetMinimal": "Minimal",
-    "presetMinimalDesc": "Core pages only",
-    "presetDeveloper": "Developer",
-    "presetDeveloperDesc": "Dev & proxy tools",
-    "presetAdmin": "Admin",
-    "presetAdminDesc": "Monitoring & audit",
-    "settingsSidebarTitle": "Sidebar Customization",
-    "settingsSidebarDesc": "Choose which sidebar items to show. Essentials keeps Advanced tools searchable."
-=======
     "catalogVisibilityHint": "非表示のモデルIDは、同じアクセス権限で引き続き呼び出せます。",
     "exposeCombosOnly": "/v1/models にコンボのみを表示",
     "exposeCombosOnlyDesc": "モデルを自動検出するクライアントには、生のプロバイダーモデルではなくコンボ（非表示でなければ auto/* も）が表示されます。明示的な provider/model ID は引き続きルーティングされます。",
@@ -9297,7 +9218,6 @@
       "statsEmpty": "まだ検出はありません。",
       "statsRequest": "リクエスト"
     }
->>>>>>> upstream/main
   },
   "contextRtk": {
     "title": "RTKエンジン",
@@ -14239,13 +14159,6 @@
         "description": "トークン検証のヘルスチェックを無効にします。"
       },
       "SKILLS_SANDBOX_NETWORK_ENABLED": {
-<<<<<<< HEAD
-        "description": "Enable network access in the skills sandbox."
-      },
-      "DISABLE_CONTEXT_WINDOW_CHECKS": {
-        "label": "Disable Context Window Checks",
-        "description": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active."
-=======
         "description": "スキルサンドボックスでネットワークアクセスを有効にします。"
       },
       "SERVER_OWNED_TOOL_LOOP_ENABLED": {
@@ -14543,7 +14456,6 @@
       "UNPRICED_USAGE_BUDGET_POLICY": {
         "label": "価格未設定の利用に対する予算ポリシー",
         "description": "プロバイダー/モデルに価格設定がない成功した利用を、キーごとの日次/週次 USD 上限でどう扱うかを決めます。fail_closed（既定）はその期間を上限超過として扱い、不明なコストがハード上限をすり抜けないようにします。count_as_zero はその利用を $0 として計上し、価格が設定された支出には引き続き上限を適用します。どちらの場合も、価格未設定のモデルはダッシュボードのホームに一覧表示されます。"
->>>>>>> upstream/main
       }
     }
   },
@@ -15828,15 +15740,6 @@
     "structuredOutputMismatch": "プロバイダーは構造化出力をサポートしていません",
     "contextWindowMismatch": "リクエストがプロバイダーのコンテキストウィンドウを超えています"
   },
-<<<<<<< HEAD
-  "featureFlagDisableContextWindowChecksDescription": "Skip OmniRoute's local context-window and max-input-token check for direct single-model requests. Upstream providers still enforce their actual limits. Prompt compression and output-token caps remain active.",
-  "cheaperInferenceSponsorBanner": {
-    "title": "Cheaper Inference is an OmniRoute Open Source Friend",
-    "description": "A cost-ranked gateway reselling dozens of frontier models behind one OpenAI-compatible endpoint — routing each request to the cheapest eligible provider, never above list price.",
-    "cta": "Get an API Key",
-    "partnerLinkNote": "Partner link",
-    "dismissAriaLabel": "Dismiss"
-=======
   "cheaperInferenceSponsorBanner": {
     "title": "Cheaper InferenceはOmniRouteのオープンソースフレンドです",
     "description": "1つのOpenAI互換エンドポイントを通じて数十の最先端モデルを再販する、コスト順のゲートウェイです。各リクエストを条件を満たす最も安価なプロバイダーへルーティングし、定価を超えることはありません。",
@@ -16094,6 +15997,5 @@
     "greetingFallbackName": "ユーザー",
     "errNoReply": "⚠️ ゲートウェイからの応答がありません。",
     "btnSend": "送信"
->>>>>>> upstream/main
   }
 }

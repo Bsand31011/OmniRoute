@@ -32,8 +32,6 @@ test("sanitizeRateLimitOverrides accepts maxWaitMs (#11251 follow-up)", () => {
   assert.deepEqual(r.rejected, []);
   assert.deepEqual(r.sanitized, { minTime: 500, maxWaitMs: 30000 });
 });
-<<<<<<< HEAD
-=======
 
 // `executionMaxWaitMs` has been accepted by the Zod schema
 // (updateProviderConnectionSchema) but was missing from this allowlist, so a
@@ -45,4 +43,3 @@ test("sanitizeRateLimitOverrides accepts executionMaxWaitMs (schema/allowlist pa
   assert.deepEqual(r.rejected, []);
   assert.deepEqual(r.sanitized, { maxWaitMs: 30000, executionMaxWaitMs: 300000 });
 });
->>>>>>> upstream/main
